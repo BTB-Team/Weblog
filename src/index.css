@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+
+
+@theme {
+
+    /* پس‌زمینه اصلی وب‌سایت - کرمی خنثی */
+  --color-background: #FDFBF7;
+
+  /* پس‌زمینه کارت‌ها و بخش‌های محتوایی - سفید خالص */
+  --color-card: #FFFFFF;
+
+  /* پس‌زمینه هدر و منوی سایت - هلویی/کرم پودری */
+  --color-header: #EAD5C3;
+
+  /* رنگ اصلی متن‌ها - قهوه‌ای شکلاتی ملایم */
+  --color-text: #4A3B32;
+
+  /* رنگ متن‌های فرعی، توضیحات و تاریخ‌ها - قهوه‌ای خاکی */
+  --color-muted: #7A685D;
+
+  /* رنگ تأکیدی سایت برای دکمه‌ها، لینک‌ها و عناصر مهم - رُزی سوخته */
+  --color-accent: #A36F6F;
+
+  /* رنگ حالت Hover برای دکمه‌ها و لینک‌های تأکیدی - رُزی سوخته تیره‌تر */
+  --color-accent-hover: #8C5B5B;
+}
+
+/* Dari font */
+@font-face {
+  font-family: "IranYekan" ;
+  src: url("./assets/fonts/IranYekan/Qs_Iranyekan.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* English variable font */
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat[wght].ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+.font-english {
+  font-family: "Montserrat", sans-serif;
+}
+
+.font-persian {
+  font-family: "IranYekan", sans-serif;
+}
+
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
+
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center
+           rounded-lg px-4 py-2 font-semibold
+           transition-all duration-150
+           active:scale-95
+           focus:outline-none
+           focus:ring-2 focus:ring-accent/40
+           disabled:opacity-50
+           disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg
+           px-4 py-2 font-semibold transition-all duration-150 cursor-pointer
+           active:scale-95
+           bg-accent text-white hover:bg-accent-hover;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg
+          px-4 py-2  font-semibold transition-all duration-150
+           px-4 py-2 font-semibold transition-all duration-150 cursor-pointer
+           active:scale-95
+           border border-accent text-accent
+           hover:bg-accent hover:text-white;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg
+          px-4 py-2  font-semibold transition-all duration-150
+           px-4 py-2 font-semibold transition-all duration-150 cursor-pointer
+           active:scale-95
+           bg-header text-text hover:bg-accent hover:text-white;
+  }
+
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg
+          px-4 py-2  font-semibold transition-all duration-150
+           px-4 py-2 font-semibold transition-all duration-150 cursor-pointer
+           active:scale-95
+           text-text hover:bg-header;
+  }
+}
