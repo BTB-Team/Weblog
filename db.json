@@ -1,0 +1,197 @@
+{
+ 
+ 
+  "activities": [
+    {
+      "id": 1,
+      "title": {
+        "dr": "سخنران ویبینار معرفی الگوهای موفق",
+        "en": "Speaker at the Webinar on Introducing Successful Role Models"
+      },
+      "description": {
+        "dr": "در این وبینار، مسیر شخصی و تجربه‌های الهام‌بخش خود را با شرکت‌کنندگان به اشتراک گذاشتم. حضور گسترده‌ی دختران جوان فضای گفتگو را پرشور و انگیزشی ساخت. این برنامه به ابتکار فرشته عزیزی، موسس نهاد زنان توانمند و آینده‌ساز افغانستان برگزار شد. در طول یک ساعت، بحث‌های عمیق و پرسش‌های متعددی میان ما رد و بدل شد که به تبادل اندیشه و تقویت انگیزه‌ها انجامید. حضور در این نشست برای من افتخاری ارزشمند بود و فرصتی فراهم آورد تا صدای دختران افغان در مسیر توانمندسازی و آینده‌سازی بیشتر شنیده شود.",
+        "en": "In this webinar, I shared my personal journey and inspiring experiences with the participants. The strong presence of young women created an engaging and motivating atmosphere for discussion. The event was organized at the initiative of Fereshteh Azizi, founder of the Women Empowered and Future-Making Institution of Afghanistan. During the one-hour session, we exchanged deep discussions and numerous questions, leading to a meaningful exchange of ideas and strengthening motivation. Taking part in this session was a valuable honor for me and provided an opportunity for the voices of Afghan girls to be heard more strongly in the pursuit of empowerment and future-building."
+      },
+      "date": {
+        "dr": "1404/10/30",
+        "en": "January 20, 2026"
+      },
+      "location": {
+        "dr": "گوگل میت",
+        "en": "Google Meet"
+      },
+      "image": "/src/assets/images/littleBoy.webp"
+    },
+    {
+  "id": 2,
+  "title": {
+    "dr": "برگزاری جشن روز جهانی زن",
+    "en": "International Women's Day Celebration"
+  },
+  "description": {
+    "dr": "در هشتم مارچ 2025، جشن روز جهانی زن در تالار مکتب بامیکا برگزار شد. این برنامه با مدیریت تیمی پنج‌نفره سازماندهی گردید و من به عنوان سر تیم عمومی مسئولیت رهبری را بر عهده داشتم. در این جشن، زنان و دختران بخش سواد حیاتی مورد تقدیر قرار گرفتند و به آنان نامه، قلم و کتابچه اهدا شد. به عنوان مدیر انجمن عمومی نویسندگی کلستر سخنرانی داشتم و استاد فرشته مرادی نیز به نمایندگی از کلستر صحبت کرد. برنامه شامل اجرای طنز اجتماعی برگرفته از شرایط دختران، دو دکلمه، یک مقاله، قرائت قرآن و آوازخوانی بود. این رویداد فرصتی ارزشمند برای توانمندسازی زنان و ایجاد فضای فرهنگی و آموزشی پرشور فراهم آورد.",
+    "en": "On March 8, 2025, an International Women's Day celebration was held at the Bamika School Hall. The event was organized by a five-member team, and I took on the responsibility of leading the team as its general leader. During the celebration, women and girls from the vital literacy program were recognized and presented with letters, pens, and notebooks. As the director of the Cluster General Writing Association, I gave a speech, and Professor Fereshteh Moradi also spoke on behalf of the Cluster. The program included a social comedy performance inspired by the circumstances of girls, two poetry recitations, an article presentation, Quran recitation, and singing. This event provided a valuable opportunity to empower women and create an energetic cultural and educational environment."
+  },
+  "date": {
+    "dr": "1403/12/18",
+    "en": "March 8, 2025"
+  },
+  "location": {
+    "dr": "کلستر نخبگان بامیکا",
+    "en": "Bamika Elite Cluster"
+  },
+  "image": "/src/assets/images/littleBoy.webp"
+}
+  ],
+
+  
+ 
+ 
+    "writings": [
+    {
+  "id": 1,
+
+  "title": {
+    "dr": "معیار ما برای بزرگی چیست؟",
+    "en": "What is our criterion for greatness?"
+  },
+
+  "type": {
+    "dr": "داستان",
+    "en": "Fiction"
+  },
+
+  "note": {
+    "dr": "یادآوری: این متن قبلا در سایت شیشه میدیا هم نشر شده بود.",
+    "en": "Note: This text had already been published earlier on the Shisha Media website."
+  },
+
+  "content": {
+    "dr": 
+           "گاهی تاریخ را نه فاتحان می‌نویسند و نه شکست‌خوردگان، بلکه فراموشی آن را می‌بلعد.\n\nدر این میان آدم‌هایی هستند که نه در صف قدرت جا می‌گیرند و نه در حافظه‌ی جمعی ما؛ آدم‌هایی که تمام عمرشان را در سکوتِ آموختن و آموزاندن می‌گذرانند، بی‌آن‌که حتی سهمی از احترام نصیب‌شان شود. آیت‌الله فیاض از همین جنس بود، انسانی که نه برای قدرت زیست و نه برای ثروت، بلکه برای دانایی و چه غریب است که چنین زیستی در سرزمینی چون ما، نه تنها ستایش نمی‌شود بلکه گاه حتی دیده هم نمی‌شود.\n\nاو صدها و هزارها کیلومتر دورتر از خانه‌اش رفت، نه برای فرار از مسئولیت، بلکه برای نزدیک شدن به نور آگاهی. تبعید برایش انتخاب نبود، ضرورت بود. در جهانی که درهای آموزش بر بسیاری بسته است، او مجبور شد از خاک خود جدا شود تا بتواند نفس بکشد، بیاموزد و بعد بیاموزاند. چه تناقض تلخی است که انسانی که تمام عمرش را صرف ساختن ذهن‌ها کرد، در جامعه‌ای که از ویرانی فکری رنج می‌برد، جایی در قلب‌ها ندارد.\n\nما در زمانه‌ای زندگی می‌کنیم که معیارهای ما به طرز دردناکی دگرگون شده‌اند. دیگر خوب بودن کافی نیست، مفید بودن هم کافی نیست. باید پر سر و صدا بود، باید دیده شد و باید در مدار قدرت یا ثروت چرخید تا به رسمیت شناخته شد. طبیعی است در چنین معیاری کسی مانند فیاض جایی نداشته باشد. وقتی قهرمانان ذهنی ما به چهره‌هایی تبدیل می‌شوند که بیشتر نماینده‌ی قدرت هستند تا اخلاق، دیگر چه انتظاری می‌توان داشت؟\n\nدر همین بستر است که عاقل‌ترین مرد افغان نیز به شکلی دیگر تعریف می‌شود. عقل دیگر به معنای فهم، درک یا خرد نیست، بلکه به معنای توانایی در جمع‌آوری ثروت، ساختن شبکه‌های قدرت و بقا در میان فساد است. اگر کسی بتواند در این بازی پیچیده دوام بیاورد، اگر بتواند از هر فرصتی، حتی اگر آلوده باشد سود ببرد، او عاقل خوانده می‌شود. این شاید تلخ‌ترین بخش ماجرا است.\n\nوقتی انسانی که ثروت دارد، تجارت دارد و در عین حال به بی‌رحمی و فساد آلوده است به عنوان نمونه‌ی موفق معرفی می‌شود، دیگر تعریف موفقیت به کلی تغییر کرده است. در چنین فضایی اخلاق به یک انتخاب لوکس تبدیل می‌شود، نه یک اصل. کسانی که همچنان به اصول پایبند می‌مانند، بیشتر شبیه بازندگان به نظر می‌رسند تا الگوها.\n\nشاید از همین‌جا است که جمله‌هایی مانند «در افغانستان همه‌چیز عادی است» شکل می‌گیرد. برای کسی که خانواده‌اش در امنیت و رفاه، بیرون از کشور زندگی می‌کند و برای کسی که تجارتش در دل بحران سودآور است، بله، همه‌چیز می‌تواند عادی به نظر برسد. اما این عادی بودن نه از دل واقعیت، بلکه از فاصله می‌آید؛ فاصله‌ای که درد را نامرئی می‌کند و رنج را بی‌صدا.\n\nواقعیت این است که جامعه‌ی ما در یک دوگانگی عمیق گرفتار شده است. از یک سو انسان‌هایی که می‌سازند، می‌آموزند و بی‌ادعا زندگی می‌کنند و از سوی دیگر کسانی که می‌درخشند، اما نه لزوماً به خاطر روشنایی، بلکه به خاطر انعکاس نور قدرت و ثروت؛ اما ما به عنوان یک جمع، اغلب دومی را انتخاب می‌کنیم.\n\nاین انتخاب البته تصادفی نیست. ریشه در تاریخ، در زخم‌ها، در محرومیت‌ها و در حسرت‌هایی دارد که نسل‌ها با خود حمل کرده‌ایم. وقتی انسان‌ها بارها فرصت‌های‌شان را از دست داده‌اند و وقتی عدالت را کمتر از بی‌عدالتی دیده‌اند، طبیعی است که به سمت هر آنچه نشانه‌ای از موفقیت دارد گرایش پیدا کنند، حتی اگر آن موفقیت بهایی سنگین داشته باشد.\n\nاما پرسش این‌جاست: آیا می‌توان این چرخه را شکست؟ آیا می‌توان دوباره تعریف موفقیت را بازنویسی کرد؟ آیا می‌توان به جایی رسید که انسانی مانند فیاض نه به خاطر قدرت یا ثروت، بلکه به خاطر صداقت، دانش و تعهدش به عنوان الگو شناخته شود؟\n\nشاید پاسخ ساده نباشد؛ اما هر تغییری از یک بازنگری کوچک آغاز می‌شود، از یک پرسش درونی و از یک تردید نسبت به آنچه بدیهی فرض کرده‌ایم. شاید وقت آن رسیده باشد که از خود بپرسیم ما به چه کسی احترام می‌گذاریم و چرا؟\n\nاگر پاسخ ما تنها به قدرت و ثروت محدود شود، آنگاه باید بپذیریم که بخشی از این بحران در درون خود ماست. اما اگر بتوانیم اندکی نگاه‌ خود را تغییر دهیم و اگر بتوانیم ارزش را در سکوتِ دانایی، در فروتنیِ آموزش و در صداقتِ زیستن ببینیم، آنگاه شاید بتوان امید داشت.\n\nفیاض‌ها همیشه خواهند بود؛ حتی در حاشیه، در سکوت و دور از هیاهو. پرسش این نیست که آیا آن‌ها وجود دارند یا نه، پرسش این است که آیا ما حاضر هستیم آن‌ها را ببینیم؟",
+
+    "en": 
+            "Sometimes history is written neither by the conquerors nor the defeated, but is simply swallowed by oblivion.\n\nIn between, there are people who neither fit into the ranks of power nor into our collective memory; people who spend their entire lives in the silence of learning and teaching, without ever receiving even a share of respect. Ayatollah Fayyaz was one of this kind—someone who did not live for power or wealth, but for knowledge. And it is strange that such a life, in a land like ours, is not only not celebrated but sometimes not even noticed.\n\nHe went hundreds and thousands of kilometers away from his home, not to escape responsibility, but to get closer to the light of knowledge. Exile was not a choice for him; it was a necessity. In a world where the doors of education are closed to many, he was forced to separate from his homeland in order to breathe, learn, and then teach. What a bitter paradox it is that someone who spent his entire life building minds has no place in the hearts of a society suffering from intellectual ruin.\n\nWe live in a time where our standards have been painfully distorted. Being good is no longer enough; being useful is not enough either. One must be loud, be seen, and revolve within the orbit of power or wealth to be recognized. Naturally, in such a system, someone like Fayyaz has no place. When our mental heroes become figures who represent power more than morality, what else can we expect?\n\nWithin this context, even the “wisest Afghan man” is defined differently. Wisdom no longer means understanding, insight, or intellect; it means the ability to accumulate wealth, build networks of power, and survive in corruption. If someone can endure in this complex game, if they can profit from every opportunity—even tainted ones—they are called wise. This is perhaps the most bitter part of the story.\n\nWhen a person who has wealth, trade, and at the same time is involved in cruelty and corruption is introduced as a successful model, then the definition of success has completely changed. In such an environment, ethics become a luxury choice, not a principle. Those who still remain committed to principles appear more like losers than role models.\n\nPerhaps this is where phrases like “everything is normal in Afghanistan” come from. For someone whose family lives in safety and comfort outside the country, and for someone whose business profits from crisis, yes, everything may seem normal. But this normality does not come from reality—it comes from distance; a distance that makes pain invisible and suffering silent.\n\nThe truth is that our society is trapped in a deep duality. On one side are people who build, teach, and live without claim; on the other are those who shine, not necessarily because of light, but because of the reflection of power and wealth. Yet as a collective, we often choose the latter.\n\nThis choice is not accidental. It is rooted in history, in wounds, in deprivation, and in long-held generational regrets. When people have repeatedly lost their opportunities and have seen injustice more than justice, it is natural that they gravitate toward anything that signals success—even if that success comes at a heavy cost.\n\nBut the question is: can this cycle be broken? Can the definition of success be rewritten again? Can we reach a point where someone like Fayyaz is recognized as a role model not because of power or wealth, but because of honesty, knowledge, and commitment?\n\nPerhaps the answer is not simple. But every change begins with a small reconsideration, an inner question, and a doubt about what we have taken for granted. Perhaps it is time to ask ourselves whom we respect and why.\n\nIf our answer is limited only to power and wealth, then we must accept that part of this crisis lies within ourselves. But if we can slightly shift our perspective and begin to see value in the silence of knowledge, the humility of teaching, and the honesty of living, then perhaps there is hope.\n\nFayyazs will always exist; even in the margins, in silence, and far from noise. The question is not whether they exist—the question is whether we are willing to see them."
+
+    
+  },
+
+  "image": "/src/assets/images/littleBoy.webp"
+},{
+     "id": 2,
+  "title": {
+    "dr": "من، نوشتن، رویا و رقصیدن",
+    "en": "Me, writing, dreams, and dancing"
+  },
+  "type": {
+    "dr": "داستان",
+    "en": "Fiction"
+  },
+  "note": {
+    "dr": "منبع: شیشه میدیا",
+    "en": "Source: sheeshamedia"
+  },
+  "content": {
+    "dr": "در جهانی که گاهی صدای دختران آرام‌تر از آنچه باید شنیده می‌شود، من تصمیم گرفتم صدایم را با واژه‌ها بلند کنم. من عاشق نوشتن هستم، نه فقط برای ساختن جمله‌ها، بلکه برای زنده نگه‌داشتن حقیقتی که درونم جریان دارد. نوشتن برای من یک انتخاب ساده نیست، یک نیاز برای نفس کشیدن، برای دوام آوردن، برای بودن است.\n\nمن از سرزمینی می‌آیم که رویا دیدن گاهی شجاعت می‌خواهد. جایی که دختر بودن، خودش نوعی مبارزه است و ادامه دادن، نوعی ایستادگی به شمار می‌آید. اما در میان تمام این محدودیت‌ها، من یاد گرفتم که رویاهایم را کوچک نکنم. برعکس، آن‌ها را بزرگ‌تر از ترس‌هایم ساختم. رویاهای من فقط آرزو نیستند، نقشه‌ی راهی‌ست که هرچند دشوار اما روشن است.\n\nوقتی می‌نویسم، جهانم تغییر می‌کند. دیوارها کوتاه می‌شوند، فاصله‌ها کم می‌شوند و من می‌توانم از جایی که هستم، به هر جایی که می‌خواهم سفر کنم. واژه‌ها برای من ابزار نیستند، پناهگاه‌اند. در میان آن‌ها من خودِ واقعی‌ام را پیدا می‌کنم؛ دختری که می‌خواهد شنیده شود و تأثیر بگذارد.\n\nاما داستان من فقط به نوشتن ختم نمی‌شود. در کنار واژه‌ها چیزی در وجودم هست که حتی عمیق‌تر از کلمات است: رقص. رقص برای من فقط حرکت نیست، زبان خاموشی است که با آن احساساتم را بیان می‌کنم. در جهانی که گاهی مرا به سکوت دعوت می‌کند، من با رقصیدن حرف می‌زنم. شاید نتوانم همیشه در فضای باز برقصم؛ اما قلب من صحنه‌ای است که هرگز خاموش نمی‌شود. در خلوت خودم، در سکوت اتاقم وقتی هیچ‌کس نمی‌بیند، من برای خودم می‌رقصم؛ برای اینکه فراموش نکنم هنوز زنده‌ام، هنوز احساس دارم، هنوز امید دارم.\n\nرقص برای من نوعی آزادی است، آزادی‌ای که شاید در بیرون از من محدود شده باشد؛ اما در درونم بی‌پایان است. هر حرکت، هر چرخش و هر ضربان قلبم، یادآور این است که هیچ‌کس نمی‌تواند روح مرا زندانی کند. حتی اگر دنیا تنگ شود، درون من هنوز وسعتی هست که در آن می‌توانم آزادانه حرکت کنم.\n\nو در کنار نوشتن و رقصیدن، چیزی که همیشه با من مانده، رویاهایم هستند. رویاهایی که بارها خواستند خاموش‌شان کنند، اما هرگز نتوانستند. من باور دارم که رویاها قوی‌تر از محدودیت‌ها هستند. آن‌ها مثل نوری‌اند که حتی در تاریک‌ترین شب‌ها هم خاموش نمی‌شوند. من رویای ادامه تحصیل دارم، رویای رشد، رویای تأثیرگذاری، رویای این‌که روزی بتوانم صدای دخترانی باشم که هنوز فرصت گفتن ندارند. رویای اینکه جهان، ما را نه با محدودیت‌ها بلکه با توانایی‌های‌مان بشناسد.\n\nمسیر من آسان نبود. بارها زمین خوردم، بارها ناامید شدم؛ اما چیزی در درونم هست که اجازه نمی‌دهد متوقف شوم. عشقی که به نوشتن دارم، ایمانی که به رویاهایم دارم و احساسی که در رقصیدن پیدا می‌کنم، همه‌ی این‌ها مرا به جلو می‌برند. من یاد گرفتم که حتی در سکوت می‌توان بلندترین صدا بود. حتی در محدودیت می‌توان آزادانه اندیشید و حتی در تاریکی می‌توان نور ساخت.\n\nاین متن فقط یک اعتراف ساده نیست، این یک ایستادگی است. یک یادآوری برای خودم و برای تمام کسانی که شبیه من‌اند که هنوز هم می‌توان عاشق بود: عاشق نوشتن، عاشق رویاها و عاشق رقصیدن.\n\nمن دختری هستم که شاید همه‌چیز را در اختیار نداشته باشد؛ اما یک چیز را هرگز از دست نشده است: امید. امید به فردایی که در آن هیچ دختری برای رویا دیدن، برای نوشتن یا برای رقصیدن مجبور به پنهان شدن نباشد. تا آن روز برسد، من می‌نویسم، می‌رقصم و به رویاهایم وفادار می‌مانم؛ چون این‌ها فقط علاقه‌های من نیستند، این‌ها هویت من‌اند.",
+    "en": "In a world where sometimes the voices of girls are heard more softly than they should be, I decided to raise my voice through words. I love writing, not just to build sentences, but to keep alive the truth that flows inside me. Writing for me is not a simple choice; it is a need to breathe, to endure, to exist.\n\nI come from a land where dreaming sometimes requires courage. A place where being a girl itself is a kind of struggle, and continuing is considered a form of resistance. But amid all these limitations, I learned not to shrink my dreams. Instead, I made them bigger than my fears. My dreams are not just wishes; they are a roadmap—difficult, but clear.\n\nWhen I write, my world changes. Walls become shorter, distances shrink, and I can travel from where I am to anywhere I want. Words are not just tools for me; they are shelters. Within them, I find my true self—a girl who wants to be heard and make an impact.\n\nBut my story does not end with writing. Alongside words, there is something even deeper in me: dance. Dance is not just movement for me; it is a silent language through which I express my feelings. In a world that sometimes invites me to silence, I speak through dancing. Perhaps I cannot always dance in open spaces, but my heart is a stage that never goes silent. In my solitude, in the quiet of my room when no one is watching, I dance for myself—to remember that I am still alive, still feeling, still hoping.\n\nFor me, dance is a kind of freedom—freedom that may be limited outside, but within me it is infinite. Every movement, every turn, every heartbeat reminds me that no one can imprison my spirit. Even if the world becomes narrow, inside me there is still a vast space where I can move freely.\n\nAnd alongside writing and dancing, what has always stayed with me are my dreams. Dreams that were repeatedly meant to be silenced, but never were. I believe dreams are stronger than limitations. They are like a light that never goes out, even in the darkest nights. I dream of continuing my education, of growth, of influence, of one day becoming a voice for girls who still cannot speak. A dream that the world will recognize us not by our limitations, but by our abilities.\n\nMy path has not been easy. I have fallen many times, felt hopeless many times; but something inside me refuses to stop. The love I have for writing, the faith I have in my dreams, and the feeling I find in dancing—all of these push me forward. I have learned that even in silence, one can be the loudest voice. Even in limitation, one can think freely, and even in darkness, one can create light.\n\nThis text is not just a simple confession; it is a form of resistance. A reminder to myself and to everyone like me that it is still possible to love: to love writing, to love dreams, and to love dancing.\n\nI am a girl who may not have everything; but there is one thing I have never lost: hope. Hope for a tomorrow in which no girl has to hide to dream, to write, or to dance. Until that day comes, I will write, I will dance, and I will remain faithful to my dreams—because these are not just my interests; they are my identity."
+  },
+  "image": "/src/assets/images/littleBoy.webp"
+}
+  ],
+
+
+
+
+
+  "achievements": [{
+      "id": 1,
+      "title": {
+        "dr": "برنده جایزه بین‌المللی ادبیات داستانی خاورمیانه",
+        "en": "Winner of the Middle East International Fiction Award"
+      },
+      "description": {
+        "dr": "کسب مقام اول برای رمان تحسین‌شده «آخرین روزهای کابل»",
+        "en": "First place for the acclaimed novel \"The Last Days of Kabul\""
+      },
+      "details": {
+        "dr": "این جایزه در ماه اکتبر و به پاس نگاه عمیق روانشناختی به مسائل مهاجرت و بحران‌های خاورمیانه به این رمان تعلق گرفت. هیئت داوران نشر شاعرانه و تصویرسازی‌های بدیع را از نقاط قوت دانستند.",
+        "en": "The award was presented to the novel in October in recognition of its deep psychological perspective on migration and the crises of the Middle East. The jury considered its poetic writing and innovative imagery among its strengths."
+      },
+      "date": "1403",
+      "image": "/src/assets/images/littleBoy.webp"
+    }],
+
+
+
+
+
+
+  "mediaPhoto": [
+   {
+  "id": 1,
+  "type": "photo",
+  "title": {
+    "dr": "جشن روز جهانی زن",
+    "en": "International Women's Day Celebration"
+  },
+  "date": {
+    "dr": "1403/12/18",
+    "en": "March 8, 2025"
+  },
+  "image": "/src/assets/images/littleBoy.webp"
+}
+  ],
+
+
+
+
+
+
+
+  "mediaVideo":[
+        {
+      "id": 1,
+      "title": {
+        "dr": "معنای صلح",
+        "en": "Meaning of Peace"
+      },
+      "date": {
+        "dr": "1404/04/28",
+        "en": "July 19, 2025"
+      },
+      "url": null
+    }
+  ],
+
+
+
+
+
+  "comments": [ {
+      "id": "comment-1",
+      "postId": 1,
+      "parentId": null,
+      "name": "سارا رضایی",
+      "email": "sara@example.com",
+      "content": "چقدر متن زیبایی بود مریم جان! توصیفت از بوی پاییز کاملاً من را به همان فضا برد.",
+      "createdAt": "1405/07/16 10:30",
+      "isApproved": true
+    },
+    {
+      "id": "comment-2",
+      "postId": 1,
+      "parentId": "comment-1",
+      "name": "مریم امیری",
+      "email": "maryam@blog.com",
+      "content": "ممنون از نگاه پر مهرت سارا عزیزم، خوشحالم که این حس مشترک را تجربه کردیم.",
+      "createdAt": "1405/07/16 11:15",
+      "isApproved": true
+    }],
+
+
+
+
+    
+  "podcasts": [],
+  "newsletters": []
+}
