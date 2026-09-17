@@ -4,9 +4,9 @@
 
 @theme {
 
+  --color-navbar: #E6D6C8;
     /* پس‌زمینه اصلی وب‌سایت - کرمی خنثی */
   --color-background: #FDFBF7;
-
   /* پس‌زمینه کارت‌ها و بخش‌های محتوایی - سفید خالص */
   --color-card: #FFFFFF;
 
