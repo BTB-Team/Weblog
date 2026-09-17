@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-navbar transition-transform duration-300 ${
+      className={`m-auto max-w-[1440px] sticky top-0 z-50 bg-navbar transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -48,7 +48,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden max-w-2xl grow items-center justify-around gap-4 lg:flex">
+        <div className="hidden max-w-2xl grow items-center justify-around gap-4 xl:flex">
           <NavLink to="/" className={navLinkClass}>
             {t.navbar.home}
           </NavLink>
@@ -88,7 +88,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={toggleMenu}
-            className="btn-ghost lg:hidden"
+            className="btn-ghost xl:hidden"
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -112,7 +112,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="absolute left-0 right-0 z-10 border-t border-accent/20 bg-navbar px-4 pb-5 lg:hidden">
+        <div className="absolute left-0 right-0 z-10 border-t border-accent/20 bg-navbar px-4 pb-5 xl:hidden">
           <div className="flex flex-col gap-2 pt-4">
             <NavLink to="/" onClick={closeMenu} className={navLinkClass}>
               {t.navbar.home}

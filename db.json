@@ -103,7 +103,8 @@
 
 
 
-  "achievements": [{
+  "achievements": [
+    {
       "id": 1,
       "title": {
         "dr": "برنده جایزه بین‌المللی ادبیات داستانی خاورمیانه",
@@ -119,7 +120,110 @@
       },
       "date": "1403",
       "image": "/src/assets/images/littleBoy.webp"
-    }],
+    },
+    {
+      "id": 2,
+       "title": {
+        "dr": "انتخاب به عنوان چهره برتر فرهنگی سال",
+        "en": "Selected as the Top Cultural Figure of the Year"
+        },
+       "description": {
+         "dr": "دریافت نشان عالی فرهنگ و هنر از انجمن نویسندگان مستقل",
+         "en": "Received the Excellence Award in Culture and Arts from the Independent Writers Association"
+        },
+        "details": {
+          "dr": "این نشان به دلیل سال‌ها تلاش مستمر در زمینه ترویج کتاب‌خوانی در مناطق محروم و همچنین چاپ مقالات تأثیرگذار با محوریت «زنان و چالش‌های هویتی در قرن بیست و یکم» اهدا گردید.",
+          "en": "This award was presented in recognition of years of continuous efforts to promote reading in underserved communities, as well as the publication of influential articles focusing on \"Women and Identity Challenges in the Twenty-First Century.\""
+        },
+        "date": "1402",
+        "image": "/src/assets/images/littleBoy.webp"
+      },
+      {
+      "id": 3,
+      "title": {
+        "dr": "چاپ دهم مجموعه شعر «زمزمه‌های پاییزی»",
+        "en": "Tenth Edition of the Poetry Collection \"Autumn Whispers\""
+      },
+      "description": {
+        "dr": "رکوردشکنی فروش در نمایشگاه بین‌المللی کتاب تهران",
+        "en": "Broke Sales Records at the Tehran International Book Fair"
+      },
+      "details": {
+        "dr": "این مجموعه شعر با استقبال بی‌نظیر مخاطبان روبه‌رو شد و در کمتر از ده ماه به چاپ دهم رسید. بسیاری از منتقدان، زبان صمیمی و لحن نوستالژیک این اشعار را ستوده‌اند.",
+        "en": "The poetry collection received an exceptional response from readers and reached its tenth edition in less than ten months. Many critics have praised the intimate language and nostalgic tone of the poems."
+      },
+      "date": "1401",
+      "image": "/src/assets/images/littleBoy.webp"
+      },
+      {
+      "id": 4,
+      "title": {
+        "dr": "تندیس زرین جشنواره فیلم‌های اقتباسی",
+        "en": "Golden Statuette of the Adapted Film Festival"
+      },
+      "description": {
+        "dr": "جایزه بهترین فیلمنامه اقتباسی برای فیلم کوتاه «سایه‌های روشن»",
+        "en": "Best Adapted Screenplay Award for the Short Film \"Bright Shadows\""
+      },
+      "details": {
+        "dr": "فیلمنامه این اثر که با اقتباس از یکی از داستان‌های کوتاه مجموعه «آینه‌های شکسته» نوشته شده بود، توانست نظر مساعد هیئت داوران را در بخش بین‌الملل جلب کند.",
+        "en": "The screenplay, adapted from one of the short stories in the collection \"Broken Mirrors,\" won the approval of the jury in the international section."
+      },
+      "date": "1400",
+      "image": "/src/assets/images/littleBoy.webp"
+      },
+      {
+      "id": 5,
+      "title": {
+        "dr": "کسب رتبه نخست مسابقه ملی داستان‌نویسی جوان",
+        "en": "First Place in the National Young Writers Competition"
+      },
+      "description": {
+        "dr": "آغاز فعالیت حرفه‌ای با داستان کوتاه «دختری که بادبادک‌ها را می‌فروخت»",
+        "en": "Beginning a Professional Career with the Short Story \"The Girl Who Sold Kites\""
+      },
+      "details": {
+        "dr": "این جایزه اولین دستاورد مهم حرفه‌ای محسوب می‌شود که مسیر نویسندگی و چاپ اولین کتاب را هموار کرد و باعث شناخت در محافل ادبی شد.",
+        "en": "This award marked the first major professional achievement, paving the way for a writing career and the publication of the first book, while also bringing recognition in literary circles."
+      },
+      "date": "1398",
+      "image": "/src/assets/images/littleBoy.webp"
+      },
+       {
+      "id": 6,
+       "title": {
+        "dr": "انتخاب به عنوان چهره برتر فرهنگی سال",
+        "en": "Selected as the Top Cultural Figure of the Year"
+        },
+       "description": {
+         "dr": "دریافت نشان عالی فرهنگ و هنر از انجمن نویسندگان مستقل",
+         "en": "Received the Excellence Award in Culture and Arts from the Independent Writers Association"
+        },
+        "details": {
+          "dr": "این نشان به دلیل سال‌ها تلاش مستمر در زمینه ترویج کتاب‌خوانی در مناطق محروم و همچنین چاپ مقالات تأثیرگذار با محوریت «زنان و چالش‌های هویتی در قرن بیست و یکم» اهدا گردید.",
+          "en": "This award was presented in recognition of years of continuous efforts to promote reading in underserved communities, as well as the publication of influential articles focusing on \"Women and Identity Challenges in the Twenty-First Century.\""
+        },
+        "date": "1402",
+        "image": "/src/assets/images/littleBoy.webp"
+      },
+       {
+      "id": 7,
+       "title": {
+        "dr": "برنده جایزه بین‌المللی ادبیات داستانی خاورمیانه",
+        "en": "Winner of the Middle East International Fiction Award"
+      },
+      "description": {
+        "dr": "کسب مقام اول برای رمان تحسین‌شده «آخرین روزهای کابل»",
+        "en": "First place for the acclaimed novel \"The Last Days of Kabul\""
+      },
+      "details": {
+        "dr": "این جایزه در ماه اکتبر و به پاس نگاه عمیق روانشناختی به مسائل مهاجرت و بحران‌های خاورمیانه به این رمان تعلق گرفت. هیئت داوران نشر شاعرانه و تصویرسازی‌های بدیع را از نقاط قوت دانستند.",
+        "en": "The award was presented to the novel in October in recognition of its deep psychological perspective on migration and the crises of the Middle East. The jury considered its poetic writing and innovative imagery among its strengths."
+      },
+      "date": "1403",
+      "image": "/src/assets/images/littleBoy.webp"
+      }      
+  ],
 
 
 
