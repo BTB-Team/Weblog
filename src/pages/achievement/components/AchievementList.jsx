@@ -1,20 +1,17 @@
 import { useLangStore } from "../../../store/useLangStore";
 import AchievementCard from "./AchievementCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import db from "../../../../db.json";
 import bookImage from "../../../assets/images/book.webp";
 
 const AchievementList = () => {
-  const [achievements, setAchievements] = useState([]);
+  // const [achievements, setAchievements] = useState([]);
   const [visibleCount, setVisibleCount] = useState(5);
   const [isLocked, setIsLocked] = useState(false);
 
   const t = useLangStore((state) => state.t);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/achievements")
-      .then((res) => res.json())
-      .then((data) => setAchievements(data));
-  }, []);
+  const achievements = db.achievements;
 
   const showMore = () => {
     if (isLocked) return;

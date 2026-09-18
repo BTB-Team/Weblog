@@ -20,7 +20,7 @@
         "dr": "گوگل میت",
         "en": "Google Meet"
       },
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
     },
     {
   "id": 2,
@@ -40,69 +40,64 @@
     "dr": "کلستر نخبگان بامیکا",
     "en": "Bamika Elite Cluster"
   },
-  "image": "/src/assets/images/littleBoy.webp"
+  "image": "images/littleBoy.webp"
 }
   ],
 
- "writings": [
+
+
+  "writings": [
     {
-      "id": 1,
+        "id": 1,
 
-      "title": {
-        "dr": "معیار ما برای بزرگی چیست؟",
-        "en": "What is our criterion for greatness?"
-      },
-
-      "type": {
-        "dr": "داستان",
-        "en": "Fiction"
-      },
-
-      "note": {
-        "dr": "یادآوری: این متن قبلا در سایت شیشه میدیا هم نشر شده بود.",
-        "en": "Note: This text had already been published earlier on the Shisha Media website."
-      },
-
-      
-        "content": {
-          "dr": "گاهی تاریخ را نه فاتحان می‌نویسند و نه شکست‌خوردگان، بلکه فراموشی آن را می‌بلعد. در این میان آدم‌هایی هستند که نه در صف قدرت جا می‌گیرند و نه در حافظه‌ی جمعی ما؛ آدم‌هایی که تمام عمرشان را در سکوتِ آموختن و آموزاندن می‌گذرانند، بی‌آن‌که حتی سهمی از احترام نصیب‌شان شود. آیت‌الله فیاض از همین جنس بود، انسانی که نه برای قدرت زیست و نه برای ثروت، بلکه برای دانایی و چه غریب است که چنین زیستی در سرزمینی چون ما، نه تنها ستایش نمی‌شود بلکه گاه حتی دیده هم نمی‌شود.\n\nاو صدها و هزارها کیلومتر دورتر از خانه‌اش رفت، نه برای فرار از مسئولیت، بلکه برای نزدیک شدن به نور آگاهی. تبعید برایش انتخاب نبود، ضرورت بود. در جهانی که درهای آموزش بر بسیاری بسته است، او مجبور شد از خاک خود جدا شود تا بتواند نفس بکشد، بیاموزد و بعد بیاموزاند. چه تناقض تلخی است که انسانی که تمام عمرش را صرف ساختن ذهن‌ها کرد، در جامعه‌ای که از ویرانی فکری رنج می‌برد، جایی در قلب‌ها ندارد.\n\nما در زمانه‌ای زندگی می‌کنیم که معیارهای ما به طرز دردناکی دگرگون شده‌اند. دیگر خوب بودن کافی نیست، مفید بودن هم کافی نیست. باید پر سر و صدا بود، باید دیده شد و باید در مدار قدرت یا ثروت چرخید تا به رسمیت شناخته شد. طبیعی است در چنین معیاری کسی مانند فیاض جایی نداشته باشد. وقتی قهرمانان ذهنی ما به چهره‌هایی تبدیل می‌شوند که بیشتر نماینده‌ی قدرت هستند تا اخلاق، دیگر چه انتظاری می‌توان داشت؟\n\nدر همین بستر است که عاقل‌ترین مرد افغان نیز به شکلی دیگر تعریف می‌شود. عقل دیگر به معنای فهم، درک یا خرد نیست، بلکه به معنای توانایی در جمع‌آوری ثروت، ساختن شبکه‌های قدرت و بقا در میان فساد است. اگر کسی بتواند در این بازی پیچیده دوام بیاورد، اگر بتواند از هر فرصتی، حتی اگر آلوده باشد سود ببرد، او عاقل خوانده می‌شود. این شاید تلخ‌ترین بخش ماجرا است.\n\nوقتی انسانی که ثروت دارد، تجارت دارد و در عین حال به بی‌رحمی و فساد آلوده است به عنوان نمونه‌ی موفق معرفی می‌شود، دیگر تعریف موفقیت به کلی تغییر کرده است. در چنین فضایی اخلاق به یک انتخاب لوکس تبدیل می‌شود، نه یک اصل. کسانی که همچنان به اصول پایبند می‌مانند، بیشتر شبیه بازندگان به نظر می‌رسند تا الگوها.\n\nشاید از همین‌جا است که جمله‌هایی مانند «در افغانستان همه‌چیز عادی است» شکل می‌گیرد. برای کسی که خانواده‌اش در امنیت و رفاه، بیرون از کشور زندگی می‌کند و برای کسی که تجارتش در دل بحران سودآور است، بله، همه‌چیز می‌تواند عادی به نظر برسد. اما این عادی بودن نه از دل واقعیت، بلکه از فاصله می‌آید؛ فاصله‌ای که درد را نامرئی می‌کند و رنج را بی‌صدا.\n\nواقعیت این است که جامعه‌ی ما در یک دوگانگی عمیق گرفتار شده است. از یک سو انسان‌هایی که می‌سازند، می‌آموزند و بی‌ادعا زندگی می‌کنند و از سوی دیگر کسانی که می‌درخشند، اما نه لزوماً به خاطر روشنایی، بلکه به خاطر انعکاس نور قدرت و ثروت؛ اما ما به عنوان یک جمع، اغلب دومی را انتخاب می‌کنیم.\n\nاین انتخاب البته تصادفی نیست. ریشه در تاریخ، در زخم‌ها، در محرومیت‌ها و در حسرت‌هایی دارد که نسل‌ها با خود حمل کرده‌ایم. وقتی انسان‌ها بارها فرصت‌های‌شان را از دست داده‌اند و وقتی عدالت را کمتر از بی‌عدالتی دیده‌اند، طبیعی است که به سمت هر آنچه نشانه‌ای از موفقیت دارد گرایش پیدا کنند، حتی اگر آن موفقیت بهایی سنگین داشته باشد.\n\nاما پرسش این‌جاست: آیا می‌توان این چرخه را شکست؟ آیا می‌توان دوباره تعریف موفقیت را بازنویسی کرد؟ آیا می‌توان به جایی رسید که انسانی مانند فیاض نه به خاطر قدرت یا ثروت، بلکه به خاطر صداقت، دانش و تعهدش به عنوان الگو شناخته شود؟\n\nشاید پاسخ ساده نباشد؛ اما هر تغییری از یک بازنگری کوچک آغاز می‌شود، از یک پرسش درونی و از یک تردید نسبت به آنچه بدیهی فرض کرده‌ایم. شاید وقت آن رسیده باشد که از خود بپرسیم ما به چه کسی احترام می‌گذاریم و چرا؟\n\nاگر پاسخ ما تنها به قدرت و ثروت محدود شود، آنگاه باید بپذیریم که بخشی از این بحران در درون خود ماست. اما اگر بتوانیم اندکی نگاه‌ خود را تغییر دهیم و اگر بتوانیم ارزش را در سکوتِ دانایی، در فروتنیِ آموزش و در صداقتِ زیستن ببینیم، آنگاه شاید بتوان امید داشت.\n\nفیاض‌ها همیشه خواهند بود؛ حتی در حاشیه، در سکوت و دور از هیاهو. پرسش این نیست که آیا آن‌ها وجود دارند یا نه، پرسش این است که آیا ما حاضر هستیم آن‌ها را ببینیم؟",
-          "en": "Sometimes history is written neither by the conquerors nor the defeated, but is simply swallowed by oblivion. In between, there are people who neither fit into the ranks of power nor into our collective memory; people who spend their entire lives in the silence of learning and teaching, without ever receiving even a share of respect. Ayatollah Fayyaz was one of this kind—someone who did not live for power or wealth, but for knowledge. And it is strange that such a life, in a land like ours, is not only not celebrated but sometimes not even noticed.\n\nHe went hundreds and thousands of kilometers away from his home, not to escape responsibility, but to get closer to the light of knowledge. Exile was not a choice for him; it was a necessity. In a world where the doors of education are closed to many, he was forced to separate from his homeland in order to breathe, learn, and then teach. What a bitter paradox it is that someone who spent his entire life building minds has no place in the hearts of a society suffering from intellectual ruin.\n\nWe live in a time where our standards have been painfully distorted. Being good is no longer enough; being useful is not enough either. One must be loud, be seen, and revolve within the orbit of power or wealth to be recognized. Naturally, in such a system, someone like Fayyaz has no place. When our mental heroes become figures who represent power more than morality, what else can we expect?\n\nWithin this context, even the “wisest Afghan man” is defined differently. Wisdom no longer means understanding, insight, or intellect; it means the ability to accumulate wealth, build networks of power, and survive in corruption. If someone can endure in this complex game, if they can profit from every opportunity—even tainted ones—they are called wise. This is perhaps the most bitter part of the story.\n\nWhen a person who has wealth, trade, and at the same time is involved in cruelty and corruption is introduced as a successful model, then the definition of success has completely changed. In such an environment, ethics become a luxury choice, not a principle. Those who still remain committed to principles appear more like losers than role models.\n\nPerhaps this is where phrases like “everything is normal in Afghanistan” come from. For someone whose family lives in safety and comfort outside the country, and for someone whose business profits from crisis, yes, everything may seem normal. But this normality does not come from reality—it comes from distance; a distance that makes pain invisible and suffering silent.\n\nThe truth is that our society is trapped in a deep duality. On one side are people who build, teach, and live without claim; on the other are those who shine, not necessarily because of light, but because of the reflection of power and wealth. Yet as a collective, we often choose the latter.\n\nThis choice is not accidental. It is rooted in history, in wounds, in deprivation, and in long-held generational regrets. When people have repeatedly lost their opportunities and have seen injustice more than justice, it is natural that they gravitate toward anything that signals success—even if that success comes at a heavy cost.\n\nBut the question is: can this cycle be broken? Can the definition of success be rewritten again? Can we reach a point where someone like Fayyaz is recognized as a role model not because of power or wealth, but because of honesty, knowledge, and commitment?\n\nPerhaps the answer is not simple. But every change begins with a small reconsideration, an inner question, and a doubt about what we have taken for granted. Perhaps it is time to ask ourselves whom we respect and why.\n\nIf our answer is limited only to power and wealth, then we must accept that part of this crisis lies within ourselves. But if we can slightly shift our perspective and begin to see value in the silence of knowledge, the humility of teaching, and the honesty of living, then perhaps there is hope.\n\nFayyazs will always exist; even in the margins, in silence, and far from noise. The question is not whether they exist—the question is whether we are willing to see them."
+        "title": {
+          "dr": "معیار ما برای بزرگی چیست؟",
+          "en": "What is our criterion for greatness?"
         },
-        "image": "/src/assets/images/littleBoy.webp"
-      },
 
-      
-   {
-      "id": 2,
-      "title": {
-        "dr": "من، نوشتن، رویا و رقصیدن",
-        "en": "Me, writing, dreams, and dancing"
-      },
-      "type": {
-        "dr": "داستان",
-        "en": "Fiction"
-      },
-      "note": {
-        "dr": "منبع: شیشه میدیا",
-        "en": "Source: sheeshamedia"
-      },
-      "content": {
-        "dr": "در جهانی که گاهی صدای دختران آرام‌تر از آنچه باید شنیده می‌شود، من تصمیم گرفتم صدایم را با واژه‌ها بلند کنم. من عاشق نوشتن هستم، نه فقط برای ساختن جمله‌ها، بلکه برای زنده نگه‌داشتن حقیقتی که درونم جریان دارد. نوشتن برای من یک انتخاب ساده نیست، یک نیاز برای نفس کشیدن، برای دوام آوردن، برای بودن است.\n\nمن از سرزمینی می‌آیم که رویا دیدن گاهی شجاعت می‌خواهد. جایی که دختر بودن، خودش نوعی مبارزه است و ادامه دادن، نوعی ایستادگی به شمار می‌آید. اما در میان تمام این محدودیت‌ها، من یاد گرفتم که رویاهایم را کوچک نکنم. برعکس، آن‌ها را بزرگ‌تر از ترس‌هایم ساختم. رویاهای من فقط آرزو نیستند، نقشه‌ی راهی‌ست که هرچند دشوار اما روشن است.\n\nوقتی می‌نویسم، جهانم تغییر می‌کند. دیوارها کوتاه می‌شوند، فاصله‌ها کم می‌شوند و من می‌توانم از جایی که هستم، به هر جایی که می‌خواهم سفر کنم. واژه‌ها برای من ابزار نیستند، پناهگاه‌اند. در میان آن‌ها من خودِ واقعی‌ام را پیدا می‌کنم؛ دختری که می‌خواهد شنیده شود و تأثیر بگذارد.\n\nاما داستان من فقط به نوشتن ختم نمی‌شود. در کنار واژه‌ها چیزی در وجودم هست که حتی عمیق‌تر از کلمات است: رقص. رقص برای من فقط حرکت نیست، زبان خاموشی است که با آن احساساتم را بیان می‌کنم. در جهانی که گاهی مرا به سکوت دعوت می‌کند، من با رقصیدن حرف می‌زنم. شاید نتوانم همیشه در فضای باز برقصم؛ اما قلب من صحنه‌ای است که هرگز خاموش نمی‌شود. در خلوت خودم، در سکوت اتاقم وقتی هیچ‌کس نمی‌بیند، من برای خودم می‌رقصم؛ برای اینکه فراموش نکنم هنوز زنده‌ام، هنوز احساس دارم، هنوز امید دارم.\n\nرقص برای من نوعی آزادی است، آزادی‌ای که شاید در بیرون از من محدود شده باشد؛ اما در درونم بی‌پایان است. هر حرکت، هر چرخش و هر ضربان قلبم، یادآور این است که هیچ‌کس نمی‌تواند روح مرا زندانی کند. حتی اگر دنیا تنگ شود، درون من هنوز وسعتی هست که در آن می‌توانم آزادانه حرکت کنم.\n\nو در کنار نوشتن و رقصیدن، چیزی که همیشه با من مانده، رویاهایم هستند. رویاهایی که بارها خواستند خاموش‌شان کنند، اما هرگز نتوانستند. من باور دارم که رویاها قوی‌تر از محدودیت‌ها هستند. آن‌ها مثل نوری‌اند که حتی در تاریک‌ترین شب‌ها هم خاموش نمی‌شوند. من رویای ادامه تحصیل دارم، رویای رشد، رویای تأثیرگذاری، رویای این‌که روزی بتوانم صدای دخترانی باشم که هنوز فرصت گفتن ندارند. رویای اینکه جهان، ما را نه با محدودیت‌ها بلکه با توانایی‌های‌مان بشناسد.\n\nمسیر من آسان نبود. بارها زمین خوردم، بارها ناامید شدم؛ اما چیزی در درونم هست که اجازه نمی‌دهد متوقف شوم. عشقی که به نوشتن دارم، ایمانی که به رویاهایم دارم و احساسی که در رقصیدن پیدا می‌کنم، همه‌ی این‌ها مرا به جلو می‌برند. من یاد گرفتم که حتی در سکوت می‌توان بلندترین صدا بود. حتی در محدودیت می‌توان آزادانه اندیشید و حتی در تاریکی می‌توان نور ساخت.\n\nاین متن فقط یک اعتراف ساده نیست، این یک ایستادگی است. یک یادآوری برای خودم و برای تمام کسانی که شبیه من‌اند که هنوز هم می‌توان عاشق بود: عاشق نوشتن، عاشق رویاها و عاشق رقصیدن.\n\nمن دختری هستم که شاید همه‌چیز را در اختیار نداشته باشد؛ اما یک چیز را هرگز از دست نشده است: امید. امید به فردایی که در آن هیچ دختری برای رویا دیدن، برای نوشتن یا برای رقصیدن مجبور به پنهان شدن نباشد. تا آن روز برسد، من می‌نویسم، می‌رقصم و به رویاهایم وفادار می‌مانم؛ چون این‌ها فقط علاقه‌های من نیستند، این‌ها هویت من‌اند.",
-        "en": "In a world where sometimes the voices of girls are heard more softly than they should be, I decided to raise my voice through words. I love writing, not just to build sentences, but to keep alive the truth that flows inside me. Writing for me is not a simple choice; it is a need to breathe, to endure, to exist.\n\nI come from a land where dreaming sometimes requires courage. A place where being a girl itself is a kind of struggle, and continuing is considered a form of resistance. But amid all these limitations, I learned not to shrink my dreams. Instead, I made them bigger than my fears. My dreams are not just wishes; they are a roadmap—difficult, but clear.\n\nWhen I write, my world changes. Walls become shorter, distances shrink, and I can travel from where I am to anywhere I want. Words are not just tools for me; they are shelters. Within them, I find my true self—a girl who wants to be heard and make an impact.\n\nBut my story does not end with writing. Alongside words, there is something even deeper in me: dance. Dance is not just movement for me; it is a silent language through which I express my feelings. In a world that sometimes invites me to silence, I speak through dancing. Perhaps I cannot always dance in open spaces, but my heart is a stage that never goes silent. In my solitude, in the quiet of my room when no one is watching, I dance for myself—to remember that I am still alive, still feeling, still hoping.\n\nFor me, dance is a kind of freedom—freedom that may be limited outside, but within me it is infinite. Every movement, every turn, every heartbeat reminds me that no one can imprison my spirit. Even if the world becomes narrow, inside me there is still a vast space where I can move freely.\n\nAnd alongside writing and dancing, what has always stayed with me are my dreams. Dreams that were repeatedly meant to be silenced, but never were. I believe dreams are stronger than limitations. They are like a light that never goes out, even in the darkest nights. I dream of continuing my education, of growth, of influence, of one day becoming a voice for girls who still cannot speak. A dream that the world will recognize us not by our limitations, but by our abilities.\n\nMy path has not been easy. I have fallen many times, felt hopeless many times; but something inside me refuses to stop. The love I have for writing, the faith I have in my dreams, and the feeling I find in dancing—all of these push me forward. I have learned that even in silence, one can be the loudest voice. Even in limitation, one can think freely, and even in darkness, one can create light.\n\nThis text is not just a simple confession; it is a form of resistance. A reminder to myself and to everyone like me that it is still possible to love: to love writing, to love dreams, and to love dancing.\n\nI am a girl who may not have everything; but there is one thing I have never lost: hope. Hope for a tomorrow in which no girl has to hide to dream, to write, or to dance. Until that day comes, I will write, I will dance, and I will remain faithful to my dreams—because these are not just my interests; they are my identity."
-      },
-      "image": "/src/assets/images/Mewriting.webp"
-    },{
-      "id": 3,
+        "type": {
+          "dr": "داستان",
+          "en": "Fiction"
+        },
 
-      "title": {
-        "dr": "عید از راه رسید؛ اما‌ مثل گذشته نه!",
-        "en": "Eid has arrived; but not like before!"
-      },
+        "note": {
+          "dr": "یادآوری: این متن قبلا در سایت شیشه میدیا هم نشر شده بود.",
+          "en": "Note: This text had already been published earlier on the Shisha Media website."
+        },
 
-      "type": {
-        "dr": "داستان",
-        "en": "Fiction"
-      },
+        "content": {
+          "dr": 
+                "گاهی تاریخ را نه فاتحان می‌نویسند و نه شکست‌خوردگان، بلکه فراموشی آن را می‌بلعد.\n\nدر این میان آدم‌هایی هستند که نه در صف قدرت جا می‌گیرند و نه در حافظه‌ی جمعی ما؛ آدم‌هایی که تمام عمرشان را در سکوتِ آموختن و آموزاندن می‌گذرانند، بی‌آن‌که حتی سهمی از احترام نصیب‌شان شود. آیت‌الله فیاض از همین جنس بود، انسانی که نه برای قدرت زیست و نه برای ثروت، بلکه برای دانایی و چه غریب است که چنین زیستی در سرزمینی چون ما، نه تنها ستایش نمی‌شود بلکه گاه حتی دیده هم نمی‌شود.\n\nاو صدها و هزارها کیلومتر دورتر از خانه‌اش رفت، نه برای فرار از مسئولیت، بلکه برای نزدیک شدن به نور آگاهی. تبعید برایش انتخاب نبود، ضرورت بود. در جهانی که درهای آموزش بر بسیاری بسته است، او مجبور شد از خاک خود جدا شود تا بتواند نفس بکشد، بیاموزد و بعد بیاموزاند. چه تناقض تلخی است که انسانی که تمام عمرش را صرف ساختن ذهن‌ها کرد، در جامعه‌ای که از ویرانی فکری رنج می‌برد، جایی در قلب‌ها ندارد.\n\nما در زمانه‌ای زندگی می‌کنیم که معیارهای ما به طرز دردناکی دگرگون شده‌اند. دیگر خوب بودن کافی نیست، مفید بودن هم کافی نیست. باید پر سر و صدا بود، باید دیده شد و باید در مدار قدرت یا ثروت چرخید تا به رسمیت شناخته شد. طبیعی است در چنین معیاری کسی مانند فیاض جایی نداشته باشد. وقتی قهرمانان ذهنی ما به چهره‌هایی تبدیل می‌شوند که بیشتر نماینده‌ی قدرت هستند تا اخلاق، دیگر چه انتظاری می‌توان داشت؟\n\nدر همین بستر است که عاقل‌ترین مرد افغان نیز به شکلی دیگر تعریف می‌شود. عقل دیگر به معنای فهم، درک یا خرد نیست، بلکه به معنای توانایی در جمع‌آوری ثروت، ساختن شبکه‌های قدرت و بقا در میان فساد است. اگر کسی بتواند در این بازی پیچیده دوام بیاورد، اگر بتواند از هر فرصتی، حتی اگر آلوده باشد سود ببرد، او عاقل خوانده می‌شود. این شاید تلخ‌ترین بخش ماجرا است.\n\nوقتی انسانی که ثروت دارد، تجارت دارد و در عین حال به بی‌رحمی و فساد آلوده است به عنوان نمونه‌ی موفق معرفی می‌شود، دیگر تعریف موفقیت به کلی تغییر کرده است. در چنین فضایی اخلاق به یک انتخاب لوکس تبدیل می‌شود، نه یک اصل. کسانی که همچنان به اصول پایبند می‌مانند، بیشتر شبیه بازندگان به نظر می‌رسند تا الگوها.\n\nشاید از همین‌جا است که جمله‌هایی مانند «در افغانستان همه‌چیز عادی است» شکل می‌گیرد. برای کسی که خانواده‌اش در امنیت و رفاه، بیرون از کشور زندگی می‌کند و برای کسی که تجارتش در دل بحران سودآور است، بله، همه‌چیز می‌تواند عادی به نظر برسد. اما این عادی بودن نه از دل واقعیت، بلکه از فاصله می‌آید؛ فاصله‌ای که درد را نامرئی می‌کند و رنج را بی‌صدا.\n\nواقعیت این است که جامعه‌ی ما در یک دوگانگی عمیق گرفتار شده است. از یک سو انسان‌هایی که می‌سازند، می‌آموزند و بی‌ادعا زندگی می‌کنند و از سوی دیگر کسانی که می‌درخشند، اما نه لزوماً به خاطر روشنایی، بلکه به خاطر انعکاس نور قدرت و ثروت؛ اما ما به عنوان یک جمع، اغلب دومی را انتخاب می‌کنیم.\n\nاین انتخاب البته تصادفی نیست. ریشه در تاریخ، در زخم‌ها، در محرومیت‌ها و در حسرت‌هایی دارد که نسل‌ها با خود حمل کرده‌ایم. وقتی انسان‌ها بارها فرصت‌های‌شان را از دست داده‌اند و وقتی عدالت را کمتر از بی‌عدالتی دیده‌اند، طبیعی است که به سمت هر آنچه نشانه‌ای از موفقیت دارد گرایش پیدا کنند، حتی اگر آن موفقیت بهایی سنگین داشته باشد.\n\nاما پرسش این‌جاست: آیا می‌توان این چرخه را شکست؟ آیا می‌توان دوباره تعریف موفقیت را بازنویسی کرد؟ آیا می‌توان به جایی رسید که انسانی مانند فیاض نه به خاطر قدرت یا ثروت، بلکه به خاطر صداقت، دانش و تعهدش به عنوان الگو شناخته شود؟\n\nشاید پاسخ ساده نباشد؛ اما هر تغییری از یک بازنگری کوچک آغاز می‌شود، از یک پرسش درونی و از یک تردید نسبت به آنچه بدیهی فرض کرده‌ایم. شاید وقت آن رسیده باشد که از خود بپرسیم ما به چه کسی احترام می‌گذاریم و چرا؟\n\nاگر پاسخ ما تنها به قدرت و ثروت محدود شود، آنگاه باید بپذیریم که بخشی از این بحران در درون خود ماست. اما اگر بتوانیم اندکی نگاه‌ خود را تغییر دهیم و اگر بتوانیم ارزش را در سکوتِ دانایی، در فروتنیِ آموزش و در صداقتِ زیستن ببینیم، آنگاه شاید بتوان امید داشت.\n\nفیاض‌ها همیشه خواهند بود؛ حتی در حاشیه، در سکوت و دور از هیاهو. پرسش این نیست که آیا آن‌ها وجود دارند یا نه، پرسش این است که آیا ما حاضر هستیم آن‌ها را ببینیم؟",
+
+          "en": 
+                  "Sometimes history is written neither by the conquerors nor the defeated, but is simply swallowed by oblivion.\n\nIn between, there are people who neither fit into the ranks of power nor into our collective memory; people who spend their entire lives in the silence of learning and teaching, without ever receiving even a share of respect. Ayatollah Fayyaz was one of this kind—someone who did not live for power or wealth, but for knowledge. And it is strange that such a life, in a land like ours, is not only not celebrated but sometimes not even noticed.\n\nHe went hundreds and thousands of kilometers away from his home, not to escape responsibility, but to get closer to the light of knowledge. Exile was not a choice for him; it was a necessity. In a world where the doors of education are closed to many, he was forced to separate from his homeland in order to breathe, learn, and then teach. What a bitter paradox it is that someone who spent his entire life building minds has no place in the hearts of a society suffering from intellectual ruin.\n\nWe live in a time where our standards have been painfully distorted. Being good is no longer enough; being useful is not enough either. One must be loud, be seen, and revolve within the orbit of power or wealth to be recognized. Naturally, in such a system, someone like Fayyaz has no place. When our mental heroes become figures who represent power more than morality, what else can we expect?\n\nWithin this context, even the “wisest Afghan man” is defined differently. Wisdom no longer means understanding, insight, or intellect; it means the ability to accumulate wealth, build networks of power, and survive in corruption. If someone can endure in this complex game, if they can profit from every opportunity—even tainted ones—they are called wise. This is perhaps the most bitter part of the story.\n\nWhen a person who has wealth, trade, and at the same time is involved in cruelty and corruption is introduced as a successful model, then the definition of success has completely changed. In such an environment, ethics become a luxury choice, not a principle. Those who still remain committed to principles appear more like losers than role models.\n\nPerhaps this is where phrases like “everything is normal in Afghanistan” come from. For someone whose family lives in safety and comfort outside the country, and for someone whose business profits from crisis, yes, everything may seem normal. But this normality does not come from reality—it comes from distance; a distance that makes pain invisible and suffering silent.\n\nThe truth is that our society is trapped in a deep duality. On one side are people who build, teach, and live without claim; on the other are those who shine, not necessarily because of light, but because of the reflection of power and wealth. Yet as a collective, we often choose the latter.\n\nThis choice is not accidental. It is rooted in history, in wounds, in deprivation, and in long-held generational regrets. When people have repeatedly lost their opportunities and have seen injustice more than justice, it is natural that they gravitate toward anything that signals success—even if that success comes at a heavy cost.\n\nBut the question is: can this cycle be broken? Can the definition of success be rewritten again? Can we reach a point where someone like Fayyaz is recognized as a role model not because of power or wealth, but because of honesty, knowledge, and commitment?\n\nPerhaps the answer is not simple. But every change begins with a small reconsideration, an inner question, and a doubt about what we have taken for granted. Perhaps it is time to ask ourselves whom we respect and why.\n\nIf our answer is limited only to power and wealth, then we must accept that part of this crisis lies within ourselves. But if we can slightly shift our perspective and begin to see value in the silence of knowledge, the humility of teaching, and the honesty of living, then perhaps there is hope.\n\nFayyazs will always exist; even in the margins, in silence, and far from noise. The question is not whether they exist—the question is whether we are willing to see them."
+
+          
+        },
+
+  "image": "littleBoy.webp"
+},{
+     "id": 2,
+  "title": {
+    "dr": "من، نوشتن، رویا و رقصیدن",
+    "en": "Me, writing, dreams, and dancing"
+  },
+  "type": {
+    "dr": "داستان",
+    "en": "Fiction"
+  },
+  "note": {
+    "dr": "منبع: شیشه میدیا",
+    "en": "Source: sheeshamedia"
+  },
+  "content": {
+    "dr": "در جهانی که گاهی صدای دختران آرام‌تر از آنچه باید شنیده می‌شود، من تصمیم گرفتم صدایم را با واژه‌ها بلند کنم. من عاشق نوشتن هستم، نه فقط برای ساختن جمله‌ها، بلکه برای زنده نگه‌داشتن حقیقتی که درونم جریان دارد. نوشتن برای من یک انتخاب ساده نیست، یک نیاز برای نفس کشیدن، برای دوام آوردن، برای بودن است.\n\nمن از سرزمینی می‌آیم که رویا دیدن گاهی شجاعت می‌خواهد. جایی که دختر بودن، خودش نوعی مبارزه است و ادامه دادن، نوعی ایستادگی به شمار می‌آید. اما در میان تمام این محدودیت‌ها، من یاد گرفتم که رویاهایم را کوچک نکنم. برعکس، آن‌ها را بزرگ‌تر از ترس‌هایم ساختم. رویاهای من فقط آرزو نیستند، نقشه‌ی راهی‌ست که هرچند دشوار اما روشن است.\n\nوقتی می‌نویسم، جهانم تغییر می‌کند. دیوارها کوتاه می‌شوند، فاصله‌ها کم می‌شوند و من می‌توانم از جایی که هستم، به هر جایی که می‌خواهم سفر کنم. واژه‌ها برای من ابزار نیستند، پناهگاه‌اند. در میان آن‌ها من خودِ واقعی‌ام را پیدا می‌کنم؛ دختری که می‌خواهد شنیده شود و تأثیر بگذارد.\n\nاما داستان من فقط به نوشتن ختم نمی‌شود. در کنار واژه‌ها چیزی در وجودم هست که حتی عمیق‌تر از کلمات است: رقص. رقص برای من فقط حرکت نیست، زبان خاموشی است که با آن احساساتم را بیان می‌کنم. در جهانی که گاهی مرا به سکوت دعوت می‌کند، من با رقصیدن حرف می‌زنم. شاید نتوانم همیشه در فضای باز برقصم؛ اما قلب من صحنه‌ای است که هرگز خاموش نمی‌شود. در خلوت خودم، در سکوت اتاقم وقتی هیچ‌کس نمی‌بیند، من برای خودم می‌رقصم؛ برای اینکه فراموش نکنم هنوز زنده‌ام، هنوز احساس دارم، هنوز امید دارم.\n\nرقص برای من نوعی آزادی است، آزادی‌ای که شاید در بیرون از من محدود شده باشد؛ اما در درونم بی‌پایان است. هر حرکت، هر چرخش و هر ضربان قلبم، یادآور این است که هیچ‌کس نمی‌تواند روح مرا زندانی کند. حتی اگر دنیا تنگ شود، درون من هنوز وسعتی هست که در آن می‌توانم آزادانه حرکت کنم.\n\nو در کنار نوشتن و رقصیدن، چیزی که همیشه با من مانده، رویاهایم هستند. رویاهایی که بارها خواستند خاموش‌شان کنند، اما هرگز نتوانستند. من باور دارم که رویاها قوی‌تر از محدودیت‌ها هستند. آن‌ها مثل نوری‌اند که حتی در تاریک‌ترین شب‌ها هم خاموش نمی‌شوند. من رویای ادامه تحصیل دارم، رویای رشد، رویای تأثیرگذاری، رویای این‌که روزی بتوانم صدای دخترانی باشم که هنوز فرصت گفتن ندارند. رویای اینکه جهان، ما را نه با محدودیت‌ها بلکه با توانایی‌های‌مان بشناسد.\n\nمسیر من آسان نبود. بارها زمین خوردم، بارها ناامید شدم؛ اما چیزی در درونم هست که اجازه نمی‌دهد متوقف شوم. عشقی که به نوشتن دارم، ایمانی که به رویاهایم دارم و احساسی که در رقصیدن پیدا می‌کنم، همه‌ی این‌ها مرا به جلو می‌برند. من یاد گرفتم که حتی در سکوت می‌توان بلندترین صدا بود. حتی در محدودیت می‌توان آزادانه اندیشید و حتی در تاریکی می‌توان نور ساخت.\n\nاین متن فقط یک اعتراف ساده نیست، این یک ایستادگی است. یک یادآوری برای خودم و برای تمام کسانی که شبیه من‌اند که هنوز هم می‌توان عاشق بود: عاشق نوشتن، عاشق رویاها و عاشق رقصیدن.\n\nمن دختری هستم که شاید همه‌چیز را در اختیار نداشته باشد؛ اما یک چیز را هرگز از دست نشده است: امید. امید به فردایی که در آن هیچ دختری برای رویا دیدن، برای نوشتن یا برای رقصیدن مجبور به پنهان شدن نباشد. تا آن روز برسد، من می‌نویسم، می‌رقصم و به رویاهایم وفادار می‌مانم؛ چون این‌ها فقط علاقه‌های من نیستند، این‌ها هویت من‌اند.",
+    "en": "In a world where sometimes the voices of girls are heard more softly than they should be, I decided to raise my voice through words. I love writing, not just to build sentences, but to keep alive the truth that flows inside me. Writing for me is not a simple choice; it is a need to breathe, to endure, to exist.\n\nI come from a land where dreaming sometimes requires courage. A place where being a girl itself is a kind of struggle, and continuing is considered a form of resistance. But amid all these limitations, I learned not to shrink my dreams. Instead, I made them bigger than my fears. My dreams are not just wishes; they are a roadmap—difficult, but clear.\n\nWhen I write, my world changes. Walls become shorter, distances shrink, and I can travel from where I am to anywhere I want. Words are not just tools for me; they are shelters. Within them, I find my true self—a girl who wants to be heard and make an impact.\n\nBut my story does not end with writing. Alongside words, there is something even deeper in me: dance. Dance is not just movement for me; it is a silent language through which I express my feelings. In a world that sometimes invites me to silence, I speak through dancing. Perhaps I cannot always dance in open spaces, but my heart is a stage that never goes silent. In my solitude, in the quiet of my room when no one is watching, I dance for myself—to remember that I am still alive, still feeling, still hoping.\n\nFor me, dance is a kind of freedom—freedom that may be limited outside, but within me it is infinite. Every movement, every turn, every heartbeat reminds me that no one can imprison my spirit. Even if the world becomes narrow, inside me there is still a vast space where I can move freely.\n\nAnd alongside writing and dancing, what has always stayed with me are my dreams. Dreams that were repeatedly meant to be silenced, but never were. I believe dreams are stronger than limitations. They are like a light that never goes out, even in the darkest nights. I dream of continuing my education, of growth, of influence, of one day becoming a voice for girls who still cannot speak. A dream that the world will recognize us not by our limitations, but by our abilities.\n\nMy path has not been easy. I have fallen many times, felt hopeless many times; but something inside me refuses to stop. The love I have for writing, the faith I have in my dreams, and the feeling I find in dancing—all of these push me forward. I have learned that even in silence, one can be the loudest voice. Even in limitation, one can think freely, and even in darkness, one can create light.\n\nThis text is not just a simple confession; it is a form of resistance. A reminder to myself and to everyone like me that it is still possible to love: to love writing, to love dreams, and to love dancing.\n\nI am a girl who may not have everything; but there is one thing I have never lost: hope. Hope for a tomorrow in which no girl has to hide to dream, to write, or to dance. Until that day comes, I will write, I will dance, and I will remain faithful to my dreams—because these are not just my interests; they are my identity."
+  },
+  "image": "images/littleBoy.webp"
+  
+},{
+        "id": 3,
 
       "note": {
         "dr": "منبع: شیشه میدیا",
@@ -140,15 +135,11 @@
 
       
 
-      "image": "/src/assets/images/Mystory.webp"
-    },
-    {
-      "id": 5,
-
-      "title": {
-        "dr": "روز فرهنگ هزاره؛ میان جشن و زخمی که هنوز تازه است",
-        "en": "Day of Hazara Culture; between celebration and a wound that is still fresh"
+        "image": "littleBoy.webp"
       },
+
+      {
+        "id": 4,
 
       "type": {
         "dr": "داستان",
@@ -165,7 +156,7 @@
       },
       
 
-      "image": "/src/assets/images/HazaraDay.webp"
+      "image": "images/HazaraDay.webp"
     },
     {
       "id": 6,
@@ -189,7 +180,7 @@
         "en": "I didn’t just go through this year with all its ups and downs—I lived it. There were days when I smiled, for no reason and from deep within my heart, and nights when my tears flowed silently. Sometimes I let go to become lighter, sometimes I accepted failure to rebuild myself from the beginning. Sometimes I kept going despite all exhaustion, sometimes I forgot to calm myself, sometimes I forgave to be free, and sometimes I ignored things to protect myself. This year was a year of experiencing everything with my whole being.\n\nIn this year, without complaint or exaggeration, I reached higher places—not externally, but within myself. I saw truths more clearly, stood stronger than before, and became one step firmer. I got to know the people around me better; I understood the difference between a friend, an acquaintance, a teacher, and a mentor not just in words, but through their actions and behavior.\n\nThis year was not easy for me at all. I was accepted into university, not in one place but in two places; however, I did not get the chance to go. I traveled and saw the world. I stayed awake at night and fought during the day on my computer for a future that I am still building. I reduced and limited my circle of connections because I realized not everyone deserves a place in my life’s journey.\n\nThe biggest lesson I learned this year was standing on my own feet—difficult, but possible. I learned that sometimes you must move on from those who even take away your smile in your hardest moments. I learned to adapt to conditions that change at the last moment. I realized that some people are with you at the beginning, but later stand against you, and may even achieve their goal and forget you.\n\nThis year brought me closer to the true meaning of humanity and deepened my faith in the power of God. I understood that nothing happens without wisdom. Humanity is not in appearance, money, fame, or power; it is in a heart that can understand, forgive, hold someone’s hand, offer a smile, and be kind without expectation—not only for others, but for its own inner peace.\n\nThis year was not just a year; it was a path, a great lesson, and preparation for heavier responsibilities in life. It made me stronger, deeper, and more resilient than before.\n\nNow, in the silence of the sunset of the last day, I stand and look at the album of memories of the year 1404; a year whose every moment was like a wind that shook the branches of my existence, but at the same time deepened my roots. A year that with every sunrise revived hope in my heart, and with every sunset gave me a new experience.\n\nToday, in these special moments, I speak to you, O year that has passed; about your challenges, your successes, and everything that turned me into the person I am today.\n\nThe year 1404 was not just a calendar year for many of us, especially for girls living in Afghanistan; it was a field of resistance. A field in which every day we had to fight to preserve our dreams. Every day I continued with fragile but living hope. There were days when despair was like a heavy shadow beside me; but every time I fell, something inside me lifted me up again, and that thing was the unextinguishable flame of my dreams.\n\nThis passing year, I was awarded three annual prizes, received a scholarship for the TEDx Sugar Creek Women program, and we worked on the documentary “Maryam’s Life” to be published this year so that others can know the path Maryam has taken. I shined in leadership projects and Cambridge university programs and received my certificates. I doubted many times, I wanted to give up many times; but a voice inside me invited me to continue. Sleepless nights, exhausting days, and continuous efforts eventually led to a moment where I was able to gift myself a big smile for my education and succeed. This was not just a personal achievement; it was a message for all girls trapped in limitations: you can, even if the world is against you.\n\nBut my story was not alone. Around me were girls who did not lose hope even in the hardest conditions.\n\nAs long as I was with the girls of my writing team, I experienced an amazing journey. Each of us had a different story, but a shared goal kept us together: creativity, growth, and hope. There I understood that success is not only an individual achievement, but the result of hearts that beat together.\n\nThis year was also a year of failures; moments when I thought there was no way left. But now when I look back, I see that every failure was a bridge toward greater strength. Every hardship turned me into the person who stands today—with faith, hope, and deep belief in herself.\n\nThe year 1404 taught me that difficulties are not only obstacles, but opportunities for growth. It taught me that hope, even in the darkest nights, is like a star guiding the way. It showed me that true power lies in a heart that never stops beating.\n\nNow, in the final moments of this year, I stand and welcome the year 1405, a year I know will be full of new opportunities and big dreams.\n\nYear 1404, you will forever remain in my heart—as the year that shaped me, the year that made me discover myself, the year that turned me into a warrior princess…!"
       },
      
-      "image": "/src/assets/images/Lastline.webp"
+      "image": "images/Lastline.webp"
     },
     {
       "id": 7,
@@ -214,7 +205,7 @@
         "en": "I didn’t just go through this year with all its ups and downs—I lived it. There were days when I smiled, for no reason and from deep within my heart, and nights when my tears flowed silently. Sometimes I let go to become lighter, sometimes I accepted failure to rebuild myself from the beginning. Sometimes I kept going despite all exhaustion, sometimes I forgot to calm myself, sometimes I forgave to be free, and sometimes I ignored things to protect myself. This year was a year of experiencing everything with my whole being.\n\nIn this year, without complaint or exaggeration, I reached higher places—not externally, but within myself. I saw truths more clearly, stood stronger than before, and became one step firmer. I got to know the people around me better; I understood the difference between a friend, an acquaintance, a teacher, and a mentor not just in words, but through their actions and behavior.\n\nThis year was not easy for me at all. I was accepted into university, not in one place but in two places; however, I did not get the chance to go. I traveled and saw the world. I stayed awake at night and fought during the day on my computer for a future that I am still building. I reduced and limited my circle of connections because I realized not everyone deserves a place in my life’s journey.\n\nYear 1404, you will forever remain in my heart—as the year that shaped me, the year that made me discover myself, the year that turned me into a warrior princess…"
       
       },
-      "image": "/src/assets/images/Storyoflimitition.webp"
+      "image": "images/Storyoflimitition.webp"
     },
     {
       "id": 8,
@@ -239,7 +230,7 @@
       },
      
 
-      "image": "/src/assets/images/DryBread.webp"
+      "image": "images/DryBread.webp"
     },
     {
       "id": 9,
@@ -264,7 +255,7 @@
       },
       
 
-      "image": "/src/assets/images/ChildMarriage.webp"
+      "image": "images/ChildMarriage.webp"
     },
     {
       "id": 10,
@@ -289,7 +280,7 @@
       },
      
 
-      "image": "/src/assets/images/OxfordUniversity.webp"
+      "image": "images/OxfordUniversity.webp"
     },
     {
       "id": 11,
@@ -314,7 +305,7 @@
         "en": "Saturday, February 14th, was a day whose date I will forever carry in my heart. The dawn promised a new beginning in another chapter of my life. Every morning, for me, is the beginning of a better tomorrow, a new life, and new experiences. The sky was still dark, but my heart was bright, filled with excitement and joy, and my eyes were shining. After performing the morning prayer, I checked my messages. While exchanging messages, one of my friends wrote that there would be more Taliban presence on the streets today, and we also had an exam. She asked, “Are you going to take the exam?”\n\nHer message was filled with fear, but at the same time, she spoke of her courage and said that she would definitely attend. I replied briefly, “I have come this far; I will not turn back because of a day filled with wolves. I will definitely take the exam.”\n\nAt breakfast, my mother said, “The city will be crowded today because of Valentine’s Day, so be very careful. Go to the exam alone and return alone. Don’t walk today; take a car instead. When you arrive at the exam center, make sure to call me.”\n\nThe ticking of the clock echoed in my ears like a song until I was ready. Two hours before the exam began, I left home for the examination center. When I stepped outside, I had a strange feeling. It was the first time I was taking an exam somewhere far from home. After about twenty minutes of traveling by rickshaw, I reached the main road. There, I printed my answer sheet and bought a pen and an examination board from a bookstore. I got them from the nearest shopkeeper, hoping to return home with good news. Then I got into another car and continued toward the examination center.\n\nAlong the way, I looked at the city and at the circumstances we were living in—a reality none of us deserved, yet one we had been forced to accept. On the public minibus, an elderly man was sitting in the back, talking to a teenage boy about his time in the military. He insisted that anyone who had not experienced that period would never truly become mature.\n\nMy ears were listening to the old man, but my mind was occupied with the exam and with the future in which girls like me are serving our own kind of military service—a struggle in which we must stand firm. It is a time filled with restrictions and deprivation, yet within all of it, there is resilience and strength. The elderly man’s sweet stories continued until I reached the exam station. As I got off, I looked at him and smiled.\n\nI did not know the exact address of the examination center, nor did I know whom to ask for help. On WhatsApp, I listened to a voice message from one of my teachers, but I had taken the wrong route. I asked the nearest shopkeeper for the name of the school. They told me that I had to cross the road and that it was at the end of the alley. The directions given by that kind man became a guiding light that led me to the school.\n\nWhen I arrived, the first thing I had to do was find my name on a list that had been provided to them earlier. My name was the third from the bottom. After registering my attendance, I entered the school grounds. After being searched and climbing the stairs, I reached a hallway filled with young girls. Each of them held a notebook in her hands and was reviewing her lessons. It was a scene that reflected a thirst for knowledge.\n\nI asked the office, “Has the exam supervisor arrived?” One of those present said, “The teacher is in a meeting.” I did not know anyone there. Looking at that scene, I remembered my school exam days. A few minutes passed, and I greeted several of my friends who had also come for the exam. The exam time was approaching.\n\nI sat in the assigned seat, received the question paper, and began solving the questions. Today’s exam was equal to all those days when, under the scorching summer sun, I walked for twenty minutes to reach school and study.\n\nToday’s questions were the equations of the days when I saved money that would otherwise have gone toward transportation so that I could afford internet access. They were the addition and subtraction of days when I sometimes became exhausted but never stepped back. They were numbers representing my simplest and most basic right—education—a right for which I had paid a price, made sacrifices, and never stopped learning.\n\nThey were lines with which I had written letters to my dreams and promised that I would reach them. They were words with which I had designed a magazine in my mind for the person I hoped to become. Altogether, it was an exam filled with deep emotions and memories I had been waiting for years to experience.\n\nThis exam was like the university entrance examination, for which one must work hard for twelve years. One must sacrifice sleep, food, and comfort to reach the field of study one desires and earn the score one deserves.\n\nThe exam began at eleven in the morning and continued until two in the afternoon. Throughout the exam, my mind was not occupied with “I can’t” or “I don’t know.” There was only one thought in my head: I had to find the answer. I had to reach what I deserved.\n\nWhen the exam ended, we ate lunch and then uploaded our answer sheets. Because of my excitement, I did not manage my time very well. The evening call to prayer could be heard, and darkness had fallen by the time I left the examination center and began my journey home.\n\nOn the way, I became stuck in heavy traffic and reached home at around seven in the evening. I wrote this experience so that history would never forget that girls never surrender. They always shine, they are always strong, and they always believe in a better tomorrow and in the light waiting beyond this mountain."
       },
 
-      "image": "/src/assets/images/Basicright.webp"
+      "image": "images/Basicright.webp"
     },
 
     {
@@ -340,7 +331,7 @@
         "en": "These days, every time I visit the schools’ websites, a feeling comes alive inside me—as if I am about to join those girls and become their classmate and friend. Unfortunately, that feeling has not yet become a reality. I have sent applications to more than sixty schools, but I have not received a satisfactory response from any of them. My heart feels like a ball of fire, burning and restless. These days, I constantly wonder why girls have to suffer so much and burn alive just to pursue their education and secure their future.\n\nI have a strange feeling these days. I told some of my friends who are outside Afghanistan about my problems and worries, but they turned their backs on me and left me alone. If I do not receive a scholarship this year, my education will come to an end because I will turn eighteen, and schools outside Afghanistan generally accept students into university only when they are eighteen, while I do not even have a Grade 12 certificate.\n\nToday, a heavy lump has formed in my throat as I write these lines. Despite the profile I have built, no school is willing to accept me simply because I do not have an English-language certificate. The reason I do not have one is my family’s poverty and the difficult circumstances prevailing in our country.\n\nI have a good command of English. I learned the language through videos and written texts. My father could not afford the cost of a language course. Recently, I had started preparing for the Duolingo English Test, but the Taliban shut down language courses. My parents struggled through countless difficulties to pay for my schooling up to Grade 10. My mother would stay awake late into the night sewing clothes to cover my school expenses. These days, when I look at her, my heart breaks. Even though I am trying my hardest, I am still left without an answer, while my mother looks at her daughter with hope, praying that ten years of her sacrifices will not go to waste.\n\nIf I cannot secure admission soon, I do not know what will happen to me. Sometimes, when I think about it more deeply, I remember my school friends. Some got married and now have children, while others took their own lives. But I do not want to get married, and I do not want to take my own life. I only want to continue my education and make sure that my parents’ sacrifices are not in vain.\n\nI do not want to become dependent on someone like my mother, waiting for someone to bring her clothes to sew so that she can earn money in return. I want to become one of the greatest advocates for girls and women around the world. I want to be an independent girl and create opportunities for other girls to study and work as well.\n\nBut right now, I cannot even do anything for myself. This has become the most painful thought in my mind these days—a thought that has taken away my sleep and appetite.\n\nToday, I am writing everything that is in my heart. I have a notebook in which I have written all my educational and life plans, but now whenever I look at it, my eyes simply fill with tears. I had planned to hold a grand graduation celebration for myself, with all my friends, classmates, teachers, and family present so that we could celebrate together. But now, all of that remains only as a picture in my mind and lines on paper.\n\nI was supposed to graduate last year and begin university this year. But now, I cannot even go outside. I had planned to work alongside my university studies so that I could pay for my own education, but now I can only stare at these lines.\n\nI had painted a future and a life for myself filled with laughter and happiness, surrounded by the girls and women of my country. But now, I write these lines with empty hands. I had even imagined an organization dedicated to supporting girls and women, and envisioned building a school for girls, women, and orphaned children.\n\nFor the past week, my heart has been more broken than ever before. Perhaps you may think that I have accepted defeat, but as long as blood continues to flow through my veins, I will keep going. However, if I cannot continue my education and leave this place, my future and fate will be no different from my mother’s.\n\nWith the résumé I have built, I continue sending applications to schools with even more hope and determination, trying to remain strong. But the responses I receive can turn my day into night. Being a girl in Afghanistan is not easy. The pressure of society, the pressure of family, and worries about education and the future can force you to bow your head. Yet you still raise it again with courage. For the sake of a smile, you hide all your pain from your parents. These days, I can barely smile in front of my parents because I do not want my worries to weigh them down even further.\n\nI go to a corner of my room and cry so that no one will know how heavy a burden I am carrying. I wonder what else I can do for my education and my future. Standing up again takes time, and it is incredibly difficult. Every night when I go to sleep, I tell myself, “When you wake up tomorrow, you will surely have received a good and hopeful email from one of the schools you applied to.”\n\nEvery morning, before doing anything else, I check my emails, hoping to find good news. But my inbox remains silent. I tell myself, “Don’t worry. The email will come by tonight.” And I carry that same hope with me through the night and into the next morning. Perhaps one day, I will receive that scholarship email and finally be able to leave Afghanistan."
       },
 
-      "image": "/src/assets/images/WaitingforEmail.webp"
+      "image": "images/WaitingforEmail.webp"
     },
     {
       "id": 13,
@@ -365,7 +356,7 @@
       },
      
 
-      "image": "/src/assets/images/Ourdream.webp"
+      "image": "images/Ourdream.webp"
     },
     {
       "id": 14,
@@ -390,7 +381,7 @@
         "en": "I am a seventeen-year-old girl. I work with many girls in the field of writing. This work is meaningful to me, but some people look at it from a different perspective—one filled with misguided judgment. I am in contact with many people and I try to expand my teamwork and collaborations. Unfortunately, some people try to take advantage of these relationships to satisfy their personal desires. Today, with a heart full of sorrow, I am writing these lines for everyone.\n\nIt was close to eleven at night, and I was explaining the plans for our writing team to my teacher. My intention was to collaborate, but he interpreted it differently. I had not even finished writing half of the plans when he messaged me: “Have you decided not to get married?” His question seemed strange to me. At first, I thought he was joking. I replied, “No, I do not intend to get married for now. I need to focus on my studies. I have a long journey ahead of me. If I stop working now and start thinking about marriage, how would I be any different from my mother? She also got married at my age, but remained uneducated.”\n\nA few moments later, he messaged again: “When will you be ready to get married? For the rest of your journey, you need a companion. Being alone is tiring, and you might become depressed.” His message sent a shiver through my body. I thought to myself, perhaps this is not him; maybe someone else has his phone. With a troubled mind and trembling hands, I wrote: “Teacher, please let us not go beyond the subject of our group. I need to organize tomorrow’s plans. These questions are not appropriate for you, and it would be better not to mix professional matters with personal issues.”\n\nAfter reading my response, he wrote again: “A girl with this much talent should not marry an uneducated man. You should be with someone who can take you to the heights of success, someone who can make life a paradise for you. I do not mean to interfere, but whenever you want to get married, you can count on me. I know you want me too, but circumstances have prevented it…”\n\nThat message sent a shock through me. Someone I was in contact with as a teacher and colleague had written such things to me! I replied: “Teacher, you have become very playful tonight. But you should not bring up these matters in the middle of our work again. You are only my teacher, and your collaboration with me has meaning only within that framework. My future and personal life are my own concern. You have a family, a wife, and children; it would be better for you to think about them. The most important thing in life is family, and you already have one. Thank you for collaborating with me until now, but from this point forward, I will go my own way. Please do not bother me. I love myself and my work, not a shameless and conscienceless person like you. And I never will.”\n\nThis message disturbed me so deeply that it was hard to believe. A teacher, an educated and married man, several times older than me, had created such immoral fantasies about me in his mind. I immediately blocked his number. Then I began wondering why some people, especially educated men, behave this way. Why can they not control desires that are so far removed from decency and morality?\n\nI was only in contact with him as a student, for the purpose of collaborating on our writing team. But he had imagined that I had fallen in love with him. In a society where a teacher behaves like this, progress becomes impossible. A teacher has the responsibility of educating and shaping the next generation. Yet some teachers are not only irresponsible; they contaminate society. Their presence is harmful rather than beneficial.\n\nIn Afghanistan, girls cannot easily trust anyone. If we speak about such issues, society immediately blames the girl. They say, “If you were not a bad girl yourself, you would never have received such a proposal!” Some families also compare their daughters with other girls. Making a mistake is not painful, but constantly having that mistake thrown in a girl’s face can destroy her. Experiences like these can sometimes lead to the abuse and even death of girls.\n\nI wrote about this experience to say that every human being has boundaries. We should not hurt someone through our messages or behavior. We should not take the good intentions of another person and turn them into something negative and immoral."
       },
 
-      "image": "/src/assets/images/Nowhere.webp"
+      "image": "images/Nowhere.webp"
     },
     {
       "id": 15,
@@ -415,7 +406,7 @@
         "en": "The sun was merciless, scorching our skin and demanding surrender. But our hearts beat louder. They told us to stay and run. They whispered: Play harder, run faster, laugh louder. Because this was not just a game; it was an act of resistance. Every second on that field was stolen time, a sliver of freedom in a world that wanted silence and stillness from us. This was only the first game—a game in which nothing was ready. No sports shoes, no proper clothes, not even a decent ball. We picked up an old, half-deflated plastic ball and ran onto the concrete field—a hard, scorching surface that burned our feet. We wore long, ordinary clothes; the same chadors and everyday slippers. But what did it matter? The fact that we had managed to gather away from prying eyes was itself a victory.\n\nOur game looked more like aimless running than real football. The ball constantly slipped out of our control and hit the wall. Sometimes our feet got tangled in our chadors and we fell. But we laughed, loudly and wholeheartedly. This was how we played—not *despite the heat,* but *because of it.* Because if we could endure this, we could endure anything. The sun hung heavily in the sky, as if its scorching rays were pressing down on the cracked ground beneath our feet. Breathing in that hot, dry air was a struggle in itself. But none of it mattered. Because on that unforgettable day, we played football for the first time. This was not an ordinary game, but living proof of the indomitable spirit of girls who wanted a field of their own; a field that was astronomically far from the stadiums of our dreams, yet sacred to us. The Taliban had built their own field—a dry, restricted, suffocating world. But here? This was our field. A piece of earth we had stolen for a few hours, where we wrote our own rules.\n\nWe ran in long clothes that wrapped around our legs, wearing high-heeled slippers that sank into the dirt with every step. Was it ridiculous? Perhaps. But what was truly ridiculous was the idea that fabric and shoes could imprison our happiness. Every fall, every laugh that rose into the air as we limped around, was a claw in the eye of those who thought they could tell us how to move and how to live. The air was heavy with heat, but our laughter was made of freedom—the freedom of girls in a country called Afghanistan. This was not merely sound; every burst of laughter, every victorious shout when the ball spun through the air, was a brick in the world we were building—a world in which we *existed* loudly, without apology.\n\nWe had no referee and no stands. There was no trophy. But in our minds? We were giants. Every run after the ball was a run toward something greater than ourselves. With every pass, we were not simply playing; we were rewriting history. In our imagination, that dusty field transformed into an Olympic stadium, filled with the cheers of thousands of spectators. The ball beneath our feet was not merely leather and air; it was hope, a promise, and proof that even in a cage, it is possible to spread your wings.\n\nTime was never on our side. The clock was always ticking, the shadows growing longer. It warned us that this would not last. But in those fleeting moments, we created eternity. The ball spinning through the air was more than a symbol of being alive in a world that wanted us numb. This was more than football; it was alchemy. We took dust, fear, and fragile rules and turned them into gold.\n\nNo one was keeping time. Perhaps we played for no more than twenty minutes. Before anyone noticed, before anything went wrong, before our beautiful memory could turn into trouble, we ended the game. But those twenty minutes were enough. Enough for us to realize that despite all the restrictions, we could still have moments of our own. Simple moments, yet overflowing with meaning. That day, we had no referee, no spectators, and no proper field. But what we had was more valuable than all of these: the determination to play—even on scorching concrete, even for a few minutes, even with all the restrictions.\n\nWhen the game ended, we left the field, breathless but transformed. Our hands were intertwined on each other’s shoulders. They could take the ball away. They could take the field away. But they could never extinguish the fire we had kindled in our hearts. Because freedom is not a place; it is a feeling. Once you have tasted it, even for a moment, you will chase it forever. So let them build fences. Let them write laws. We will keep playing. We will keep laughing. We will keep dreaming of the stadiums that will one day belong to us."
       },
 
-      "image": "/src/assets/images/BallofHope.webp"
+      "image": "images/BallofHope.webp"
     },
     {
       "id": 16,
@@ -440,7 +431,7 @@
         "en": "I write for you, you who may be in Afghanistan today, or somewhere else in the world. In a cold tent, under the shelter of a cracked wall, or perhaps beneath the ashes of a half-destroyed home. I do not know your name, but I know your heart beats like mine, when at night I pull my blanket up over my face at the sound of explosions and pray that I will see the morning. We come from a land where the world counts our victims more than it looks at our lives. A place where the laughter of a girl can be more dangerous than the sound of a bullet. And yet, we have laughed. Yes, you and I have both laughed in the darkness, not because we are free from pain, but out of defiance against a fate that wants to silence us.\n\nI do not know you, yet it feels as though I have lived alongside you for a thousand years. Our pain is shared. Without ever seeing each other, our tears fall into the same sea. Afghanistan today is a land whose breaths are growing faint. The girls of this soil wake every day with eyes full of fear, not with hope for a brighter tomorrow, but with the fear that today might be the last day of their lives. Schools have become memories for them, hospitals have been destroyed, and homes—the safe fortresses of childhood—are now piles of ashes.\n\nWe once dreamed of becoming doctors, teachers, or even simply walking freely through the streets of our cities. But today, our only wishes are a piece of bread, a sip of clean water, and one night without the sound of explosions. I am a girl from the land called Afghanistan, but it no longer resembles a homeland. Here, the air smells of burnt earth, displacement, and the tears of a mother who will never hear her child’s laughter again. “I just want my children to sleep without fear of death…” a young mother whispers as she holds her child tightly against her chest. She no longer thinks about the future, because there is no future. She only wants her child not to be buried beneath the rubble, not to freeze in the winter cold, and not to die of hunger.\n\nWhy should life be this way for us? Why should thousands of women and children die in silence every day while the world simply watches? Why should fleeing our homeland be our only path to survival? Yet we still have hope. We see our hope in the eyes of grandmothers who, despite all their suffering, hold the Quran in their arms and pray. We find our hope in the tiny hands of children who draw pictures on the earth beneath the starry sky and dream of peace. We see our hope in the resistance of women who quietly write a new chapter of history every day.\n\nThe girls here hide their dreams in dust-covered suitcases. When the schools turned into ruins, no one said anymore, “When I grow up, I will become a doctor.” Now everyone says, “If I survive, perhaps one day, maybe, just maybe.”\n\nWe have no electricity, no water, no medicine. No window through which to see the sunlight, no notebook in which to write a childhood dream. Here, being a girl means carrying the weight of a thousand unspoken sorrows on your shoulders; it means longing for an embrace that may never be there again. Here, being a girl means being strong at the very height of weakness.\n\nWe may be wounded today, but we are not broken. We may have been forgotten, but we have not surrendered. The world may not hear our voices, but we cry out: Do not leave us alone! As an Afghan girl, I believe with all my heart that one day the sun of peace will rise again over this land. A day when my daughters can go to school without fear, when my mothers can prepare their children’s evening meal without worrying about where the next meal will come from, and when my fathers can proudly say: This is our homeland, and we are free here. Until that day, we will breathe. Until that day, we will resist. Until that day, hope will remain our only weapon. In Afghanistan today, life no longer carries its usual meaning. Here, people neither truly live nor die; they are simply alive. Alive because their hearts are still beating. Alive because a small glimmer of hope still moves in their eyes.\n\nThese words were written by a young girl beneath a torn tent in one of Afghanistan’s displacement camps, with trembling hands on the screen of her broken phone. She is not searching for grand dreams, nor does she dream of education or freedom; she simply wants to survive. To survive and save her family from this darkness."
       },
 
-      "image": "/src/assets/images/onlyweapon.webp"
+      "image": "images/onlyweapon.webp"
     },
     {
       "id": 17,
@@ -465,7 +456,7 @@
         "en": "We live in a strange place; to encourage and support a girl to study, we have to pay a price. We have to face the unfair judgment of the world and of our own people. We have to endure beatings, insults, torture, and physical abuse, and we have to pay the price in tears.\n\nThe girls of my country were deprived of education. They could only cry and sit with their hands folded. Some of those girls continued their education in different ways and refused to give up their studies, while also encouraging others to pursue education. But these days, even encouragement carries a heavy price.\n\nToday, one of my friends sent me a message:\n\n“My friend, what would you do if you were in such a situation? My brother never checked my phone because he trusted me completely. A few days ago, he suddenly went to my Facebook page. There, I had encouraged girls to study and had posted something filled with thousands of hopes. When my brother saw and read that post, he lost control. For the first time, he warned me to delete it immediately. I said nothing to him, but the second time, before I could delete it, he blocked me from the home Wi-Fi and began beating me.\n\nHis blows struck both my face and my soul. Every blow planted another wound of distrust inside me. My mother, who was there, kept repeating in a voice full of blame, ‘I told you a thousand times not to get yourself into trouble. Did she ever listen?’ Those words tore my heart apart more than any blow. Every time I tried to say something, a heavier punch landed on my body. The only thing I said was, ‘What I did is not wrong.’ That simple sentence cost me more than anything else.\n\nMy mother had a glass in her hand and, in all her anger, threw it at me. Fortunately, it did not hit my body, but the glass shattered inside my heart. My mother screamed, ‘I will throw you out of this house soon. But unfortunately for you, there is no one who will come and take you away!’\n\nEvery moment passed before my eyes like a film. I kept thinking, ‘I wish that glass had hit me and I had been freed from this world.’ My whole body was bruised from the pain, and my complexion had disappeared into darkness and blood. They had slammed my head against the wall so many times that I became dizzy and collapsed, losing consciousness for a moment. When I regained consciousness, no one even brought me water.\n\nMy brother kept saying, ‘If they take this matter to the police district, all of us will be disgraced. People will say that he was so dishonorable that his sister was taken away and gang-raped.’ From the other corner, my mother said coldly, ‘Let the Taliban take her. Maybe we will finally be rid of her.’ These words wounded my heart more than anything else. My brother took my phone and deleted everything.\n\nMy head was heavy, my body hurt, and a slow, quiet death was moving through my body—the kind of death that the girls of this land taste every day. There was a knife beside me. I almost picked it up and struck myself once, ending everything. I told myself, ‘What do I lack compared with An Pilout, Abida, or hundreds of other girls? Why can’t I free myself from this daily torture? From this breathless life?’\n\nBut then I remembered how hard I had fought to get this far. How far I had come, and how much I had endured. With my body and heart broken, I took refuge in another room. I was alone. I picked up the blanket, pulled it over myself, and cried uncontrollably. It had become dark outside. My brother had left the house. I lay down in a corner, but inside I was screaming: ‘God! Either let this night pass quickly, or do not let me live until morning.’\n\nMy whole body was trembling from the unbearable pain, and the world felt unbearably heavy on my head. My eyes were so full of tears that I could not open them, and I could not sleep. Then my father arrived.\n\nMy father had always encouraged and supported me in my studies. Before the meal had even been cleared away, my brother said, ‘Father, you must not let your daughter study! She did this on Facebook. The Taliban have a powerful intelligence network, and if they find this girl, it will bring shame on our entire family.’\n\nWhen my father heard the word ‘honor,’ he ordered me never to be allowed to use a phone again. Then he said, ‘Give the internet back to the company. From now on, there should be no more talk of the girl studying in this house. I never wanted my daughters to become like this, but she chose this path herself.’\n\nThe moments seemed to freeze as my father spoke. He was extremely angry. If I had been in that room, he would certainly have killed me without hesitation. My only crime was encouraging girls to study and pursue their education.\n\nMy brother said that I had also posted all my photos and meetings on social media, and that I had directly written there, ‘We girls will not surrender. We will continue on our path.’ He said, ‘This is a direct fight against the Taliban.’\n\nI was awake in the living room, with my scarf pressed against my mouth so that the sound of my sobbing would not reach the room and they would not realize that I was awake. Sometimes you are forced to silence yourself, but the pain caused by those words had made me deeply angry and heartbroken. I was so upset that all my fingers had turned black and stiff.\n\nI kept thinking, ‘I wish I had written on Facebook just once that we girls will not surrender and will continue on our path, or that I had shared my photo on Facebook.’\n\nThat night, after everyone had fallen asleep, my fingers slowly began to come alive again. I quickly picked up my phone, held it tightly against my chest, and said, ‘You are my only companion and the only one who understands me. You know that I did nothing wrong, yet this is how I was punished.’\n\nIt was getting close to three in the morning, and I had a very important program, but because I could not participate in it, sleep would not come to my eyes. I could only replay the moments of torture and the shattered glass in my mind.\n\nI had not slept even for a moment when morning came. I did not move from my place. They did not even call me for breakfast or lunch. I was lying helplessly in a corner of the living room because of the severe headache. It was as if I were not their daughter, or as if I did not even exist in that house.\n\nAfter this, I cannot even continue my studies online. My father summarized everything he had to say in one sentence: ‘I had so many hopes and dreams for you. I always saw you in great places, but today you proved me wrong and destroyed all my hopes and dreams. You have even made me lose heart in this home. From now on, I will not help or support you in any way. Just stay at home and continue sewing.’\n\nWhen I read this story, my heart melted and tears began to flow down my cheeks uncontrollably. I wrote to her: ‘You must be patient. God is great. You have to be patient and continue on your path.’"
       },
 
-      "image": "/src/assets/images/Talibanfindyou.webp"
+      "image": "images/Talibanfindyou.webp"
     },
     {
       "id": 18,
@@ -490,7 +481,7 @@
         "en": "Paula Hawkins puts it beautifully: “The holes in your life are permanent. You have to grow around them, like the roots of a tree that emerge from the surrounding soil; you have to pull yourself out through the cracks. Sometimes the holes in our lives become deeper and darker than before. Sometimes you even reach the point where you feel like giving up on life. In the midst of despair and darkness, a little hope can transform your life. These words may seem easy to read, but writing them is a courageous seal placed upon all the pages of the past.\n\nEvery day of mine was made up of repetitive routines. I would wake up very early in the morning. Since then, I have slept less at night and worked more; sometimes I do not even sleep for half an hour at night. After performing the morning prayer, I would get ready to go to my course. After a twenty-minute walk, I would reach the course, where the basics were taught.\n\nWhen I used to walk through the streets and alleyways of Kabul with my mother, all I could think about was passing the 1404 entrance examination; a year that felt like a dream to me and for which I had made so many plans. Everything melted away in the blink of an eye and was buried in the holes of my life. If I were to lift the curtain on these years of my life, all I would have is my own encouragement. At the course, I would begin my mornings surrounded by the bright faces of so many girls, and they gave me the energy to keep moving forward.\n\nSome of the girls played volleyball in the courtyard; they had left behind the battlefield and violence, and only smiles had become the language of their lives and faces. Others sat watching and cheering on the teamwork of the players. Once I entered the course building, it felt like another strange world; all the girls had books in their hands and were reviewing their lessons. One studied mathematics to solve and shape her destiny, another chemistry to separate war from peace through the lines of education, another literature so she could one day publish the magazines of her dreams and aspirations, and another physics as she mapped out the axes of her life.\n\nTime passed incredibly fast. We studied together from six in the morning until nine, living beneath the roof of dreams and life. After class, on the way home with a group of my friends, stories about change and the future became our main topics. At that time, we were all hungry and had little energy left to continue talking, but our outlook on the future made us eager to keep the conversation going. When I arrived home, I had to do housework and study alongside it. But most of my time was spent sewing clothes for hire. I needed enough money to continue my education. As noon approached, my heart became more excited than ever.\n\nSometimes I had lunch, and sometimes I did not. I would put on my school uniform and set off toward school. Life was strangely complicated; I walked from home to the road that connected to the main road in western Kabul. Cars and rickshaws also traveled along this road, but I did not have enough money, and I wanted to save what I had. Halfway there, the sunlight burned my face and heated the road. Still, I had no choice but to keep going for the sake of my education. Once I reached the main road, I continued the rest of the journey by public minibus.\n\nSometimes I arrived at school early, and sometimes late. Sometimes the vehicle drove fast, and sometimes slowly, but it always carried me toward my destination. Sometimes I spent forty minutes and sometimes thirty minutes in the vehicle, surrounded by different people. After getting off, I entered the school alley and continued walking with a smile. In the alley I walked through, some girls with bright faces talked to one another, sometimes in groups and sometimes in pairs. Some entered the school grounds alone.\n\nLife passed in a strange way. After going through the security check and walking down the corridor, we reached our assigned classroom. There, the world felt vast. When we entered the classroom, after greeting one another and exchanging pleasantries, we sat in our assigned places. The classroom was anything but ordinary; we always had an excuse to laugh, and sometimes we even created our own opportunities to laugh. When school ended, two to five public minibuses would always leave, packed with girls. Twelve of my classmates and I would travel home together in one minibus. The road we traveled was not an ordinary road, and ours was not an ordinary life; yet time passed so quickly. From that day on, smiles and conversations became part of my daily routine.\n\nThe classroom was filled with laughter. Our teachers were humorous too. They were teachers who did not want the second half of humanity—women and girls—to feel hurt or unhappy. They did not want students to listen to lessons in class with a lump in their throats. They did not want girls who were about to graduate and take a step toward the university entrance examination and higher education to lose their motivation to learn because of poverty and hardship. They were teachers who carried sorrow but gave smiles as gifts. Alongside teaching school subjects, they also taught us lessons about life and success. There were nearly 80 of us in one classroom; girls who are still alive, but the classroom itself is dead.\n\nWhen a classroom dies, the future of hundreds of girls and boys, and even the future of an entire society, is put at risk. Those classrooms still stand where they always did, but the girls who once studied in them now face different destinies: hopeless, confused, and without a clear future. Even so, hopelessness solves nothing. I, too, had been hopeless and lost, with no reason to look toward tomorrow. I had reached the point of thinking that perhaps the end of my life should come right then. But something pulled me out of that pit of darkness and despair.\n\nThose were difficult days, but they passed. I know even harder days lie ahead. We all struggle with difficulties, and we will overcome them. I have told myself thousands of times: for the sake of the future that lies ahead of you, start moving. Run, fall, get back up, laugh, cry, get tired, rest, shed tears, feel sad, and even start a war! But get back up, dust off your dirty knees, smile, and begin again. Fight until you reach the future you deserve."
       },
 
-      "image": "/src/assets/images/schoolday.webp"
+      "image": "images/schoolday.webp"
     },
     {
       "id": 19,
@@ -515,7 +506,7 @@
         "en": "Paula Hawkins puts it beautifully: “The holes in your life are permanent. You have to grow around them, like the roots of a tree that emerge from the surrounding soil; you have to pull yourself out through the cracks. Sometimes the holes in our lives become deeper and darker than before. Sometimes you even reach the point where you feel like giving up on life. In the midst of despair and darkness, a little hope can transform your life. These words may seem easy to read, but writing them is a courageous seal placed upon all the pages of the past.\n\nEvery day of mine was made up of repetitive routines. I would wake up very early in the morning. Since then, I have slept less at night and worked more; sometimes I do not even sleep for half an hour at night. After performing the morning prayer, I would get ready to go to my course. After a twenty-minute walk, I would reach the course, where the basics were taught.\n\nWhen I used to walk through the streets and alleyways of Kabul with my mother, all I could think about was passing the 1404 entrance examination; a year that felt like a dream to me and for which I had made so many plans. Everything melted away in the blink of an eye and was buried in the holes of my life. If I were to lift the curtain on these years of my life, all I would have is my own encouragement. At the course, I would begin my mornings surrounded by the bright faces of so many girls, and they gave me the energy to keep moving forward.\n\nSome of the girls played volleyball in the courtyard; they had left behind the battlefield and violence, and only smiles had become the language of their lives and faces. Others sat watching and cheering on the teamwork of the players. Once I entered the course building, it felt like another strange world; all the girls had books in their hands and were reviewing their lessons. One studied mathematics to solve and shape her destiny, another chemistry to separate war from peace through the lines of education, another literature so she could one day publish the magazines of her dreams and aspirations, and another physics as she mapped out the axes of her life.\n\nTime passed incredibly fast. We studied together from six in the morning until nine, living beneath the roof of dreams and life. After class, on the way home with a group of my friends, stories about change and the future became our main topics. At that time, we were all hungry and had little energy left to continue talking, but our outlook on the future made us eager to keep the conversation going. When I arrived home, I had to do housework and study alongside it. But most of my time was spent sewing clothes for hire. I needed enough money to continue my education. As noon approached, my heart became more excited than ever.\n\nSometimes I had lunch, and sometimes I did not. I would put on my school uniform and set off toward school. Life was strangely complicated; I walked from home to the road that connected to the main road in western Kabul. Cars and rickshaws also traveled along this road, but I did not have enough money, and I wanted to save what I had. Halfway there, the sunlight burned my face and heated the road. Still, I had no choice but to keep going for the sake of my education. Once I reached the main road, I continued the rest of the journey by public minibus.\n\nSometimes I arrived at school early, and sometimes late. Sometimes the vehicle drove fast, and sometimes slowly, but it always carried me toward my destination. Sometimes I spent forty minutes and sometimes thirty minutes in the vehicle, surrounded by different people. After getting off, I entered the school alley and continued walking with a smile. In the alley I walked through, some girls with bright faces talked to one another, sometimes in groups and sometimes in pairs. Some entered the school grounds alone.\n\nLife passed in a strange way. After going through the security check and walking down the corridor, we reached our assigned classroom. There, the world felt vast. When we entered the classroom, after greeting one another and exchanging pleasantries, we sat in our assigned places. The classroom was anything but ordinary; we always had an excuse to laugh, and sometimes we even created our own opportunities to laugh. When school ended, two to five public minibuses would always leave, packed with girls. Twelve of my classmates and I would travel home together in one minibus. The road we traveled was not an ordinary road, and ours was not an ordinary life; yet time passed so quickly. From that day on, smiles and conversations became part of my daily routine.\n\nThe classroom was filled with laughter. Our teachers were humorous too. They were teachers who did not want the second half of humanity—women and girls—to feel hurt or unhappy. They did not want students to listen to lessons in class with a lump in their throats. They did not want girls who were about to graduate and take a step toward the university entrance examination and higher education to lose their motivation to learn because of poverty and hardship. They were teachers who carried sorrow but gave smiles as gifts. Alongside teaching school subjects, they also taught us lessons about life and success. There were nearly 80 of us in one classroom; girls who are still alive, but the classroom itself is dead.\n\nWhen a classroom dies, the future of hundreds of girls and boys, and even the future of an entire society, is put at risk. Those classrooms still stand where they always did, but the girls who once studied in them now face different destinies: hopeless, confused, and without a clear future. Even so, hopelessness solves nothing. I, too, had been hopeless and lost, with no reason to look toward tomorrow. I had reached the point of thinking that perhaps the end of my life should come right then. But something pulled me out of that pit of darkness and despair.\n\nThose were difficult days, but they passed. I know even harder days lie ahead. We all struggle with difficulties, and we will overcome them. I have told myself thousands of times: for the sake of the future that lies ahead of you, start moving. Run, fall, get back up, laugh, cry, get tired, rest, shed tears, feel sad, and even start a war! But get back up, dust off your dirty knees, smile, and begin again. Fight until you reach the future you deserve."
       },
 
-      "image": "/src/assets/images/BitterFate.webp"
+      "image": "images/BitterFate.webp"
     },
     {
       "id": 20,
@@ -540,7 +531,7 @@
         "en": "My name is Mariam Amiri. I have just turned seventeen, and this year I am studying at an online school. The day I will never forget was August 15, 2021, a Sunday, at 11:05 a.m.; it was the last time I sat at my mathematics desk with my classmates in my school uniform and stared at the blackboard. I studied at one of the private schools in Kabul. It had better facilities, but our board was black and wooden. With chalk, we wrote life’s problems and mathematical equations on it. That day marked the end of one chapter of my life and the beginning of another that no one had expected. After that day, my life and the lives of millions of other girls in my country changed. Each of us was thrown in a different direction, as though the winds of fate had carried us toward unknown paths. But I did not lose my way or my goal; my goal was education, which remained like a lamp constantly lighting my path.\n\nThe year 1404 arrived, and it has been the fourth year since I have been away from school and formal in-person education, but I have always continued my studies online. During these four years, I faced circumstances that sometimes pushed me to the edge of despair; I missed my friends, felt alone in a world that was changing rapidly, and experienced pain and sorrow that sometimes became so heavy that I felt like a walking dead person—without purpose and without energy. But amid that darkness, there were also moments when I felt filled with strength, as though a force was bursting from within me and pushing me forward. That strength was my love of learning and my hope for the future, which never went out inside me.\n\nSometimes I would stare at old photographs from school and cry. Memories would replay in my mind like a film: the days when my friends and I ran around the schoolyard, the sound of laughter filling the classroom walls, and even those difficult moments during exams that now seemed sweet to me. Sometimes I would rewrite lines from my memories, but each time, doing so led me into an emotional dead end. I wrote about my school memories more than ten times, and each time I tried in different ways to erase them from my mind, because whenever I thought about them, I felt trapped in the past, and that made me hopeless and sad.\n\nThese three years passed as though three centuries had gone by. Online classes were not free of problems either; my biggest challenge was the cost of internet access, which was very expensive for me and my family. This is not only my problem; it is also a problem for other girls. Another challenge was the weak internet connection. These difficulties sometimes made me cry, but I had no solution because our home is surrounded on all four sides by six-story apartment buildings and even taller structures that reduce the internet signal.\n\nWhen I joined an online school last September, a wing opened within me, allowing me to fly toward my dreams and goals. The online school became a small source of relief for me. For someone like me who has been deprived of all her basic rights, online school was an opportunity to grow and become stronger. At first, it was somewhat difficult, but after some time, I was able to adapt to the circumstances.\n\nBeing away from school and education had created a sense of uncertainty in me about school, but after six months of online classes, I was able to find myself again in the position of a female student. Those were difficult days; I completed school projects and homework. But the whole process refreshed my memories of school—the days when we did not study and instead annoyed our teachers by asking questions. We would sometimes refuse the academic responsibilities assigned to us. But during this period, I learned to be responsible, take my homework seriously, and challenge myself.\n\nI did everything I could to read and write. The result of those efforts was the publication of my first book. On November 12 of last year, my book was launched. At the book launch ceremony, I found myself surrounded by friends, girls, and women writers. My book is titled *An Ending for Another Beginning*. This is a phrase that carries deep meaning for girls my age. For those of us whose bridge to education has been broken, we have found other ways to learn and have begun new journeys in different places and in different ways.\n\nToday, after a long time, I feel alive again. I owe this feeling to the online school where I have been studying. This is a place where I can pursue my dreams again, a place where physical boundaries no longer limit me. Online classes are windows into a new world where knowledge and learning never stop. I am no longer that hopeless and sad girl; I am a girl who, with every new lesson, every page I read, and every word I write, moves closer to herself and to her future.\n\nThe fall of the government and the sudden changes in my life taught me great lessons. I learned that even in the darkest moments, we must never lose hope. I learned that life does not always go the way we plan, but that does not mean the journey has ended. Rather, it is an opportunity to find new paths and discover abilities that we may never have known were hidden within us. Every word I learn and every lesson I study is a step toward a brighter future; a future in which no girl will be deprived of education because of her gender. A future in which education is everyone’s right, and no one can take that right away from anyone.\n\nI am Maryam Amiri, and this is my story; a story of falling and rising, a story of despair and hope, a story of struggle and victory. And I know this is only the beginning of the journey. A journey at the end of which being a girl in a society like Afghanistan will not be a crime. A journey that I began with many of my friends toward a society in which no woman or girl is deprived of her basic rights.\n\nIn the hope of the day of freedom, we will all move forward together on the path of education. Of course, this path comes at a great cost, but it is a cost worth paying. We must give everything we have, even our very lives—the center of all our strength—to this journey."
       },
 
-      "image": "/src/assets/images/ClosureofSchools.webp"
+      "image": "images/ClosureofSchools.webp"
     },
     {
       "id": 21,
@@ -563,7 +554,7 @@
         "dr": "زیبا و دل‌پذیر بود؛ لحظه‌ها را با قدم‌های شمرده از سرک می‌گذراندیم. حوالی ساعت ده پیش‌ از ظهر بود. این لحظات قابل دیدن و تماشایی بود؛ بازار شلوغ و پرجنب‌وجوش بود. همه با خوش‌حالی زیاد خرید می‌کردند؛ یکی قالین، یکی ظرف، یکی پرده و سایر وسایل خانه را انتخاب می‌کرد. بعضی‌ها میوه و بعضی‌های دیگر لباس می‌گرفتند. با آماده‌گی‌ای که داشتند این را نمایان می‌کردند که به عید این سال خوش‌آمد بگویند. بچه‌ها بودند که کتاب در دست داشتند و روان به سوی صنف‌های آماده‌گی کانکور بودند. دوره دوازده سال درس خواندن را به پایان رسانده بودند، یعنی فارغ از مکتب بودند و می‌خواستند همین سال امتحان کانکور را سپری کنند و وارد دانشگاه شوند. همه مصروف بودند.\n\nمن و دو دوستم تازه از کورس رخصت شده بودیم و قصه‌های شیرین داشتیم. راه هم طولانی بود. آهسته‌آهسته دانه‌های باران زمین را نمناک می‌کرد. باران دلتنگ شد، نمی‌خواست این خوش‌حالی را ببیند و شروع به طوفان کرد. با شروع شدن این طوفان ما راه خود را ادامه دادیم و متوقف نشدیم. به یک‌باره سراسیمه‌گی در همه سرک معلوم می‌شد. مردم همه می‌دویدند و به جست‌وجوی پناه‌گاهی بودند، درست مثل همان لحظاتی که حکومت تغییر کرد و مردم سراسیمه شده بودند و به دنبال پناه‌گاه امنی بودند. ما بدون این‌که چتری داشته باشیم به راه خود ادامه دادیم. یک دوستم کتاب خود را بر سر گرفت تا مبادا سرش خیس شود و دوست دیگرم کتاب‌های خود را در زیر چادر پنهان کرد، به‌خاطری که او کتاب خواندن و داشتن کتاب را دوست دارد. مانند همان روز بود که دختران را جمع می‌کردند و همه دختران در خانه پنهان شده بودند.\n\nدر آن مقطع راه رسیده بودیم که باید خداحافظی می‌کردم و ادامه راه را به تنهایی خود می‌رفتم. با آن‌ها خداحافظی کردم و به یاد دوستان نیمه‌راهم افتادم که یکی‌یکی تنهایم گذاشتند و رفتند و دیگر ندیدم. باران خیلی شدید بود، می‌خواستم که این سرک را با موتر طی کنم، می‌خواستم که سوار موتر شوم تا خیس نشوم. ولی یک‌باره از این تصمیم خود انصراف دادم و پیاده شروع به طی این سرک کردم.\n\nبه سرک نگاه می‌کردم که خاک‌ها توسط آب باران می‌رفتند و همه جا تمیز می‌شد. همانند این بود که مردمان کشورم می‌خواهند این حکومت برود و زنده‌گی خوبی داشته باشند. با نگاه کردن به سرک و باران به یاد آن ‌روز افتادم که سال آخر درسی ما در مکتب بود. من و دوستانم به زیر باران می‌رفتیم تا خیس شویم و خیس شدن را دوست داشتیم. بعد از این‌که آن‌ها رفتند، من دیگر خیس شدن را دوست نداشتم. ولی امروز خیس شدن حس خوبی به من می‌داد. دلم می‌خواست که با این باران صحبت کنم و شروع به قصه کردم از بازنشسته شدن خودم که روزها را چگونه می‌گذراندم.\n\nغرق قصه و مرور آن روزها بودم که یک دختر کوچک را دیدم که نمی‌توانست از آب زیاد عبور کند و نیاز به کمک داشت. من هم او را در آغوش گرفتم و کمک کردم. او هم خیس شده بود، اما خیلی ترسیده بود. تنها هم بود. گفتم: دختر زیبا، خانه‌ات کدام سمت است؟ گفت: به طرف بالا. گفتم: پس بیا من و تو همراه شویم. همین‌طور زیر این باران با او راه را ادامه دادم. او گفت: نرگس هستم. یک دوست دارم که اسمش زهراست. او امروز نیامده است، وگرنه ما دوتا هر روز یک‌جا مکتب می‌آییم و دوباره خانه می‌رویم. او دوست نیمه‌راه است. گفتم: من هم دوست نیمه‌راه زیاد دارم. او بیش‌تر برایم از دعوایی که دارد به‌خاطر نشستن در صف اول صنف، قصه کرد. مرا به یاد دوران مکتب انداخت و خاطرات مکتب را تازه کرد؛ زمانی که من و دوستم به‌خاطر صف اول برنامه صبح‌گاهی دعوا می‌کردیم. گاهی هر دوی ما مجازات می‌شدیم، ولی از این دعوا دست‌بردار نبودیم. خندیدم و برایش گفتم که بین دوست‌ها دعوا خیلی یک امر عادی است.\n\nگفت: این کوچه خانه من است. من باید از این کوچه بروم. با وی خداحافظی کردم. او تمام خاطرات مکتب را برایم تازه کرده بود. آهسته‌آهسته بغض گلویم را می‌فشرد و اشک در چشمانم جاری می‌شد. مانع این اشک‌ها شدم و گفتم که دیگر آن روزها تکرار نمی‌شود؛ به‌خاطری که آن روزها گذشته است. آن‌ها برایم انرژی شده‌اند و من می‌توانم راهم را بدون آن‌ها ادامه دهم. با گفتن و مرور این حرف‌ها کمی دلم آرام گرفت. کاملاً خیس شده بودم. فکر می‌کنم که گاهی اوقات باید در زیر باران خاطرات را تازه کرد، به‌خاطری که باران همه غم‌ها و غصه‌ها را با خود می‌برد. فقط کافی است در هنگام قصه کردن با خودت صادق باشی.",
         "en": "It was beautiful and pleasant; we walked down the street with measured steps. It was around ten in the morning. The scene was captivating and worth watching; the market was crowded and lively. Everyone was happily shopping. One person was choosing a carpet, another dishes, another curtains, and other household items. Some were buying fruit, while others were buying clothes. Their preparations showed that they were ready to welcome this year’s Eid. There were children carrying books, making their way toward university entrance exam preparation classes. They had completed twelve years of schooling, meaning they had graduated from school, and they wanted to take the university entrance examination that year and enter university. Everyone was busy.\n\nMy two friends and I had just finished our course and were sharing sweet stories. The road was long too. Slowly, raindrops began to dampen the ground. The rain seemed to grow sorrowful; it did not want to witness this happiness and began to turn into a storm. When the storm began, we continued on our way without stopping. Suddenly, panic could be seen all along the street. People were running and searching for shelter, just like those moments when the government changed and people panicked, desperately searching for a safe place. Without having umbrellas, we continued walking. One of my friends held her book over her head so that it would not get wet, while the other hid her books beneath her chador because she loved reading and loved having books. It was just like those days when girls were being gathered up and all the girls had hidden inside their homes.\n\nWe had reached the point where I had to say goodbye and continue the rest of the journey alone. I said goodbye to them and remembered the friends who had accompanied me halfway along my journey, one by one leaving me alone and disappearing from my life. I never saw them again. The rain was very heavy. I wanted to travel along this road by car; I wanted to get into a vehicle so I would not get wet. But suddenly, I changed my mind and began walking down the road.\n\nI looked at the street as the rainwater washed away the dirt, leaving everything clean. It was as though the people of my country wanted this government to leave so they could have a better life. Looking at the street and the rain reminded me of the day when it was our final year at school. My friends and I used to walk in the rain just to get wet, and we loved getting soaked. After they left, I no longer enjoyed getting wet. But today, being drenched gave me a good feeling. I wanted to talk to the rain, so I began telling it stories about my own retirement and how I had been spending my days.\n\nI was lost in those stories and memories when I saw a little girl who could not cross the deep water and needed help. I took her in my arms and helped her. She was wet too, but she was very frightened. She was alone. I asked her, “Beautiful girl, which way is your home?” She replied, “Up that way.” I said, “Then come, you and I will walk together.” So, beneath the rain, I continued along the road with her.\n\nShe said, “My name is Narges. I have a friend named Zahra. She didn’t come today. Otherwise, the two of us come to school together every day and go home together. She is a halfway friend.”\n\nI said, “I have many halfway friends too.”\n\nShe told me more about the argument she was having over sitting in the front row of the classroom. It reminded me of my own school days and brought back my school memories—the time when my friend and I used to argue over the front row during the morning assembly. Sometimes both of us would be punished, but we never stopped arguing about it. I laughed and told her that arguments between friends are completely normal.\n\nShe said, “This is my street. I have to go down this street.”\n\nI said goodbye to her. She had refreshed all my school memories. Slowly, a lump tightened in my throat, and tears began to fill my eyes. I held back those tears and told myself that those days would never happen again, because they had already passed. They had become a source of strength for me, and I could continue my journey without them.\n\nSaying these words and going over them in my mind brought me some peace. I was completely soaked. I think sometimes we need to refresh our memories beneath the rain, because the rain carries away all our sorrows and grief. You only need to be honest with yourself when telling your own story."
       },
-      "image": "/src/assets/images/SchoolMemories.webp"
+      "image": "images/SchoolMemories.webp"
     },
     {
       "id": 22,
@@ -588,7 +579,7 @@
         "en": "How do words keep our memories alive? When my grandmother told me stories in Dari, every word carried the scent of home: fresh bread, an old rug, and family laughter.\n\nLater at school I learned new terms, yet the words of childhood still brought me back. Language, for me, is a bridge between past and present, between Kabul and every city that comes alive in my fiction.\n\nTo write is to preserve; it is to let someone, years later, read the same sentence and say, \"I have felt this too.\""
       },
 
-      "image": "/src/assets/images/Language&Memory.webp"
+      "image": "images/Language&Memory.webp"
     },
     {
       "id": 23,
@@ -613,7 +604,7 @@
         "en": "He wished, if only for one night, that time would stop running. Not to bring back the past, nor to glimpse the future before its time, but simply to remain in the very moment when his heart had finally found peace to take a deep breath and believe that life was not always meant to rush past us.\n\nHe wished, if only for one night, that no alarm would ring, no message would arrive, and no worries would line up at the door of his mind. Let the night be nothing but a night, wrapped in a silence so profound that the heartbeat could be heard louder than any noise.\n\nHe wanted to open the window, surrender his face to the gentle breeze, and count the stars one by one. Not in search of a shooting star, nor to make a wish, but simply to reassure himself that there are still things in this world that shine without expecting anything in return.\n\nHe wished, if only for one night, that his mother would smile without a reason, that his father would sleep without a single burden on his mind, that no child anywhere in the world would lay their head on a pillow with an empty stomach, and that no one would ever be forced to choose between their dreams and tomorrow's bread.\n\nHe knew well that the world could not change in a single night. Yet he believed that some nights could change a person so deeply that tomorrow, the world might seem just a little kinder.\n\nHe longed to write down every word that had been trapped in his throat for years. Not for anyone else to read, but so that he himself could finally hear the true voice of his heart. Some silences last so long that we forget the storms that rage within us.\n\nHe wished, if only for one night, to be entirely himself without a mask, without fear of judgment, without having to replace genuine exhaustion with artificial smiles. How difficult it is when everyone believes you are doing fine simply because you have learned to hide your tears behind a smile.\n\nHe wanted to sit beside a river whose waters carried away no precious memories, only sorrow, washing it away little by little, taking it so far that it could never find its way back.\n\nHe loved the night because it never asked anyone why they were hurting. It simply spread its darkness so everyone could quietly hide their tears. Some pains cannot be explained; they can only be allowed to grow lighter in silence.\n\nHe wished, if only for one night, that everyone he had ever loved, even if they were thousands of miles away, would be at peace in that very moment. No phone call, no reunion, not even a message—only the quiet certainty that a smile rested upon their lips.\n\nHe had come to understand that love is not always about staying. Sometimes the greatest loves are the ones that leave without a sound, yet make a home in a corner of the heart for the rest of one's life.\n\nThe wind drifted gently through the branches of the trees, as though every leaf whispered an unfinished story. The moon emerged from behind the clouds with its timeless grace, scattering its silver light across the earth. Everything was so peaceful that it seemed the universe had decided, for a few precious hours, not to remind anyone of their wounds.\n\nIn that silence, he thought to himself that perhaps happiness is not something grand. Perhaps happiness is the warm cup of tea cooling beside a window, the sound of laughter from the next room, or the hand that unexpectedly squeezes your shoulder and quietly says, \"I'm here.\"\n\nWe humans often spend our entire lives searching for miracles, while miracles pass by us every single day—in the sunrise, in the scent of rain, in a mother's embrace, in a father's prayer, and in the laughter of a child who still knows nothing of the world's hardships.\n\nHe wished, if only for one night, that all resentment would disappear. That no one would be ashamed of their past, no heart would fear the future, and no soul would ever feel alone in this world.\n\nAnd if tears were to fall, he wished they would be tears of joy—tears of arrival, of forgiveness, of seeing once again those whose absence we have carried in our hearts for years.\n\nPerhaps this is what life truly is: a collection of wishes, some of which will never come true, yet it is the hope of reaching them that keeps us alive.\n\nHe lifted his head and gazed at the sky. The stars were still there—humble, silent, yet always present. He thought perhaps we should be like the stars: even if no one looks our way, even if no one knows our name, we should never let our own light go out.\n\nThat night, as the first rays of dawn rose over the horizon, he realized that his greatest wish had never been for the world to change. His greatest wish was that, despite every wound, his heart would never lose its ability to love.\n\nFor the one who can still love, who can still forgive, who can still hope, is never truly defeated.\n\nPerhaps the most beautiful thing in life is not fulfilling every dream, but becoming the kind of person who, even after being broken a thousand times, still smiles with every sunrise and quietly whispers:\n\n\"I still have hope for one night, for one morning, for a better life.\""
       },
 
-      "image": "/src/assets/images/HeWished.webp"
+      "image": "images/HeWished.webp"
     },
     {
       "id": 24,
@@ -638,7 +629,7 @@
         "en": "Raindrops on the glass began a new story. Winter in Kabul arrives late, but when it comes, it changes everything.\n\nA girl with an old umbrella passed my window and waved. In that instant I found my character: a girl who wants to hold the city together with words.\n\nBy morning I had written ten pages. When the rain stopped, the story was not finished; it had only begun. Because every rain opens a new path in a writer's heart."
       },
 
-      "image": "/src/assets/images/FirstRain.webp"
+      "image": "images/FirstRain.webp"
     }
 
   ], 
@@ -647,7 +638,15 @@
          
      
 
-       
+        },
+        "image": "littleBoy.webp"
+
+      }
+
+      ],
+
+      
+
   "achievements": [
     {
       "id": 1,
@@ -664,7 +663,7 @@
         "en": "The award was presented to the novel in October in recognition of its deep psychological perspective on migration and the crises of the Middle East. The jury considered its poetic writing and innovative imagery among its strengths."
       },
       "date": "1403",
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
     },
     {
       "id": 2,
@@ -681,7 +680,7 @@
           "en": "This award was presented in recognition of years of continuous efforts to promote reading in underserved communities, as well as the publication of influential articles focusing on \"Women and Identity Challenges in the Twenty-First Century.\""
         },
         "date": "1402",
-        "image": "/src/assets/images/littleBoy.webp"
+        "image": "images/littleBoy.webp"
       },
       {
       "id": 3,
@@ -698,7 +697,7 @@
         "en": "The poetry collection received an exceptional response from readers and reached its tenth edition in less than ten months. Many critics have praised the intimate language and nostalgic tone of the poems."
       },
       "date": "1401",
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
       },
       {
       "id": 4,
@@ -715,7 +714,7 @@
         "en": "The screenplay, adapted from one of the short stories in the collection \"Broken Mirrors,\" won the approval of the jury in the international section."
       },
       "date": "1400",
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
       },
       {
       "id": 5,
@@ -732,7 +731,7 @@
         "en": "This award marked the first major professional achievement, paving the way for a writing career and the publication of the first book, while also bringing recognition in literary circles."
       },
       "date": "1398",
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
       },
        {
       "id": 6,
@@ -749,7 +748,7 @@
           "en": "This award was presented in recognition of years of continuous efforts to promote reading in underserved communities, as well as the publication of influential articles focusing on \"Women and Identity Challenges in the Twenty-First Century.\""
         },
         "date": "1402",
-        "image": "/src/assets/images/littleBoy.webp"
+        "image": "images/littleBoy.webp"
       },
        {
       "id": 7,
@@ -766,9 +765,235 @@
         "en": "The award was presented to the novel in October in recognition of its deep psychological perspective on migration and the crises of the Middle East. The jury considered its poetic writing and innovative imagery among its strengths."
       },
       "date": "1403",
-      "image": "/src/assets/images/littleBoy.webp"
+      "image": "images/littleBoy.webp"
       }      
   ],
+
+
+
+
+
+
+
+
+
+
+  "books": [
+    {
+      "id": 1,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۴۰۰",
+        "en": "1400"
+      },
+      "title": {
+        "dr": "پایانی برای شروع دیگر",
+        "en": "An Ending for Another Beginning"
+      },
+      "subtitle": {
+        "dr": "مجموعه داستان‌ها",
+        "en": "A Collection of Stories"
+      },
+      "abstract": {
+        "dr": "«پایانی برای شروعی دیگر» روایت دختری است که سقوط حکومت و تغییرات ناگهانی زندگی‌اش را از نزدیک تجربه کرده است. این کتاب از امید، استقامت و مبارزه با دشواری‌ها سخن می‌گوید و نشان می‌دهد که چگونه هر پایان می‌تواند آغاز راهی تازه باشد. داستانی واقعی و الهام‌بخش از رؤیاها، چالش‌ها و امید به آینده.",
+        "en": "\"An Ending for Another Beginning\" tells the story of a girl who experienced the fall of the government and the sudden changes in her life firsthand. The book speaks of hope, resilience, and overcoming difficulties, showing how every ending can become the beginning of a new path. A true and inspiring story of dreams, challenges, and hope for the future."
+      },
+      "pdf": "/books/book-01.pdf"
+    },  {
+      "id": 2,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۹",
+        "en": "1399"
+      },
+      "title": {
+        "dr": "در جستجوی فردا",
+        "en": "Searching for Tomorrow"
+      },
+      "subtitle": {
+        "dr": "روایت‌هایی از امید و زندگی",
+        "en": "Stories of Hope and Life"
+      },
+      "abstract": {
+        "dr": "مجموعه‌ای از روایت‌های کوتاه درباره انسان‌هایی که در میان دشواری‌های زندگی به دنبال فرصتی برای ساختن آینده‌ای بهتر هستند. این اثر بر امید، انتخاب و قدرت ادامه دادن تمرکز دارد.",
+        "en": "A collection of short stories about people searching for an opportunity to build a better future despite life's difficulties. The work explores hope, choices, and the strength to keep moving forward."
+      },
+      "pdf": "/books/book-02.pdf"
+    },
+    {
+      "id": 3,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۸",
+        "en": "1398"
+      },
+      "title": {
+        "dr": "صدای خاموش",
+        "en": "The Silent Voice"
+      },
+      "subtitle": {
+        "dr": "داستان‌هایی از ناگفته‌ها",
+        "en": "Stories of the Unspoken"
+      },
+      "abstract": {
+        "dr": "این کتاب به زندگی و احساسات کسانی می‌پردازد که بسیاری از حرف‌های خود را در سکوت نگه داشته‌اند. روایت‌ها از ترس، آرزو، تنهایی و شجاعت برای بیان حقیقت سخن می‌گویند.",
+        "en": "This book explores the lives and emotions of people who have kept many of their words unspoken. The stories reflect on fear, dreams, loneliness, and the courage to speak the truth."
+      },
+      "pdf": "/books/book-03.pdf"
+    },
+    {
+      "id": 4,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۸",
+        "en": "1398"
+      },
+      "title": {
+        "dr": "رویای نیمه‌شب",
+        "en": "Midnight Dream"
+      },
+      "subtitle": {
+        "dr": "داستان‌های کوتاه",
+        "en": "Short Stories"
+      },
+      "abstract": {
+        "dr": "روایت‌هایی کوتاه و خیال‌انگیز از لحظه‌هایی که میان واقعیت و رویا شکل می‌گیرند. هر داستان پنجره‌ای است به دنیای شخصیت‌هایی با آرزوها و پرسش‌های متفاوت.",
+        "en": "A collection of imaginative short stories born between reality and dreams. Each story opens a window into the world of characters with different dreams, questions, and experiences."
+      },
+      "pdf": "/books/book-04.pdf"
+    },
+    {
+      "id": 5,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۷",
+        "en": "1397"
+      },
+      "title": {
+        "dr": "قدم‌های کوچک",
+        "en": "Small Steps"
+      },
+      "subtitle": {
+        "dr": "روایت تغییر و رشد",
+        "en": "Stories of Change and Growth"
+      },
+      "abstract": {
+        "dr": "کتابی درباره تغییراتی که از قدم‌های کوچک آغاز می‌شوند. داستان‌های این مجموعه نشان می‌دهند که تصمیم‌های ساده و روزمره چگونه می‌توانند مسیر زندگی انسان را تغییر دهند.",
+        "en": "A book about changes that begin with small steps. These stories show how simple everyday decisions can gradually transform the direction of a person's life."
+      },
+      "pdf": "/books/book-05.pdf"
+    },
+    {
+      "id": 6,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۶",
+        "en": "1396"
+      },
+      "title": {
+        "dr": "آن سوی دیوار",
+        "en": "Beyond the Wall"
+      },
+      "subtitle": {
+        "dr": "روایت‌هایی از آزادی",
+        "en": "Stories of Freedom"
+      },
+      "abstract": {
+        "dr": "داستان‌هایی درباره محدودیت‌هایی که انسان با آن‌ها روبه‌رو می‌شود و تلاش برای عبور از آن‌ها. این اثر مفهوم آزادی را از نگاه شخصیت‌هایی با تجربه‌های متفاوت بررسی می‌کند.",
+        "en": "Stories about the limitations people face and their efforts to overcome them. The work explores the meaning of freedom through characters with different experiences."
+      },
+      "pdf": "/books/book-06.pdf"
+    },
+    {
+      "id": 7,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۶",
+        "en": "1396"
+      },
+      "title": {
+        "dr": "خانه‌ای در میان باد",
+        "en": "A Home in the Wind"
+      },
+      "subtitle": {
+        "dr": "مجموعه‌ای از روایت‌های انسانی",
+        "en": "A Collection of Human Stories"
+      },
+      "abstract": {
+        "dr": "مجموعه‌ای از داستان‌های انسانی درباره خانواده، مهاجرت، دلتنگی و پیدا کردن معنای خانه در شرایطی که همه چیز در حال تغییر است.",
+        "en": "A collection of human stories about family, migration, longing, and finding a sense of home when everything around us is changing."
+      },
+      "pdf": "/books/book-07.pdf"
+    },
+    {
+      "id": 8,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۵",
+        "en": "1395"
+      },
+      "title": {
+        "dr": "فصل تازه",
+        "en": "A New Chapter"
+      },
+      "subtitle": {
+        "dr": "یادداشت‌هایی درباره زندگی",
+        "en": "Reflections on Life"
+      },
+      "abstract": {
+        "dr": "مجموعه‌ای از یادداشت‌ها و روایت‌های کوتاه درباره شروع دوباره، پذیرش تغییر و پیدا کردن فرصت‌های تازه در مسیر زندگی.",
+        "en": "A collection of reflections and short stories about starting over, embracing change, and discovering new opportunities along life's journey."
+      },
+      "pdf": "/books/book-08.pdf"
+    },
+    {
+      "id": 9,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۵",
+        "en": "1395"
+      },
+      "title": {
+        "dr": "شهر بی‌پنجره",
+        "en": "The Windowless City"
+      },
+      "subtitle": {
+        "dr": "داستان‌هایی از یک شهر",
+        "en": "Stories from a City"
+      },
+      "abstract": {
+        "dr": "داستان‌هایی درباره زندگی انسان‌ها در شهری پر از تضاد، خاطره و رویا. شخصیت‌های این مجموعه هر کدام تلاش می‌کنند راهی برای دیدن آینده پیدا کنند.",
+        "en": "Stories about people living in a city filled with contradictions, memories, and dreams. Each character searches for a way to see beyond the uncertainty of the future."
+      },
+      "pdf": "/books/book-09.pdf"
+    },
+    {
+      "id": 10,
+      "image": "images/desk.webp",
+      "year": {
+        "dr": "۱۳۹۴",
+        "en": "1394"
+      },
+      "title": {
+        "dr": "چراغی برای فردا",
+        "en": "A Light for Tomorrow"
+      },
+      "subtitle": {
+        "dr": "داستان‌هایی درباره امید",
+        "en": "Stories About Hope"
+      },
+      "abstract": {
+        "dr": "این مجموعه با روایت‌هایی ساده و انسانی به مفهوم امید می‌پردازد و نشان می‌دهد که حتی در دشوارترین لحظه‌ها می‌توان نوری برای ادامه مسیر پیدا کرد.",
+        "en": "Through simple and human stories, this collection explores the meaning of hope and shows how even in the most difficult moments, a light can be found to continue the journey."
+      },
+      "pdf": "/books/book-10.pdf"
+    }
+   
+  ],
+
+
+
+  
 
 
 
@@ -787,7 +1012,7 @@
     "dr": "1403/12/18",
     "en": "March 8, 2025"
   },
-  "image": "/src/assets/images/littleBoy.webp"
+  "image": "littleBoy.webp"
 }
   ],
 
@@ -843,4 +1068,7 @@
     
   "podcasts": [],
   "newsletters": []
+
+
+
 }
