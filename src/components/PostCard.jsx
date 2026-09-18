@@ -6,8 +6,8 @@ import {
     Check,
 } from "lucide-react";
 
-import { useLangStore } from "../../store/useLangStore.js";
-import db from "../../../db.json";
+import { useLangStore } from "../store/useLangStore.js";
+import db from "../../db.json";
 
 const PostCard = ({ post }) => {
     const { lang } = useLangStore();
