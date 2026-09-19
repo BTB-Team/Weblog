@@ -50,6 +50,14 @@
     }
   },
 
+
+  "books": {
+    "downloadPdf": "Download PDF",
+    "readAbstract": "Read Abstract"
+  },
+
+
+
 "cta": {
   "title": "Collaboration & Contact",
   "description": "Get in touch with me for interviews or literary collaborations.",
