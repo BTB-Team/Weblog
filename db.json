@@ -1,6 +1,4 @@
 {
- 
- 
   "activities": [
     {
       "id": 1,
@@ -19,6 +17,36 @@
       "location": {
         "dr": "گوگل میت",
         "en": "Google Meet"
+      },
+      "image": "/public/img/img.jpeg"
+    },
+    {
+      "id": 2,
+      "title": {
+        "dr": "برگزاری جشن روز جهانی زن",
+        "en": "International Women's Day Celebration"
+      },
+      "description": {
+        "dr": "در هشتم مارچ 2025، جشن روز جهانی زن در تالار مکتب بامیکا برگزار شد. این برنامه با مدیریت تیمی پنج‌نفره سازماندهی گردید و من به عنوان سر تیم عمومی مسئولیت رهبری را بر عهده داشتم. در این جشن، زنان و دختران بخش سواد حیاتی مورد تقدیر قرار گرفتند و به آنان نامه، قلم و کتابچه اهدا شد. به عنوان مدیر انجمن عمومی نویسندگی کلستر سخنرانی داشتم و استاد فرشته مرادی نیز به نمایندگی از کلستر صحبت کرد. برنامه شامل اجرای طنز اجتماعی برگرفته از شرایط دختران، دو دکلمه، یک مقاله، قرائت قرآن و آوازخوانی بود. این رویداد فرصتی ارزشمند برای توانمندسازی زنان و ایجاد فضای فرهنگی و آموزشی پرشور فراهم آورد.",
+        "en": "On March 8, 2025, an International Women's Day celebration was held at the Bamika School Hall. The event was organized by a five-member team, and I took on the responsibility of leading the team as its general leader. During the celebration, women and girls from the vital literacy program were recognized and presented with letters, pens, and notebooks. As the director of the Cluster General Writing Association, I gave a speech, and Professor Fereshteh Moradi also spoke on behalf of the Cluster. The program included a social comedy performance inspired by the circumstances of girls, two poetry recitations, an article presentation, Quran recitation, and singing. This event provided a valuable opportunity to empower women and create an energetic cultural and educational environment."
+      },
+      "date": {
+        "dr": "1403/12/18",
+        "en": "March 8, 2025"
+      },
+      "location": {
+        "dr": "کلستر نخبگان بامیکا",
+        "en": "Bamika Elite Cluster"
+      },
+      "image": "/public/img/img.jpeg"
+    }
+  ],
+  "writings": [
+    {
+      "id": 1,
+      "title": {
+        "dr": "معیار ما برای بزرگی چیست؟",
+        "en": "What is our criterion for greatness?"
       },
       "image": "images/littleBoy.webp"
     },
@@ -1005,15 +1033,8 @@
   "image": "littleBoy.webp"
 }
   ],
-
-
-
-
-
-
-
-  "mediaVideo":[
-        {
+  "mediaVideo": [
+    {
       "id": 1,
       "title": {
         "dr": "معنای صلح",
@@ -1026,12 +1047,8 @@
       "url": null
     }
   ],
-
-
-
-
-
-  "comments": [ {
+  "comments": [
+    {
       "id": "comment-1",
       "postId": 1,
       "parentId": null,
@@ -1050,13 +1067,194 @@
       "content": "ممنون از نگاه پر مهرت سارا عزیزم، خوشحالم که این حس مشترک را تجربه کردیم.",
       "createdAt": "1405/07/16 11:15",
       "isApproved": true
-    }],
-
-
-
-
-    
-  "podcasts": [],
+    }
+  ],
+  "podcasts": [
+    {
+      "id": 1,
+      "badge": "ویژه",
+      "title": {
+        "dr": "داستان‌هایی که الهام می‌بخشند",
+        "en": "Stories That Inspire"
+      },
+      "guest": {
+        "dr": "آمینه رحیمی",
+        "en": "Amina Rahimi"
+      },
+      "duration": "25:40",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "گفتگویی درباره امید، یادگیری و آغازهای جدید.",
+        "en": "A conversation about hope, learning, and new beginnings."
+      },
+      "category": "stories",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "badge": "دوستانه",
+      "title": {
+        "dr": "قدرت آموزش",
+        "en": "The Power of Education"
+      },
+      "guest": {
+        "dr": "فرید احمد",
+        "en": "Farid Ahmad"
+      },
+      "duration": "18:20",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "گفتگویی درباره اینکه چگونه آموزش می‌تواند فرصت‌های جدید ایجاد کند.",
+        "en": "Exploring how education can create new opportunities."
+      },
+      "category": "conversations",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "badge": "ویژه",
+      "title": {
+        "dr": "داستان‌هایی که الهام می‌بخشند",
+        "en": "Stories That Inspire"
+      },
+      "guest": {
+        "dr": "",
+        "en": ""
+      },
+      "duration": "32:15",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "داستان‌هایی از افرادی که برای ایجاد تغییر تلاش می‌کنند.",
+        "en": "Stories from people working to make a difference."
+      },
+      "category": "experiences",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "badge": "ویژه",
+      "title": {
+        "dr": "داستان‌هایی که الهام می‌بخشند",
+        "en": "Stories That Inspire"
+      },
+      "guest": {
+        "dr": "",
+        "en": ""
+      },
+      "duration": "32:15",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "داستان‌هایی از افرادی که برای ایجاد تغییر تلاش می‌کنند.",
+        "en": "Stories from people working to make a difference."
+      },
+      "category": "experiences",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "badge": "ویژه",
+      "title": {
+        "dr": "داستان‌هایی که الهام می‌بخشند",
+        "en": "Stories That Inspire"
+      },
+      "guest": {
+        "dr": "",
+        "en": ""
+      },
+      "duration": "32:15",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "داستان‌هایی از افرادی که برای ایجاد تغییر تلاش می‌کنند.",
+        "en": "Stories from people working to make a difference."
+      },
+      "category": "experiences",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "badge": "ویژه",
+      "title": {
+        "dr": "داستان‌هایی که الهام می‌بخشند",
+        "en": "Stories That Inspire"
+      },
+      "guest": {
+        "dr": "",
+        "en": ""
+      },
+      "duration": "32:15",
+      "cover": "/img/img.jpeg",
+      "audioUrl": "/podcasts/stories-that-inspire.mp3",
+      "description": {
+        "dr": "داستان‌هایی از افرادی که برای ایجاد تغییر تلاش می‌کنند.",
+        "en": "Stories from people working to make a difference."
+      },
+      "category": "experiences",
+      "featured": false
+    }
+  ],
+  "podcastCategories": [
+    {
+      "id": "all",
+      "label": {
+        "dr": "همه",
+        "en": "All"
+      }
+    },
+    {
+      "id": "stories",
+      "label": {
+        "dr": "داستان‌ها",
+        "en": "Stories"
+      }
+    },
+    {
+      "id": "conversations",
+      "label": {
+        "dr": "گفتگوها",
+        "en": "Conversations"
+      }
+    },
+    {
+      "id": "experiences",
+      "label": {
+        "dr": "تجربه‌ها",
+        "en": "Experiences"
+      }
+    },
+    {
+      "id": "interviews",
+      "label": {
+        "dr": "مصاحبه‌ها",
+        "en": "Interviews"
+      }
+    }
+  ],
+  "podcastPlatforms": [
+    {
+      "id": "castbox",
+      "name": "Castbox",
+      "url": "#"
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "url": "#"
+    },
+    {
+      "id": "apple",
+      "name": "Apple Podcasts",
+      "url": "#"
+    }
+  ],
+  "podcastPage": {
+    "heroImage": "/img/img.jpeg",
+    "featuredPodcastId": 1
+  },
   "newsletters": []
 
 
