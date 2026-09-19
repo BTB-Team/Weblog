@@ -12,5 +12,45 @@
     "podcasts": "Podcasts",
     "achievements": "Achievements",
     "newsletter": "Newsletter"
+  },
+ "podcast": {
+  "title": "Podcasts",
+  "description": "Inspiring conversations, stories, and voices",
+  "heroTitle": "A world of stories to listen to",
+  "heroDescription": "Listen to inspiring conversations, personal stories, and voices that share experiences, ideas, and hope.",
+  "listen": "Listen",
+  "play": "Play",
+  "pause": "Pause",
+  "latest": "Latest Podcasts",
+  "availableOn": "Listen on different platforms",
+  "platformDescription": "Listen to our podcasts on your favorite podcast platforms.",
+  "guest": "Guest",
+  "duration": "Duration",
+  "loading": "Loading",
+  "error": "Unable to play this audio file",
+  "previous": "Previous",
+  "next": "Next",
+  "close": "Close",
+  "placeholderCover": "Podcast cover",
+  "audioComingSoon": "Sample audio unavailable — add an audio URL to enable playback.",
+  "nowPlaying": "Now playing",
+  "seek": "Seek through podcast",
+  "episodes": "episodes",
+  "noPodcasts": "No podcasts available yet.",
+  "loadError": "Could not load podcasts. Check that JSON Server is running.",
+  "playbackError": "Could not play this audio. Check the audio URL.",
+  "searchPlaceholder": "Search podcasts...",
+  
+    
+      "heroTitle": "Enter the World of Stories Through Listening",
+      "heroDescription": "A place to listen to conversations, stories, and podcasts shaped by different experiences, ideas, and voices.",
+      "searchPlaceholder": "Search podcasts...",
+      "platformDescription": "Follow our podcasts on your favorite platforms and listen wherever you are.",
+      "contactEyebrow": "Get in Touch",
+      "contactTitle": "Stay Connected With Me",
+      "contactDescription": "If you have a question, suggestion, or message, I would be happy to hear from you through the channels below.",
+      "email": "Email",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn"
+    }
   }
-}
