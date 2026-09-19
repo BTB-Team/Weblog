@@ -54,3 +54,72 @@
       "linkedin": "LinkedIn"
     }
   }
+
+
+  "hero": {
+    "name": "Mariam Amiri",
+    "description": "I am Mariam Amiri, a writer and young leader dedicated to empowering girls and young people through writing and ideas.",
+    "buttons": {
+      "writings": "Read Writings",
+      "about": "Learn More"
+    }
+  },
+
+  "home":{
+    "homeAbout": {
+      "aboutMe": "About Me",
+    "description": "I am Mariam Amiri, a writer, storyteller, and a voice for what is too often left unheard. My journey began with words, but it did not end there. For me, words are tools for illuminating darkness, reflecting realities, and building bridges between individual experiences and collective concerns. At the intersection of writing, leadership, and advocacy, I strive to keep stories alive that deserve to be heard—stories of hope, resilience, and change. I believe that every story, when told with care, can spark awareness and inspire movement toward a more just future. Today, I am walking a path that goes beyond expression and leads toward impact; a path where voices are not silenced and words become catalysts for transformation. This is a space to see, listen, and rethink—a place where stories remain alive."
+  }
+},
+
+
+
+  "achievements":{
+    "achievementsTitle": "Achievements & Professional Journey",
+    "achievementsSubtitle": "Click on any item to view more details.",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "numberOne": "1",
+    "numberThree": "3",
+    "numberFourHundred": "400",
+    "numberTen": "10",
+    "stats": {
+    "yearsActive": "Years Active",
+    "publishedWorks": "Published Works",
+    "publishedWritings": "Published Writings",
+    "awards": "Awards & Recognitions"
+    }
+  },
+
+
+  "books": {
+    "downloadPdf": "Download PDF",
+    "readAbstract": "Read Abstract"
+  },
+
+
+
+"cta": {
+  "title": "Collaboration & Contact",
+  "description": "Get in touch with me for interviews or literary collaborations.",
+  "contactButton": "Send a Message",
+  "writingsButton": "Read Writings"
+},
+
+
+
+  "footer": {
+    "description": "Mariam Amiri is a writer and storyteller who uses words to open a window into the world of emotions and experiences.",
+    "pages": "Pages",
+    "newsletter": "Subscribe to the Newsletter",
+    "emailPlaceholder": "Enter your email...",
+    "subscribe": "Subscribe",
+    "connect": "Connect",
+    "withLoveForWords": "With Love for Words"
+    
+  }
+
+
+
+
+}

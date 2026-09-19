@@ -1,8 +1,19 @@
+import HeroSection from "./components/HeroSection";
+import StatHome from "./components/StatHome";
+import AboutHome from "./components/AboutHome";
+import CTA from "../../components/common/CTA";
+// import BookCard from "../../components/common/BookCard";
+
 const home = () => {
   return (
-    <div>
-      <h1>This is home page</h1>
-    </div>
+    <main className="m-auto max-w-7xl">
+      <HeroSection />
+      <StatHome />
+      <AboutHome />
+      {/*  */}
+      <CTA />
+      {/* <BookCard  /> */}
+    </main>
   );
 };
 
