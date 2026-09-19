@@ -28,7 +28,20 @@
     "homeAbout": {
       "aboutMe": "About Me",
     "description": "I am Mariam Amiri, a writer, storyteller, and a voice for what is too often left unheard. My journey began with words, but it did not end there. For me, words are tools for illuminating darkness, reflecting realities, and building bridges between individual experiences and collective concerns. At the intersection of writing, leadership, and advocacy, I strive to keep stories alive that deserve to be heard—stories of hope, resilience, and change. I believe that every story, when told with care, can spark awareness and inspire movement toward a more just future. Today, I am walking a path that goes beyond expression and leads toward impact; a path where voices are not silenced and words become catalysts for transformation. This is a space to see, listen, and rethink—a place where stories remain alive."
-  }
+  },
+  "viewAll": "View all",
+"latestPosts": "Latest Writings",
+"recentActivities": "Recent Activities",
+"publications": "Publications",
+"featuredAchievements": "Featured Achievements",
+"gallery": "Photo & Video Gallery",
+"finalCta": {
+  "title": "Let's stay in touch",
+  "description": "If you have a question, a suggestion, or a topic you'd like me to write about, I'd be glad to hear from you.",
+  "contact": "Send a Message",
+  "writings": "Read Writings",
+  "donate": "Support"
+}
 },
 
 

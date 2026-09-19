@@ -1,20 +1,28 @@
+// src/pages/home/Home.jsx
 import HeroSection from "./components/HeroSection";
 import StatHome from "./components/StatHome";
 import AboutHome from "./components/AboutHome";
-import CTA from "../../components/common/CTA";
-// import BookCard from "../../components/common/BookCard";
+import LatestPosts from "./components/LatestPosts";
+import RecentActivities from "./components/RecentActivities";
+import PublicationsHome from "./components/PublicationsHome";
+import FeaturedAchievements from "./components/FeaturedAchievements";
+import MediaGallery from "./components/MediaGallery";
+import FinalCTA from "./components/FinalCTA";
 
-const home = () => {
+const Home = () => {
   return (
     <main className="m-auto max-w-7xl">
-      <HeroSection />
-      <StatHome />
-      <AboutHome />
-      {/*  */}
-      <CTA />
-      {/* <BookCard  /> */}
+      {/* 1 */} <HeroSection />
+      {/* 2 */} <StatHome />
+      {/* 3 */} <AboutHome />
+      {/* 4 */} <LatestPosts />
+      {/* 5 */} <RecentActivities />
+      {/* 6 */} <PublicationsHome />
+      {/* 7 */} <FeaturedAchievements />
+      {/* 8 */} <MediaGallery />
+      {/* 9 */} <FinalCTA />
     </main>
   );
 };
 
-export default home;
+export default Home;
