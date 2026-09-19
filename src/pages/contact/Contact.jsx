@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLangStore } from "../../store/useLangStore";
+import SocialIcon from "../../components/footer/components/SocialIcon";
+import socialLinks from "../../components/footer/FooterUrl";
 
 import image1 from "../../assets/images/1.png";
 import image2 from "../../assets/images/2.png";
@@ -21,69 +23,6 @@ const IMAGES = {
 };
 
 const EMAIL = "mariam2023amiri@gmail.com";
-
-const SOCIALS = [
-  {
-    key: "email",
-    type: "mail",
-    href: "mailto:mariam2023amiri@gmail.com",
-  },
-  {
-    key: "outlook",
-    type: "mail",
-    href: "mailto:mariamamiri26@outlook.com",
-  },
-  {
-    key: "linktree",
-    type: "linktree",
-    href: "https://linktr.ee/MariamAmiri",
-  },
-  {
-    key: "bluesky",
-    type: "bluesky",
-    href: "https://bsky.app/profile/mariam26amiri.bsky.social",
-  },
-  {
-    key: "telegram",
-    type: "telegram",
-    href: "https://t.me/mariamamiri",
-  },
-  {
-    key: "substack",
-    type: "substack",
-    href: "https://substack.com/@mariamamiri?utm_source=share&utm_medium=android&r=6ghp4h",
-  },
-  {
-    key: "threads",
-    type: "threads",
-    href: "https://www.threads.com/@mariam2023amiri",
-  },
-  {
-    key: "tiktok",
-    type: "tiktok",
-    href: "https://www.tiktok.com/@mariam.amiri96?_r=1&_t=ZS-96W8stdDYer",
-  },
-  {
-    key: "x",
-    type: "twitter",
-    href: "https://x.com/AmiriMariam",
-  },
-  {
-    key: "instagram",
-    type: "instagram",
-    href: "https://www.instagram.com/mariam2023amiri?igsh=MWYxOG82dmpqOG43",
-  },
-  {
-    key: "facebook",
-    type: "facebook",
-    href: "https://www.facebook.com/share/1BVPrzYCHQ/",
-  },
-  {
-    key: "linkedin",
-    type: "linkedin",
-    href: "https://linkedin.com/in/mariam-amiri",
-  },
-];
 
 function Petal({
   src,
@@ -238,204 +177,6 @@ function CheckIcon() {
   );
 }
 
-function SocialIcon({ type }) {
-  if (type === "castbox") {
-    return (
-      <span className="font-bold text-[13px] leading-none">
-        C
-      </span>
-    );
-  }
-
-  if (type === "telegram") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <path d="m21 3-6.7 18-3.7-7.1L3 10.2 21 3Z" />
-        <path d="m10.6 13.9 4.2-4.2" />
-      </svg>
-    );
-  }
-
-  if (type === "instagram") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle
-          cx="17.4"
-          cy="6.6"
-          r="0.7"
-          fill="currentColor"
-        />
-      </svg>
-    );
-  }
-
-  if (type === "linkedin") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <path d="M6 9v11" />
-        <path d="M6 5.5v.1" />
-        <path d="M10 20V9" />
-        <path d="M10 13.5a4.5 4.5 0 0 1 9 0V20" />
-        <path d="M14 20v-5.5" />
-      </svg>
-    );
-  }
-
-  if (type === "youtube") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <rect x="3" y="6" width="18" height="12" rx="3" />
-        <path d="m10 9 5 3-5 3V9Z" />
-      </svg>
-    );
-  }
-
-  if (type === "whatsapp") {
-    return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="h-5 w-5"
-      >
-        <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" />
-        <path d="M8.5 9.2c.3 2 1.8 3.5 3.8 4" />
-      </svg>
-    );
-  }
-
-  if (type === "facebook") {
-    return (
-      <span className="font-serif text-lg font-bold leading-none">
-        f
-      </span>
-    );
-  }
-
-  if (type === "x") {
-    return (
-      <span className="text-[15px] font-medium leading-none">
-        𝕏
-      </span>
-    );
-  }
-
-  if (type === "tiktok") {
-    return (
-      <span className="text-[15px] font-bold leading-none">
-        ♪
-      </span>
-    );
-  }
-
-  if (type === "aparat") {
-    return (
-      <span className="text-[11px] font-bold leading-none">
-        A
-      </span>
-    );
-  }
-
-  if (type === "pinterest") {
-    return (
-      <span className="font-serif text-lg font-bold leading-none">
-        P
-      </span>
-    );
-  }
-
-  if (type === "goodreads") {
-    return (
-      <span className="font-serif text-[12px] font-bold leading-none">
-        G
-      </span>
-    );
-  }
-
-  if (type === "mail") {
-    return <MailIcon />;
-  }
-
-  if (type === "linktree") {
-    return (
-      <span className="text-[10px] font-bold leading-none">
-        LT
-      </span>
-    );
-  }
-
-  if (type === "bluesky") {
-    return (
-      <span className="text-[10px] font-bold leading-none">
-        BS
-      </span>
-    );
-  }
-
-  if (type === "substack") {
-    return (
-      <span className="font-serif text-[13px] font-bold leading-none">
-        S
-      </span>
-    );
-  }
-
-  if (type === "threads") {
-    return (
-      <span className="text-[15px] font-medium leading-none">
-        @
-      </span>
-    );
-  }
-
-  if (type === "twitter") {
-    return (
-      <span className="text-[15px] font-medium leading-none">
-        𝕏
-      </span>
-    );
-  }
-
-  return null;
-}
-
 export default function Contact() {
   const lang = useLangStore((state) => state.lang);
   const t = useLangStore((state) => state.t);
@@ -497,6 +238,18 @@ export default function Contact() {
       console.error("Copy failed:", error);
     }
   };
+
+  const socialLabelKeys = [
+    "facebook",
+    "instagram",
+    "x",
+    "tiktok",
+    "threads",
+    "substack",
+    "bluesky",
+    "telegram",
+    "email",
+  ];
 
   return (
     <main
@@ -769,25 +522,31 @@ export default function Contact() {
         </p>
 
         <div
-          className="relative mx-auto mt-8 grid max-w-4xl grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-4 md:grid-cols-6"
+          className="relative mx-auto mt-8 grid max-w-4xl grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-4 md:grid-cols-5"
           dir="ltr"
         >
-          {SOCIALS.map((social) => (
-            <a
-              key={social.key}
-              href={social.href}
-              aria-label={t.contact.social.items[social.key]}
-              className="group flex flex-col items-center gap-3"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#DCC9BC] text-[#7A685D] transition-all duration-300 group-hover:border-[#A36F6F] group-hover:bg-[#A36F6F] group-hover:text-white group-hover:shadow-[0_7px_20px_rgba(163,111,111,0.18)]">
-                <SocialIcon type={social.type} />
-              </span>
+          {socialLinks.map((social, index) => {
+            const labelKey = socialLabelKeys[index];
 
-              <span className="text-[11px] text-[#7A685D] transition-colors group-hover:text-[#A36F6F]">
-                {t.contact.social.items[social.key]}
-              </span>
-            </a>
-          ))}
+            return (
+              <a
+                key={social.url}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.contact.social.items[labelKey]}
+                className="group flex flex-col items-center gap-3"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full border border-[#DCC9BC] text-[#7A685D] transition-all duration-300 group-hover:border-[#A36F6F] group-hover:bg-[#A36F6F] group-hover:text-white group-hover:shadow-[0_7px_20px_rgba(163,111,111,0.18)]">
+                  <SocialIcon icon={social.icon} size={20} />
+                </span>
+
+                <span className="text-[11px] text-[#7A685D] transition-colors group-hover:text-[#A36F6F]">
+                  {t.contact.social.items[labelKey]}
+                </span>
+              </a>
+            );
+          })}
 
           <Petal
             src={IMAGES.petal1}
