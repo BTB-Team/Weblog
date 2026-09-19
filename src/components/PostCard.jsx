@@ -79,7 +79,7 @@ const PostCard = ({ post }) => {
 
       <div className="relative h-64 overflow-hidden">
         <img
-          src={post.image}
+          src={`${import.meta.env.BASE_URL}${post.image}`}
           alt={title}
           className="
                         h-full
