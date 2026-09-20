@@ -108,3 +108,25 @@
            text-text hover:bg-header;
   }
 }
+.marquee-track {
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-container {
+  direction: ltr; /* isolate this component from page RTL */
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  direction: ltr;
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 80s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.3333%); } /* 1/3 since you tripled the array */
+}
