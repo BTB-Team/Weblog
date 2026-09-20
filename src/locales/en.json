@@ -13,6 +13,7 @@
     "achievements": "Achievements",
     "newsletter": "Newsletter"
   },
+
  "podcast": {
   "title": "Podcasts",
   "description": "Inspiring conversations, stories, and voices",
@@ -52,12 +53,12 @@
       "email": "Email",
       "telegram": "Telegram",
       "linkedin": "LinkedIn"
-    }
-  }
+    },
+  
 
 
   "hero": {
-    "hello": "I am",
+    "hello": "Writer & Youth Leader",
     "name": "Mariam Amiri",
     "description": "I am Mariam Amiri, a writer and young leader dedicated to empowering girls and young people through writing and ideas.",
     "buttons": {
@@ -131,6 +132,6 @@
   }
 
 
-
-
 }
+
+

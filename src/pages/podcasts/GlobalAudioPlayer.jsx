@@ -1,24 +1,15 @@
-
 import { useEffect, useRef, useState } from "react";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
 
 const PlayIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className="h-5 w-5"
-    fill="currentColor"
-  >
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
     <path d="M8 5.5v13l10-6.5-10-6.5Z" />
   </svg>
 );
 
 const PauseIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    className="h-5 w-5"
-    fill="currentColor"
-  >
+  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
     <rect x="7" y="5" width="3.5" height="14" rx="1" />
     <rect x="13.5" y="5" width="3.5" height="14" rx="1" />
   </svg>
@@ -33,25 +24,13 @@ const GlobalAudioPlayer = () => {
   const lang = useLangStore((state) => state.lang);
   const t = useLangStore((state) => state.t);
 
-  const currentPodcast = useAudioStore(
-    (state) => state.currentPodcast
-  );
-  const isPlaying = useAudioStore(
-    (state) => state.isPlaying
-  );
-  const isLoading = useAudioStore(
-    (state) => state.isLoading
-  );
+  const currentPodcast = useAudioStore((state) => state.currentPodcast);
+  const isPlaying = useAudioStore((state) => state.isPlaying);
+  const isLoading = useAudioStore((state) => state.isLoading);
 
-  const setIsPlaying = useAudioStore(
-    (state) => state.setIsPlaying
-  );
-  const setIsLoading = useAudioStore(
-    (state) => state.setIsLoading
-  );
-  const setError = useAudioStore(
-    (state) => state.setError
-  );
+  const setIsPlaying = useAudioStore((state) => state.setIsPlaying);
+  const setIsLoading = useAudioStore((state) => state.setIsLoading);
+  const setError = useAudioStore((state) => state.setError);
 
   const getLocalizedValue = (value) => {
     if (!value) return "";
@@ -155,7 +134,7 @@ const GlobalAudioPlayer = () => {
     const remainingSeconds = Math.floor(seconds % 60);
 
     return `${String(minutes).padStart(2, "0")}:${String(
-      remainingSeconds
+      remainingSeconds,
     ).padStart(2, "0")}`;
   };
 
@@ -190,15 +169,9 @@ const GlobalAudioPlayer = () => {
           </div>
 
           <div className="min-w-0">
-            <p className="truncate text-sm font-bold">
-              {title}
-            </p>
+            <p className="truncate text-sm font-bold">{title}</p>
 
-            {guest && (
-              <p className="truncate text-xs text-white/70">
-                {guest}
-              </p>
-            )}
+            {guest && <p className="truncate text-xs text-white/70">{guest}</p>}
           </div>
         </div>
 
@@ -207,11 +180,7 @@ const GlobalAudioPlayer = () => {
           <button
             type="button"
             onClick={togglePlay}
-            aria-label={
-              isPlaying
-                ? t.podcast.pause
-                : t.podcast.play
-            }
+            aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
           >
             {isLoading ? (
@@ -244,9 +213,7 @@ const GlobalAudioPlayer = () => {
 
         {/* Mobile title */}
         <div className="max-w-[120px] min-w-0 md:hidden">
-          <p className="truncate text-xs font-medium">
-            {title}
-          </p>
+          <p className="truncate text-xs font-medium">{title}</p>
         </div>
       </div>
     </aside>
