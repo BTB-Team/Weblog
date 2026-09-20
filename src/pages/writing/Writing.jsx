@@ -5,7 +5,12 @@ import PostCard from "../../components/PostCard.jsx";
 import db from "../../../db.json";
 
 const Posts = () => {
-    const { lang } = useLangStore();
+    const lang = useLangStore((state) => state.lang);
+    const t = useLangStore((state) => state.t);
+
+
+
+
 
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] =
@@ -36,9 +41,7 @@ const Posts = () => {
         return [
             {
                 key: "all",
-                label: isRTL
-                    ? "همه"
-                    : "All",
+                label: t.writing.all,
             },
             ...uniqueTypes.map(
                 (type) => ({
@@ -171,9 +174,7 @@ const Posts = () => {
                             text-[#9B7354]
                         "
                     >
-                        {isRTL
-                            ? "نوشته‌ها"
-                            : "Written Works"}
+                        {t.writing.writtenworks}
                     </span>
 
                     {/* Heading */}
@@ -189,9 +190,7 @@ const Posts = () => {
                             lg:text-6xl
                         "
                     >
-                        {isRTL
-                            ? "نوشته‌ها و داستان‌های من"
-                            : "My Written Works"}
+                        {t.writing.mywrittenworks}
                     </h1>
 
                     {/* Description */}
@@ -207,9 +206,7 @@ const Posts = () => {
                             sm:leading-8
                         "
                     >
-                        {isRTL
-                            ? "مجموعه‌ای از داستان‌ها، نوشته‌ها و دیدگاه‌هایی که در طول مسیرم نوشته‌ام."
-                            : "A collection of stories, writings, and reflections written throughout my journey."}
+                        {t.writing.acollectionofstorieswritings}
                     </p>
 
                     {/* Search */}
@@ -247,9 +244,7 @@ const Posts = () => {
                                 setSearch(e.target.value)
                             }
                             placeholder={
-                                isRTL
-                                    ? "جستجو در نوشته‌ها..."
-                                    : "Search written works..."
+                                t.writing.searchwrittenworks
                             }
                             className="
                                 h-full
@@ -272,9 +267,7 @@ const Posts = () => {
                                     setSearch("")
                                 }
                                 aria-label={
-                                    isRTL
-                                        ? "پاک کردن جستجو"
-                                        : "Clear search"
+                                    t.writing.clearsearch
                                 }
                                 className="
                                     flex
@@ -384,14 +377,9 @@ const Posts = () => {
                         gap-4
                     "
                 >
-                    <p className="text-sm text-stone-500 font-bold">
-                        {isRTL
-                            ? `${filteredPosts.length} نوشته`
-                            : `${filteredPosts.length} ${filteredPosts.length === 1
-                                ? "story"
-                                : "story"
-                            }`}
-                    </p>
+                   <p className="text-sm text-stone-500 font-bold">
+    {filteredPosts.length} {t.writing.story}
+</p>
 
                     {(search ||
                         activeCategory !==
@@ -407,9 +395,7 @@ const Posts = () => {
                                 hover:text-[#76533B]
                             "
                             >
-                                {isRTL
-                                    ? "پاک کردن فیلترها"
-                                    : "Clear filters"}
+                                {t.writing.clearfilters}
                             </button>
                         )}
                 </div>
@@ -479,9 +465,7 @@ const Posts = () => {
                                 text-stone-800
                             "
                         >
-                            {isRTL
-                                ? "نوشته‌ای پیدا نشد"
-                                : "No written works found"}
+                            {t.writing.nowrittenworksfound}
                         </h2>
 
                         <p
@@ -493,9 +477,7 @@ const Posts = () => {
                                 text-stone-500
                             "
                         >
-                            {isRTL
-                                ? "عبارت جستجو یا دسته‌بندی دیگری را امتحان کنید."
-                                : "Try another search term or category."}
+                            {t.writing.tryanothersearchtermorcategory}
                         </p>
 
                         <button
@@ -514,9 +496,7 @@ const Posts = () => {
                                 hover:bg-[#805B42]
                             "
                         >
-                            {isRTL
-                                ? "نمایش همه نوشته‌ها"
-                                : "Show all works"}
+                            {t.writing.showallworks}
                         </button>
                     </div>
                 )}
