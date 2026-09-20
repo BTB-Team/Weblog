@@ -1,60 +1,261 @@
-import BranchDecoration from "./BranchDecoration";
-import image_01 from "../../../assets/images/book.webp";
-import { Link } from "react-router-dom";
 import { useLangStore } from "../../../store/useLangStore";
+import { Link } from "react-router-dom";
+import mariamImage from "../../../assets/images/desk.webp";
+import designImage from "../../../assets/images/ctaImage.webp";
 
 const HeroSection = () => {
   const t = useLangStore((state) => state.t);
-  return (
-    <section className="mx-8 my-8 m-auto max-w-7xl text-text flex flex-col items-center justify-center md:flex-row md:gap-5">
-      <img
-        className="md:order-2  w-[250px] h-[250px] md:w-[200px] md:h-[200px] rounded-full border-10"
-        src={image_01}
-        alt="Mariam Amiri"
-      />
-      <div className="md:order-1  py-5 text-center md:text-start">
-        <h1 className="text-4xl font-bold ">{t.hero.name}</h1>
-        <p className="py-5 px-4 sm:text-xl  md:px-0">{t.hero.description}</p>
-        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link to="/writings" className=" btn-primary ">
-            {t.hero.buttons.writings}
-          </Link>
+  const lang = useLangStore((state) => state.lang);
 
-          <Link to="/about" className="btn-secondary">
-            {t.hero.buttons.about}
-          </Link>
+  const isRTL = lang === "dr";
+
+  return (
+    <section className="w-full overflow-hidden">
+      <div
+        className={`
+          mx-auto
+          flex
+          min-h-[500px]
+          max-w-7xl
+          flex-col
+          items-center
+          lg:flex-row
+          lg:items-stretch
+          ${isRTL ? "lg:flex-row" : "lg:flex-row"}
+        `}
+      >
+        {/* =========================================
+            1. MARIAM IMAGE
+        ========================================== */}
+        <div
+          className={`
+            order-1
+            flex
+            w-full
+            items-center
+            justify-center
+            py-10
+            sm:py-12
+            lg:w-[30%]
+            lg:py-0
+            ${isRTL ? "lg:order-1" : "lg:order-3"}
+          `}
+        >
+          <div
+            className="
+              relative
+              flex
+              h-[240px]
+              w-[240px]
+              items-center
+              justify-center
+              sm:h-[280px]
+              sm:w-[280px]
+            "
+          >
+            {/* Background effect */}
+            <div
+              className="
+                absolute
+                inset-4
+                rounded-full
+                bg-accent/10
+                blur-2xl
+              "
+            />
+
+            {/* Mariam image */}
+            <div
+              className="
+                relative
+                z-10
+                h-[220px]
+                w-[220px]
+                overflow-hidden
+                rounded-full
+                border-8
+                border-white
+                shadow-xl
+                sm:h-[260px]
+                sm:w-[260px]
+              "
+            >
+              <img
+                src={mariamImage}
+                alt={t.hero.name}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                "
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================
+            2. TEXT CONTENT
+        ========================================== */}
+        <div
+          className={`
+            order-2
+            flex
+            w-full
+            flex-col
+            items-center
+            justify-center
+            px-4
+            py-8
+            text-center
+            sm:px-6
+            lg:w-[40%]
+            lg:px-8
+            lg:py-0
+            ${isRTL ? "lg:order-2" : "lg:order-2"}
+          `}
+        >
+          <span
+            className="
+              mb-2
+              text-sm
+              font-medium
+              text-muted
+              sm:text-base
+            "
+          >
+            {t.hero.hello}
+          </span>
+
+          <h1
+            className="
+              text-3xl
+              font-bold
+              leading-tight
+              text-text
+              sm:text-4xl
+              lg:text-5xl
+            "
+          >
+            {t.hero.name}
+          </h1>
+
+          <p
+            className="
+              mt-5
+              max-w-lg
+              text-sm
+              leading-7
+              text-muted
+              sm:text-base
+              sm:leading-8
+            "
+          >
+            {t.hero.description}
+          </p>
+
+          <div
+            className="
+              mt-7
+              flex
+              flex-wrap
+              items-center
+              justify-center
+              gap-3
+            "
+          >
+            <Link to="/writings" className="btn-primary">
+              {t.hero.buttons.writings}
+            </Link>
+
+            <Link to="/about" className="btn-secondary">
+              {t.hero.buttons.about}
+            </Link>
+          </div>
+        </div>
+
+        {/* =========================================
+            3. DESIGN IMAGE
+        ========================================== */}
+        <div
+          className={`
+            relative
+            order-3
+            hidden
+            min-h-[500px]
+            w-full
+            overflow-hidden
+            lg:block
+            lg:w-[30%]
+            ${isRTL ? "lg:order-3" : "lg:order-1"}
+          `}
+        >
+          {/* Main design image */}
+          <img
+            src={designImage}
+            alt=""
+            aria-hidden="true"
+            className="
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+            "
+          />
+
+          {/* Main soft overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-white/5
+              via-transparent
+              to-background/30
+            "
+          />
+
+          {/* Side fade */}
+          <div
+            className={`
+              absolute
+              inset-y-0
+              w-24
+              from-background
+              to-transparent
+              ${isRTL ? "start-0 bg-gradient-to-r" : "end-0 bg-gradient-to-l"}
+            `}
+          />
+
+          {/* Bottom fade */}
+          <div
+            className="
+              absolute
+              inset-x-0
+              bottom-0
+              h-24
+              bg-gradient-to-t
+              from-background
+              to-transparent
+            "
+          />
+
+          {/* Soft glow */}
+          <div
+            className="
+              absolute
+              -end-10
+              top-1/4
+              h-40
+              w-40
+              rounded-full
+              bg-accent/10
+              blur-3xl
+            "
+          />
         </div>
       </div>
-
-      <div className="hidden lg:block w-5xl "></div>
-
-      {/* <img
-        className="hidden absolute -z-8 start-0 top-3  lg:block  w-1/3 h-1/2 "
-        src={image_01}
-        alt="Mariam Amiri"
-      /> */}
-      <img
-        src={image_01}
-        alt="Mariam Amiri"
-        className="
-    hidden
-    lg:block
-    absolute
-    start-0
-    -top-1
-    -z-8
-    h-1/2
-    w-[650px]
-    object-cover
-    opacity-80
-
-    ltr:[mask-image:linear-gradient(to_left,transparent_0%,transparent_18%,black_58%,black_100%)]
-    ltr:[-webkit-mask-image:linear-gradient(to_left,transparent_0%,transparent_18%,black_58%,black_100%)]
-
-    rtl:[mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,black_58%,black_100%)]
-    rtl:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,black_58%,black_100%)]
-  "
-      />
     </section>
   );
 };

@@ -62,7 +62,7 @@ const AchievementCard = ({ data, icon }) => {
         >
           <article
             onClick={(e) => e.stopPropagation()}
-            className="relative bg-background w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-xl p-6"
+            className="relative bg-background w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-xl p-6"
           >
             <button
               onClick={() => setIsOpen(false)}

@@ -16,6 +16,7 @@
 
 
   "hero": {
+    "hello": "I am",
     "name": "Mariam Amiri",
     "description": "I am Mariam Amiri, a writer and young leader dedicated to empowering girls and young people through writing and ideas.",
     "buttons": {
@@ -49,6 +50,16 @@
     "awards": "Awards & Recognitions"
     }
   },
+
+  
+  "achievement": {
+    "hero": {
+      "label": "Achievements",
+      "title": "Achievements & Professional Journey",
+      "description": "A look at the achievements, milestones, and key moments throughout my professional and personal journey."
+    }
+  },
+
 
 
   "books": {

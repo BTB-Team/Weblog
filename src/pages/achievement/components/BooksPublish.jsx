@@ -41,7 +41,7 @@ const BooksPublish = () => {
   };
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full mb-10 ">
       {/* Slider viewport */}
       <div className="w-full overflow-hidden">
         {/* Slider track */}
