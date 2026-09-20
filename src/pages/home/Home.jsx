@@ -12,15 +12,15 @@ import FinalCTA from "./components/FinalCTA";
 const Home = () => {
   return (
     <main className="m-auto max-w-7xl">
-      {/* 1 */} <HeroSection />
-      {/* 2 */} <StatHome />
-      {/* 3 */} <AboutHome />
-      {/* 4 */} <LatestPosts />
-      {/* 5 */} <RecentActivities />
-      {/* 6 */} <PublicationsHome />
-      {/* 7 */} <FeaturedAchievements />
-      {/* 8 */} <MediaGallery />
-      {/* 9 */} <FinalCTA />
+      <HeroSection />
+      <StatHome />
+      <AboutHome />
+      <LatestPosts />
+      <RecentActivities />
+      <PublicationsHome />
+      <FeaturedAchievements />
+      <MediaGallery />
+      <FinalCTA />
     </main>
   );
 };

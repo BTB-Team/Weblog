@@ -1,5 +1,4 @@
-// src/pages/home/components/RecentActivities.jsx
-// SECTION 5 — Recent Activities
+
 import db from "../../../../db.json";
 import ActivityCard from "./ActivityCard";
 import SectionHeader from "../../../components/common/SectionHeader";

@@ -991,20 +991,118 @@
 
 
   "mediaPhoto": [
-   {
-  "id": 1,
-  "type": "photo",
-  "title": {
-    "dr": "جشن روز جهانی زن",
-    "en": "International Women's Day Celebration"
+  {
+    "id": 1,
+    "type": "photo",
+    "title": {
+      "dr": "جشن روز جهانی زن",
+      "en": "International Women's Day Celebration"
+    },
+    "date": {
+      "dr": "1403/12/18",
+      "en": "March 8, 2025"
+    },
+    "image": "littleBoy.webp"
   },
-  "date": {
-    "dr": "1403/12/18",
-    "en": "March 8, 2025"
+  {
+    "id": 2,
+    "type": "photo",
+    "title": { "dr": "توپ امید", "en": "Ball of Hope" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "BallofHope.webp"
   },
-  "image": "littleBoy.webp"
-}
-  ],
+  {
+    "id": 3,
+    "type": "photo",
+    "title": { "dr": "حق ابتدایی", "en": "Basic Right" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "Basicright.webp"
+  },
+  {
+    "id": 4,
+    "type": "photo",
+    "title": { "dr": "سرنوشت تلخ", "en": "Bitter Fate" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "BitterFate.webp"
+  },
+  {
+    "id": 5,
+    "type": "photo",
+    "title": { "dr": "ازدواج کودکان", "en": "Child Marriage" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "ChildMarriage.webp"
+  },
+  {
+    "id": 6,
+    "type": "photo",
+    "title": { "dr": "بسته‌شدن مکاتب", "en": "Closure of Schools" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "ClosureofSchools.webp"
+  },
+  {
+    "id": 7,
+    "type": "photo",
+    "title": { "dr": "روز هزاره", "en": "Hazara Day" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "HazaraDay.webp"
+  },
+  {
+    "id": 8,
+    "type": "photo",
+    "title": { "dr": "من می‌نویسم", "en": "Me, Writing" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "Mewriting.webp"
+  },
+  {
+    "id": 9,
+    "type": "photo",
+    "title": { "dr": "داستان من", "en": "My Story" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "Mystory.webp"
+  },
+  {
+    "id": 10,
+    "type": "photo",
+    "title": { "dr": "هیچ‌کجا", "en": "Nowhere" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "Nowhere.webp"
+  },
+  {
+    "id": 11,
+    "type": "photo",
+    "title": { "dr": "تنها سلاح", "en": "The Only Weapon" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "onlyweapon.webp"
+  },
+  {
+    "id": 12,
+    "type": "photo",
+    "title": { "dr": "روز مکتب", "en": "School Day" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "schoolday.webp"
+  },
+  {
+    "id": 13,
+    "type": "photo",
+    "title": { "dr": "خاطرات مکتب", "en": "School Memories" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "SchoolMemories.webp"
+  },
+  {
+    "id": 14,
+    "type": "photo",
+    "title": { "dr": "طالبان تو را می‌یابد", "en": "Taliban Will Find You" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "Talibanfindyou.webp"
+  },
+  {
+    "id": 15,
+    "type": "photo",
+    "title": { "dr": "در انتظار ایمیل", "en": "Waiting for an Email" },
+    "date": { "dr": "1404", "en": "2025" },
+    "image": "WaitingforEmail.webp"
+  }
+],
 
 
 

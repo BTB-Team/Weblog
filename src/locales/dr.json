@@ -90,8 +90,20 @@
     "subscribe": "عضویت",
     "connect": "ارتباط",
     "withLoveForWords": "با عشق به کلمات"
-  }
+  },
 
+  "media": {
+  "breadcrumb": "مدیا",
+  "title": "تصاویر و ویدیوها",
+  "subtitle": "گالری عکس و ویدیو از رویدادها و لحظات ادبی.",
+  "searchPlaceholder": "جستجو...",
+  "videosTab": "ویدیوها",
+  "photosTab": "عکس‌ها",
+  "photosHeading": "گالری تصاویر",
+  "videosHeading": "ویدیوها",
+  "gridSubtitle": "لحظاتی از رویدادها و فضای ادبی.",
+  "empty": "چیزی برای نمایش وجود ندارد."
+}
 
 
 }

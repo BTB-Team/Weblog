@@ -89,7 +89,20 @@
     "connect": "Connect",
     "withLoveForWords": "With Love for Words"
     
-  }
+  },
+  
+  "media": {
+  "breadcrumb": "Media",
+  "title": "Photos & Videos",
+  "subtitle": "A gallery of photos and videos from events and literary moments.",
+  "searchPlaceholder": "Search...",
+  "videosTab": "Videos",
+  "photosTab": "Photos",
+  "photosHeading": "Photo Gallery",
+  "videosHeading": "Videos",
+  "gridSubtitle": "Moments from events and literary spaces.",
+  "empty": "Nothing to show yet."
+}
 
 
 

@@ -1,5 +1,4 @@
-// src/pages/home/components/FeaturedAchievements.jsx
-// SECTION 7 — Featured Achievements
+
 import db from "../../../../db.json";
 import SectionHeader from "../../../components/common/SectionHeader";
 import { useLangStore } from "../../../store/useLangStore";
@@ -11,7 +10,7 @@ const FeaturedAchievements = () => {
   const t = useLangStore((state) => state.t);
   const lang = useLangStore((state) => state.lang);
 
-  const achievements = db.achievements.slice(0, 3);
+  const achievements = db.achievements.slice(0, 4);
 
   if (!achievements.length) return null;
 
@@ -23,36 +22,35 @@ const FeaturedAchievements = () => {
         linkLabel={t.home.viewAll}
       />
 
-      <div className="grid gap-6 md:grid-cols-3">
+      <ul className="mx-auto flex max-w-3xl flex-col divide-y divide-header">
         {achievements.map((item, index) => {
           const Icon = icons[index % icons.length];
 
           return (
-            <article
+            <li
               key={item.id}
-              className="flex flex-col items-center gap-3 rounded-2xl border border-header
-                         bg-card p-6 text-center shadow-sm transition-all duration-300
-                         hover:-translate-y-1 hover:shadow-md"
+              className="flex items-center gap-4 py-4 transition-colors hover:bg-header/30"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-header text-accent">
-                <Icon size={26} />
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-header text-accent">
+                <Icon size={18} />
               </span>
 
-              <h3 className="text-base font-bold leading-snug">
-                {item.title[lang]}
-              </h3>
+              <div className="min-w-0 flex-1">
+                <h3 className="truncate text-sm font-bold md:text-base">
+                  {item.title[lang]}
+                </h3>
+                <p className="truncate text-xs text-muted md:text-sm">
+                  {item.description[lang]}
+                </p>
+              </div>
 
-              <p className="line-clamp-2 text-sm text-muted">
-                {item.description[lang]}
-              </p>
-
-              <span className="mt-auto rounded-full bg-header/60 px-3 py-1 text-xs font-semibold text-muted">
+              <span className="shrink-0 text-xs font-semibold text-muted">
                 {item.date}
               </span>
-            </article>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };

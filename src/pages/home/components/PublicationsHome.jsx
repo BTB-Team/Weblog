@@ -1,5 +1,4 @@
-// src/pages/home/components/PublicationsHome.jsx
-// SECTION 6 — Publications (integrates the existing BookCard)
+
 import db from "../../../../db.json";
 import BookCard from "../../../components/common/BookCard";
 import SectionHeader from "../../../components/common/SectionHeader";

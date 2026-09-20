@@ -1,80 +1,84 @@
-// src/pages/home/components/MediaGallery.jsx
-// SECTION 8 — Media Preview Gallery (photos + videos)
 import db from "../../../../db.json";
 import SectionHeader from "../../../components/common/SectionHeader";
 import { useLangStore } from "../../../store/useLangStore";
-import { Play, ImageIcon } from "lucide-react";
 
 const MediaGallery = () => {
   const t = useLangStore((state) => state.t);
   const lang = useLangStore((state) => state.lang);
 
+  // Get photos from db.json
   const photos = (db.mediaPhoto || []).map((item) => ({
     ...item,
-    kind: "photo",
     key: `photo-${item.id}`,
   }));
 
-  const videos = (db.mediaVideo || []).map((item) => ({
-    ...item,
-    kind: "video",
-    key: `video-${item.id}`,
-  }));
+  if (!photos.length) return null;
 
-  // photos first, then videos — max 6 previews
-  const media = [...photos, ...videos].slice(0, 6);
-
-  if (!media.length) return null;
+  // Three copies create a seamless infinite loop
+  const track = [...photos, ...photos, ...photos];
 
   return (
-    <section className="m-auto max-w-7xl px-5 py-10">
-      <SectionHeader
-        title={t.home.gallery}
-        to="/media"
-        linkLabel={t.home.viewAll}
-      />
-
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-        {media.map((item) => (
-          <figure
-            key={item.key}
-            className="group relative aspect-square overflow-hidden rounded-xl border border-header bg-header/40"
-          >
-            {item.image ? (
-              <img
-                src={`${import.meta.env.BASE_URL}images/${item.image}`}
-                alt={item.title[lang]}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center text-muted">
-                <ImageIcon size={26} />
-              </div>
-            )}
-
-            {/* dark overlay + caption */}
-            <figcaption
-              className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t
-                         from-black/70 via-black/10 to-transparent p-2 text-[11px]
-                         text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            >
-              <span className="font-semibold leading-tight">
-                {item.title[lang]}
-              </span>
-              <span className="opacity-80">{item.date[lang]}</span>
-            </figcaption>
-
-            {item.kind === "video" && (
-              <span
-                className="absolute inset-0 m-auto flex h-10 w-10 items-center justify-center
-                           rounded-full bg-white/85 text-accent shadow-md"
-              >
-                <Play size={18} fill="currentColor" />
-              </span>
-            )}
-          </figure>
-        ))}
+    <section className="m-auto max-w-7xl py-10">
+      {/* Section Header */}
+      <div className="px-5">
+        <SectionHeader
+          title={t.home.gallery}
+          to="/media"
+          linkLabel={t.home.viewAll}
+        />
       </div>
+
+      {/* Gallery Container — forced LTR so the marquee always sweeps
+          one direction, regardless of page RTL layout */}
+      <div className="relative overflow-hidden" dir="ltr">
+        {/* Left fade */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+
+        {/* Right fade */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+
+        {/* Infinite Sliding Track */}
+        <div className="marquee-track flex gap-4" dir="ltr">
+          {track.map((item, index) => (
+            <figure
+              key={`${item.key}-${index}`}
+              className="relative h-40 w-40 shrink-0 overflow-hidden rounded-xl border border-header bg-header/40 md:h-48 md:w-48"
+            >
+              {item.image ? (
+                <img
+                  src={`${import.meta.env.BASE_URL}images/${item.image}`}
+                  alt={item.title?.[lang] || ""}
+                  className="h-full w-full object-cover"
+                  draggable={false}
+                />
+              ) : (
+                <div className="h-full w-full bg-header/60" />
+              )}
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee animation styles */}
+      <style>{`
+        .marquee-track {
+          width: max-content;
+          animation: marquee-scroll 30s linear infinite;
+        }
+
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes marquee-scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-33.3333%);
+          }
+        }
+      `}</style>
     </section>
   );
 };
