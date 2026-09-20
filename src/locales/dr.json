@@ -130,7 +130,18 @@
 },
 
 
-  
+   "media": {
+    "breadcrumb": "مدیا",
+    "title": "گالری تصاویر و ویدیوها",
+    "subtitle": "نگاهی به رویدادها، سخنرانی‌ها و لحظات ثبت‌شده.",
+    "searchPlaceholder": "جستجو در مدیا...",
+    "videosTab": "ویدیوها",
+    "photosTab": "تصاویر",
+    "photosHeading": "تصاویر",
+    "videosHeading": "ویدیوها",
+    "gridSubtitle": "مجموعه کامل را در زیر مشاهده کنید.",
+    "empty": "موردی یافت نشد."
+  },
 
      "books": {
     "downloadPdf": "دانلود PDF",

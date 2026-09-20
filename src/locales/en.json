@@ -102,6 +102,18 @@
     "downloadPdf": "Download PDF",
     "readAbstract": "Read Abstract"
   },
+   "media": {
+    "breadcrumb": "Media",
+    "title": "Photo & Video Gallery",
+    "subtitle": "A look back at events, talks, and moments captured along the way.",
+    "searchPlaceholder": "Search media...",
+    "videosTab": "Videos",
+    "photosTab": "Photos",
+    "photosHeading": "Photos",
+    "videosHeading": "Videos",
+    "gridSubtitle": "Browse the full collection below.",
+    "empty": "No media found."
+  },
 
   "cta": {
     "title": "Collaboration & Contact",
