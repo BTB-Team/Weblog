@@ -36,7 +36,9 @@ const Footer = () => {
 
       {/* Pages Section */}
       <div className="w-full max-w-sm text-center">
-        <h2 className="text-card text-xl font-bold mb-3">{t.footer.pages}</h2>
+        <h2 className="text-card text-xl font-bold mb-3">
+          {t.footer.pages}
+        </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <Link to="/">{t.navbar.home}</Link>
@@ -52,7 +54,9 @@ const Footer = () => {
 
       {/* Connection */}
       <div className="w-full max-w-sm text-center">
-        <h2 className="text-card text-xl font-bold mb-3">{t.footer.connect}</h2>
+        <h2 className="text-card text-xl font-bold mb-3">
+          {t.footer.connect}
+        </h2>
 
         <div className="grid grid-cols-4 sm:grid-cols-5 gap-3 max-w-xs mx-auto justify-items-center">
           {socialLinks.map((social, index) => (
