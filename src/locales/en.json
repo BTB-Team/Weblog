@@ -13,6 +13,25 @@
     "achievements": "Achievements",
     "newsletter": "Newsletter"
   },
+   "writing": {
+    "share": "Share",
+    "like": "like",
+    "Linkcopiedtoclipboard" : "Link copied to clipboard",
+    "Comments" : "Comments",
+    "writtenworks": "Written Works",
+    "mywrittenworks": "My Written Works",
+    "acollectionofstorieswritings": "A collection of stories, writings, and reflections written throughout my journey.",
+    "searchwrittenworks": "Search written works...",
+    "clearsearch": "Clear search",
+    "story": "story",
+    "clearfilters": "Clear filters",
+    "nowrittenworksfound": "No written works found",
+    "tryanothersearchtermorcategory": "Try another search term or category.",
+    "showallworks": "Show all works",
+    "all": "All"
+
+
+  },
 
   "podcast": {
     "title": "Podcasts",
