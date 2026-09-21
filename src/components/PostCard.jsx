@@ -54,17 +54,13 @@ const PostCard = ({ post, onOpen }) => {
         e.preventDefault();
         e.stopPropagation();
 
-        setLiked((prev) => {
-            const newLiked = !prev;
+        if (liked) {
+            setLikes((prev) => Math.max(0, prev - 1));
+        } else {
+            setLikes((prev) => prev + 1);
+        }
 
-            setLikes((currentLikes) =>
-                newLiked
-                    ? currentLikes + 1
-                    : Math.max(0, currentLikes - 1)
-            );
-
-            return newLiked;
-        });
+        setLiked((prev) => !prev);
     };
 
     // --------------------------------
@@ -272,246 +268,240 @@ const PostCard = ({ post, onOpen }) => {
                 ACTIONS
             ========================================== */}
 
-            <div
+           {/* ==========================================
+    ACTIONS
+========================================== */}
+
+<div
+    className="
+        border-t
+        border-stone-100
+        px-5
+        py-4
+    "
+>
+    <div
+        className="
+            flex
+            items-center
+            justify-between
+            gap-4
+        "
+    >
+        {/* Like */}
+        <button
+            type="button"
+            onClick={handleLike}
+            className={`
+                flex
+                items-center
+                gap-2
+                text-sm
+                transition-colors
+                ${
+                    liked
+                        ? "text-red-500"
+                        : "text-stone-500 hover:text-stone-900"
+                }
+            `}
+        >
+            <Heart
+                size={18}
+                fill={
+                    liked
+                        ? "currentColor"
+                        : "none"
+                }
+            />
+
+            <span>
+                {likes}
+            </span>
+
+            <span>
+                {t.writing.like}
+            </span>
+        </button>
+
+        {/* Comment */}
+        <button
+            type="button"
+            onClick={handleComment}
+            className="
+                flex
+                items-center
+                gap-2
+                text-sm
+                text-stone-500
+                transition-colors
+                hover:text-stone-900
+            "
+        >
+            <MessageCircle size={18} />
+
+            <span>
+                {comments.length}
+            </span>
+
+            <span>
+                {t.writing.Comments}
+            </span>
+        </button>
+
+        {/* Share */}
+        <div className="relative">
+            <button
+                type="button"
+                onClick={handleShare}
                 className="
-                    border-t
-                    border-stone-100
-                    px-5
-                    py-4
+                    flex
+                    items-center
+                    gap-2
+                    text-sm
+                    text-stone-500
+                    transition-colors
+                    hover:text-stone-900
                 "
             >
+                <Share2 size={18} />
+
+                <span>
+                    {t.writing.share}
+                </span>
+            </button>
+
+            {/* Copy Toast */}
+            {showToast && (
                 <div
-                    className="
-                        flex
-                        items-center
-                        justify-between
-                        gap-4
-                    "
+                    className={`
+                        absolute
+                        top-full
+                        z-50
+                        mt-3
+                        whitespace-nowrap
+                        rounded-lg
+                        bg-stone-900
+                        px-3
+                        py-2
+                        text-xs
+                        font-medium
+                        text-white
+                        shadow-xl
+                        ${
+                            isRTL
+                                ? "right-0"
+                                : "left-0"
+                        }
+                    `}
                 >
-                    {/* Like */}
-                    <button
-                        type="button"
-                        onClick={handleLike}
-                        className={`
-                            flex
-                            items-center
-                            gap-2
-                            text-sm
-                            transition-colors
-                            ${
-                                liked
-                                    ? "text-red-500"
-                                    : "text-stone-500 hover:text-stone-900"
-                            }
-                        `}
-                    >
-                        <Heart
-                            size={18}
-                            fill={
-                                liked
-                                    ? "currentColor"
-                                    : "none"
-                            }
+                    <div className="flex items-center gap-2">
+                        <Check
+                            size={14}
+                            className="text-green-400"
                         />
 
-                        <span>{likes}</span>
-
-                        <span className="hidden sm:inline">
-                            {t.writing.like}
-                        </span>
-                    </button>
-
-                    {/* Comment */}
-                    <button
-                        type="button"
-                        onClick={handleComment}
-                        className="
-                            flex
-                            items-center
-                            gap-2
-                            text-sm
-                            text-stone-500
-                            transition-colors
-                            hover:text-stone-900
-                        "
-                    >
-                        <MessageCircle size={18} />
-
                         <span>
-                            {comments.length}
+                            {
+                                t.writing
+                                    .Linkcopiedtoclipboard
+                            }
                         </span>
-
-                        <span className="hidden sm:inline">
-                            {t.writing.Comments}
-                        </span>
-                    </button>
-
-                    {/* Share */}
-                    <div className="relative">
-                        <button
-                            type="button"
-                            onClick={handleShare}
-                            className="
-                                flex
-                                items-center
-                                gap-2
-                                text-sm
-                                text-stone-500
-                                transition-colors
-                                hover:text-stone-900
-                            "
-                        >
-                            <Share2 size={18} />
-
-                            <span className="hidden sm:inline">
-                                {t.writing.share}
-                            </span>
-                        </button>
-
-                        {/* Copy Toast */}
-                        {showToast && (
-                            <div
-                                className={`
-                                    absolute
-                                    top-full
-                                    z-50
-                                    mt-3
-                                    whitespace-nowrap
-                                    rounded-lg
-                                    bg-stone-900
-                                    px-3
-                                    py-2
-                                    text-xs
-                                    font-medium
-                                    text-white
-                                    shadow-xl
-                                    ${
-                                        isRTL
-                                            ? "right-0"
-                                            : "left-0"
-                                    }
-                                `}
-                            >
-                                <div className="flex items-center gap-2">
-                                    <Check
-                                        size={14}
-                                        className="text-green-400"
-                                    />
-
-                                    <span>
-                                        {
-                                            t.writing
-                                                .Linkcopiedtoclipboard
-                                        }
-                                    </span>
-                                </div>
-                            </div>
-                        )}
                     </div>
                 </div>
+            )}
+        </div>
+    </div>
 
-                {/* ==========================================
-                    COMMENTS
-                ========================================== */}
-
-                {showComments && (
-                    <div
-                        className="
-                            mt-4
-                            border-t
-                            border-stone-100
-                            pt-4
-                        "
-                    >
-                        {/* Existing comments */}
-                        {comments.length > 0 && (
-                            <div className="mb-4 space-y-2">
-                                {comments.map(
-                                    (item) => (
-                                        <div
-                                            key={item.id}
-                                            className="
-                                                rounded-lg
-                                                bg-stone-50
-                                                px-3
-                                                py-2
-                                                text-sm
-                                                text-stone-700
-                                            "
-                                        >
-                                            {item.text}
-                                        </div>
-                                    )
-                                )}
-                            </div>
-                        )}
-
-                        {/* Comment form */}
-                        <form
-                            onSubmit={
-                                handleSubmitComment
-                            }
+    {/* Comments */}
+    {showComments && (
+        <div
+            className="
+                mt-4
+                border-t
+                border-stone-100
+                pt-4
+            "
+        >
+            {comments.length > 0 && (
+                <div className="mb-4 space-y-2">
+                    {comments.map((item) => (
+                        <div
+                            key={item.id}
                             className="
-                                flex
-                                items-center
-                                gap-2
+                                rounded-lg
+                                bg-stone-50
+                                px-3
+                                py-2
+                                text-sm
+                                text-stone-700
                             "
                         >
-                            <input
-                                type="text"
-                                value={comment}
-                                onChange={(e) =>
-                                    setComment(
-                                        e.target.value
-                                    )
-                                }
-                                onClick={(e) =>
-                                    e.stopPropagation()
-                                }
-                                placeholder={
-                                    t.writing.Comments
-                                }
-                                className="
-                                    min-w-0
-                                    flex-1
-                                    rounded-lg
-                                    border
-                                    border-stone-200
-                                    bg-stone-50
-                                    px-3
-                                    py-2
-                                    text-sm
-                                    outline-none
-                                    transition
-                                    focus:border-stone-400
-                                    focus:bg-white
-                                "
-                            />
+                            {item.text}
+                        </div>
+                    ))}
+                </div>
+            )}
 
-                            <button
-                                type="submit"
-                                className="
-                                    flex
-                                    h-9
-                                    w-9
-                                    items-center
-                                    justify-center
-                                    rounded-lg
-                                    bg-stone-900
-                                    text-white
-                                    transition
-                                    hover:bg-stone-700
-                                "
-                            >
-                                <Send size={16} />
-                            </button>
-                        </form>
-                    </div>
-                )}
-            </div>
+            <form
+                onSubmit={handleSubmitComment}
+                className="
+                    flex
+                    items-center
+                    gap-2
+                "
+            >
+                <input
+                    type="text"
+                    value={comment}
+                    onChange={(e) =>
+                        setComment(e.target.value)
+                    }
+                    onClick={(e) =>
+                        e.stopPropagation()
+                    }
+                    placeholder={
+                        t.writing.Comments
+                    }
+                    className="
+                        min-w-0
+                        flex-1
+                        rounded-lg
+                        border
+                        border-stone-200
+                        bg-stone-50
+                        px-3
+                        py-2
+                        text-sm
+                        outline-none
+                        transition
+                        focus:border-stone-400
+                        focus:bg-white
+                    "
+                />
+
+                <button
+                    type="submit"
+                    className="
+                        flex
+                        h-9
+                        w-9
+                        items-center
+                        justify-center
+                        rounded-lg
+                        bg-stone-900
+                        text-white
+                        transition
+                        hover:bg-stone-700
+                    "
+                >
+                    <Send size={16} />
+                </button>
+            </form>
+        </div>
+    )}
+</div>
         </article>
     );
 };
 
 export default PostCard;
-
