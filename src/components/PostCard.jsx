@@ -1,68 +1,130 @@
 import { useState } from "react";
-import { Heart, MessageCircle, Share2, Check } from "lucide-react";
+import {
+    Heart,
+    MessageCircle,
+    Share2,
+    Check,
+    Send,
+} from "lucide-react";
 
-// import { useLangStore } from "../../store/useLangStore.js";
-import { useLangStore } from "../store/useLangStore";
+import { useLangStore } from "../store/useLangStore.js";
 
-// import db from "../../../db.json";
-import db from "../../db.json";
+const PostCard = ({ post, onOpen }) => {
+    const { lang, t } = useLangStore();
 
-const PostCard = ({ post }) => {
-  const { lang } = useLangStore();
+    const [liked, setLiked] = useState(false);
+    const [likes, setLikes] = useState(post.likes || 0);
 
-  const [liked, setLiked] = useState(false);
-  const [copied, setCopied] = useState(false);
+    const [showComments, setShowComments] = useState(false);
+    const [comment, setComment] = useState("");
+    const [comments, setComments] = useState(post.comments || []);
 
-  const isRTL = lang === "dr";
+    const [showToast, setShowToast] = useState(false);
 
-  const title = post.title?.[lang] || post.title?.en || "";
+    const isRTL = lang === "dr";
 
-  const type = post.type?.[lang] || post.type?.en || "";
+    const title =
+        post.title?.[lang] ||
+        post.title?.en ||
+        "";
 
-  const note = post.note?.[lang] || post.note?.en || "";
+    const content =
+        post.content?.[lang] ||
+        post.content?.en ||
+        "";
 
-  const content = post.content?.[lang] || post.content?.en || "";
+    const type =
+        post.type?.[lang] ||
+        post.type?.en ||
+        "";
 
-  const commentCount =
-    db.comments?.filter(
-      (comment) => comment.postId === post.id && comment.isApproved,
-    ).length || 0;
+    // --------------------------------
+    // Open writing modal
+    // --------------------------------
+    const handleOpen = () => {
+        if (onOpen) {
+            onOpen(post);
+        }
+    };
 
-  // Short preview
-  const excerpt = content
-    .split("\n\n")
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("\n\n");
+    // --------------------------------
+    // Like
+    // --------------------------------
+    const handleLike = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-  const handleLike = () => {
-    setLiked((prev) => !prev);
-  };
+        if (liked) {
+            setLikes((prev) => Math.max(0, prev - 1));
+        } else {
+            setLikes((prev) => prev + 1);
+        }
 
-  const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
+        setLiked((prev) => !prev);
+    };
 
-      setCopied(true);
+    // --------------------------------
+    // Comment
+    // --------------------------------
+    const handleComment = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-      setTimeout(() => {
-        setCopied(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Failed to copy link:", error);
-    }
-  };
+        setShowComments((prev) => !prev);
+    };
 
-  return (
-    <article
-      dir={isRTL ? "rtl" : "ltr"}
-      className="
+    // --------------------------------
+    // Submit comment
+    // --------------------------------
+    const handleSubmitComment = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!comment.trim()) return;
+
+        setComments((prev) => [
+            ...prev,
+            {
+                id: Date.now(),
+                text: comment.trim(),
+            },
+        ]);
+
+        setComment("");
+    };
+
+    // --------------------------------
+    // Share
+    // --------------------------------
+    const handleShare = async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const url = `${window.location.origin}/writings/${post.id}`;
+
+        try {
+            await navigator.clipboard.writeText(url);
+
+            setShowToast(true);
+
+            setTimeout(() => {
+                setShowToast(false);
+            }, 2000);
+        } catch (error) {
+            console.error(
+                "Failed to copy link:",
+                error
+            );
+        }
+    };
+
+    return (
+        <article
+            dir={isRTL ? "rtl" : "ltr"}
+            className="
                 group
-                relative
-                flex
-                flex-col
-                overflow-hidden
-                rounded-3xl
+                overflow-visible
+                rounded-2xl
                 border
                 border-stone-200
                 bg-white
@@ -70,256 +132,376 @@ const PostCard = ({ post }) => {
                 transition-all
                 duration-300
                 hover:-translate-y-1
-                hover:shadow-xl
+                hover:shadow-lg
             "
-    >
-      {/* =========================
-                IMAGE
-            ========================== */}
-
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={`${import.meta.env.BASE_URL}${post.image}`}
-          alt={title}
-          className="
-                        h-full
-                        w-full
-                        object-cover
-                        transition-transform
-                        duration-500
-                        group-hover:scale-105
-                    "
-        />
-
-        {/* Image overlay */}
-        <div
-          className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/40
-                        via-transparent
-                        to-transparent
-                    "
-        />
-
-        {/* Category */}
-        {type && (
-          <span
-            className="
-                            absolute
-                            left-5
-                            top-5
-                            rounded-full
-                            bg-white/90
-                            px-3
-                            py-1.5
-                            text-xs
-                            font-semibold
-                            text-[#8B654B]
-                            shadow-sm
-                            backdrop-blur-sm
-                            rtl:left-auto
-                            rtl:right-5
-                        "
-          >
-            {type}
-          </span>
-        )}
-      </div>
-
-      {/* =========================
-                BODY
-            ========================== */}
-
-      <div className="flex flex-1 flex-col p-6">
-        {/* Type */}
-        <span className="mb-2 text-xs font-bold uppercase tracking-wider text-[#9B7354]">
-          {type}
-        </span>
-
-        {/* Title */}
-        <h2
-          className="
-                        mb-3
-                        text-2xl
-                        font-semibold
-                        leading-snug
-                        text-stone-800
-                        transition-colors
-                        group-hover:text-[#8B654B]
-                    "
         >
-          {title}
-        </h2>
+            {/* ==========================================
+                CLICKABLE POST CONTENT
+            ========================================== */}
 
-        {/* Note */}
-        {note && (
-          <p
-            className="
+            <button
+                type="button"
+                onClick={handleOpen}
+                className="
+                    block
+                    w-full
+                    cursor-pointer
+                    text-start
+                "
+            >
+                {/* Image */}
+                {post.image && (
+                    <div
+                        className="
+                            relative
+                            h-56
+                            w-full
+                            overflow-hidden
+                            rounded-t-2xl
+                        "
+                    >
+                        <img
+                            src={post.image}
+                            alt={title}
+                            className="
+                                h-full
+                                w-full
+                                object-cover
+                                transition-transform
+                                duration-500
+                                group-hover:scale-105
+                            "
+                        />
+
+                        {/* Type */}
+                        {type && (
+                            <div
+                                className={`
+                                    absolute
+                                    top-4
+                                    rounded-full
+                                    bg-white/90
+                                    px-3
+                                    py-1
+                                    text-xs
+                                    font-semibold
+                                    text-stone-700
+                                    shadow-sm
+                                    backdrop-blur
+                                    ${
+                                        isRTL
+                                            ? "right-4"
+                                            : "left-4"
+                                    }
+                                `}
+                            >
+                                {type}
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Content */}
+                <div className="p-5">
+                    {/* Type if no image */}
+                    {!post.image && type && (
+                        <div
+                            className="
+                                mb-3
+                                inline-block
+                                rounded-full
+                                bg-stone-100
+                                px-3
+                                py-1
+                                text-xs
+                                font-semibold
+                                text-stone-600
+                            "
+                        >
+                            {type}
+                        </div>
+                    )}
+
+                    {/* Title */}
+                    <h2
+                        className="
                             mb-3
-                            text-xs
-                            leading-6
-                            text-[#9B7354]
+                            text-xl
+                            font-bold
+                            text-stone-900
+                            transition-colors
+                            group-hover:text-stone-600
                         "
-          >
-            {note}
-          </p>
-        )}
+                    >
+                        {title}
+                    </h2>
 
-        {/* Content */}
-        <p
-          className="
-                        line-clamp-4
-                        text-sm
-                        leading-7
-                        text-stone-500
-                    "
-        >
-          {excerpt}
-        </p>
+                    {/* Content preview */}
+                    <p
+                        className="
+                            line-clamp-3
+                            whitespace-pre-line
+                            text-sm
+                            leading-7
+                            text-stone-600
+                        "
+                    >
+                        {content}
+                    </p>
 
-        {/* =========================
-                    ACTIONS
-                ========================== */}
+                    {/* Read more */}
+                    <div className="mt-4">
+                        <span
+                            className="
+                                text-sm
+                                font-semibold
+                                text-stone-900
+                            "
+                        >
+                            {t.writing.showallworks}
+                        </span>
+                    </div>
+                </div>
+            </button>
 
-        <div
-          className="
-                        mt-auto
-                        flex
-                        items-center
-                        gap-5
-                        border-t
-                        border-stone-100
-                        pt-5
-                    "
-        >
-          {/* Like */}
-          <button
+            {/* ==========================================
+                ACTIONS
+            ========================================== */}
+
+           {/* ==========================================
+    ACTIONS
+========================================== */}
+
+<div
+    className="
+        border-t
+        border-stone-100
+        px-5
+        py-4
+    "
+>
+    <div
+        className="
+            flex
+            items-center
+            justify-between
+            gap-4
+        "
+    >
+        {/* Like */}
+        <button
             type="button"
             onClick={handleLike}
-            aria-label={isRTL ? "پسندیدن" : "Like"}
-            aria-pressed={liked}
             className={`
-                            group/like
-                            inline-flex
-                            items-center
-                            gap-1.5
-                            text-sm
-                            transition-colors
-                            ${
-                              liked
-                                ? "text-red-500"
-                                : "text-stone-500 hover:text-red-500"
-                            }
-                        `}
-          >
+                flex
+                items-center
+                gap-2
+                text-sm
+                transition-colors
+                ${
+                    liked
+                        ? "text-red-500"
+                        : "text-stone-500 hover:text-stone-900"
+                }
+            `}
+        >
             <Heart
-              size={19}
-              strokeWidth={1.8}
-              fill={liked ? "currentColor" : "none"}
-              className={`
-                                transition-transform
-                                duration-200
-                                ${
-                                  liked
-                                    ? "animate-[heartPulse_0.4s_ease]"
-                                    : "group-hover/like:scale-110"
-                                }
-                            `}
+                size={18}
+                fill={
+                    liked
+                        ? "currentColor"
+                        : "none"
+                }
             />
 
-            <span>{liked ? 1 : 0}</span>
-          </button>
-
-          {/* Comments */}
-          <button
-            type="button"
-            aria-label={isRTL ? "نظرات" : "Comments"}
-            className="
-                            inline-flex
-                            items-center
-                            gap-1.5
-                            text-sm
-                            text-stone-500
-                            transition-colors
-                            hover:text-[#8B654B]
-                        "
-          >
-            <MessageCircle size={19} strokeWidth={1.8} />
-
-            <span>{commentCount}</span>
-          </button>
-
-          {/* Share */}
-          <button
-            type="button"
-            onClick={handleShare}
-            aria-label={isRTL ? "اشتراک‌گذاری" : "Share"}
-            className="
-                            ms-auto
-                            inline-flex
-                            items-center
-                            gap-1.5
-                            text-sm
-                            text-stone-500
-                            transition-colors
-                            hover:text-[#8B654B]
-                        "
-          >
-            {copied ? (
-              <Check size={18} strokeWidth={2} className="text-green-500" />
-            ) : (
-              <Share2 size={18} strokeWidth={1.8} />
-            )}
+            <span>
+                {likes}
+            </span>
 
             <span>
-              {copied
-                ? isRTL
-                  ? "کپی شد!"
-                  : "Copied!"
-                : isRTL
-                  ? "اشتراک"
-                  : "Share"}
+                {t.writing.like}
             </span>
-          </button>
-        </div>
-      </div>
+        </button>
 
-      {/* =========================
-                TOAST
-            ========================== */}
+        {/* Comment */}
+        <button
+            type="button"
+            onClick={handleComment}
+            className="
+                flex
+                items-center
+                gap-2
+                text-sm
+                text-stone-500
+                transition-colors
+                hover:text-stone-900
+            "
+        >
+            <MessageCircle size={18} />
 
-      {copied && (
-        <div
-          role="status"
-          className="
+            <span>
+                {comments.length}
+            </span>
+
+            <span>
+                {t.writing.Comments}
+            </span>
+        </button>
+
+        {/* Share */}
+        <div className="relative">
+            <button
+                type="button"
+                onClick={handleShare}
+                className="
+                    flex
+                    items-center
+                    gap-2
+                    text-sm
+                    text-stone-500
+                    transition-colors
+                    hover:text-stone-900
+                "
+            >
+                <Share2 size={18} />
+
+                <span>
+                    {t.writing.share}
+                </span>
+            </button>
+
+            {/* Copy Toast */}
+            {showToast && (
+                <div
+                    className={`
                         absolute
-                        bottom-5
-                        left-1/2
-                        z-10
-                        flex
-                        -translate-x-1/2
-                        items-center
-                        gap-2
+                        top-full
+                        z-50
+                        mt-3
                         whitespace-nowrap
-                        rounded-xl
+                        rounded-lg
                         bg-stone-900
-                        px-4
-                        py-2.5
+                        px-3
+                        py-2
                         text-xs
                         font-medium
                         text-white
-                        shadow-lg
-                    "
-        >
-          <Check size={14} strokeWidth={2} className="text-green-400" />
+                        shadow-xl
+                        ${
+                            isRTL
+                                ? "right-0"
+                                : "left-0"
+                        }
+                    `}
+                >
+                    <div className="flex items-center gap-2">
+                        <Check
+                            size={14}
+                            className="text-green-400"
+                        />
 
-          {isRTL ? "لینک با موفقیت کپی شد" : "Link copied to clipboard"}
+                        <span>
+                            {
+                                t.writing
+                                    .Linkcopiedtoclipboard
+                            }
+                        </span>
+                    </div>
+                </div>
+            )}
         </div>
-      )}
-    </article>
-  );
+    </div>
+
+    {/* Comments */}
+    {showComments && (
+        <div
+            className="
+                mt-4
+                border-t
+                border-stone-100
+                pt-4
+            "
+        >
+            {comments.length > 0 && (
+                <div className="mb-4 space-y-2">
+                    {comments.map((item) => (
+                        <div
+                            key={item.id}
+                            className="
+                                rounded-lg
+                                bg-stone-50
+                                px-3
+                                py-2
+                                text-sm
+                                text-stone-700
+                            "
+                        >
+                            {item.text}
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <form
+                onSubmit={handleSubmitComment}
+                className="
+                    flex
+                    items-center
+                    gap-2
+                "
+            >
+                <input
+                    type="text"
+                    value={comment}
+                    onChange={(e) =>
+                        setComment(e.target.value)
+                    }
+                    onClick={(e) =>
+                        e.stopPropagation()
+                    }
+                    placeholder={
+                        t.writing.Comments
+                    }
+                    className="
+                        min-w-0
+                        flex-1
+                        rounded-lg
+                        border
+                        border-stone-200
+                        bg-stone-50
+                        px-3
+                        py-2
+                        text-sm
+                        outline-none
+                        transition
+                        focus:border-stone-400
+                        focus:bg-white
+                    "
+                />
+
+                <button
+                    type="submit"
+                    className="
+                        flex
+                        h-9
+                        w-9
+                        items-center
+                        justify-center
+                        rounded-lg
+                        bg-stone-900
+                        text-white
+                        transition
+                        hover:bg-stone-700
+                    "
+                >
+                    <Send size={16} />
+                </button>
+            </form>
+        </div>
+    )}
+</div>
+        </article>
+    );
 };
 
 export default PostCard;
