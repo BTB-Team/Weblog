@@ -222,6 +222,10 @@ export default function Contact() {
         subject: "",
         message: "",
       });
+
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 2500);
     }, 1200);
   };
 
@@ -280,6 +284,22 @@ export default function Contact() {
         className="end-[4%] top-[650px] hidden h-28 w-28 rotate-[-18deg] md:block"
         opacity="opacity-35"
       />
+
+      {/* Success Popup */}
+      {isSuccess && (
+        <div className="fixed inset-x-0 top-6 z-[100] flex justify-center px-5">
+          <div
+            dir={direction}
+            className="flex items-center gap-3 rounded-full border border-[#E7C8C2] bg-[#F8E9E6] px-6 py-3 text-xs font-medium text-[#7A685D] shadow-[0_10px_35px_rgba(74,59,50,0.12)]"
+          >
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#A36F6F] text-white">
+              <CheckIcon />
+            </span>
+
+            <span>{t.contact.success}</span>
+          </div>
+        </div>
+      )}
 
       <section className="relative mx-auto max-w-6xl px-5 pb-8 pt-7 sm:px-8 md:pb-12 md:pt-9">
         <div
@@ -342,7 +362,7 @@ export default function Contact() {
 
           <div
             dir={direction}
-            className="relative order-2 text-center"
+            className="relative order-2 min-w-0 text-center"
           >
             <div className="mb-4 flex items-center justify-center gap-3">
               <span className="h-px w-9 bg-[#EAD5C3]" />
@@ -446,7 +466,7 @@ export default function Contact() {
                 <LocationIcon />
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-sm font-semibold text-[#4A3B32]">
                   {t.contact.info.locationTitle}
                 </h3>
@@ -471,7 +491,7 @@ export default function Contact() {
                 <ClockIcon />
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-sm font-semibold text-[#4A3B32]">
                   {t.contact.info.responseTitle}
                 </h3>
@@ -564,20 +584,20 @@ export default function Contact() {
 
       {/* 4. CONTACT FORM */}
 
-      <section className="relative mx-auto max-w-6xl px-5 pb-14 sm:px-8 md:pb-20">
-        <div className="relative overflow-hidden rounded-[8px] border border-[#EAD5C3]/60 bg-white shadow-[0_10px_45px_rgba(74,59,50,0.045)]">
+      <section className="relative mx-auto max-w-7xl min-w-0 px-5 pb-14 sm:px-8 md:pb-20">
+        <div className="relative min-w-0 overflow-hidden rounded-[8px] border border-[#EAD5C3]/60 bg-white shadow-[0_10px_45px_rgba(74,59,50,0.045)]">
           <div
             dir={direction}
-            className="grid lg:grid-cols-[1.28fr_0.72fr]"
+            className="grid min-w-0 lg:grid-cols-[1.28fr_0.72fr]"
           >
-            <div className="relative order-1 px-6 py-9 sm:px-9 sm:py-11 md:px-12 lg:order-1">
+            <div className="relative order-1 min-w-0 px-6 py-9 sm:px-9 sm:py-11 md:px-12 lg:order-1">
               <Petal
                 src={IMAGES.petal2}
                 className="end-2 top-2 h-16 w-16 rotate-[20deg]"
                 opacity="opacity-25"
               />
 
-              <div className="relative z-10">
+              <div className="relative z-10 min-w-0">
                 <div className="mb-7">
                   <h2 className="font-serif text-2xl font-bold text-[#4A3B32] sm:text-3xl">
                     {t.contact.form.title}
@@ -590,10 +610,10 @@ export default function Contact() {
 
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-5"
+                  className="min-w-0 space-y-5"
                 >
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
+                  <div className="grid min-w-0 gap-5 sm:grid-cols-2">
+                    <div className="min-w-0">
                       <label
                         htmlFor="name"
                         className="mb-2 block text-xs font-medium text-[#4A3B32]"
@@ -613,11 +633,11 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder={t.contact.form.namePlaceholder}
-                        className="w-full rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
+                        className="w-full min-w-0 rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
                       />
                     </div>
 
-                    <div>
+                    <div className="min-w-0">
                       <label
                         htmlFor="email"
                         className="mb-2 block text-xs font-medium text-[#4A3B32]"
@@ -638,12 +658,12 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="example@domain.com"
                         dir="ltr"
-                        className="w-full rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
+                        className="w-full min-w-0 rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
                       />
                     </div>
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <label
                       htmlFor="subject"
                       className="mb-2 block text-xs font-medium text-[#4A3B32]"
@@ -657,7 +677,7 @@ export default function Contact() {
                       value={formData.subject}
                       onChange={handleChange}
                       dir={direction}
-                      className="w-full appearance-none rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#7A685D] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
+                      className="block w-full min-w-0 max-w-full appearance-none rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs text-[#7A685D] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
                     >
                       <option value="">
                         {t.contact.form.subjectPlaceholder}
@@ -677,7 +697,7 @@ export default function Contact() {
                     </select>
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <label
                       htmlFor="message"
                       className="mb-2 block text-xs font-medium text-[#4A3B32]"
@@ -698,7 +718,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder={t.contact.form.messagePlaceholder}
-                      className="w-full resize-none rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs leading-7 text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
+                      className="block w-full min-w-0 max-w-full resize-none rounded-[4px] border border-[#EAD5C3] bg-[#FDFBF7] px-4 py-3 text-xs leading-7 text-[#4A3B32] outline-none transition focus:border-[#A36F6F]/60 focus:bg-white focus:ring-2 focus:ring-[#A36F6F]/5"
                     />
 
                     <div className="mt-1 text-end text-[9px] text-[#B3A196]">
@@ -745,42 +765,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      {isSuccess && (
-        <div className="mx-auto max-w-6xl px-5 pb-6 sm:px-8">
-          <div
-            dir="ltr"
-            className="flex items-center justify-center gap-4"
-          >
-            <img
-              src={image4}
-              alt=""
-              className="hidden h-20 w-20 rounded-[5px] object-cover sm:block"
-            />
-
-            <div className="rounded-[5px] border border-[#E7C8C2] bg-[#F8E9E6] px-6 py-3">
-              <div className="flex items-center gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#A36F6F] text-white">
-                  <CheckIcon />
-                </span>
-
-                <p
-                  dir={direction}
-                  className="text-xs font-medium text-[#7A685D]"
-                >
-                  {t.contact.success}
-                </p>
-              </div>
-            </div>
-
-            <img
-              src={image5}
-              alt=""
-              className="hidden h-20 w-20 rounded-[5px] object-cover sm:block"
-            />
-          </div>
-        </div>
-      )}
 
       <section className="relative mx-auto max-w-6xl px-5 pb-8 sm:px-8">
         <div className="relative overflow-hidden rounded-[6px] border border-[#EAD5C3]/70 bg-[#FCF7F0] px-6 py-7 sm:px-10">
@@ -831,9 +815,9 @@ export default function Contact() {
               >
                 <Link
                   to="/donate"
-                  className="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs font-medium"
+                  className="btn-primary inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-xs font-medium"
                 >
-                  <span>
+                  <span className="whitespace-nowrap">
                     {t.contact.donate.support}
                   </span>
 
@@ -842,9 +826,9 @@ export default function Contact() {
 
                 <Link
                   to="/"
-                  className="btn-outline inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-xs"
+                  className="btn-outline inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-xs"
                 >
-                  <span>
+                  <span className="whitespace-nowrap">
                     {t.contact.donate.backHome}
                   </span>
 
