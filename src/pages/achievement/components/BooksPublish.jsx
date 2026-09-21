@@ -4,7 +4,6 @@ import BookCard from "../../../components/common/BookCard";
 import db from "../../../../db.json";
 
 const BooksPublish = () => {
-  // const [books, setBooks] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleBooks, setVisibleBooks] = useState(4);
 
@@ -22,7 +21,6 @@ const BooksPublish = () => {
     };
 
     handleResize();
-
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -41,10 +39,8 @@ const BooksPublish = () => {
   };
 
   return (
-    <div className="relative w-full mb-10 ">
-      {/* Slider viewport */}
+    <div className="relative mb-10 w-full">
       <div className="w-full overflow-hidden">
-        {/* Slider track */}
         <div
           dir="ltr"
           className="flex transition-transform duration-500 ease-in-out"
@@ -56,9 +52,7 @@ const BooksPublish = () => {
             <div
               key={book.id}
               className="shrink-0"
-              style={{
-                width: `${100 / visibleBooks}%`,
-              }}
+              style={{ width: `${100 / visibleBooks}%` }}
             >
               <BookCard book={book} />
             </div>
@@ -66,7 +60,6 @@ const BooksPublish = () => {
         </div>
       </div>
 
-      {/* Previous */}
       <button
         type="button"
         onClick={previousBook}
@@ -76,7 +69,6 @@ const BooksPublish = () => {
         <ChevronLeft size={20} />
       </button>
 
-      {/* Next */}
       <button
         type="button"
         onClick={nextBook}
