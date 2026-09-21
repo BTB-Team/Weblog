@@ -88,6 +88,17 @@
       "awards": "Awards & Recognitions"
     }
   },
+
+
+
+
+  "heroSectionAchievements": {
+    "label": "Achievements",
+    "title": "Achievements & Professional Journey",
+    "description": "An overview of my achievements, certificates, and key milestones throughout my professional and personal journey."
+  },
+
+  
   "books": {
     "downloadPdf": "Download PDF",
     "readAbstract": "Read Abstract"

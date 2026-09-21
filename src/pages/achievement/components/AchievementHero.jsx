@@ -93,7 +93,7 @@ const AchievementHero = () => {
             <span className="h-px w-10 bg-accent" />
 
             <span className="text-sm font-medium text-accent">
-              {t.achievement.hero.label}
+              {t.heroSectionAchievements.label}
             </span>
 
             <span className="h-px w-10 bg-accent" />
@@ -111,7 +111,7 @@ const AchievementHero = () => {
               lg:text-5xl
             "
           >
-            {t.achievement.hero.title}
+            {t.heroSectionAchievements.title}
           </h1>
 
           {/* Description */}
@@ -125,7 +125,7 @@ const AchievementHero = () => {
               sm:text-lg
             "
           >
-            {t.achievement.hero.description}
+            {t.heroSectionAchievements.description}
           </p>
 
           {/* Decorative element */}
