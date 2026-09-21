@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import PodcastCard from "./PodcastCard";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
-
+import db from "../../../db.json";
 
 const SearchIcon = () => (
   <svg
@@ -18,6 +18,7 @@ const SearchIcon = () => (
   </svg>
 );
 
+// Get text based on current language
 const getLocalizedValue = (value, lang) => {
   if (!value) return "";
 
@@ -28,15 +29,28 @@ const getLocalizedValue = (value, lang) => {
   return value[lang] || value.en || value.dr || "";
 };
 
-const Podcasts = () => {
-  const [podcasts, setPodcasts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [platforms, setPlatforms] = useState([]);
-  const [pageData, setPageData] = useState(null);
+// Fix image paths coming from db.json
+const getImageUrl = (path) => {
+  if (!path) return "";
 
+  if (path.startsWith("/public/")) {
+    return path.replace("/public", "");
+  }
+
+  if (path.startsWith("public/")) {
+    return `/${path.replace("public/", "")}`;
+  }
+
+  if (!path.startsWith("/")) {
+    return `/${path}`;
+  }
+
+  return path;
+};
+
+const Podcasts = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [search, setSearch] = useState("");
-  const [error, setError] = useState("");
 
   const lang = useLangStore((state) => state.lang);
   const t = useLangStore((state) => state.t);
@@ -50,51 +64,11 @@ const Podcasts = () => {
   const setIsLoading = useAudioStore((state) => state.setIsLoading);
   const setErrorAudio = useAudioStore((state) => state.setError);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setError("");
-
-        const [
-          podcastsResponse,
-          categoriesResponse,
-          platformsResponse,
-          pageResponse,
-        ] = await Promise.all([
-          fetch("http://localhost:5000/podcasts"),
-          fetch("http://localhost:5000/podcastCategories"),
-          fetch("http://localhost:5000/podcastPlatforms"),
-          fetch("http://localhost:5000/podcastPage"),
-        ]);
-
-        if (
-          !podcastsResponse.ok ||
-          !categoriesResponse.ok ||
-          !platformsResponse.ok ||
-          !pageResponse.ok
-        ) {
-          throw new Error("Failed to load podcast data");
-        }
-
-        const [podcastsData, categoriesData, platformsData, pageDataResult] =
-          await Promise.all([
-            podcastsResponse.json(),
-            categoriesResponse.json(),
-            platformsResponse.json(),
-            pageResponse.json(),
-          ]);
-
-        setPodcasts(podcastsData);
-        setCategories(categoriesData);
-        setPlatforms(platformsData);
-        setPageData(pageDataResult);
-      } catch {
-        setError(t.podcast.loadError);
-      }
-    };
-
-    loadData();
-  }, [t.podcast.loadError]);
+  // Get podcast data directly from db.json
+  const podcasts = db.podcasts || [];
+  const categories = db.podcastCategories || [];
+  const platforms = db.podcastPlatforms || [];
+  const pageData = db.podcastPage || null;
 
   const handlePlay = (podcast) => {
     if (!podcast.audioUrl) {
@@ -206,9 +180,12 @@ const Podcasts = () => {
             <div className="relative min-h-[280px] overflow-hidden lg:min-h-[390px]">
               {heroImage ? (
                 <img
-                  src={heroImage}
+                  src={getImageUrl(heroImage)}
                   alt=""
                   className="h-full w-full object-cover"
+                  onError={(event) => {
+                    event.currentTarget.style.display = "none";
+                  }}
                 />
               ) : (
                 <div className="flex h-full items-center justify-center bg-[#dfc9ba] text-7xl text-[#795052]">
@@ -280,15 +257,6 @@ const Podcasts = () => {
         </div>
       </section>
 
-      {/* Error */}
-      {error && (
-        <section className="px-4 pt-5 sm:px-6 lg:px-8">
-          <div className="mx-auto w-full max-w-7xl rounded-2xl border border-red-100 bg-red-50 px-5 py-4 text-sm text-red-700">
-            {error}
-          </div>
-        </section>
-      )}
-
       {/* Podcast Cards */}
       <section className="px-4 pt-5 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
@@ -318,10 +286,9 @@ const Podcasts = () => {
           )}
         </div>
       </section>
+
       {/* CTA */}
-      
     </main>
-    
   );
 };
 
