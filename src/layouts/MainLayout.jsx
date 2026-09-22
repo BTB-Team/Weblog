@@ -1,20 +1,31 @@
-import { Outlet } from "react-router-dom";
+
+import GlobalAudioPlayer from "../pages/podcasts/GlobalAudioPlayer";
 import Navbar from "../components/header/Navbar";
 import Footer from "../components/footer/Footer";
+import { Outlet } from "react-router-dom";
 import { useLangStore } from "../store/useLangStore";
-const MainLayout = () => {
+
+function Layout() {
   const lang = useLangStore((state) => state.lang);
+
   return (
-    <div className={lang === "dr" ? "font-persian" : "font-english"}>
+    <div
+      dir={lang === "dr" ? "rtl" : "ltr"}
+      className={`min-h-screen w-full ${
+        lang === "dr" ? "font-persian" : "font-english"
+      }`}
+    >
       <Navbar />
 
-      <main>
+      <main className="w-full">
         <Outlet />
       </main>
 
       <Footer />
+
+      <GlobalAudioPlayer />
     </div>
   );
-};
+}
 
-export default MainLayout;
+export default Layout;
