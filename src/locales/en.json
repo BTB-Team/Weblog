@@ -76,9 +76,41 @@
     "connect": "Connect",
     "withLoveForWords": "With Love for Words"
     
-  }
+  },
 
 
 
+  "newsletter": {
+  "label": "Newsletter",
+  "home": "Home",
+  "title": "Maryam's words, directly to your inbox",
+  "description": "By subscribing to the newsletter, you will receive the latest short writings, selected articles, podcasts, and behind-the-scenes updates every week.",
+  "emailPlaceholder": "Enter your email...",
+  "subscribe": "Subscribe to newsletter",
+  "privacy": "Your email address will only be used to send the newsletter.",
+
+  "latestPost": "Latest Post",
+  "category": "Short Story",
+  "featuredTitle": "The Window That Opens to Summer",
+  "featuredDescription": "Sometimes the place of certain seasons does not simply change; it becomes a place without anxiety, a place of comfort, a place where a window remains open.",
+  "readMore": "Read Full",
+
+  "latestUpdates": "Latest Updates",
+  "readArticle": "Read Article",
+
+  "archive": "Previous Newsletters",
+  "archivePromoTitle": "If you want to be",
+  "archivePromoTitle2": "the first to know",
+  "archivePromoDescription": "Stay informed about new writings and updates. Join us...",
+
+  "ctaTitle": "Join a world of more words and sounds...",
+  "ctaDescription": "Subscribe to the newsletter for access to more writings, exclusive podcasts, and the latest news.",
+  
+  "audioSeason": "Season One",
+  
+  "close": "Close"
+}
 
 }
+
+
