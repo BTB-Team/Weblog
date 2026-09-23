@@ -1,0 +1,62 @@
+{
+	"folders": [
+		{
+			"path": "../../../../ReactPracticing"
+		},
+		{
+			"path": "../../../../Dart"
+		},
+		{
+			"path": "../../../../projects/Dashboard"
+		},
+		{
+			"path": "../../../../Nextjs"
+		},
+		{
+			"path": "../../../../myportfolio"
+		},
+		{
+			"path": "../../../../../AndroidStudioProjects/ToDoList"
+		},
+		{
+			"path": "../../../../animation"
+		},
+		{
+			"path": "../../../../MyPortfoli"
+		},
+		{
+			"path": "../../../../FlutterProject2/loginpage"
+		},
+		{
+			"path": "../../../../flutterPracticing"
+		},
+		{
+			"path": "../../../../flutterPrac"
+		},
+		{
+			"path": "../../../../foodies"
+		},
+		{
+			"path": "../../../../NODEJS"
+		},
+		{
+			"path": "../../../../KabulRentaCart"
+		},
+		{
+			"path": "../../../../WebLogProject"
+		},
+		{
+			"path": "../../../../MUI5"
+		},
+		{
+			"path": "../../../../mui"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "New folder",
+		"liveServer.settings.port": 5501
+	}
+}
