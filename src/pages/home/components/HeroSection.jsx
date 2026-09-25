@@ -1,60 +1,51 @@
-import BranchDecoration from "./BranchDecoration";
-import image_01 from "../../../assets/images/book.webp";
 import { Link } from "react-router-dom";
 import { useLangStore } from "../../../store/useLangStore";
+import mariamImage from "../../../assets/images/MariamAmiri.png";
 
 const HeroSection = () => {
   const t = useLangStore((state) => state.t);
-  return (
-    <section className="mx-8 my-8 m-auto max-w-7xl text-text flex flex-col items-center justify-center md:flex-row md:gap-5">
-      <img
-        className="md:order-2  w-[250px] h-[250px] md:w-[200px] md:h-[200px] rounded-full border-10"
-        src={image_01}
-        alt="Mariam Amiri"
-      />
-      <div className="md:order-1  py-5 text-center md:text-start">
-        <h1 className="text-4xl font-bold ">{t.hero.name}</h1>
-        <p className="py-5 px-4 sm:text-xl  md:px-0">{t.hero.description}</p>
-        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link to="/writings" className=" btn-primary ">
-            {t.hero.buttons.writings}
-          </Link>
 
-          <Link to="/about" className="btn-secondary">
-            {t.hero.buttons.about}
-          </Link>
+  return (
+    <section className="w-full overflow-hidden">
+      <div className="mx-auto flex min-h-[500px] max-w-7xl flex-col items-center justify-center gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:min-h-[600px] lg:flex-row lg:gap-12 lg:px-8 lg:py-16">
+        {/* Image */}
+        <div className="flex w-full items-center justify-center lg:w-1/2">
+          <div className="relative h-[230px] w-[230px] sm:h-[290px] sm:w-[290px] md:h-[330px] md:w-[330px] lg:h-[400px] lg:w-[400px] xl:h-[440px] xl:w-[440px]">
+            <div className="absolute inset-4 rounded-full bg-accent/10 blur-3xl" />
+
+            <img
+              src={mariamImage}
+              alt={t.hero.name}
+              className="relative z-10 h-full w-full rounded-2xl border-8 border-white object-cover shadow-xl"
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex w-full max-w-2xl flex-col items-center justify-center text-center lg:w-1/2 lg:max-w-xl lg:items-start lg:text-start">
+          <span className="mb-2 text-sm font-medium text-muted sm:text-base">
+            {t.hero.hello}
+          </span>
+
+          <h1 className="text-3xl font-bold leading-tight text-text sm:text-4xl md:text-5xl xl:text-6xl">
+            {t.hero.name}
+          </h1>
+
+          <p className="mt-5 max-w-xl text-sm leading-7 text-muted sm:text-base sm:leading-8 md:text-lg md:leading-9">
+            {t.hero.description}
+          </p>
+
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 lg:justify-start">
+            <Link to="/writings" className="btn-primary">
+              {t.hero.buttons.writings}
+            </Link>
+
+            <Link to="/about" className="btn-secondary">
+              {t.hero.buttons.about}
+            </Link>
+          </div>
         </div>
       </div>
-
-      <div className="hidden lg:block w-5xl "></div>
-
-      {/* <img
-        className="hidden absolute -z-8 start-0 top-3  lg:block  w-1/3 h-1/2 "
-        src={image_01}
-        alt="Mariam Amiri"
-      /> */}
-      <img
-        src={image_01}
-        alt="Mariam Amiri"
-        className="
-    hidden
-    lg:block
-    absolute
-    start-0
-    -top-1
-    -z-8
-    h-1/2
-    w-[650px]
-    object-cover
-    opacity-80
-
-    ltr:[mask-image:linear-gradient(to_left,transparent_0%,transparent_18%,black_58%,black_100%)]
-    ltr:[-webkit-mask-image:linear-gradient(to_left,transparent_0%,transparent_18%,black_58%,black_100%)]
-
-    rtl:[mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,black_58%,black_100%)]
-    rtl:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,transparent_18%,black_58%,black_100%)]
-  "
-      />
     </section>
   );
 };

@@ -29,7 +29,7 @@ const StatHome = () => {
   ];
 
   return (
-    <div className="bg-header m-auto max-w-7xl grid grid-cols-2 md:grid-cols-4  rounded-xl gap-5 mx-4 my-4 py-5 ">
+    <div className="bg-header m-auto max-w-7xl grid grid-cols-2 md:grid-cols-4  rounded-xl gap-5 mx-4  my-4 py-5 ">
       {dataStats.map((stat, index) => (
         <Stat
           key={index}
