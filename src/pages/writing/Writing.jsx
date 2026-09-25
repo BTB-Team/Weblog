@@ -8,13 +8,8 @@ const Posts = () => {
     const lang = useLangStore((state) => state.lang);
     const t = useLangStore((state) => state.t);
 
-
-
-
-
     const [search, setSearch] = useState("");
-    const [activeCategory, setActiveCategory] =
-        useState("all");
+    const [activeCategory, setActiveCategory] = useState("all");
 
     const isRTL = lang === "dr";
     const writings = db?.writings ?? [];
@@ -29,26 +24,21 @@ const Posts = () => {
         const types = writings
             .map(
                 (post) =>
-                    post.type?.[lang] ||
-                    post.type?.en
+                    post.type?.[lang] || post.type?.en
             )
             .filter(Boolean);
 
-        const uniqueTypes = [
-            ...new Set(types),
-        ];
+        const uniqueTypes = [...new Set(types)];
 
         return [
             {
                 key: "all",
                 label: t.writing.all,
             },
-            ...uniqueTypes.map(
-                (type) => ({
-                    key: type,
-                    label: type,
-                })
-            ),
+            ...uniqueTypes.map((type) => ({
+                key: type,
+                label: type,
+            })),
         ];
     }, [writings, lang, isRTL]);
 
@@ -59,50 +49,24 @@ const Posts = () => {
      */
 
     const filteredPosts = useMemo(() => {
-        const query = search
-            .trim()
-            .toLowerCase();
+        const query = search.trim().toLowerCase();
 
         return writings.filter((post) => {
-            const title =
-                post.title?.[lang] ||
-                post.title?.en ||
-                "";
-
-            const content =
-                post.content?.[lang] ||
-                post.content?.en ||
-                "";
-
-            const type =
-                post.type?.[lang] ||
-                post.type?.en ||
-                "";
+            const title = post.title?.[lang] || post.title?.en || "";
+            const content = post.content?.[lang] || post.content?.en || "";
+            const type = post.type?.[lang] || post.type?.en || "";
 
             const matchesSearch =
                 !query ||
-                title
-                    .toLowerCase()
-                    .includes(query) ||
-                content
-                    .toLowerCase()
-                    .includes(query);
+                title.toLowerCase().includes(query) ||
+                content.toLowerCase().includes(query);
 
             const matchesCategory =
-                activeCategory === "all" ||
-                type === activeCategory;
+                activeCategory === "all" || type === activeCategory;
 
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
+            return matchesSearch && matchesCategory;
         });
-    }, [
-        writings,
-        search,
-        activeCategory,
-        lang,
-    ]);
+    }, [writings, search, activeCategory, lang]);
 
     const clearFilters = () => {
         setSearch("");
@@ -119,7 +83,6 @@ const Posts = () => {
             ================================================== */}
 
             <section className="relative overflow-hidden bg-[#F3EEE7]">
-
                 {/* Decorative circles */}
                 <div
                     className="
@@ -240,12 +203,8 @@ const Posts = () => {
                         <input
                             type="search"
                             value={search}
-                            onChange={(e) =>
-                                setSearch(e.target.value)
-                            }
-                            placeholder={
-                                t.writing.searchwrittenworks
-                            }
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder={t.writing.searchwrittenworks}
                             className="
                                 h-full
                                 min-w-0
@@ -263,12 +222,8 @@ const Posts = () => {
                         {search && (
                             <button
                                 type="button"
-                                onClick={() =>
-                                    setSearch("")
-                                }
-                                aria-label={
-                                    t.writing.clearsearch
-                                }
+                                onClick={() => setSearch("")}
+                                aria-label={t.writing.clearsearch}
                                 className="
                                     flex
                                     h-7
@@ -312,40 +267,35 @@ const Posts = () => {
                     "
                 >
                     <div className="flex min-w-max justify-center gap-2">
-                        {categories.map(
-                            (category) => {
-                                const active =
-                                    activeCategory ===
-                                    category.key;
+                        {categories.map((category) => {
+                            const active = activeCategory === category.key;
 
-                                return (
-                                    <button
-                                        key={category.key}
-                                        type="button"
-                                        onClick={() =>
-                                            setActiveCategory(
-                                                category.key
-                                            )
-                                        }
-                                        className={`
-                                            rounded-full
-                                            px-5
-                                            py-2.5
-                                            text-sm
-                                            font-medium
-                                            transition-all
-                                            duration-200
-                                            ${active
+                            return (
+                                <button
+                                    key={category.key}
+                                    type="button"
+                                    onClick={() =>
+                                        setActiveCategory(category.key)
+                                    }
+                                    className={`
+                                        rounded-full
+                                        px-5
+                                        py-2.5
+                                        text-sm
+                                        font-medium
+                                        transition-all
+                                        duration-200
+                                        ${
+                                            active
                                                 ? "bg-[#9B7354] text-white shadow-sm"
                                                 : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-                                            }
-                                        `}
-                                    >
-                                        {category.label}
-                                    </button>
-                                );
-                            }
-                        )}
+                                        }
+                                    `}
+                                >
+                                    {category.label}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -377,27 +327,25 @@ const Posts = () => {
                         gap-4
                     "
                 >
-                   <p className="text-sm text-stone-500 font-bold">
-    {filteredPosts.length} {t.writing.story}
-</p>
+                    <p className="text-sm font-bold text-stone-500">
+                        {filteredPosts.length} {t.writing.story}
+                    </p>
 
-                    {(search ||
-                        activeCategory !==
-                        "all") && (
-                            <button
-                                type="button"
-                                onClick={clearFilters}
-                                className="
+                    {(search || activeCategory !== "all") && (
+                        <button
+                            type="button"
+                            onClick={clearFilters}
+                            className="
                                 text-sm
                                 font-medium
                                 text-[#9B7354]
                                 transition
                                 hover:text-[#76533B]
                             "
-                            >
-                                {t.writing.clearfilters}
-                            </button>
-                        )}
+                        >
+                            {t.writing.clearfilters}
+                        </button>
+                    )}
                 </div>
 
                 {/* Posts */}
@@ -411,14 +359,9 @@ const Posts = () => {
                             lg:grid-cols-3
                         "
                     >
-                        {filteredPosts.map(
-                            (post) => (
-                                <PostCard
-                                    key={post.id}
-                                    post={post}
-                                />
-                            )
-                        )}
+                        {filteredPosts.map((post) => (
+                            <PostCard key={post.id} post={post} />
+                        ))}
                     </div>
                 ) : (
                     /* Empty state */
