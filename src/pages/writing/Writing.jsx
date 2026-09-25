@@ -11,13 +11,12 @@ import PostCard from "../../components/PostCard.jsx";
 import db from "../../../db.json";
 
 const Posts = () => {
-    const lang = useLangStore(
-        (state) => state.lang
-    );
+    const lang = useLangStore((state) => state.lang);
+    const t = useLangStore((state) => state.t);
 
-    const t = useLangStore(
-        (state) => state.t
-    );
+
+
+
 
     const [search, setSearch] = useState("");
 
@@ -215,7 +214,9 @@ const Posts = () => {
                             bg-[#C5A88C]/10
                             blur-3xl
                         "
-                    />
+                    >
+                        {t.writing.writtenworks}
+                    </span>
 
                     <div
                         className="
@@ -244,6 +245,8 @@ const Posts = () => {
                             lg:px-8
                         "
                     >
+                        {t.writing.mywrittenworks}
+                    </h1>
                         {/* Eyebrow */}
 
                         <span
@@ -419,6 +422,8 @@ const Posts = () => {
                             lg:px-8
                         "
                     >
+                        {t.writing.acollectionofstorieswritings}
+                    </p>
                         <div
                             className="
                                 flex
@@ -498,6 +503,22 @@ const Posts = () => {
                             gap-4
                         "
                     >
+                        <Search
+                            size={20}
+                            strokeWidth={2}
+                            aria-hidden="true"
+                            className="shrink-0 text-stone-400"
+                        />
+
+                        <input
+                            type="search"
+                            value={search}
+                            onChange={(e) =>
+                                setSearch(e.target.value)
+                            }
+                            placeholder={
+                                t.writing.searchwrittenworks
+                            }
                         <p
                             className="
                                 text-sm
@@ -517,6 +538,8 @@ const Posts = () => {
                                 onClick={
                                     clearFilters
                                 }
+                                aria-label={
+                                    t.writing.clearsearch
                                 className="
                                     text-sm
                                     font-medium
@@ -675,6 +698,28 @@ const Posts = () => {
                         setSelectedPost(null)
                     }
                 >
+                   <p className="text-sm text-stone-500 font-bold">
+    {filteredPosts.length} {t.writing.story}
+</p>
+
+                    {(search ||
+                        activeCategory !==
+                        "all") && (
+                            <button
+                                type="button"
+                                onClick={clearFilters}
+                                className="
+                                text-sm
+                                font-medium
+                                text-[#9B7354]
+                                transition
+                                hover:text-[#76533B]
+                            "
+                            >
+                                {t.writing.clearfilters}
+                            </button>
+                        )}
+                </div>
                     {/* Modal */}
 
                     <div
@@ -730,6 +775,27 @@ const Posts = () => {
                             <X size={22} />
                         </button>
 
+                        <h2
+                            className="
+                                text-xl
+                                font-semibold
+                                text-stone-800
+                            "
+                        >
+                            {t.writing.nowrittenworksfound}
+                        </h2>
+
+                        <p
+                            className="
+                                mt-2
+                                max-w-md
+                                text-sm
+                                leading-6
+                                text-stone-500
+                            "
+                        >
+                            {t.writing.tryanothersearchtermorcategory}
+                        </p>
                         {/* Image */}
 
                         {selectedPost.image && (
@@ -766,6 +832,8 @@ const Posts = () => {
                                 lg:py-12
                             "
                         >
+                            {t.writing.showallworks}
+                        </button>
                             {/* Category */}
 
                             {modalType && (

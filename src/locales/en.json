@@ -13,6 +13,47 @@
     "achievements": "Achievements",
     "newsletter": "Newsletter"
   },
+ "podcast": {
+  "title": "Podcasts",
+  "description": "Inspiring conversations, stories, and voices",
+  "heroTitle": "A world of stories to listen to",
+  "heroDescription": "Listen to inspiring conversations, personal stories, and voices that share experiences, ideas, and hope.",
+  "listen": "Listen",
+  "play": "Play",
+  "pause": "Pause",
+  "latest": "Latest Podcasts",
+  "availableOn": "Listen on different platforms",
+  "platformDescription": "Listen to our podcasts on your favorite podcast platforms.",
+  "guest": "Guest",
+  "duration": "Duration",
+  "loading": "Loading",
+  "error": "Unable to play this audio file",
+  "previous": "Previous",
+  "next": "Next",
+  "close": "Close",
+  "placeholderCover": "Podcast cover",
+  "audioComingSoon": "Sample audio unavailable — add an audio URL to enable playback.",
+  "nowPlaying": "Now playing",
+  "seek": "Seek through podcast",
+  "episodes": "episodes",
+  "noPodcasts": "No podcasts available yet.",
+  "loadError": "Could not load podcasts. Check that JSON Server is running.",
+  "playbackError": "Could not play this audio. Check the audio URL.",
+  "searchPlaceholder": "Search podcasts...",
+  
+    
+      "heroTitle": "Enter the World of Stories Through Listening",
+      "heroDescription": "A place to listen to conversations, stories, and podcasts shaped by different experiences, ideas, and voices.",
+      "searchPlaceholder": "Search podcasts...",
+      "platformDescription": "Follow our podcasts on your favorite platforms and listen wherever you are.",
+      "contactEyebrow": "Get in Touch",
+      "contactTitle": "Stay Connected With Me",
+      "contactDescription": "If you have a question, suggestion, or message, I would be happy to hear from you through the channels below.",
+      "email": "Email",
+      "telegram": "Telegram",
+      "linkedin": "LinkedIn"
+    }
+  },
 
  "podcast": {
   "title": "Podcasts",
@@ -174,6 +215,18 @@
     "downloadPdf": "Download PDF",
     "readAbstract": "Read Abstract"
   },
+   "media": {
+    "breadcrumb": "Media",
+    "title": "Photo & Video Gallery",
+    "subtitle": "A look back at events, talks, and moments captured along the way.",
+    "searchPlaceholder": "Search media...",
+    "videosTab": "Videos",
+    "photosTab": "Photos",
+    "photosHeading": "Photos",
+    "videosHeading": "Videos",
+    "gridSubtitle": "Browse the full collection below.",
+    "empty": "No media found."
+  },
 
   "cta": {
     "title": "Collaboration & Contact",
@@ -190,5 +243,322 @@
     "subscribe": "Subscribe",
     "connect": "Connect",
     "withLoveForWords": "With Love for Words"
+    
+  },
+
+
+
+  "newsletter": {
+  "label": "Newsletter",
+  "home": "Home",
+  "title": "Maryam's words, directly to your inbox",
+  "description": "By subscribing to the newsletter, you will receive the latest short writings, selected articles, podcasts, and behind-the-scenes updates every week.",
+  "emailPlaceholder": "Enter your email...",
+  "subscribe": "Subscribe to newsletter",
+  "privacy": "Your email address will only be used to send the newsletter.",
+
+  "latestPost": "Latest Post",
+  "category": "Short Story",
+  "featuredTitle": "The Window That Opens to Summer",
+  "featuredDescription": "Sometimes the place of certain seasons does not simply change; it becomes a place without anxiety, a place of comfort, a place where a window remains open.",
+  "readMore": "Read Full",
+
+  "latestUpdates": "Latest Updates",
+  "readArticle": "Read Article",
+
+  "archive": "Previous Newsletters",
+  "archivePromoTitle": "If you want to be",
+  "archivePromoTitle2": "the first to know",
+  "archivePromoDescription": "Stay informed about new writings and updates. Join us...",
+
+  "ctaTitle": "Join a world of more words and sounds...",
+  "ctaDescription": "Subscribe to the newsletter for access to more writings, exclusive podcasts, and the latest news.",
+  
+  "audioSeason": "Season One",
+  
+  "close": "Close"
+
+
+
+
+
+  },
+  "about": {
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "home": "Home",
+      "current": "About"
+    },
+    "hero": {
+      "eyebrow": "Literary and Social Identity",
+      "title": "Life Through the Mirror of Words",
+      "description": "Maryam Amiri, a Hazara writer and young leader; a storyteller of human experiences and a voice for hope, justice, and change. Through writing and advocacy, I strive to be a voice for young people and build a bridge between individual stories and social concerns.",
+      "storyButton": "My Story",
+      "experienceButton": "My Experience",
+      "imageAlt": "Portrait of Maryam Amiri",
+      "cardTitle": "With a Love for Words",
+      "cardText": "Storytelling, Leadership & Change"
+    },
+    "quickLinks": {
+      "story": "Story",
+      "articles": "Articles",
+      "poetry": "Poetry",
+      "records": "Records"
+    },
+    "story": {
+      "eyebrow": "My Story",
+      "title": "My Journey",
+      "paragraphs": [
+        "I am Maryam Amiri, eighteen years old. So far, I have published more than 360 articles in four languages across seventeen national and international media outlets. My first book, \"A Different Ending for a New Beginning,\" was published by Shisha Media and tells the story of a girl who is deprived of education but never gives up.",
+        "I was selected as the Afghanistan Branch Leader of the American Young Writers Initiatives Magazine and founded the first branch of the organization in my country. I also served as the Head of the Writing Department at Cluster Education, where I worked with many girls. Together, we founded the Young Writers Association and held workshops with WrightGirls USA to strengthen the literary skills of girls.",
+        "Beyond writing, I have also participated in global leadership and advocacy programs. I received the Whetstone Legislative Advocacy Fellowship and worked with young people from 31 countries on human rights. I participated in the Nobel program for six months, collaborating with young people from 160 countries. I was selected as one of the change leaders in Thailand and hosted international writers during the \"Eleven Days of Global Unity.\" On October 12, 2025, I received the Women's Empowerment Award from the British Millennium Council.",
+        "I have participated as a distinguished delegate at the 13th Asia World Model United Nations Conference (AWMUN XIII) and as a guest speaker at the PDEU Youth Parliament and HFF 2026. These honors are not merely medals; they are steps toward building a brighter future for girls. Today, I am honored to have reached the final stage of the Annual Exceptional Women of Peace Award, an award that reflects my commitment to justice, empowerment, and change."
+      ],
+      "hideStoryButton": "Hide Story"
+    },
+    "timeline": {
+      "eyebrow": "Education & Experience",
+      "title": "My Educational and Professional Journey",
+      "description": "Educational and professional journey across Afghanistan — Kabul, Herat, and Mazar",
+      "educationTitle": "Education",
+      "experienceTitle": "Work Experience"
+    },
+    "education": [
+      {
+        "date": "2024 - 2025",
+        "title": "Student",
+        "organization": "Bal Parwaz Online School",
+        "description": "I graduated from Bal Parwaz Online School in December 2025 after completing grade 12."
+      },
+      {
+        "date": "2022 - 2025",
+        "title": "Cluster Education Student",
+        "organization": "Cluster",
+        "description": "As part of my education at Cluster Education, I studied five academic subjects and also participated in empowerment classes. During this period, I joined the global Peace Game on Earth by 2030 campaign with a five-person team and participated in group projects aimed at connecting young people's voices with collective action and creating meaningful change."
+      },
+      {
+        "date": "April 2026",
+        "title": "High School Program",
+        "organization": "FIA School",
+        "description": "I recently began my academic studies at Forward International Academy, an American school, and am following the American high school curriculum."
+      },
+      {
+        "date": "March 2025 - 2026",
+        "title": "Level Two and Level Three Student",
+        "organization": "Education Bridge for Afghanistan",
+        "description": "I completed Level 2 of the British school curriculum at EBA and am currently progressing through Level 3."
+      },
+      {
+        "date": "September 2025 - 2025",
+        "title": "Whetstone Fellowship",
+        "organization": "Whetstone Legal Support Organization",
+        "description": "Through the Whetstone Fellowship, I worked with participants from 31 countries in legal and political fields. The program provided an opportunity for exchanging perspectives, shared learning, and developing advocacy skills at an international level."
+      },
+      {
+        "date": "April 2026",
+        "title": "University of Cambridge",
+        "organization": "Scholarship Recipient",
+        "description": "I received a scholarship to take the courses \"Democratizing Education for Global Justice and Sustainability\" and \"Key Foundations: Trade Law, Sustainable Development and Rights\" at the University of Cambridge. This program provided a valuable opportunity for deeper learning, exchanging perspectives, and developing leadership skills in educational justice, global sustainability, law, and trade."
+      },
+      {
+        "date": "February 2026",
+        "title": "Participant",
+        "organization": "Aspire Program",
+        "description": "I participated in the Aspire Program, which focuses on leadership, teamwork, and personal growth. Through participation in group leadership projects, I strengthened my collaborative leadership, effective cooperation, and personal development skills. This experience provided a valuable opportunity for practical learning and creating positive change in collective environments."
+      }
+    ],
+    "experience": [
+      {
+        "date": "2024 - 2025",
+        "title": "Young Writers Association Leader",
+        "organization": "Young Writers",
+        "description": "For one year, I led the Young Writers Association with the participation of 250 Afghan girls and helped them share their life stories through national and international media. The program included in-person and online sessions with girls from different provinces of Afghanistan, as well as from Iran and Pakistan. Our association's main focus was storytelling and documenting history — an effort to preserve individual and collective experiences and make them part of literary and social memory."
+      },
+      {
+        "date": "2025",
+        "title": "Afghan Women's Empowerment",
+        "organization": "WriteGirls Writing Workshop",
+        "description": "I participated in WriteGirls creative writing workshops, a program supporting young women in developing storytelling and self-expression skills. The Young Writers Association also joined these workshops, allowing its members to benefit from the creative training. This collaboration provided a valuable opportunity to strengthen the literary empowerment of Afghan girls and create a space for storytelling and documenting their experiences."
+      },
+      {
+        "date": "January 2026",
+        "title": "Empowered Future Minds",
+        "organization": "Katrina Biloruska Foundation & Cyprus Business School",
+        "description": "Our project, called FeminStem, was developed as an initiative with a group of girls from different countries. We worked as a team to strengthen our scientific and practical skills in STEM and develop innovative approaches to online learning. FeminStem was not only a platform for personal and academic growth, but also an opportunity to build solidarity among girls from different cultures and countries and turn knowledge into collective action."
+      }
+    ],
+    "skills": {
+      "title": "Skills",
+      "items": [
+        "Storytelling",
+        "Youth Leadership & Empowerment",
+        "Workshops & Teaching",
+        "Interviewing & Podcasting"
+      ]
+    },
+    "languages": {
+      "title": "Languages",
+      "items": [
+        {
+          "name": "Persian",
+          "level": "Native Language"
+        },
+        {
+          "name": "English",
+          "level": "Fluent — Literary Translation"
+        }
+      ]
+    },
+    "memberships": {
+      "eyebrow": "Memberships & Collaborations",
+      "title": "Memberships & Collaborations",
+      "items": [
+        "I signed the Women's Empowerment Principles (WEPs) Statement of Support – United Nations on April 30, 2026, representing girls. This action marked the beginning of my collaboration with the United Nations in support of girls, as part of my commitment to empowering women and girls, advancing educational justice, and creating equal opportunities.",
+        "I serve as the Editor of the Publications Department at Education Bridge for Afghanistan. In this role, I am responsible for guiding educational and literary content, managing writing teams and publications, and strengthening the capacity of young people in storytelling and publishing.",
+        "Member of the United States Association for the United Nations (UNA-USA) – a national movement with more than 20,000 active members across more than 230 community and university chapters, supporting strong cooperation between the United States and the United Nations.",
+        "I work as a \"Changemaker\" at Seema Academy and contribute to the organization's educational campaigns. In this role, I am responsible for designing and implementing seven- to twelve-day educational campaigns aimed at empowering young people, strengthening leadership skills, and creating positive change in society."
+      ]
+    },
+    "related": {
+      "title": "Related Pages",
+      "description": "Explore other sections about my activities, writings, and achievements",
+      "items": [
+        {
+          "title": "Writings",
+          "href": "#"
+        },
+        {
+          "title": "Activities",
+          "href": "#"
+        },
+        {
+          "title": "Achievements",
+          "href": "#"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Collaboration & Contact",
+      "description": "To explore my achievements and media activities, or to start a new conversation and literary collaboration, use the link below.",
+      "contactButton": "Talk with me",
+      "achievementsButton": "View achievements",
+      "mediaButton": "Media"
+    }
+  },
+  "contact": {
+    "breadcrumb": {
+      "label": "Page path",
+      "home": "Home",
+      "current": "Contact Me"
+    },
+    "quote": {
+      "line1": "Sometimes",
+      "line2": "a simple message",
+      "line3": "is the beginning",
+      "line4": "of a beautiful collaboration."
+    },
+    "heroLabel": "Contact Me",
+    "heroTitle": "Let's Stay in Touch",
+    "heroDescription": "If you have questions about books, writings, literary and artistic collaborations, or simply have an idea to share, I would be happy to hear from you.",
+    "heroImageAlt": "Mariam Amiri's workspace",
+    "heroImageFallback": "Contact image",
+    "info": {
+      "emailTitle": "My Email",
+      "emailDescription": "For messages, collaborations, or general questions",
+      "copy": "Copy",
+      "locationTitle": "Location",
+      "location": "Kabul, Afghanistan",
+      "locationDescription": "I currently live in Kabul.",
+      "responseTitle": "Response Time",
+      "responseTime": "Around 48 hours",
+      "responseDescription": "I will respond to your message."
+    },
+    "copyToast": "Email copied",
+    "social": {
+      "title": "Follow Me on Social Media",
+      "description": "For my latest writings, updates, and creative work",
+      "items": {
+        "email": "Email",
+        "outlook": "Outlook Email",
+        "linktree": "Linktree",
+        "bluesky": "Bluesky",
+        "telegram": "Telegram",
+        "substack": "Substack",
+        "threads": "Threads",
+        "tiktok": "TikTok",
+        "x": "X",
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn"
+      }
+    },
+    "form": {
+      "title": "Contact Form",
+      "description": "Write your message and I will get back to you as soon as possible.",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "subject": "Message Subject",
+      "subjectPlaceholder": "Select a message subject",
+      "cooperation": "Collaboration",
+      "writingOpinion": "Feedback on My Writings",
+      "generalMessage": "General Message",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "sending": "Sending...",
+      "send": "Send Message"
+    },
+    "formImageAlt": "Mariam Amiri's workspace and books",
+    "imageQuote": {
+      "line1": "Let's have a",
+      "line2": "conversation..."
+    },
+    "success": "Your message has been sent successfully",
+    "donate": {
+      "title": "Support My Writing",
+      "description": "If you enjoy my writings and activities, your support can help me continue this journey.",
+      "support": "Support Me",
+      "backHome": "Back to Home"
+    },
+    "footer": {
+      "author": "Writer Mariam Amiri",
+      "home": "Home",
+      "about": "About Me",
+      "writings": "Writings",
+      "podcasts": "Podcasts",
+      "contact": "Contact Me",
+      "donate": "Financial Support",
+      "quote": "Words are my home"
+    }
+  },
+  "donate": {
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "home": "Home",
+      "current": "Donate"
+    },
+    "hero": {
+      "eyebrow": "Support this journey",
+      "title": "Donate",
+      "description": "If you enjoyed the content of this website and want to support my literary, storytelling, and artistic work, you can use the following methods."
+    },
+    "message": {
+      "title": "Donate",
+      "description": "If you enjoyed the content of this website and want to support my literary, storytelling, and artistic work, you can use the following methods.",
+      "thankYou": "Thank you for your support!",
+      "usage": "All donations will be used to produce high-quality content."
+    },
+    "contact": {
+      "title": "Donation Information",
+      "description": "You can use the following contact information to support my work.",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email for donations"
+    },
+    "cta": {
+      "title": "Thank you for your support!",
+      "description": "All donations will be used to produce high-quality content.",
+      "emailButton": "Donate",
+      "contactButton": "Contact Me"
+    }
   }
 }

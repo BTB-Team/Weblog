@@ -108,13 +108,13 @@
            text-text hover:bg-header;
   }
 }
-.marquee-track {
+/* .marquee-track {
   width: max-content;
   animation: marquee-scroll 30s linear infinite;
 }
 
 .marquee-container {
-  direction: ltr; /* isolate this component from page RTL */
+  direction: ltr; /* isolate this component from page RTL 
   overflow: hidden;
   position: relative;
 }
@@ -128,5 +128,5 @@
 
 @keyframes marquee-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-33.3333%); } /* 1/3 since you tripled the array */
-}
+  to   { transform: translateX(-33.3333%); } /* 1/3 since you tripled the array 
+} */
