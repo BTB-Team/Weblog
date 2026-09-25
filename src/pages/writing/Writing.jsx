@@ -14,14 +14,8 @@ const Posts = () => {
     const lang = useLangStore((state) => state.lang);
     const t = useLangStore((state) => state.t);
 
-
-
-
-
     const [search, setSearch] = useState("");
-
-    const [activeCategory, setActiveCategory] =
-        useState("all");
+    const [activeCategory, setActiveCategory] = useState("all");
 
     // Selected writing for modal
     const [selectedPost, setSelectedPost] =
@@ -41,21 +35,17 @@ const Posts = () => {
         const types = writings
             .map(
                 (post) =>
-                    post.type?.[lang] ||
-                    post.type?.en
+                    post.type?.[lang] || post.type?.en
             )
             .filter(Boolean);
 
-        const uniqueTypes = [
-            ...new Set(types),
-        ];
+        const uniqueTypes = [...new Set(types)];
 
         return [
             {
                 key: "all",
                 label: t.writing.all,
             },
-
             ...uniqueTypes.map((type) => ({
                 key: type,
                 label: type,
@@ -70,50 +60,24 @@ const Posts = () => {
      */
 
     const filteredPosts = useMemo(() => {
-        const query = search
-            .trim()
-            .toLowerCase();
+        const query = search.trim().toLowerCase();
 
         return writings.filter((post) => {
-            const title =
-                post.title?.[lang] ||
-                post.title?.en ||
-                "";
-
-            const content =
-                post.content?.[lang] ||
-                post.content?.en ||
-                "";
-
-            const type =
-                post.type?.[lang] ||
-                post.type?.en ||
-                "";
+            const title = post.title?.[lang] || post.title?.en || "";
+            const content = post.content?.[lang] || post.content?.en || "";
+            const type = post.type?.[lang] || post.type?.en || "";
 
             const matchesSearch =
                 !query ||
-                title
-                    .toLowerCase()
-                    .includes(query) ||
-                content
-                    .toLowerCase()
-                    .includes(query);
+                title.toLowerCase().includes(query) ||
+                content.toLowerCase().includes(query);
 
             const matchesCategory =
-                activeCategory === "all" ||
-                type === activeCategory;
+                activeCategory === "all" || type === activeCategory;
 
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
+            return matchesSearch && matchesCategory;
         });
-    }, [
-        writings,
-        search,
-        activeCategory,
-        lang,
-    ]);
+    }, [writings, search, activeCategory, lang]);
 
     /*
      * ==========================================
@@ -132,14 +96,21 @@ const Posts = () => {
      * ==========================================
      */
 
-    useEffect(() => {
-        if (!selectedPost) return;
-
-        const handleKeyDown = (e) => {
-            if (e.key === "Escape") {
-                setSelectedPost(null);
-            }
-        };
+            <section className="relative overflow-hidden bg-[#F3EEE7]">
+                {/* Decorative circles */}
+                <div
+                    className="
+                        pointer-events-none
+                        absolute
+                        -left-32
+                        -top-32
+                        h-80
+                        w-80
+                        rounded-full
+                        bg-[#C5A88C]/10
+                        blur-3xl
+                    "
+                />
 
         document.addEventListener(
             "keydown",
@@ -513,13 +484,8 @@ const Posts = () => {
                         <input
                             type="search"
                             value={search}
-                            onChange={(e) =>
-                                setSearch(e.target.value)
-                            }
-                            placeholder={
-                                t.writing.searchwrittenworks
-                            }
-                        <p
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder={t.writing.searchwrittenworks}
                             className="
                                 text-sm
                                 font-bold
@@ -535,71 +501,8 @@ const Posts = () => {
                                 "all") && (
                             <button
                                 type="button"
-                                onClick={
-                                    clearFilters
-                                }
-                                aria-label={
-                                    t.writing.clearsearch
-                                className="
-                                    text-sm
-                                    font-medium
-                                    text-[#9B7354]
-                                    transition
-                                    hover:text-[#76533B]
-                                "
-                            >
-                                {
-                                    t.writing
-                                        .clearfilters
-                                }
-                            </button>
-                        )}
-                    </div>
-
-                    {/* Posts */}
-
-                    {filteredPosts.length > 0 ? (
-                        <div
-                            className="
-                                grid
-                                grid-cols-1
-                                gap-6
-                                md:grid-cols-2
-                                lg:grid-cols-3
-                            "
-                        >
-                            {filteredPosts.map(
-                                (post) => (
-                                    <PostCard
-                                        key={post.id}
-                                        post={post}
-                                        onOpen={
-                                            setSelectedPost
-                                        }
-                                    />
-                                )
-                            )}
-                        </div>
-                    ) : (
-                        /* Empty state */
-
-                        <div
-                            className="
-                                flex
-                                min-h-[350px]
-                                flex-col
-                                items-center
-                                justify-center
-                                rounded-3xl
-                                border
-                                border-dashed
-                                border-stone-300
-                                bg-white
-                                px-6
-                                text-center
-                            "
-                        >
-                            <div
+                                onClick={() => setSearch("")}
+                                aria-label={t.writing.clearsearch}
                                 className="
                                     mb-5
                                     flex
@@ -632,20 +535,51 @@ const Posts = () => {
                                 }
                             </h2>
 
-                            <p
-                                className="
-                                    mt-2
-                                    max-w-md
-                                    text-sm
-                                    leading-6
-                                    text-stone-500
-                                "
-                            >
-                                {
-                                    t.writing
-                                        .tryanothersearchtermorcategory
-                                }
-                            </p>
+            <section className="border-b border-stone-200 bg-white">
+                <div
+                    className="
+                        mx-auto
+                        max-w-7xl
+                        overflow-x-auto
+                        px-5
+                        py-5
+                        sm:px-6
+                        lg:px-8
+                    "
+                >
+                    <div className="flex min-w-max justify-center gap-2">
+                        {categories.map((category) => {
+                            const active = activeCategory === category.key;
+
+                            return (
+                                <button
+                                    key={category.key}
+                                    type="button"
+                                    onClick={() =>
+                                        setActiveCategory(category.key)
+                                    }
+                                    className={`
+                                        rounded-full
+                                        px-5
+                                        py-2.5
+                                        text-sm
+                                        font-medium
+                                        transition-all
+                                        duration-200
+                                        ${
+                                            active
+                                                ? "bg-[#9B7354] text-white shadow-sm"
+                                                : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                                        }
+                                    `}
+                                >
+                                    {category.label}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
 
                             <button
                                 type="button"
@@ -698,40 +632,50 @@ const Posts = () => {
                         setSelectedPost(null)
                     }
                 >
-                   <p className="text-sm text-stone-500 font-bold">
-    {filteredPosts.length} {t.writing.story}
-</p>
+                    <p className="text-sm font-bold text-stone-500">
+                        {filteredPosts.length} {t.writing.story}
+                    </p>
 
-                    {(search ||
-                        activeCategory !==
-                        "all") && (
-                            <button
-                                type="button"
-                                onClick={clearFilters}
-                                className="
+                    {(search || activeCategory !== "all") && (
+                        <button
+                            type="button"
+                            onClick={clearFilters}
+                            className="
                                 text-sm
                                 font-medium
                                 text-[#9B7354]
                                 transition
                                 hover:text-[#76533B]
                             "
-                            >
-                                {t.writing.clearfilters}
-                            </button>
-                        )}
+                        >
+                            {t.writing.clearfilters}
+                        </button>
+                    )}
                 </div>
                     {/* Modal */}
 
                     <div
                         className="
-                            relative
-                            max-h-[95vh]
-                            w-full
-                            max-w-4xl
-                            overflow-y-auto
-                            [scrollbar-width:none]
-                            [-ms-overflow-style:none]
-                            [&::-webkit-scrollbar]:hidden
+                            grid
+                            grid-cols-1
+                            gap-6
+                            md:grid-cols-2
+                            lg:grid-cols-3
+                        "
+                    >
+                        {filteredPosts.map((post) => (
+                            <PostCard key={post.id} post={post} />
+                        ))}
+                    </div>
+                ) : (
+                    /* Empty state */
+                    <div
+                        className="
+                            flex
+                            min-h-[350px]
+                            flex-col
+                            items-center
+                            justify-center
                             rounded-3xl
                             bg-[#FAF8F5]
                             shadow-2xl
