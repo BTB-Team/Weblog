@@ -69,7 +69,6 @@ const Podcasts = () => {
   const categories = db.podcastCategories || [];
   const platforms = db.podcastPlatforms || [];
   const pageData = db.podcastPage || null;
-
   const handlePlay = (podcast) => {
     if (!podcast.audioUrl) {
       setCurrentPodcast(podcast);
@@ -86,11 +85,9 @@ const Podcasts = () => {
     }
 
     setCurrentPodcast(podcast);
-    setIsLoading(true);
     setIsPlaying(true);
     setErrorAudio("");
   };
-
   const filteredPodcasts = useMemo(() => {
     const query = search.trim().toLowerCase();
 
