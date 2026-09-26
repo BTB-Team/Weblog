@@ -28,5 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # db.json currently contains the old, duplicate writings collection
+      # before the complete writings collection. Remove that stale block
+      # before Vite parses the file.
+      - name: Remove duplicate writings collection
+        run: sed -i '44,73d' db.json
+
+      - name: Validate db.json
+        run: node -e "JSON.parse(require('fs').readFileSync('db.json', 'utf8')); console.log('db.json is valid JSON')"
+
       - name: Build project
         run: npm run build

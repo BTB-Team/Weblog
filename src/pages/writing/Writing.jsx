@@ -1,5 +1,11 @@
-import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import {
+    Search,
+    X,
+    ArrowLeft,
+    ArrowRight,
+} from "lucide-react";
+
 import { useLangStore } from "../../store/useLangStore.js";
 import PostCard from "../../components/PostCard.jsx";
 import db from "../../../db.json";
@@ -11,13 +17,18 @@ const Posts = () => {
     const [search, setSearch] = useState("");
     const [activeCategory, setActiveCategory] = useState("all");
 
+    // Selected writing for modal
+    const [selectedPost, setSelectedPost] =
+        useState(null);
+
     const isRTL = lang === "dr";
+
     const writings = db?.writings ?? [];
 
     /*
-     * =========================
+     * ==========================================
      * CATEGORIES
-     * =========================
+     * ==========================================
      */
 
     const categories = useMemo(() => {
@@ -40,12 +51,12 @@ const Posts = () => {
                 label: type,
             })),
         ];
-    }, [writings, lang, isRTL]);
+    }, [writings, lang, t]);
 
     /*
-     * =========================
+     * ==========================================
      * FILTERING
-     * =========================
+     * ==========================================
      */
 
     const filteredPosts = useMemo(() => {
@@ -68,19 +79,22 @@ const Posts = () => {
         });
     }, [writings, search, activeCategory, lang]);
 
+    /*
+     * ==========================================
+     * CLEAR FILTERS
+     * ==========================================
+     */
+
     const clearFilters = () => {
         setSearch("");
         setActiveCategory("all");
     };
 
-    return (
-        <main
-            dir={isRTL ? "rtl" : "ltr"}
-            className="min-h-screen bg-[#FAF8F5]"
-        >
-            {/* ==================================================
-                HERO
-            ================================================== */}
+    /*
+     * ==========================================
+     * CLOSE MODAL WITH ESC
+     * ==========================================
+     */
 
             <section className="relative overflow-hidden bg-[#F3EEE7]">
                 {/* Decorative circles */}
@@ -98,99 +112,366 @@ const Posts = () => {
                     "
                 />
 
-                <div
-                    className="
-                        pointer-events-none
-                        absolute
-                        -bottom-40
-                        -right-20
-                        h-96
-                        w-96
-                        rounded-full
-                        bg-[#9B7354]/10
-                        blur-3xl
-                    "
-                />
+        document.addEventListener(
+            "keydown",
+            handleKeyDown
+        );
 
-                <div
+        // Prevent background scrolling
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.removeEventListener(
+                "keydown",
+                handleKeyDown
+            );
+
+            document.body.style.overflow = "";
+        };
+    }, [selectedPost]);
+
+    /*
+     * ==========================================
+     * MODAL DATA
+     * ==========================================
+     */
+
+    const modalTitle =
+        selectedPost?.title?.[lang] ||
+        selectedPost?.title?.en ||
+        "";
+
+    const modalContent =
+        selectedPost?.content?.[lang] ||
+        selectedPost?.content?.en ||
+        "";
+
+    const modalType =
+        selectedPost?.type?.[lang] ||
+        selectedPost?.type?.en ||
+        "";
+
+    return (
+        <>
+            <main
+                dir={isRTL ? "rtl" : "ltr"}
+                className="
+                    min-h-screen
+                    bg-[#FAF8F5]
+                "
+            >
+                {/* ==================================================
+                    HERO
+                ================================================== */}
+
+                <section
                     className="
                         relative
-                        mx-auto
-                        max-w-5xl
-                        px-5
-                        py-20
-                        text-center
-                        sm:px-6
-                        sm:py-28
-                        lg:px-8
+                        overflow-hidden
+                        bg-[#F3EEE7]
                     "
                 >
-                    {/* Eyebrow */}
-                    <span
+                    {/* Decorative circles */}
+
+                    <div
                         className="
-                            mb-4
-                            inline-block
-                            text-xs
-                            font-bold
-                            uppercase
-                            tracking-[0.2em]
-                            text-[#9B7354]
+                            pointer-events-none
+                            absolute
+                            -left-32
+                            -top-32
+                            h-80
+                            w-80
+                            rounded-full
+                            bg-[#C5A88C]/10
+                            blur-3xl
                         "
                     >
                         {t.writing.writtenworks}
                     </span>
 
-                    {/* Heading */}
-                    <h1
+                    <div
                         className="
+                            pointer-events-none
+                            absolute
+                            -bottom-40
+                            -right-20
+                            h-96
+                            w-96
+                            rounded-full
+                            bg-[#9B7354]/10
+                            blur-3xl
+                        "
+                    />
+
+                    <div
+                        className="
+                            relative
                             mx-auto
-                            max-w-3xl
-                            text-4xl
-                            font-bold
-                            leading-tight
-                            text-stone-800
-                            sm:text-5xl
-                            lg:text-6xl
+                            max-w-5xl
+                            px-5
+                            py-20
+                            text-center
+                            sm:px-6
+                            sm:py-28
+                            lg:px-8
                         "
                     >
                         {t.writing.mywrittenworks}
                     </h1>
+                        {/* Eyebrow */}
 
-                    {/* Description */}
-                    <p
+                        <span
+                            className="
+                                mb-4
+                                inline-block
+                                text-xs
+                                font-bold
+                                uppercase
+                                tracking-[0.2em]
+                                text-[#9B7354]
+                            "
+                        >
+                            {
+                                t.writing
+                                    .writtenworks
+                            }
+                        </span>
+
+                        {/* Heading */}
+
+                        <h1
+                            className="
+                                mx-auto
+                                max-w-3xl
+                                text-4xl
+                                font-bold
+                                leading-tight
+                                text-stone-800
+                                sm:text-5xl
+                                lg:text-6xl
+                            "
+                        >
+                            {
+                                t.writing
+                                    .mywrittenworks
+                            }
+                        </h1>
+
+                        {/* Description */}
+
+                        <p
+                            className="
+                                mx-auto
+                                mt-6
+                                max-w-2xl
+                                text-sm
+                                leading-7
+                                text-stone-500
+                                sm:text-base
+                                sm:leading-8
+                            "
+                        >
+                            {
+                                t.writing
+                                    .acollectionofstorieswritings
+                            }
+                        </p>
+
+                        {/* Search */}
+
+                        <div
+                            className="
+                                mx-auto
+                                mt-10
+                                flex
+                                h-14
+                                max-w-2xl
+                                items-center
+                                rounded-2xl
+                                border
+                                border-stone-200
+                                bg-white
+                                px-4
+                                shadow-sm
+                                transition
+                                focus-within:border-[#9B7354]
+                                focus-within:ring-4
+                                focus-within:ring-[#9B7354]/10
+                            "
+                        >
+                            <Search
+                                size={20}
+                                strokeWidth={2}
+                                aria-hidden="true"
+                                className="
+                                    shrink-0
+                                    text-stone-400
+                                "
+                            />
+
+                            <input
+                                type="search"
+                                value={search}
+                                onChange={(e) =>
+                                    setSearch(
+                                        e.target.value
+                                    )
+                                }
+                                placeholder={
+                                    t.writing
+                                        .searchwrittenworks
+                                }
+                                className="
+                                    h-full
+                                    min-w-0
+                                    flex-1
+                                    border-0
+                                    bg-transparent
+                                    px-3
+                                    text-sm
+                                    text-stone-800
+                                    outline-none
+                                    placeholder:text-stone-400
+                                "
+                            />
+
+                            {search && (
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setSearch("")
+                                    }
+                                    aria-label={
+                                        t.writing
+                                            .clearsearch
+                                    }
+                                    className="
+                                        flex
+                                        h-7
+                                        w-7
+                                        shrink-0
+                                        items-center
+                                        justify-center
+                                        rounded-full
+                                        bg-stone-100
+                                        text-stone-500
+                                        transition
+                                        hover:bg-stone-200
+                                        hover:text-stone-700
+                                    "
+                                >
+                                    <X
+                                        size={15}
+                                        strokeWidth={2.25}
+                                        aria-hidden="true"
+                                    />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ==================================================
+                    CATEGORY TABS
+                ================================================== */}
+
+                <section
+                    className="
+                        border-b
+                        border-stone-200
+                        bg-white
+                    "
+                >
+                    <div
                         className="
                             mx-auto
-                            mt-6
-                            max-w-2xl
-                            text-sm
-                            leading-7
-                            text-stone-500
-                            sm:text-base
-                            sm:leading-8
+                            max-w-7xl
+                            overflow-x-auto
+                            px-5
+                            py-5
+                            sm:px-6
+                            lg:px-8
                         "
                     >
                         {t.writing.acollectionofstorieswritings}
                     </p>
+                        <div
+                            className="
+                                flex
+                                min-w-max
+                                justify-center
+                                gap-2
+                            "
+                        >
+                            {categories.map(
+                                (category) => {
+                                    const active =
+                                        activeCategory ===
+                                        category.key;
 
-                    {/* Search */}
+                                    return (
+                                        <button
+                                            key={
+                                                category.key
+                                            }
+                                            type="button"
+                                            onClick={() =>
+                                                setActiveCategory(
+                                                    category.key
+                                                )
+                                            }
+                                            className={`
+                                                rounded-full
+                                                px-5
+                                                py-2.5
+                                                text-sm
+                                                font-medium
+                                                transition-all
+                                                duration-200
+                                                ${
+                                                    active
+                                                        ? "bg-[#9B7354] text-white shadow-sm"
+                                                        : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                                                }
+                                            `}
+                                        >
+                                            {
+                                                category.label
+                                            }
+                                        </button>
+                                    );
+                                }
+                            )}
+                        </div>
+                    </div>
+                </section>
+
+                {/* ==================================================
+                    CONTENT
+                ================================================== */}
+
+                <section
+                    className="
+                        mx-auto
+                        max-w-7xl
+                        px-5
+                        py-12
+                        sm:px-6
+                        sm:py-16
+                        lg:px-8
+                        lg:py-20
+                    "
+                >
+                    {/* Results header */}
+
                     <div
                         className="
-                            mx-auto
-                            mt-10
+                            mb-8
                             flex
-                            h-14
-                            max-w-2xl
+                            flex-wrap
                             items-center
-                            rounded-2xl
-                            border
-                            border-stone-200
-                            bg-white
-                            px-4
-                            shadow-sm
-                            transition
-                            focus-within:border-[#9B7354]
-                            focus-within:ring-4
-                            focus-within:ring-[#9B7354]/10
+                            justify-between
+                            gap-4
                         "
                     >
                         <Search
@@ -206,53 +487,53 @@ const Posts = () => {
                             onChange={(e) => setSearch(e.target.value)}
                             placeholder={t.writing.searchwrittenworks}
                             className="
-                                h-full
-                                min-w-0
-                                flex-1
-                                border-0
-                                bg-transparent
-                                px-3
                                 text-sm
-                                text-stone-800
-                                outline-none
-                                placeholder:text-stone-400
+                                font-bold
+                                text-stone-500
                             "
-                        />
+                        >
+                            {filteredPosts.length}{" "}
+                            {t.writing.story}
+                        </p>
 
-                        {search && (
+                        {(search ||
+                            activeCategory !==
+                                "all") && (
                             <button
                                 type="button"
                                 onClick={() => setSearch("")}
                                 aria-label={t.writing.clearsearch}
                                 className="
+                                    mb-5
                                     flex
-                                    h-7
-                                    w-7
-                                    shrink-0
+                                    h-16
+                                    w-16
                                     items-center
                                     justify-center
                                     rounded-full
                                     bg-stone-100
-                                    text-stone-500
-                                    transition
-                                    hover:bg-stone-200
-                                    hover:text-stone-700
+                                    text-stone-400
                                 "
                             >
-                                <X
-                                    size={15}
-                                    strokeWidth={2.25}
+                                <Search
+                                    size={28}
+                                    strokeWidth={1.75}
                                     aria-hidden="true"
                                 />
-                            </button>
-                        )}
-                    </div>
-                </div>
-            </section>
+                            </div>
 
-            {/* ==================================================
-                CATEGORY TABS
-            ================================================== */}
+                            <h2
+                                className="
+                                    text-xl
+                                    font-semibold
+                                    text-stone-800
+                                "
+                            >
+                                {
+                                    t.writing
+                                        .nowrittenworksfound
+                                }
+                            </h2>
 
             <section className="border-b border-stone-200 bg-white">
                 <div
@@ -300,32 +581,56 @@ const Posts = () => {
                 </div>
             </section>
 
-            {/* ==================================================
-                CONTENT
-            ================================================== */}
+                            <button
+                                type="button"
+                                onClick={
+                                    clearFilters
+                                }
+                                className="
+                                    mt-6
+                                    rounded-xl
+                                    bg-[#9B7354]
+                                    px-5
+                                    py-2.5
+                                    text-sm
+                                    font-medium
+                                    text-white
+                                    transition
+                                    hover:bg-[#805B42]
+                                "
+                            >
+                                {
+                                    t.writing
+                                        .showallworks
+                                }
+                            </button>
+                        </div>
+                    )}
+                </section>
+            </main>
 
-            <section
-                className="
-                    mx-auto
-                    max-w-7xl
-                    px-5
-                    py-12
-                    sm:px-6
-                    sm:py-16
-                    lg:px-8
-                    lg:py-20
-                "
-            >
-                {/* Results header */}
+            {/* ======================================================
+                WRITING MODAL
+            ====================================================== */}
+
+            {selectedPost && (
                 <div
+                    dir={isRTL ? "rtl" : "ltr"}
                     className="
-                        mb-8
+                        fixed
+                        inset-0
+                        z-[100]
                         flex
-                        flex-wrap
                         items-center
-                        justify-between
-                        gap-4
+                        justify-center
+                        bg-black/60
+                        p-4
+                        backdrop-blur-sm
+                        sm:p-6
                     "
+                    onClick={() =>
+                        setSelectedPost(null)
+                    }
                 >
                     <p className="text-sm font-bold text-stone-500">
                         {filteredPosts.length} {t.writing.story}
@@ -347,9 +652,8 @@ const Posts = () => {
                         </button>
                     )}
                 </div>
+                    {/* Modal */}
 
-                {/* Posts */}
-                {filteredPosts.length > 0 ? (
                     <div
                         className="
                             grid
@@ -373,33 +677,47 @@ const Posts = () => {
                             items-center
                             justify-center
                             rounded-3xl
-                            border
-                            border-dashed
-                            border-stone-300
-                            bg-white
-                            px-6
-                            text-center
+                            bg-[#FAF8F5]
+                            shadow-2xl
                         "
+                        onClick={(e) =>
+                            e.stopPropagation()
+                        }
                     >
-                        <div
-                            className="
-                                mb-5
+                        {/* Close button */}
+
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setSelectedPost(null)
+                            }
+                            aria-label="Close"
+                            className={`
+                                absolute
+                                top-4
+                                z-20
                                 flex
-                                h-16
-                                w-16
+                                h-11
+                                w-11
                                 items-center
                                 justify-center
                                 rounded-full
-                                bg-stone-100
-                                text-stone-400
-                            "
+                                bg-white/90
+                                text-stone-700
+                                shadow-lg
+                                backdrop-blur
+                                transition
+                                hover:bg-white
+                                hover:text-stone-900
+                                ${
+                                    isRTL
+                                        ? "left-4"
+                                        : "right-4"
+                                }
+                            `}
                         >
-                            <Search
-                                size={28}
-                                strokeWidth={1.75}
-                                aria-hidden="true"
-                            />
-                        </div>
+                            <X size={22} />
+                        </button>
 
                         <h2
                             className="
@@ -422,29 +740,96 @@ const Posts = () => {
                         >
                             {t.writing.tryanothersearchtermorcategory}
                         </p>
+                        {/* Image */}
 
-                        <button
-                            type="button"
-                            onClick={clearFilters}
+                        {selectedPost.image && (
+                            <div
+                                className="
+                                    overflow-hidden
+                                    rounded-t-3xl
+                                    bg-stone-100
+                                "
+                            >
+                                <img
+                                    src={
+                                        selectedPost.image
+                                    }
+                                    alt={modalTitle}
+                                    className="
+                                        max-h-[500px]
+                                        w-full
+                                        object-cover
+                                    "
+                                />
+                            </div>
+                        )}
+
+                        {/* Article */}
+
+                        <article
                             className="
-                                mt-6
-                                rounded-xl
-                                bg-[#9B7354]
-                                px-5
-                                py-2.5
-                                text-sm
-                                font-medium
-                                text-white
-                                transition
-                                hover:bg-[#805B42]
+                                px-6
+                                py-8
+                                sm:px-10
+                                sm:py-10
+                                lg:px-14
+                                lg:py-12
                             "
                         >
                             {t.writing.showallworks}
                         </button>
+                            {/* Category */}
+
+                            {modalType && (
+                                <span
+                                    className="
+                                        text-xs
+                                        font-bold
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-[#9B7354]
+                                    "
+                                >
+                                    {modalType}
+                                </span>
+                            )}
+
+                            {/* Title */}
+
+                            <h1
+                                className="
+                                    mt-4
+                                    text-3xl
+                                    font-bold
+                                    leading-tight
+                                    text-stone-800
+                                    sm:text-4xl
+                                    lg:text-5xl
+                                "
+                            >
+                                {modalTitle}
+                            </h1>
+
+                            {/* Content */}
+
+                            <div
+                                className="
+                                    mt-8
+                                    whitespace-pre-line
+                                    text-base
+                                    leading-8
+                                    text-stone-700
+                                    sm:text-lg
+                                    sm:leading-9
+                                "
+                            >
+                                {modalContent}
+                            </div>
+                        </article>
                     </div>
-                )}
-            </section>
-        </main>
+                </div>
+            )}
+        </>
     );
 };
 

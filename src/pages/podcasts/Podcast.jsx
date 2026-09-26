@@ -3,7 +3,6 @@ import PodcastCard from "./PodcastCard";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
 
-
 const SearchIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -319,9 +318,7 @@ const Podcasts = () => {
         </div>
       </section>
       {/* CTA */}
-      
     </main>
-    
   );
 };
 
