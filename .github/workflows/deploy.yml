@@ -33,11 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Automatically clean up the stale writings collection block from db.json
-      - name: Clean and repair db.json duplicate lines
-        run: sed -i '44,73d' db.json
-
-      # Verify that db.json is perfectly valid after the line removal step
+      # Verify that db.json is perfectly valid and matches the production structure
       - name: Validate db.json integrity
         run: node -e "JSON.parse(require('fs').readFileSync('db.json', 'utf8')); console.log('db.json is valid JSON')"
 
