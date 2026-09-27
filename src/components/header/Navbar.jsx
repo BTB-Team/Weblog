@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
 import { useLangStore } from "../../store/useLangStore";
 import logoImage from "../../assets/images/littleBoy.webp";
 
@@ -27,6 +26,8 @@ const Navbar = () => {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
+      <div className="h-[30px] bg-muted/60"></div>
+
       <nav className="m-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-3 text-sm font-semibold">
         {/* Logo / Name */}
         <div className="flex shrink-0 items-center gap-2 leading-[18px]">
@@ -83,15 +84,15 @@ const Navbar = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex shrink-0 gap-5">
+        <div className="flex shrink-0 gap-2">
           {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={toggleMenu}
-            className="btn-ghost xl:hidden"
+            className="xl:hidden"
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
 
           {/* Language */}
@@ -104,7 +105,7 @@ const Navbar = () => {
           </button>
 
           {/* Donate */}
-          <NavLink to="/donate" className="hidden sm:block btn-primary">
+          <NavLink to="/donate" className=" btn-primary hidden sm:block">
             {t.navbar.donate}
           </NavLink>
         </div>
