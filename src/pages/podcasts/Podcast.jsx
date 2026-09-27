@@ -87,20 +87,22 @@ const Podcasts = () => {
         setCategories(categoriesData);
         setPlatforms(platformsData);
         setPageData(pageDataResult);
-      } catch {
-        setError(t.podcast.loadError);
+      } catch (err) {
+        // Fixed: Added safe chaining to prevent crashing when translation key doesn't exist
+        setError(t?.podcast?.loadError || "Failed to load podcast data");
       }
     };
 
     loadData();
-  }, [t.podcast.loadError]);
+  }, [t]); // Fixed: Swapped specific deep property for general dependency stability
 
   const handlePlay = (podcast) => {
     if (!podcast.audioUrl) {
       setCurrentPodcast(podcast);
       setIsPlaying(false);
       setIsLoading(false);
-      setErrorAudio(t.podcast.audioComingSoon);
+      // Fixed: Added a reliable backup string if translation key is missing
+      setErrorAudio(t?.podcast?.audioComingSoon || "Audio file coming soon");
       return;
     }
 
@@ -121,13 +123,8 @@ const Podcasts = () => {
 
     return podcasts.filter((podcast) => {
       const title = getLocalizedValue(podcast.title, lang).toLowerCase();
-
       const guest = getLocalizedValue(podcast.guest, lang).toLowerCase();
-
-      const description = getLocalizedValue(
-        podcast.description,
-        lang,
-      ).toLowerCase();
+      const description = getLocalizedValue(podcast.description, lang).toLowerCase();
 
       const matchesSearch =
         !query ||
@@ -141,6 +138,7 @@ const Podcasts = () => {
       return matchesSearch && matchesCategory;
     });
   }, [podcasts, search, selectedCategory, lang]);
+
 
   const heroPodcast = podcasts.find(
     (podcast) => podcast.id === pageData?.featuredPodcastId,
