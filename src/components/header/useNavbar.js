@@ -18,7 +18,7 @@ export const useNavbar = () => {
       }
 
       // Ignore very small movements
-      if (Math.abs(currentScrollY - lastScrollY.current) < 10) {
+      if (Math.abs(currentScrollY - lastScrollY.current) < 5) {
         return;
       }
 
