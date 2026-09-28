@@ -157,6 +157,7 @@
     "emailPlaceholder": "Enter your email...",
     "subscribe": "Subscribe",
     "connect": "Connect",
+    "withLoveForWords": "With Love for Words"
     "withLoveForWords": "With Love for Words",
     "joined": "You have successfully joined",
     "invalidEmail": "Please enter a valid email address."
@@ -220,7 +221,7 @@
     },
     "timeline": {
       "eyebrow": "Education & Experience",
-      "title": "My Educational and Professional Journey",
+      "title": "My Journey",
       "description": "Educational and professional journey across Afghanistan — Kabul, Herat, and Mazar",
       "educationTitle": "Education",
       "experienceTitle": "Work Experience"
@@ -315,10 +316,22 @@
       "eyebrow": "Memberships & Collaborations",
       "title": "Memberships & Collaborations",
       "items": [
-        "I signed the Women's Empowerment Principles (WEPs) Statement of Support – United Nations on April 30, 2026, representing girls. This action marked the beginning of my collaboration with the United Nations in support of girls, as part of my commitment to empowering women and girls, advancing educational justice, and creating equal opportunities.",
-        "I serve as the Editor of the Publications Department at Education Bridge for Afghanistan. In this role, I am responsible for guiding educational and literary content, managing writing teams and publications, and strengthening the capacity of young people in storytelling and publishing.",
-        "Member of the United States Association for the United Nations (UNA-USA) – a national movement with more than 20,000 active members across more than 230 community and university chapters, supporting strong cooperation between the United States and the United Nations.",
-        "I work as a \"Changemaker\" at Seema Academy and contribute to the organization's educational campaigns. In this role, I am responsible for designing and implementing seven- to twelve-day educational campaigns aimed at empowering young people, strengthening leadership skills, and creating positive change in society."
+        {
+          "name": "United Nations",
+          "description": "I signed the Women's Empowerment Principles (WEPs) Statement of Support – United Nations on April 30, 2026, representing girls. This action marked the beginning of my collaboration with the United Nations in support of girls, as part of my commitment to empowering women and girls, advancing educational justice, and creating equal opportunities."
+        },
+        {
+          "name": "Education Bridge for Afghanistan",
+          "description": "I serve as the Editor of the Publications Department at Education Bridge for Afghanistan. In this role, I am responsible for guiding educational and literary content, managing writing teams and publications, and strengthening the capacity of young people in storytelling and publishing."
+        },
+        {
+          "name": "UNA-USA",
+          "description": "Member of the United States Association for the United Nations (UNA-USA) – a national movement with more than 20,000 active members across more than 230 community and university chapters, supporting strong cooperation between the United States and the United Nations."
+        },
+        {
+          "name": "Seema Academy",
+          "description": "I work as a \"Changemaker\" at Seema Academy and contribute to the organization's educational campaigns. In this role, I am responsible for designing and implementing seven- to twelve-day educational campaigns aimed at empowering young people, strengthening leadership skills, and creating positive change in society."
+        }
       ]
     },
     "related": {
@@ -342,7 +355,7 @@
     "cta": {
       "title": "Collaboration & Contact",
       "description": "To explore my achievements and media activities, or to start a new conversation and literary collaboration, use the link below.",
-      "contactButton": "Talk with me",
+      "contactButton": "Contact Me",
       "achievementsButton": "View achievements",
       "mediaButton": "Media"
     }
@@ -419,8 +432,8 @@
     "donate": {
       "title": "Support My Writing",
       "description": "If you enjoy my writings and activities, your support can help me continue this journey.",
-      "support": "Support Me",
-      "backHome": "Back to Home"
+      "support": "Donate",
+      "backHome": "Home"
     },
     "footer": {
       "author": "Writer Mariam Amiri",
@@ -462,5 +475,9 @@
       "emailButton": "Donate",
       "contactButton": "Contact Me"
     }
+  },
+  "podcast": {
+    "loadError": "Failed to load podcasts",
+    "audioComingSoon": "Audio file coming soon"
   }
 }
