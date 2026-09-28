@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { useLangStore } from "../../store/useLangStore";
+import bookIcon from "../../assets/images/bookIcon.webp";
 
 const BookCard = ({ book }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,19 +16,20 @@ const BookCard = ({ book }) => {
 
   return (
     <article className="w-full px-5 mt-6">
-      <div className="w-full max-w-[300px] mx-auto flex flex-col leading-tight border p-2 rounded-lg hover:-translate-y-1 transition-transform duration-200">
+      <div className="w-full max-w-[300px] mx-auto flex flex-col leading-tight bg-header/30 p-2 rounded-lg hover:-translate-y-1 transition-transform duration-200 ">
         <img
-          src={`${import.meta.env.BASE_URL}${book.image}`}
+          src={bookIcon}
           alt={book.title[lang]}
-          className="w-full h-[250px]"
+          className={`w-2/3 ${lang === "en" ? "self-end" : "self-start"}`}
         />
 
-        <h2 className="text-base font-bold">{book.title[lang]}</h2>
+        <div className={`px-1 ${lang === "en" ? "text-start" : "text-end"}`}>
+          <h2 className="text-base font-bold">{book.title[lang]}</h2>
 
-        <p className="text-muted text-sm ps-1">{book.subtitle[lang]}</p>
+          <p className="text-muted text-sm ps-1">{book.subtitle[lang]}</p>
 
-        <p className="text-xs ps-1">{book.year[lang]}</p>
-
+          <p className="text-xs ps-1">{book.year[lang]}</p>
+        </div>
         <button
           onClick={handleDownload}
           className="btn-primary mb-2 rounded-full"
@@ -65,7 +67,7 @@ const BookCard = ({ book }) => {
               {/* Book Image */}
               <div className="w-full shrink-0 sm:w-[35%]">
                 <img
-                  src={`${import.meta.env.BASE_URL}${book.image}`}
+                  src={bookIcon}
                   alt={book.title[lang]}
                   className="h-[220px] w-full object-cover sm:h-full"
                 />
