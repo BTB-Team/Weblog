@@ -1,4 +1,3 @@
-
 import db from "../../../../db.json";
 import SectionHeader from "../../../components/common/SectionHeader";
 import { useLangStore } from "../../../store/useLangStore";

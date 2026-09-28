@@ -109,7 +109,9 @@
     "emailPlaceholder": "ایمیل خود را وارد کنید...",
     "subscribe": "عضویت",
     "connect": "ارتباط",
-    "withLoveForWords": "با عشق به کلمات"
+    "withLoveForWords": "با عشق به کلمات",
+    "joined": "شما با موفقیت عضو شدید",
+    "invalidEmail": "لطفاً یک ایمیل معتبر وارد کنید."
   },
   "newsletter": {
     "label": "خبرنامه",
