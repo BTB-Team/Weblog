@@ -25,7 +25,11 @@ const TopNavbar = () => {
             rel="noopener noreferrer"
             className="shrink-0"
           >
-            <SocialIcon icon={social.icon} size={18} />
+            <SocialIcon
+              icon={social.icon}
+              size={18}
+              style={"hover:text-accent"}
+            />
           </a>
         ))}
       </div>
