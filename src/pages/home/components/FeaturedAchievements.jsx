@@ -1,4 +1,3 @@
-
 import db from "../../../../db.json";
 import SectionHeader from "../../../components/common/SectionHeader";
 import { useLangStore } from "../../../store/useLangStore";
@@ -22,7 +21,7 @@ const FeaturedAchievements = () => {
         linkLabel={t.home.viewAll}
       />
 
-      <ul className="mx-auto flex max-w-3xl flex-col divide-y divide-header">
+      <ul className="mx-auto flex max-w-6xl flex-col divide-y divide-header">
         {achievements.map((item, index) => {
           const Icon = icons[index % icons.length];
 

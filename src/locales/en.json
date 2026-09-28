@@ -154,8 +154,9 @@
     "emailPlaceholder": "Enter your email...",
     "subscribe": "Subscribe",
     "connect": "Connect",
-    "withLoveForWords": "With Love for Words"
-    
+    "withLoveForWords": "With Love for Words",
+    "joined": "You have successfully joined",
+    "invalidEmail": "Please enter a valid email address."
   },
 
   "newsletter": {

@@ -2,84 +2,142 @@ import { useLangStore } from "../../store/useLangStore";
 import { Link } from "react-router-dom";
 import SocialIcon from "./components/SocialIcon";
 import socialLinks from "./FooterUrl";
+import { useState } from "react";
 
 const Footer = () => {
   const t = useLangStore((state) => state.t);
 
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState(null);
+
+  const handleSubscribe = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setMessage("error");
+    } else {
+      setMessage("success");
+    }
+
+    setTimeout(() => {
+      setMessage(null);
+    }, 3000);
+  };
+
   return (
-    <footer className="mt-6 m-auto max-w-[1440px] bg-accent text-card grid grid-cols-1 min-[865px]:grid-cols-2 gap-8 px-6 py-8 sm:px-8 justify-items-center">
-      {/* Mariam Amiri name */}
-      <div className="w-full max-w-sm text-center">
-        <h2 className="text-card text-xl font-bold">{t.navbar.name}</h2>
+    <footer className="mt-6 mx-auto max-w-[1440px] bg-accent text-card px-6 py-10 sm:px-8 lg:px-12">
+      {/* Main Footer */}
+      <div className="grid grid-cols-1 gap-10 text-center min-[865px]:grid-cols-3 min-[865px]:gap-12 min-[865px]:text-start">
+        {/* Newsletter */}
+        <div className="w-full max-w-md mx-auto min-[865px]:mx-0">
+          <h2 className="mb-3 text-xl font-bold">
+            {t.footer.withLoveForWords}
+          </h2>
 
-        <p className="hidden sm:block text-card/70 text-[12px]">
-          {t.navbar.tagline}
-        </p>
-      </div>
+          <p className="mb-6 text-sm leading-7 opacity-90">
+            {t.footer.description}
+          </p>
 
-      {/* Newsletter Subscribe */}
-      <div className="w-full max-w-sm">
-        <p className="mb-2">{t.footer.newsletter}</p>
+          <p className="mb-2 text-sm font-medium">{t.footer.newsletter}</p>
 
-        <div className="relative w-full">
-          <input
-            className="w-full rounded-full border border-card py-3 ps-4 pe-28 outline-none"
-            type="text"
-            placeholder={t.footer.emailPlaceholder}
-          />
+          <div className="relative flex flex-col gap-3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t.footer.emailPlaceholder}
+              className="w-full rounded-md border border-card bg-transparent px-4 py-3 text-card placeholder:text-card/70 outline-none focus:ring-1 focus:ring-card"
+            />
 
-          <button className="absolute top-1/2 end-1 -translate-y-1/2 btn-outline rounded-full border border-card px-4">
-            {t.footer.subscribe}
-          </button>
-        </div>
-      </div>
-
-      {/* Pages Section */}
-      <div className="w-full max-w-sm text-center">
-        <h2 className="text-card text-xl font-bold mb-3">
-          {t.footer.pages}
-        </h2>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <Link to="/">{t.navbar.home}</Link>
-          <Link to="/about">{t.navbar.about}</Link>
-          <Link to="/writings">{t.navbar.writings}</Link>
-          <Link to="/media">{t.navbar.media}</Link>
-          <Link to="/podcast">{t.navbar.podcasts}</Link>
-          <Link to="/achievements">{t.navbar.achievements}</Link>
-          <Link to="/newsletter">{t.navbar.newsletter}</Link>
-          <Link to="/contact">{t.navbar.contact}</Link>
-        </div>
-      </div>
-
-      {/* Connection */}
-      <div className="w-full max-w-sm text-center">
-        <h2 className="text-card text-xl font-bold mb-3">
-          {t.footer.connect}
-        </h2>
-
-        <div className="grid grid-cols-4 sm:grid-cols-5 gap-3 max-w-xs mx-auto justify-items-center">
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={handleSubscribe}
+              className="w-full rounded-md bg-card px-4 py-3 font-semibold text-accent transition-opacity hover:opacity-80  duration-200 cursor-pointer"
             >
-              <SocialIcon icon={social.icon} />
-            </a>
-          ))}
+              {t.footer.subscribe}
+            </button>
+
+            {message && (
+              <p className="absolute top-28 mt-1 text-sm font-bold">
+                {message === "success"
+                  ? t.footer.joined
+                  : t.footer.invalidEmail}
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Pages */}
+        <div className="w-full max-w-md mx-auto min-[865px]:mx-auto">
+          <h2 className="mb-4 text-xl font-bold">{t.footer.pages}</h2>
+
+          <nav className="grid gap-3 text-sm">
+            <Link to="/" className="transition-opacity hover:opacity-70">
+              {t.navbar.home}
+            </Link>
+
+            <Link to="/about" className="transition-opacity hover:opacity-70">
+              {t.navbar.about}
+            </Link>
+
+            <Link
+              to="/writings"
+              className="transition-opacity hover:opacity-70"
+            >
+              {t.navbar.writings}
+            </Link>
+
+            <Link to="/media" className="transition-opacity hover:opacity-70">
+              {t.navbar.media}
+            </Link>
+
+            <Link to="/podcast" className="transition-opacity hover:opacity-70">
+              {t.navbar.podcasts}
+            </Link>
+
+            <Link
+              to="/achievements"
+              className="transition-opacity hover:opacity-70"
+            >
+              {t.navbar.achievements}
+            </Link>
+
+            <Link
+              to="/newsletter"
+              className="transition-opacity hover:opacity-70"
+            >
+              {t.navbar.newsletter}
+            </Link>
+
+            <Link to="/contact" className="transition-opacity hover:opacity-70">
+              {t.navbar.contact}
+            </Link>
+          </nav>
+        </div>
+
+        {/* Social / Connection */}
+        <div className="w-full max-w-md mx-auto min-[865px]:mx-0">
+          <h2 className="mb-4 text-xl font-bold">{t.footer.connect}</h2>
+
+          <div className="grid max-w-xs grid-cols-4 gap-5 sm:grid-cols-5 min-[865px]:grid-cols-4">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="flex items-center justify-center transition-transform hover:scale-110"
+              >
+                <SocialIcon icon={social.icon} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* With Love For Words */}
-      <div className="w-full max-w-2xl min-[865px]:col-span-2 text-center">
-        <h2 className="text-card text-xl font-bold mb-2">
-          {t.footer.withLoveForWords}
-        </h2>
-
-        <p>{t.footer.description}</p>
-      </div>
+      {/* Bottom Divider */}
+      <div className="mt-10 border-t border-card/50" />
     </footer>
   );
 };
