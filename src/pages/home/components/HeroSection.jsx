@@ -70,7 +70,7 @@ const HeroSection = () => {
               src={leaf}
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 h-auto w-36 max-w-none -translate-y-1/2 rtl:-left-4 ltr:-right-4 ltr:-scale-x-100"
+              className="pointer-events-none absolute top-1/2 h-auto w-32 max-w-none -translate-y-1/2 rtl:-left-8 ltr:-right-8 ltr:-scale-x-100"
             />
             <div className="absolute inset-3 rounded-full bg-accent/10 blur-2xl" />
             <img
