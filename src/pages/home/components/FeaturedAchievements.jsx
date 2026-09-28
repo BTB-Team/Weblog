@@ -22,16 +22,16 @@ const FeaturedAchievements = () => {
         linkLabel={t.home.viewAll}
       />
 
-      <ul className="mx-auto flex max-w-3xl flex-col divide-y divide-header">
+      <ul className="mx-auto flex max-w-6xl flex-col divide-y divide-header">
         {achievements.map((item, index) => {
           const Icon = icons[index % icons.length];
 
           return (
             <li
               key={item.id}
-              className="flex items-center gap-4 py-4 transition-colors hover:bg-header/30"
+              className="flex items-center gap-4 py-7 transition-colors hover:bg-header/30"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-header text-accent">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-header text-accent">
                 <Icon size={18} />
               </span>
 
