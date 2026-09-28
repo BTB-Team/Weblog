@@ -28,9 +28,9 @@ const FeaturedAchievements = () => {
           return (
             <li
               key={item.id}
-              className="flex items-center gap-4 py-4 transition-colors hover:bg-header/30"
+              className="flex items-center gap-4 py-7 transition-colors hover:bg-header/30"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-header text-accent">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-header text-accent">
                 <Icon size={18} />
               </span>
 
