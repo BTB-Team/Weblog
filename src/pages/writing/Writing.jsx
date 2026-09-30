@@ -1,298 +1,1834 @@
 import { useEffect, useMemo, useState } from "react";
+
 import {
     Search,
     X,
+    Heart,
+    MessageCircle,
+    Share2,
+    ArrowLeft,
+    ArrowRight,
+    Send,
+    BookOpen,
+    Check,
 } from "lucide-react";
 
 import { useLangStore } from "../../store/useLangStore.js";
 import PostCard from "../../components/PostCard.jsx";
 import db from "../../../db.json";
 
-const Posts = () => {
-    const lang = useLangStore((state) => state.lang);
-    const t = useLangStore((state) => state.t);
+export default function Writing() {
+  
+    const lang = useLangStore(
+        (state) => state.lang
+    );
 
-    const [search, setSearch] = useState("");
-    const [activeCategory, setActiveCategory] = useState("all");
-
-    // Selected writing for modal
-    const [selectedPost, setSelectedPost] = useState(null);
+    const t = useLangStore(
+        (state) => state.t
+    );
 
     const isRTL = lang === "dr";
-    const writings = db?.writings ?? [];
 
-    /* ==========================================
-     * CATEGORIES SPECIFICATION
-     * ========================================== */
-    const categories = useMemo(() => {
-        const types = writings
-            .map((post) => post.type?.[lang] || post.type?.en)
-            .filter(Boolean);
+    /*
+    |--------------------------------------------------------------------------
+    | STATES
+    |--------------------------------------------------------------------------
+    */
 
-        const uniqueTypes = [...new Set(types)];
+    const [search, setSearch] = useState("");
 
-        return [
-            {
-                key: "all",
-                label: t.writing.all,
-            },
-            ...uniqueTypes.map((type) => ({
-                key: type,
-                label: type,
-            })),
-        ];
-    }, [writings, lang, t]);
+    const [selectedCategory, setSelectedCategory] =
+        useState("All");
 
-    /* ==========================================
-     * FILTERING LOGIC
-     * ========================================== */
-    const filteredPosts = useMemo(() => {
-        const query = search.trim().toLowerCase();
+    const [selectedPostType, setSelectedPostType] =
+        useState("All");
 
-        return writings.filter((post) => {
-            const title = post.title?.[lang] || post.title?.en || "";
-            const content = post.content?.[lang] || post.content?.en || "";
-            const type = post.type?.[lang] || post.type?.en || "";
+    const [selectedPost, setSelectedPost] =
+        useState(null);
 
-            const matchesSearch =
-                !query ||
-                title.toLowerCase().includes(query) ||
-                content.toLowerCase().includes(query);
+    const [visibleCount, setVisibleCount] =
+        useState(5);
 
-            const matchesCategory =
-                activeCategory === "all" || type === activeCategory;
+    const [showAllPosts, setShowAllPosts] =
+        useState(false);
 
-            return matchesSearch && matchesCategory;
-        });
-    }, [writings, search, activeCategory, lang]);
+    const [isModalOpen, setIsModalOpen] =
+        useState(false);
 
-    /* ==========================================
-     * ACTION HANDLERS
-     * ========================================== */
-    const clearFilters = () => {
-        setSearch("");
-        setActiveCategory("all");
+    const [liked, setLiked] = useState(false);
+
+    const [likes, setLikes] = useState(0);
+
+    const [comments, setComments] = useState([]);
+
+    const [commentText, setCommentText] =
+        useState("");
+
+    const [showCommentBox, setShowCommentBox] =
+        useState(false);
+
+    /*
+    |--------------------------------------------------------------------------
+    | WRITINGS
+    |--------------------------------------------------------------------------
+    */
+
+    const writings = useMemo(() => {
+        if (Array.isArray(db?.writings)) {
+            return db.writings;
+        }
+
+        return [];
+    }, []);
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOCALIZED VALUE
+    |--------------------------------------------------------------------------
+    */
+
+    const getLocalizedValue = (value) => {
+        if (!value) {
+            return "";
+        }
+
+        if (typeof value === "string") {
+            return value;
+        }
+
+        if (typeof value === "object") {
+            return (
+                value?.[lang] ||
+                value?.en ||
+                value?.dr ||
+                ""
+            );
+        }
+
+        return "";
     };
 
-    /* CLOSE MODAL WITH ESC */
+    /*
+    |--------------------------------------------------------------------------
+    | FIRST PARAGRAPH
+    |--------------------------------------------------------------------------
+    */
+
+    const getFirstParagraph = (value) => {
+        const text = getLocalizedValue(value);
+
+        if (!text) {
+            return "";
+        }
+
+        const paragraphs = text
+            .split(/\n\s*\n/)
+            .map((paragraph) => paragraph.trim())
+            .filter(Boolean);
+
+        return paragraphs[0] || text;
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | CATEGORIES
+    |--------------------------------------------------------------------------
+    */
+
+    const categories = useMemo(() => {
+        const categoryValues = writings
+            .map((post) =>
+                getLocalizedValue(post.category)
+            )
+            .filter(Boolean);
+
+        return [
+            "All",
+            ...Array.from(
+                new Set(categoryValues)
+            ),
+        ];
+    }, [writings, lang]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | POST TYPES
+    |--------------------------------------------------------------------------
+    */
+
+    const postTypes = useMemo(() => {
+        const typeValues = writings
+            .map((post) =>
+                getLocalizedValue(post.type)
+            )
+            .filter(Boolean);
+
+        return [
+            "All",
+            ...Array.from(
+                new Set(typeValues)
+            ),
+        ];
+    }, [writings, lang]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | FILTER POSTS
+    |--------------------------------------------------------------------------
+    */
+
+    const filteredPosts = useMemo(() => {
+        const searchValue =
+            search.trim().toLowerCase();
+
+        return writings.filter((post) => {
+            const title =
+                getLocalizedValue(
+                    post.title
+                ).toLowerCase();
+
+            const content =
+                getLocalizedValue(
+                    post.content
+                ).toLowerCase();
+
+            const category =
+                getLocalizedValue(
+                    post.category
+                ).toLowerCase();
+
+            const type =
+                getLocalizedValue(
+                    post.type
+                ).toLowerCase();
+
+            const matchesSearch =
+                !searchValue ||
+                title.includes(searchValue) ||
+                content.includes(searchValue) ||
+                category.includes(searchValue) ||
+                type.includes(searchValue);
+
+            const matchesCategory =
+                selectedCategory === "All" ||
+                category ===
+                    selectedCategory.toLowerCase();
+
+            const matchesType =
+                selectedPostType === "All" ||
+                type ===
+                    selectedPostType.toLowerCase();
+
+            return (
+                matchesSearch &&
+                matchesCategory &&
+                matchesType
+            );
+        });
+    }, [
+        writings,
+        search,
+        selectedCategory,
+        selectedPostType,
+        lang,
+    ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | DEFAULT FIRST POST
+    |--------------------------------------------------------------------------
+    */
+
     useEffect(() => {
-        if (!selectedPost) return;
+        if (
+            !selectedPost &&
+            filteredPosts.length > 0
+        ) {
+            setSelectedPost(
+                filteredPosts[0]
+            );
 
-        const handleKeyDown = (e) => {
-            if (e.key === "Escape") {
-                setSelectedPost(null);
+            setLikes(
+                Number(
+                    filteredPosts[0]?.likes || 0
+                )
+            );
+
+            setComments(
+                Array.isArray(
+                    filteredPosts[0]?.comments
+                )
+                    ? filteredPosts[0].comments
+                    : []
+            );
+        }
+    }, [
+        filteredPosts,
+        selectedPost,
+    ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | CHANGE DEFAULT POST WHEN FILTER CHANGES
+    |--------------------------------------------------------------------------
+    */
+
+    useEffect(() => {
+        if (filteredPosts.length > 0) {
+            const selectedStillExists =
+                selectedPost &&
+                filteredPosts.some(
+                    (post) =>
+                        (post.id ||
+                            post._id) ===
+                        (selectedPost.id ||
+                            selectedPost._id)
+                );
+
+            if (!selectedStillExists) {
+                setSelectedPost(
+                    filteredPosts[0]
+                );
+
+                setLikes(
+                    Number(
+                        filteredPosts[0]?.likes ||
+                            0
+                    )
+                );
+
+                setComments(
+                    Array.isArray(
+                        filteredPosts[0]?.comments
+                    )
+                        ? filteredPosts[0].comments
+                        : []
+                );
+
+                setLiked(false);
+
+                setShowCommentBox(false);
             }
-        };
+        } else {
+            setSelectedPost(null);
+        }
+    }, [filteredPosts]);
 
-        document.addEventListener("keydown", handleKeyDown);
-        document.body.style.overflow = "hidden";
-    
-        return () => {
-            document.removeEventListener("keydown", handleKeyDown);
-            document.body.style.overflow = "";
-        };
-    }, [selectedPost]);
+    /*
+    |--------------------------------------------------------------------------
+    | VISIBLE POSTS
+    |--------------------------------------------------------------------------
+    */
 
-    /* ==========================================
-     * ACTIVE MODAL META BINDING
-     * ========================================== */
-    const modalTitle = selectedPost?.title?.[lang] || selectedPost?.title?.en || "";
-    const modalContent = selectedPost?.content?.[lang] || selectedPost?.content?.en || "";
-    const modalType = selectedPost?.type?.[lang] || selectedPost?.type?.en || "";
+    const visiblePosts = showAllPosts
+        ? filteredPosts
+        : filteredPosts.slice(
+              0,
+              visibleCount
+          );
+
+    /*
+    |--------------------------------------------------------------------------
+    | RESET COUNT
+    |--------------------------------------------------------------------------
+    */
+
+    useEffect(() => {
+        setVisibleCount(5);
+    }, [
+        search,
+        selectedCategory,
+        selectedPostType,
+    ]);
+
+    /*
+    |--------------------------------------------------------------------------
+    | SELECT POST
+    |--------------------------------------------------------------------------
+    */
+
+    const handleSelectPost = (post) => {
+        if (!post) {
+            return;
+        }
+
+        setSelectedPost(post);
+
+        setLiked(false);
+
+        setLikes(
+            Number(post?.likes || 0)
+        );
+
+        setComments(
+            Array.isArray(post?.comments)
+                ? post.comments
+                : []
+        );
+
+        setCommentText("");
+
+        setShowCommentBox(false);
+
+        /*
+         * In All Posts mode there is no right-side detail panel.
+         * Open the existing post modal instead.
+         */
+        if (showAllPosts) {
+            setIsModalOpen(true);
+            return;
+        }
+
+        setTimeout(() => {
+            const detailsElement =
+                document.getElementById(
+                    "selected-writing-detail"
+                );
+
+            if (detailsElement) {
+                detailsElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }, 50);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | READ MORE
+    |--------------------------------------------------------------------------
+    */
+
+    const handleReadMore = () => {
+        if (!selectedPost) {
+            return;
+        }
+
+        setIsModalOpen(true);
+
+        setLiked(false);
+
+        setLikes(
+            Number(selectedPost?.likes || 0)
+        );
+
+        setComments(
+            Array.isArray(
+                selectedPost?.comments
+            )
+                ? selectedPost.comments
+                : []
+        );
+
+        setCommentText("");
+
+        setShowCommentBox(false);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | CLOSE MODAL
+    |--------------------------------------------------------------------------
+    */
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+
+        setCommentText("");
+
+        setShowCommentBox(false);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | LIKE
+    |--------------------------------------------------------------------------
+    */
+
+    const handleLike = () => {
+        if (liked) {
+            setLikes((prev) =>
+                Math.max(0, prev - 1)
+            );
+        } else {
+            setLikes((prev) => prev + 1);
+        }
+
+        setLiked((prev) => !prev);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | SHARE / COPY LINK
+    |--------------------------------------------------------------------------
+    */
+
+    const handleShare = async (
+        post = selectedPost
+    ) => {
+        if (!post) {
+            return;
+        }
+
+        try {
+            const postId =
+                post?.id ||
+                post?._id ||
+                "post";
+
+            const postUrl =
+                `${window.location.origin}` +
+                `${window.location.pathname}` +
+                `#writing-${postId}`;
+
+           
+
+            if (
+                navigator.clipboard &&
+                window.isSecureContext
+            ) {
+                await navigator.clipboard.writeText(
+                    postUrl
+                );
+            } else {
+                /*
+                 * Fallback for HTTP/local environments.
+                 */
+
+                const textArea =
+                    document.createElement(
+                        "textarea"
+                    );
+
+                textArea.value = postUrl;
+
+                textArea.setAttribute(
+                    "readonly",
+                    ""
+                );
+
+                textArea.style.position =
+                    "fixed";
+
+                textArea.style.top =
+                    "0";
+
+                textArea.style.left =
+                    "-9999px";
+
+                textArea.style.opacity =
+                    "0";
+
+                document.body.appendChild(
+                    textArea
+                );
+
+                textArea.focus();
+
+                textArea.select();
+
+                textArea.setSelectionRange(
+                    0,
+                    textArea.value.length
+                );
+
+                document.execCommand(
+                    "copy"
+                );
+
+                document.body.removeChild(
+                    textArea
+                );
+            }
+
+        } catch (error) {
+            console.error(
+                "Unable to copy link:",
+                error
+            );
+
+            throw error;
+        }
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | COMMENT
+    |--------------------------------------------------------------------------
+    */
+
+    const handleAddComment = () => {
+        const text =
+            commentText.trim();
+
+        if (!text) {
+            return;
+        }
+
+        setComments((prev) => [
+            ...prev,
+            {
+                id: Date.now(),
+                text,
+            },
+        ]);
+
+        setCommentText("");
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | SHOW ALL POSTS
+    |--------------------------------------------------------------------------
+    */
+
+    const handleShowAllPosts = () => {
+        setShowAllPosts(true);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | BACK
+    |--------------------------------------------------------------------------
+    */
+
+    const handleBackToWriting = () => {
+        setShowAllPosts(false);
+
+        setVisibleCount(5);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | CATEGORY CHANGE
+    |--------------------------------------------------------------------------
+    */
+
+    const handleCategoryChange = (
+        category
+    ) => {
+        setSelectedCategory(category);
+
+        setShowAllPosts(false);
+
+        setVisibleCount(5);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | TYPE CHANGE
+    |--------------------------------------------------------------------------
+    */
+
+    const handleTypeChange = (type) => {
+        setSelectedPostType(type);
+
+        setVisibleCount(5);
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | HERO IMAGE
+    |--------------------------------------------------------------------------
+    */
+
+    const heroImage =
+        "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=80";
 
     return (
-        <>
-            <main dir={isRTL ? "rtl" : "ltr"} className="min-h-screen bg-[#FAF8F5]">
-                
-                {/* ==================================================
-                    HERO SECTION
-                ================================================== */}
-                <section className="relative overflow-hidden bg-[#F3EEE7]">
-                    {/* Decorative background vectors */}
-                    <div className="pointer-events-none absolute -left-32 -top-32 h-80 w-80 rounded-full bg-[#C5A88C]/10 blur-3xl"/>
-                    <div className="pointer-events-none absolute -bottom-40 -right-20 h-96 w-96 rounded-full bg-[#9B7354]/10 blur-3xl"/>
+        <main
+            dir={isRTL ? "rtl" : "ltr"}
+            className="
+                min-h-screen
+                bg-[#FAF8F5]
+                pb-12
+            "
+        >
+            {/* ============================================================
+                HERO
+            ============================================================ */}
 
-                    <div className="relative mx-auto max-w-5xl px-5 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-                        {/* Eyebrow */}
-                        <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#9B7354]">
-                            {t.writing.writtenworks}
-                        </span>
+            <section
+                className="
+                    relative
+                    overflow-hidden
+                    pb-10
+                "
+            >
+                <div
+                    className="
+                        pointer-events-none
+                        absolute
+                        -left-20
+                        -top-20
+                        h-72
+                    "
+                />
 
-                        {/* Heading */}
-                        <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-stone-800 sm:text-5xl lg:text-6xl">
-                            {t.writing.mywrittenworks}
-                        </h1>
+                <div
+                    className="
+                        pointer-events-none
+                        absolute
+                        top-10
+                        h-72
+                        w-72
+                    "
+                />
 
-                        {/* Description */}
-                        <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-stone-500 sm:text-base sm:leading-8">
-                            {t.writing.acollectionofstorieswritings}
-                        </p>
+                <div className="relative">
+                    <div
+                        className="
+                            relative
+                            overflow-hidden
+                            bg-white
+                            shadow-sm
+                        "
+                    >
+                        <img
+                            src={heroImage}
+                            alt="Writing"
+                            className="
+                                h-[280px]
+                                w-full
+                                object-cover
+                                sm:h-[340px]
+                                lg:h-[400px]
+                            "
+                        />
 
-                        {/* Search Input Box */}
-                        <div className="mx-auto mt-10 flex h-14 max-w-2xl items-center rounded-2xl border border-stone-200 bg-white px-4 shadow-sm transition focus-within:border-[#9B7354] focus-within:ring-4 focus-within:ring-[#9B7354]/10">
-                            <Search size={20} strokeWidth={2} aria-hidden="true" className="shrink-0 text-stone-400" />
-                            <input
-                                type="search"
-                                value={search}
-                                onChange={(e) => setSearch(e.target.value)}
-                                placeholder={t.writing.searchwrittenworks}
-                                className="h-full min-w-0 flex-1 border-0 bg-transparent px-3 text-sm text-stone-800 outline-none placeholder:text-stone-400"
+                        <div
+                            className="
+                                absolute
+                                inset-0
+                                bg-black/20
+                            "
+                        />
+
+                        <div
+                            className={`
+                                absolute
+                                inset-0
+                                flex
+                                flex-col
+                                justify-center
+                                px-6
+                                sm:px-10
+                                lg:px-16
+                                ${
+                                    isRTL
+                                        ? "items-start text-right"
+                                        : "items-start text-left"
+                                }
+                            `}
+                        >
+                            <span
+                                className="
+                                    mb-3
+                                    rounded-full
+                                    px-4
+                                    py-2
+                                    text-xs
+                                    font-semibold
+                                    text-white
+                                    backdrop-blur-sm
+                                "
+                            >
+                                {t.writing.story}
+                            </span>
+
+                            <h1
+                                className="
+                                    max-w-2xl
+                                    text-3xl
+                                    font-bold
+                                    leading-tight
+                                    text-white
+                                    drop-shadow-md
+                                    sm:text-4xl
+                                    lg:text-5xl
+                                "
+                            >
+                                {t.writing.ideasStorieswritings}
+                            </h1>
+
+                            <p
+                                className="
+                                    mt-4
+                                    max-w-xl
+                                    text-sm
+                                    leading-7
+                                    text-white/90
+                                    sm:text-base
+                                "
+                            >
+                                {t.writing.thoughts
+                            }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================================
+                TOP FILTER + SEARCH
+            ============================================================ */}
+
+            <section
+                className="
+                    px-5
+                    sm:px-8
+                    lg:px-12
+                "
+            >
+                <div
+                    className="
+                        mx-auto
+                        max-w-7xl
+                    "
+                >
+                    <div
+                        className="
+                            flex
+                            flex-col
+                            gap-3
+                            lg:flex-row
+                            lg:items-center
+                        "
+                    >
+                        {/* FILTER BUTTONS */}
+
+                        <div
+                            className="
+                                order-1
+                                flex
+                                items-center
+                                gap-2
+                                overflow-x-auto
+                                pb-1
+                                [scrollbar-width:none]
+                                [&::-webkit-scrollbar]:hidden
+                                lg:flex-1
+                            "
+                        >
+                            {postTypes.map(
+                                (type) => {
+                                    const isActive =
+                                        selectedPostType ===
+                                        type;
+
+                                    return (
+                                        <button
+                                            key={type}
+                                            type="button"
+                                            onClick={() =>
+                                                handleTypeChange(
+                                                    type
+                                                )
+                                            }
+                                            className={`
+                                                shrink-0
+                                                rounded-xl
+                                                border
+                                                px-4
+                                                py-2.5
+                                                text-sm
+                                                font-medium
+                                                transition
+                                                ${
+                                                    isActive
+                                                        ? "border-[#9B7354] bg-[#9B7354] text-white"
+                                                        : "border-[#DCCFC3] bg-white text-[#6E5A4A] hover:border-[#9B7354] hover:text-[#9B7354]"
+                                                }
+                                            `}
+                                        >
+                                            {type ===
+                                            "All"
+                                                ? 
+                                                    t.writing.all
+                                                : type}
+                                        </button>
+                                    );
+                                }
+                            )}
+                        </div>
+
+                        {/* SEARCH */}
+
+                        <div
+                            className="
+                                order-2
+                                relative
+                                w-full
+                                lg:w-80
+                                lg:shrink-0
+                            "
+                        >
+                            <Search
+                                size={18}
+                                className={`
+                                    absolute
+                                    top-1/2
+                                    -translate-y-1/2
+                                    text-[#9B7354]
+                                    ${
+                                        isRTL
+                                            ? "right-4"
+                                            : "left-4"
+                                    }
+                                `}
                             />
-                            {search && (
-                                <button 
-                                    type="button" 
-                                    onClick={() => setSearch("")} 
-                                    aria-label={t.writing.clearsearch}
-                                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-stone-100 text-stone-500 transition hover:bg-stone-200 hover:text-stone-700"
+
+                            <input
+                                type="text"
+                                value={search}
+                                onChange={(e) =>
+                                    setSearch(
+                                        e.target.value
+                                    )
+                                }
+                                placeholder={
+                                    t.writing.searchwritings
+                                }
+                                className={`
+                                    w-full
+                                    rounded-xl
+                                    border
+                                    border-[#DCCFC3]
+                                    bg-white
+                                    py-3
+                                    text-sm
+                                    outline-none
+                                    transition
+                                    focus:border-[#9B7354]
+                                    ${
+                                        isRTL
+                                            ? "pr-11 pl-4"
+                                            : "pl-11 pr-4"
+                                    }
+                                `}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ============================================================
+                CONTENT
+            ============================================================ */}
+
+            <section
+                className="
+                    px-5
+                    pt-6
+                    sm:px-8
+                    lg:px-12
+                "
+            >
+                <div
+                    className={`
+                        mx-auto
+                        max-w-7xl
+                        ${
+                            showAllPosts
+                                ? "block"
+                                : "grid grid-cols-1 gap-6 lg:h-[calc(100vh-120px)] lg:grid-cols-3"
+                        }
+                    `}
+                >
+                    {/* LEFT SIDE */}
+
+                    {!showAllPosts && (
+                        <div
+                            className="
+                                min-h-0
+                                space-y-5
+                                lg:h-full
+                                lg:overflow-y-auto
+                                lg:pr-1
+                                [scrollbar-width:none]
+                                [&::-webkit-scrollbar]:hidden
+                               
+                              
+                            "
+                        >
+                            {/* SELECTED POST */}
+
+                            {selectedPost && (
+                                <div
+                                    id="selected-writing-detail"
+                                    className="
+                                        overflow-hidden
+                                        rounded-3xl
+                                        border
+                                        border-[#E4D9CF]
+                                        bg-white
+                                        shadow-sm
+                                        scroll-mt-6
+                                    "
                                 >
-                                    <X size={15} strokeWidth={2.25} aria-hidden="true"/>
+                                    {selectedPost.image && (
+                                        <img
+                                            src={getLocalizedValue(
+                                                selectedPost.image
+                                            )}
+                                            alt={getLocalizedValue(
+                                                selectedPost.title
+                                            )}
+                                            className="
+                                                h-56
+                                                w-full
+                                                object-cover
+                                                sm:h-64
+                                            "
+                                        />
+                                    )}
+
+                                    <div className="p-6">
+                                        <div
+                                            className="
+                                                flex
+                                                flex-wrap
+                                                gap-2
+                                            "
+                                        >
+                                            {selectedPost.category && (
+                                                <span
+                                                    className="
+                                                        rounded-full
+                                                        bg-[#9B7354]/10
+                                                        px-3
+                                                        py-1
+                                                        text-xs
+                                                        font-semibold
+                                                        text-[#9B7354]
+                                                    "
+                                                >
+                                                    {getLocalizedValue(
+                                                        selectedPost.category
+                                                    )}
+                                                </span>
+                                            )}
+
+                                            {selectedPost.type && (
+                                                <span
+                                                    className="
+                                                        rounded-full
+                                                        border
+                                                        border-[#DCCFC3]
+                                                        px-3
+                                                        py-1
+                                                        text-xs
+                                                        text-[#6E5A4A]
+                                                    "
+                                                >
+                                                    {getLocalizedValue(
+                                                        selectedPost.type
+                                                    )}
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        <h2
+                                            className="
+                                                mt-4
+                                                text-2xl
+                                                font-bold
+                                                leading-tight
+                                                text-[#3F3025]
+                                            "
+                                        >
+                                            {getLocalizedValue(
+                                                selectedPost.title
+                                            )}
+                                        </h2>
+
+                                        <p
+                                            className="
+                                                mt-4
+                                                text-sm
+                                                leading-7
+                                                text-[#6E5A4A]
+                                            "
+                                        >
+                                            {getFirstParagraph(
+                                                selectedPost.content
+                                            )}
+                                        </p>
+
+                                        <div
+                                            className="
+                                                mt-5
+                                                flex
+                                                flex-wrap
+                                                items-center
+                                                gap-2
+                                                py-3
+                                            "
+                                        >
+                                            <button
+                                                type="button"
+                                                onClick={
+                                                    handleLike
+                                                }
+                                                className={`
+                                                    flex
+                                                    items-center
+                                                    gap-1.5
+                                                    rounded-xl
+                                                    px-3
+                                                    py-2
+                                                    text-sm
+                                                    transition
+                                                    ${
+                                                        liked
+                                                            ? "bg-red-50 text-red-500"
+                                                            : "bg-[#FAF8F5] text-[#6E5A4A] hover:bg-red-50 hover:text-red-500"
+                                                    }
+                                                `}
+                                            >
+                                                <Heart
+                                                    size={17}
+                                                    fill={
+                                                        liked
+                                                            ? "currentColor"
+                                                            : "none"
+                                                    }
+                                                />
+
+                                                <span>
+                                                    {likes}
+                                                </span>
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    setShowCommentBox(
+                                                        (prev) =>
+                                                            !prev
+                                                    )
+                                                }
+                                                className="
+                                                    flex
+                                                    items-center
+                                                    gap-1.5
+                                                    rounded-xl
+                                                    bg-[#FAF8F5]
+                                                    px-3
+                                                    py-2
+                                                    text-sm
+                                                    text-[#6E5A4A]
+                                                    transition
+                                                    hover:bg-[#F5EFE9]
+                                                    hover:text-[#9B7354]
+                                                "
+                                            >
+                                                <MessageCircle
+                                                    size={17}
+                                                />
+
+                                                <span>
+                                                    {
+                                                        comments.length
+                                                    }
+                                                </span>
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    handleShare(
+                                                        selectedPost
+                                                    )
+                                                }
+                                                className="
+                                                    flex
+                                                    items-center
+                                                    gap-1.5
+                                                    rounded-xl
+                                                    bg-[#FAF8F5]
+                                                    px-3
+                                                    py-2
+                                                    text-sm
+                                                    text-[#6E5A4A]
+                                                    transition
+                                                    hover:bg-[#F5EFE9]
+                                                    hover:text-[#9B7354]
+                                                "
+                                            >
+                                                <Share2
+                                                    size={17}
+                                                />
+
+                                                <span>
+                                                    {t.writing.share}
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <button
+                                            type="button"
+                                            onClick={
+                                                handleReadMore
+                                            }
+                                            className="
+                                                mt-5
+                                                flex
+                                                items-center
+                                                gap-2
+                                                rounded-xl
+                                                bg-[#9B7354]
+                                                px-5
+                                                py-3
+                                                text-sm
+                                                font-semibold
+                                                text-white
+                                                transition
+                                                hover:bg-[#876247]
+                                            "
+                                        >
+                                            <BookOpen
+                                                size={17}
+                                            />
+
+                                            <span>
+                                                {t.writing.readmore}
+                                            </span>
+
+                                            {isRTL ? (
+                                                <ArrowLeft
+                                                    size={17}
+                                                />
+                                            ) : (
+                                                <ArrowRight
+                                                    size={17}
+                                                />
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* CATEGORIES */}
+
+                            <div
+                                className="
+                                    rounded-3xl
+                                    border
+                                    border-[#E4D9CF]
+                                    bg-white
+                                    p-5
+                                    shadow-sm
+                                "
+                            >
+                                <h3
+                                    className="
+                                        mb-4
+                                        text-lg
+                                        font-bold
+                                        text-[#3F3025]
+                                    "
+                                >
+                                    {t.writing.categories}
+                                </h3>
+
+                                <div
+                                    className="
+                                        flex
+                                        flex-wrap
+                                        gap-2
+                                    "
+                                >
+                                    {postTypes.map(
+                                        (type) => {
+                                            const isActive =
+                                                selectedPostType ===
+                                                type;
+
+                                            return (
+                                                <button
+                                                    key={type}
+                                                    type="button"
+                                                    onClick={() =>
+                                                        handleTypeChange(
+                                                            type
+                                                        )
+                                                    }
+                                                    className={`
+                                                        rounded-xl
+                                                        border
+                                                        px-3
+                                                        py-2
+                                                        text-xs
+                                                        font-medium
+                                                        transition
+                                                        ${
+                                                            isActive
+                                                                ? "border-[#9B7354] bg-[#9B7354] text-white"
+                                                                : "border-[#DCCFC3] bg-white text-[#6E5A4A] hover:border-[#9B7354] hover:text-[#9B7354]"
+                                                        }
+                                                    `}
+                                                >
+                                                    {type ===
+                                                    "All"
+                                                        ? t.writing.all
+                                                        : type}
+                                                </button>
+                                            );
+                                        }
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* EXPLORE */}
+
+                            <div
+                                className="
+                                    rounded-3xl
+                                    bg-[#9B7354]
+                                    p-6
+                                    shadow-sm
+                                "
+                            >
+                                <span
+                                    className="
+                                        text-xs
+                                        font-semibold
+                                        uppercase
+                                        tracking-wider
+                                        text-white/70
+                                    "
+                                >
+                                    {t.writing.exploremore}
+                                </span>
+
+                                <h3
+                                    className="
+                                        mt-2
+                                        text-xl
+                                        font-bold
+                                        text-white
+                                    "
+                                >
+                                    {t.writing.interestedinmore}
+                                </h3>
+
+                                <p
+                                    className="
+                                        mt-3
+                                        text-sm
+                                        leading-7
+                                        text-white/80
+                                    "
+                                >
+                                    {t.writing.Ifyoureinterested}
+                                </p>
+
+                                <button
+                                    type="button"
+                                    onClick={
+                                        handleShowAllPosts
+                                    }
+                                    className="
+                                        mt-5
+                                        flex
+                                        items-center
+                                        gap-2
+                                        rounded-xl
+                                        bg-white
+                                        px-5
+                                        py-3
+                                        text-sm
+                                        font-semibold
+                                        text-[#9B7354]
+                                        transition
+                                        hover:bg-[#FAF8F5]
+                                    "
+                                >
+                                    <span>
+                                        {t.writing.viewallpost}
+                                    </span>
+
+                                    {isRTL ? (
+                                        <ArrowLeft
+                                            size={17}
+                                        />
+                                    ) : (
+                                        <ArrowRight
+                                            size={17}
+                                        />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* RIGHT SIDE */}
+
+                    <div
+                        className={`
+                        col-span-2
+                            min-h-0
+                            ${
+                                showAllPosts
+                                    ? "w-full"
+                                    : "order-1 lg:order-2 lg:h-full"
+                            }
+                            ${
+                                !showAllPosts
+                                    ? "lg:overflow-y-auto lg:pl-1"
+                                    : ""
+                            }
+                            [scrollbar-width:none]
+                            [&::-webkit-scrollbar]:hidden
+                        `}
+                    >
+                        {/* HEADER */}
+
+                        <div
+                            className="
+                                mb-5
+                                flex
+                                items-center
+                                justify-between
+                                gap-4
+                            "
+                        >
+                            <div>
+                                <h2
+                                    className="
+                                        text-2xl
+                                        font-bold
+                                        text-[#3F3025]
+                                    "
+                                >
+                                    {showAllPosts
+                                        ? t.writing.allpost
+                                        : 
+                                    t.writing.story}
+                                </h2>
+
+                                <p
+                                    className="
+                                        mt-1
+                                        text-sm
+                                        text-[#8B7A6A]
+                                    "
+                                >
+                                    {
+                                        filteredPosts.length
+                                    }{" "}
+                                    {t.writing.postavailiable}
+                                </p>
+                            </div>
+
+                            {!showAllPosts ? (
+                                <button
+                                    type="button"
+                                    onClick={
+                                        handleShowAllPosts
+                                    }
+                                    className="
+                                        flex
+                                        shrink-0
+                                        items-center
+                                        gap-2
+                                        rounded-xl
+                                        border
+                                        border-[#DCCFC3]
+                                        bg-white
+                                        px-4
+                                        py-2.5
+                                        text-sm
+                                        font-semibold
+                                        text-[#6E5A4A]
+                                        transition
+                                        hover:border-[#9B7354]
+                                        hover:text-[#9B7354]
+                                    "
+                                >
+                                    <span>
+                                        {t.writing.allpost}
+                                    </span>
+
+                                    {isRTL ? (
+                                        <ArrowLeft
+                                            size={17}
+                                        />
+                                    ) : (
+                                        <ArrowRight
+                                            size={17}
+                                        />
+                                    )}
+                                </button>
+                            ) : (
+                                <button
+                                    type="button"
+                                    onClick={
+                                        handleBackToWriting
+                                    }
+                                    className="
+                                        flex
+                                        shrink-0
+                                        items-center
+                                        gap-2
+                                        rounded-xl
+                                        border
+                                        border-[#DCCFC3]
+                                        bg-white
+                                        px-4
+                                        py-2.5
+                                        text-sm
+                                        font-semibold
+                                        text-[#6E5A4A]
+                                        transition
+                                        hover:border-[#9B7354]
+                                        hover:text-[#9B7354]
+                                    "
+                                >
+                                    {isRTL ? (
+                                        <ArrowRight
+                                            size={17}
+                                        />
+                                    ) : (
+                                        <ArrowLeft
+                                            size={17}
+                                        />
+                                    )}
+
+                                    <span>
+                                        {t.writing.back}
+                                    </span>
                                 </button>
                             )}
                         </div>
-                    </div>
-                </section>
 
-                {/* ==================================================
-                    CATEGORY NAVIGATION TABS
-                ================================================== */}
-                <section className="border-b border-stone-200 bg-white">
-                    <div className="mx-auto max-w-7xl overflow-x-auto px-5 py-5 sm:px-6 lg:px-8">
-                        <div className="flex min-w-max justify-center gap-2">
-                            {categories.map((category) => {
-                                const active = activeCategory === category.key;
-                                return (
-                                    <button
-                                        key={category.key}
-                                        type="button"
-                                        onClick={() => setActiveCategory(category.key)}
-                                        className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200
-                                            ${active ? "bg-[#9B7354] text-white shadow-sm" : "bg-stone-100 text-stone-600 hover:bg-stone-200"}
-                                        `}
-                                    >
-                                        {category.label}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
+                        {/* CARDS */}
 
-                {/* ==================================================
-                    ARCHIVE DISPLAY CONTENT
-                ================================================== */}
-                <section className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-                    
-                    {/* Filter Status Metrics Header */}
-                    <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-                        <p className="text-sm font-bold text-stone-500">
-                            {filteredPosts.length} {t.writing.story}
-                        </p>
-
-                        {(search || activeCategory !== "all") && (
-                            <button
-                                type="button"
-                                onClick={clearFilters}
-                                className="text-sm font-medium text-[#9B7354] transition hover:text-[#76533B]"
+                        {visiblePosts.length > 0 ? (
+                            <div
+                                className={`
+                                    grid
+                                    grid-cols-1
+                                    gap-5
+                                    ${
+                                        showAllPosts
+                                            ? "sm:grid-cols-2 lg:grid-cols-3"
+                                            : "sm:grid-cols-2"
+                                    }
+                                `}
                             >
-                                {t.writing.clearfilters}
-                            </button>
-                        )}
-                    </div>
+                                {visiblePosts.map(
+                                    (
+                                        post,
+                                        index
+                                    ) => {
+                                        const postId =
+                                            post?.id ||
+                                            post?._id ||
+                                            index;
 
-                    {/* Conditional Content Rendering Block */}
-                    {filteredPosts.length > 0 ? (
-                        /* Results Grid layout */
-                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                            {filteredPosts.map((post) => (
-                                <div key={post.id} onClick={() => setSelectedPost(post)} className="cursor-pointer">
-                                    <PostCard post={post} />
-                                </div>
-                            ))}
-                        </div>
-                    /* Empty Search Fallback State Layout */
-                    ) : (
-                        <div className="flex min-h-[350px] flex-col items-center justify-center rounded-3xl bg-white border border-stone-100 p-8 text-center shadow-sm">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-stone-100 text-stone-400 mb-5">
-                                <Search size={28} strokeWidth={1.75} aria-hidden="true" />
+                                        const isSelected =
+                                            selectedPost &&
+                                            (
+                                                selectedPost?.id ||
+                                                selectedPost?._id
+                                            ) ===
+                                                (
+                                                    post?.id ||
+                                                    post?._id
+                                                );
+
+                                        return (
+                                            <div
+                                                key={
+                                                    postId
+                                                }
+                                                className="
+                                                    overflow-visible
+                                                    rounded-3xl
+                                                "
+                                            >
+                                                <PostCard
+                                                    post={
+                                                        post
+                                                    }
+                                                    onSelect={
+                                                        handleSelectPost
+                                                    }
+                                                    onShare={
+                                                        handleShare
+                                                    }
+                                                    isSelected={
+                                                        isSelected
+                                                    }
+                                                />
+                                            </div>
+                                        );
+                                    }
+                                )}
                             </div>
-                            <h2 className="text-xl font-semibold text-stone-800">
-                                {t.writing.nowrittenworksfound}
-                            </h2>
-                            <p className="mt-2 max-w-md text-sm leading-6 text-stone-500">
-                                {t.writing.tryanothersearchtermorcategory}
-                            </p>
-                            <button
-                                type="button"
-                                onClick={clearFilters}
-                                className="mt-6 rounded-xl bg-[#9B7354] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#805B42]"
+                        ) : (
+                            <div
+                                className="
+                                    rounded-3xl
+                                    border
+                                    border-dashed
+                                    border-[#DCCFC3]
+                                    bg-white
+                                    px-6
+                                    py-14
+                                    text-center
+                                "
                             >
-                                {t.writing.showallworks}
-                            </button>
-                        </div>
-                    )}
-                </section>
-            </main>
-
-            {/* ==================================================
-                FULL-PAGE FOCUS MODAL DISPLAY OVERLAY
-            ================================================== */}
-            {selectedPost && (
-                <div
-                    dir={isRTL ? "rtl" : "ltr"}
-                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm sm:p-6"
-                    onClick={() => setSelectedPost(null)}
-                >
-                    {/* Modal Inner Container */}
-                    <div 
-                        className="relative max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-[#FAF8F5] shadow-2xl"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Close Trigger Button */}
-                        <button
-                            type="button"
-                            onClick={() => setSelectedPost(null)}
-                            aria-label="Close"
-                            className={`absolute top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-stone-700 shadow-lg backdrop-blur transition hover:bg-white hover:text-stone-900
-                                ${isRTL ? "left-4" : "right-4"}`}
-                        >
-                            <X size={22} />
-                        </button>
-
-                        {/* Top Hero Image Banner */}
-                        {selectedPost.image && (
-                            <div className="overflow-hidden rounded-t-3xl bg-stone-100">
-                                <img
-                                    src={selectedPost.image}
-                                    alt={modalTitle}
-                                    className="max-h-[500px] w-full object-cover"
+                                <Search
+                                    size={32}
+                                    className="
+                                        mx-auto
+                                        mb-4
+                                        text-[#9B7354]
+                                    "
                                 />
+
+                                <h3
+                                    className="
+                                        text-lg
+                                        font-semibold
+                                        text-[#3F3025]
+                                    "
+                                >
+                                    {t.writing.nowriting}
+                                </h3>
                             </div>
                         )}
 
-                        {/* Full Article Frame Content */}
-                        <article className="px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-12">
-                            {/* Content Category Header */}
-                            {modalType && (
-                                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#9B7354]">
-                                    {modalType}
-                                </span>
+                        {/* LOAD MORE */}
+
+                        {!showAllPosts &&
+                            visibleCount <
+                                filteredPosts.length && (
+                                <div
+                                    className="
+                                        mt-6
+                                        flex
+                                        justify-center
+                                    "
+                                >
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setVisibleCount(
+                                                (prev) =>
+                                                    prev +
+                                                    5
+                                            )
+                                        }
+                                        className="
+                                            flex
+                                            items-center
+                                            gap-2
+                                            rounded-xl
+                                            border
+                                            border-[#DCCFC3]
+                                            bg-white
+                                            px-5
+                                            py-3
+                                            text-sm
+                                            font-semibold
+                                            text-[#6E5A4A]
+                                            transition
+                                            hover:border-[#9B7354]
+                                            hover:text-[#9B7354]
+                                        "
+                                    >
+                                        <span>
+                                            {t.writing.loadmore}
+                                        </span>
+
+                                        {isRTL ? (
+                                            <ArrowLeft
+                                                size={17}
+                                            />
+                                        ) : (
+                                            <ArrowRight
+                                                size={17}
+                                            />
+                                        )}
+                                    </button>
+                                </div>
                             )}
-
-                            {/* Full Core Title */}
-                            <h1 className="mt-4 text-3xl font-bold leading-tight text-stone-800 sm:text-4xl lg:text-5xl">
-                                {modalTitle}
-                            </h1>
-
-                            {/* Main Body Text Container */}
-                            <div className="mt-8 whitespace-pre-line text-base leading-8 text-stone-700 sm:text-lg sm:leading-9">
-                                {modalContent}
-                            </div>
-                        </article>
                     </div>
                 </div>
-            )}
-        </>
-    );
-};
+            </section>
 
-export default Posts;
+            {/* ============================================================
+                READ MORE MODAL
+            ============================================================ */}
+
+            {isModalOpen &&
+                selectedPost && (
+                    <div
+                        className="
+                            fixed
+                            inset-0
+                            z-50
+                            flex
+                            items-center
+                            justify-center
+                            bg-black/50
+                            p-4
+                            backdrop-blur-sm
+                        "
+                        onClick={
+                            handleCloseModal
+                        }
+                    >
+                        <div
+                            onClick={(e) =>
+                                e.stopPropagation()
+                            }
+                            className="
+                                relative
+                                max-h-[90vh]
+                                w-full
+                                max-w-3xl
+                                overflow-y-auto
+                                rounded-[2rem]
+                                bg-white
+                                shadow-2xl
+                                [scrollbar-width:none]
+                                [&::-webkit-scrollbar]:hidden
+                            "
+                        >
+                            {/* CLOSE */}
+
+                            <button
+                                type="button"
+                                onClick={
+                                    handleCloseModal
+                                }
+                                className="
+                                    absolute
+                                    right-5
+                                    top-5
+                                    z-20
+                                    rounded-full
+                                    bg-white/90
+                                    p-2.5
+                                    text-[#6E5A4A]
+                                    shadow
+                                    transition
+                                    hover:bg-[#F5EFE9]
+                                "
+                            >
+                                <X size={20} />
+                            </button>
+
+                            {/* IMAGE */}
+
+                            {selectedPost.image && (
+                                <img
+                                    src={getLocalizedValue(
+                                        selectedPost.image
+                                    )}
+                                    alt={getLocalizedValue(
+                                        selectedPost.title
+                                    )}
+                                    className="
+                                        h-64
+                                        w-full
+                                        object-cover
+                                        sm:h-80
+                                    "
+                                />
+                            )}
+
+                            <div className="p-6 sm:p-8">
+                                {/* CATEGORY */}
+
+                                <div
+                                    className="
+                                        flex
+                                        flex-wrap
+                                        gap-2
+                                    "
+                                >
+                                    {selectedPost.category && (
+                                        <span
+                                            className="
+                                                rounded-full
+                                                bg-[#9B7354]/10
+                                                px-3
+                                                py-1
+                                                text-xs
+                                                font-semibold
+                                                text-[#9B7354]
+                                            "
+                                        >
+                                            {getLocalizedValue(
+                                                selectedPost.category
+                                            )}
+                                        </span>
+                                    )}
+
+                                    {selectedPost.type && (
+                                        <span
+                                            className="
+                                                rounded-full
+                                                border
+                                                border-[#DCCFC3]
+                                                px-3
+                                                py-1
+                                                text-xs
+                                                text-[#6E5A4A]
+                                            "
+                                        >
+                                            {getLocalizedValue(
+                                                selectedPost.type
+                                            )}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {/* TITLE */}
+
+                                <h2
+                                    className="
+                                        mt-4
+                                        text-3xl
+                                        font-bold
+                                        leading-tight
+                                        text-[#3F3025]
+                                    "
+                                >
+                                    {getLocalizedValue(
+                                        selectedPost.title
+                                    )}
+                                </h2>
+
+                                {/* FULL CONTENT */}
+
+                                <div
+                                    className="
+                                        mt-6
+                                        whitespace-pre-line
+                                        text-sm
+                                        leading-8
+                                        text-[#6E5A4A]
+                                        sm:text-base
+                                    "
+                                >
+                                    {getLocalizedValue(
+                                        selectedPost.content
+                                    )}
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                )}
+        </main>
+    );
+}
