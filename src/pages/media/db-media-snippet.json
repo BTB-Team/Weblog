@@ -1,0 +1,190 @@
+{
+  "mediaPhoto": [
+    {
+      "id": 1,
+      "type": "photo",
+      "title": {
+        "en": "Writing desk by the window",
+        "dr": "میز نوشتن کنار پنجره"
+      },
+      "category": {
+        "en": "Work & writing",
+        "dr": "کار و نوشتن"
+      },
+      "image": "desk-laptop.jpg"
+    },
+    {
+      "id": 2,
+      "type": "photo",
+      "title": {
+        "en": "Sunrise over the flower valley",
+        "dr": "طلوع آفتاب بر دشت گل‌ها"
+      },
+      "category": {
+        "en": "Nature",
+        "dr": "طبیعت"
+      },
+      "image": "flower-valley.jpg"
+    },
+    {
+      "id": 3,
+      "type": "photo",
+      "title": {
+        "en": "Coffee and a book",
+        "dr": "قهوه و یک کتاب"
+      },
+      "category": {
+        "en": "Daily life",
+        "dr": "زندگی روزمره"
+      },
+      "image": "coffee-book.jpg"
+    },
+    {
+      "id": 4,
+      "type": "photo",
+      "title": {
+        "en": "Morning notes",
+        "dr": "یادداشت‌های صبحگاهی"
+      },
+      "category": {
+        "en": "Notes",
+        "dr": "یادداشت‌ها"
+      },
+      "image": "morning-books.jpg"
+    },
+    {
+      "id": 5,
+      "type": "photo",
+      "title": {
+        "en": "Daisies",
+        "dr": "گل‌های بابونه"
+      },
+      "category": {
+        "en": "Nature",
+        "dr": "طبیعت"
+      },
+      "image": "daisies.jpg"
+    },
+    {
+      "id": 6,
+      "type": "photo",
+      "title": {
+        "en": "View from the window",
+        "dr": "منظره از پنجره"
+      },
+      "category": {
+        "en": "Travel",
+        "dr": "سفر"
+      },
+      "image": "window-view.jpg"
+    },
+    {
+      "id": 7,
+      "type": "photo",
+      "title": {
+        "en": "Sunset behind the trees",
+        "dr": "غروب پشت درختان"
+      },
+      "category": {
+        "en": "Travel",
+        "dr": "سفر"
+      },
+      "image": "sunset-trees.jpg"
+    },
+    {
+      "id": 8,
+      "type": "photo",
+      "title": {
+        "en": "Candlelight writing",
+        "dr": "نوشتن در نور شمع"
+      },
+      "category": {
+        "en": "Work & writing",
+        "dr": "کار و نوشتن"
+      },
+      "image": "candle-laptop.jpg"
+    },
+    {
+      "id": 9,
+      "type": "photo",
+      "title": {
+        "en": "Camera and prints",
+        "dr": "دوربین و عکس‌های چاپی"
+      },
+      "category": {
+        "en": "Photography",
+        "dr": "عکاسی"
+      },
+      "image": "camera-bed.jpg"
+    },
+    {
+      "id": 10,
+      "type": "photo",
+      "title": {
+        "en": "Open books at the window",
+        "dr": "کتاب‌های باز کنار پنجره"
+      },
+      "category": {
+        "en": "Notes",
+        "dr": "یادداشت‌ها"
+      },
+      "image": "window-books.jpg"
+    },
+    {
+      "id": 11,
+      "type": "photo",
+      "title": {
+        "en": "Snowy mountains at sunset",
+        "dr": "کوه‌های برفی در غروب"
+      },
+      "category": {
+        "en": "Travel",
+        "dr": "سفر"
+      },
+      "image": "snow-mountains.jpg"
+    },
+    {
+      "id": 12,
+      "type": "photo",
+      "title": {
+        "en": "City lights at dusk",
+        "dr": "چراغ‌های شهر در گرگ‌ومیش"
+      },
+      "category": {
+        "en": "Nature",
+        "dr": "طبیعت"
+      },
+      "image": "city-dusk.jpg"
+    }
+  ],
+  "mediaVideo": [
+    {
+      "id": 1,
+      "title": {
+        "en": "A night under the stars",
+        "dr": "شبی زیر ستاره‌ها"
+      },
+      "category": {
+        "en": "Video",
+        "dr": "ویدیو"
+      },
+      "thumbnail": "video-milkyway.jpg",
+      "duration": "02:48",
+      "url": null
+    },
+    {
+      "id": 2,
+      "title": {
+        "en": "The old city at sunset",
+        "dr": "شهر قدیمی در غروب"
+      },
+      "category": {
+        "en": "Video",
+        "dr": "ویدیو"
+      },
+      "thumbnail": "video-old-city.jpg",
+      "duration": "03:21",
+      "url": null
+    }
+  ]
+}
