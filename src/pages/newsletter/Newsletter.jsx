@@ -86,14 +86,17 @@ const [subscribeMessage, setSubscribeMessage] = useState("");
     );
     return;
   }
+setSubscribeMessage(
+  isEnglish
+    ? "You have successfully subscribed!"
+    : "شما با موفقیت عضو خبرنامه شدید!"
+);
 
-  setSubscribeMessage(
-    isEnglish
-      ? "You have successfully subscribed!"
-      : "شما با موفقیت عضو خبرنامه شدید!"
-  );
+setEmail("");
 
-  setEmail("");
+setTimeout(() => {
+  setSubscribeMessage("");
+}, 3000);
 };
 
   return (
