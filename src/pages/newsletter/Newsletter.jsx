@@ -14,6 +14,9 @@ const [modal, setModal] = useState({
   data: null,
 });
 
+const [email, setEmail] = useState("");
+const [subscribeMessage, setSubscribeMessage] = useState("");
+
   const posts = [
     {
       type: "داستان کوتاه",
@@ -62,6 +65,36 @@ const [modal, setModal] = useState({
       title: "خبرنامه شماره ۱۳ | معرفی کتاب‌های ماه و برنامه‌های آینده",
     },
   ];
+
+  const handleSubscribe = () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email.trim()) {
+    setSubscribeMessage(
+      isEnglish
+        ? "Please enter your email address."
+        : "لطفاً ایمیل خود را وارد کنید."
+    );
+    return;
+  }
+
+  if (!emailRegex.test(email.trim())) {
+    setSubscribeMessage(
+      isEnglish
+        ? "Please enter a valid email address."
+        : "لطفاً یک ایمیل معتبر وارد کنید."
+    );
+    return;
+  }
+
+  setSubscribeMessage(
+    isEnglish
+      ? "You have successfully subscribed!"
+      : "شما با موفقیت عضو خبرنامه شدید!"
+  );
+
+  setEmail("");
+};
 
   return (
     <main
@@ -151,43 +184,62 @@ const [modal, setModal] = useState({
 </p>
 
         {/* Subscribe Area */}
-        <div className="flex w-full flex-col gap-3 sm:flex-row-reverse">
+       <div className="flex w-full flex-col gap-3 sm:flex-row-reverse">
 
-          {/* Subscribe Button */}
+  {/* Email */}
+  <div className="flex h-14 flex-1 items-center rounded-full border border-[#dccbc3] bg-white px-5">
 
-           {/* Email */}
-          <div className="flex h-14 flex-1 items-center rounded-full border border-[#dccbc3] bg-white px-5">
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => {
+        setEmail(e.target.value);
+        setSubscribeMessage("");
+      }}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleSubscribe();
+        }
+      }}
+      dir={isEnglish ? "ltr" : "rtl"}
+      placeholder={t.newsletter.emailPlaceholder}
+      className={`w-full bg-transparent text-sm text-[#4a302a] outline-none placeholder:text-[#a6958e] ${
+        isEnglish ? "text-left" : "text-right"
+      }`}
+    />
 
-           
+    <span className="ml-3 text-xl text-[#a56562]">
+      ✉
+    </span>
 
-           <input
-  type="email"
-  dir={isEnglish ? "ltr" : "rtl"}
-  placeholder={t.newsletter.emailPlaceholder}
-  className={`w-full bg-transparent text-sm text-[#4a302a] outline-none placeholder:text-[#a6958e] ${
-    isEnglish ? "text-left" : "text-right"
-  }`}
-/>
+  </div>
 
-             <span className="ml-3 text-xl text-[#a56562]">
-              ✉
-            </span>
+  {/* Subscribe Button */}
+  <button
+    type="button"
+    onClick={handleSubscribe}
+    className="h-14 rounded-full bg-[#a56562] px-8 text-sm font-medium text-white transition duration-300 hover:bg-[#874f4d]"
+  >
+    <span className={isEnglish ? "mr-0 ml-2" : "mr-2"}>
+      {isEnglish ? "→" : "←"}
+    </span>
 
-          </div>
-          <button
-            type="button"
-            className="h-14 rounded-full bg-[#a56562] px-8 text-sm font-medium text-white transition duration-300 hover:bg-[#874f4d]"
-          >
-            <span className="mr-2">←</span>
-            
-            {t.newsletter.subscribe}
-            
-          </button>
+    {t.newsletter.subscribe}
+  </button>
 
+</div>
 
-         
-
-        </div>
+{/* Subscribe Message */}
+{subscribeMessage && (
+  <p
+    dir={isEnglish ? "ltr" : "rtl"}
+    className={`mt-3 text-sm font-medium ${
+      isEnglish ? "text-left" : "text-right"
+    } text-[#a56562]`}
+  >
+    {subscribeMessage}
+  </p>
+)}
 
 
         {/* Privacy Text */}
@@ -847,85 +899,73 @@ const [modal, setModal] = useState({
 {/* ================= AUDIO PLAYER / FOOTER ================= */}
 <section
   dir="ltr"
-  className="sticky bottom-0 z-50 border-t border-[#9a6763] bg-[#a86c68] px-4 py-3 text-white shadow-2xl"
+  className="sticky bottom-0 z-50 border-t border-[#9a6763] bg-[#a86c68] px-2 py-2 text-white shadow-2xl sm:px-4 sm:py-3"
 >
-
-  <div className="mx-auto flex max-w-7xl items-center gap-6">
-
+  <div className="mx-auto flex max-w-7xl items-center gap-1 sm:gap-4 lg:gap-6">
 
     {/* ================= START — IMAGE + TEXT ================= */}
     <div
       dir={isEnglish ? "ltr" : "rtl"}
-      className="hidden w-[280px] shrink-0 items-center justify-start gap-3 sm:flex"
+      className="flex w-[105px] shrink-0 items-center justify-start gap-1 sm:w-[180px] sm:gap-2 md:w-[230px] lg:w-[280px] lg:gap-3"
     >
-
       {/* Text */}
       <div
         dir={isEnglish ? "ltr" : "rtl"}
-        className={`min-w-0 ${
+        className={`min-w-0 flex-1 ${
           isEnglish ? "text-left" : "text-right"
         }`}
       >
-
-        <p className="truncate text-sm font-medium">
+        <p className="truncate text-[8px] font-medium sm:text-[10px] md:text-xs lg:text-sm">
           {isEnglish
             ? "The Window That Opens to Summer"
             : "پنجره‌ای که به تابستان باز می‌شود"}
         </p>
 
-        <p className="mt-1 text-xs text-white/70">
+        <p className="mt-0.5 truncate text-[7px] text-white/70 sm:text-[8px] md:text-[10px] lg:text-xs">
           {t.newsletter.audioSeason}
           {" · "}
           {isEnglish ? "Maryam Amiri" : "مریم امیری"}
         </p>
-
       </div>
 
-
       {/* Image */}
-      <div className="h-14 w-14 shrink-0 overflow-hidden rounded-lg">
-
+      <div className="h-8 w-8 shrink-0 overflow-hidden rounded-md sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 lg:rounded-lg">
         <img
           src="https://images.pexels.com/photos/15748420/pexels-photo-15748420.jpeg?auto=compress&cs=tinysrgb&w=300"
           alt={isEnglish ? "Podcast" : "پادکست"}
           className="h-full w-full object-cover"
         />
-
       </div>
-
     </div>
-
 
     {/* ================= CENTER — AUDIO PLAYER ================= */}
     <div className="flex min-w-0 flex-1 flex-col items-center">
 
       {/* Controls */}
-      <div className="mb-2 flex items-center gap-6">
+      <div className="mb-1 flex items-center gap-2 sm:mb-2 sm:gap-4 md:gap-6">
 
         {/* Previous */}
         <button
           type="button"
-          className="text-lg transition hover:scale-110"
+          className="text-sm transition hover:scale-110 sm:text-base md:text-lg"
           aria-label="Previous"
         >
           ↶
         </button>
 
-
         {/* Play / Pause */}
         <button
           type="button"
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#9c6461] shadow-lg"
+          className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#9c6461] shadow-lg sm:h-10 sm:w-10 md:h-11 md:w-11"
           aria-label="Play / Pause"
         >
           ❚❚
         </button>
 
-
         {/* Next */}
         <button
           type="button"
-          className="text-lg transition hover:scale-110"
+          className="text-sm transition hover:scale-110 sm:text-base md:text-lg"
           aria-label="Next"
         >
           ↷
@@ -933,55 +973,40 @@ const [modal, setModal] = useState({
 
       </div>
 
-
       {/* Progress */}
       <div
         dir="ltr"
-        className="flex w-full max-w-md items-center gap-3 text-[10px] text-white/70"
+        className="flex w-full max-w-md items-center gap-1 text-[7px] text-white/70 sm:gap-2 sm:text-[9px] md:gap-3 md:text-[10px]"
       >
-
         <span>12:18</span>
 
         <div className="relative h-1 flex-1 rounded-full bg-white/30">
-
           <div className="absolute left-0 top-0 h-full w-[35%] rounded-full bg-white" />
 
-          <div className="absolute left-[35%] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-white" />
-
+          <div className="absolute left-[35%] top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-white sm:h-3 sm:w-3" />
         </div>
 
         <span>04:32</span>
-
       </div>
-
     </div>
 
-
     {/* ================= END — AUDIO CONTROLS ================= */}
-    <div className="flex w-[220px] shrink-0 items-center justify-end gap-5">
+    <div className="flex w-[55px] shrink-0 items-center justify-end gap-2 sm:w-[100px] sm:gap-3 md:w-[150px] lg:w-[220px] lg:gap-5">
 
       {/* Volume */}
-      <div className="flex items-center gap-3">
-
-        <span className="text-base">
-          🔊
-        </span>
-
-      </div>
-
+      <span className="text-xs sm:text-sm md:text-base">
+        🔊
+      </span>
 
       {/* Volume Progress */}
-      <div className="h-1 w-20 rounded-full bg-white/30">
-
+      <div className="hidden h-1 w-12 rounded-full bg-white/30 sm:block md:w-16 lg:w-20">
         <div className="h-full w-[65%] rounded-full bg-white" />
-
       </div>
-
 
       {/* Menu */}
       <button
         type="button"
-        className="text-xl transition hover:scale-110"
+        className="text-base transition hover:scale-110 sm:text-lg md:text-xl"
         aria-label="Menu"
       >
         ☰
@@ -990,9 +1015,7 @@ const [modal, setModal] = useState({
     </div>
 
   </div>
-
 </section>
-
 {/* ================= MODAL ================= */}
 {modal.type && modal.data && (
   <div
