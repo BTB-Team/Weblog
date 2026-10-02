@@ -1,3 +1,5 @@
+
+
 import { useEffect, useRef, useState } from "react";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
@@ -21,6 +23,7 @@ const GlobalAudioPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlayerVisible, setIsPlayerVisible] = useState(false);
+  const [showStopMessage, setShowStopMessage] = useState(false);
 
   const lang = useLangStore((state) => state.lang);
   const t = useLangStore((state) => state.t);
@@ -61,6 +64,21 @@ const GlobalAudioPlayer = () => {
     return path;
   };
 
+  // Stop audio and completely hide the player
+  const stopAudioAndHide = () => {
+    const audio = audioRef.current;
+
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    setCurrentTime(0);
+    setIsPlaying(false);
+    setShowStopMessage(false);
+    setIsPlayerVisible(false);
+  };
+
   // When a new podcast is selected
   useEffect(() => {
     const audio = audioRef.current;
@@ -70,6 +88,7 @@ const GlobalAudioPlayer = () => {
     }
 
     setIsPlayerVisible(true);
+    setShowStopMessage(false);
     setCurrentTime(0);
     setDuration(0);
     setIsLoading(false);
@@ -82,7 +101,7 @@ const GlobalAudioPlayer = () => {
     audio.src = currentPodcast.audioUrl;
     audio.load();
 
-    // Play new podcast
+    // Play new podcast if isPlaying is true
     if (isPlaying) {
       setIsLoading(true);
 
@@ -99,7 +118,7 @@ const GlobalAudioPlayer = () => {
     }
   }, [currentPodcast]);
 
-  // Play / pause
+  // Play / pause audio
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -140,33 +159,33 @@ const GlobalAudioPlayer = () => {
     setCurrentTime(0);
   };
 
+  // Close button
   const handleClose = () => {
-    const audio = audioRef.current;
-
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-
-    setCurrentTime(0);
-    setIsPlaying(false);
-    setIsPlayerVisible(false);
+    stopAudioAndHide();
   };
 
-  const togglePlay = () => {
+  // Play / Pause button
+  const togglePlay = (event) => {
+    event.stopPropagation();
+
     if (!currentPodcast?.audioUrl) {
       return;
     }
 
+    // If audio is currently playing,
+    // show confirmation instead of stopping immediately
     if (isPlaying) {
-      handleClose();
+      setShowStopMessage(true);
       return;
     }
 
+    // If audio is not playing, play it
+    setShowStopMessage(false);
     setIsPlayerVisible(true);
     setIsPlaying(true);
   };
 
+  // Seek audio
   const handleSeek = (event) => {
     const audio = audioRef.current;
 
@@ -193,7 +212,7 @@ const GlobalAudioPlayer = () => {
 
   return (
     <>
-      {/* Keep audio element mounted even when player is hidden */}
+      {/* Audio element stays mounted */}
       <audio
         ref={audioRef}
         preload="metadata"
@@ -203,18 +222,19 @@ const GlobalAudioPlayer = () => {
       />
 
       {currentPodcast && isPlayerVisible && (
-        <aside className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-7xl -translate-x-1/2 overflow-hidden rounded-2xl border border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
+        <aside className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-7xl -translate-x-1/2 overflow-visible rounded-2xl border border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
+          {/* Close button */}
           <button
             type="button"
             onClick={handleClose}
             aria-label="Close player"
-            className="absolute end-3 top-2 z-10 text-xl text-white/80 transition hover:text-white"
+            className="absolute end-3 top-2 z-20 text-xl text-white/80 transition hover:text-white"
           >
             ×
           </button>
 
           <div className="flex w-full items-center gap-4 px-4 py-3 sm:px-6">
-            {/* Podcast info */}
+            {/* Podcast information */}
             <div className="hidden min-w-0 items-center gap-3 md:flex md:w-[25%]">
               <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/20">
                 {currentPodcast.cover && (
@@ -243,7 +263,46 @@ const GlobalAudioPlayer = () => {
             </div>
 
             {/* Player */}
-            <div className="flex flex-1 items-center justify-center gap-3">
+            <div className="relative flex flex-1 items-center justify-center gap-3">
+              {/* Confirmation message */}
+              {showStopMessage && (
+                <div
+                  className="absolute bottom-full left-1/2 z-50 mb-3 -translate-x-1/2 rounded-xl bg-white px-4 py-3 text-center text-sm text-gray-800 shadow-xl"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <p className="mb-2 whitespace-nowrap font-medium">
+                    آیا می‌خواهید صدا قطع شود؟
+                  </p>
+
+                  <div className="flex justify-center gap-2">
+                    {/* Yes */}
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        stopAudioAndHide();
+                      }}
+                      className="rounded-lg bg-[#b86f73] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#a55f63]"
+                    >
+                      بله، قطع شود
+                    </button>
+
+                    {/* No */}
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setShowStopMessage(false);
+                      }}
+                      className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:bg-gray-200"
+                    >
+                      خیر
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Play / Pause button */}
               <button
                 type="button"
                 onClick={togglePlay}
@@ -259,10 +318,12 @@ const GlobalAudioPlayer = () => {
                 )}
               </button>
 
+              {/* Current time */}
               <span className="hidden text-xs text-white/80 sm:block">
                 {formatTime(currentTime)}
               </span>
 
+              {/* Progress */}
               <input
                 type="range"
                 min="0"
@@ -273,6 +334,7 @@ const GlobalAudioPlayer = () => {
                 className="h-1 w-full max-w-md cursor-pointer accent-white"
               />
 
+              {/* Duration */}
               <span className="hidden text-xs text-white/80 sm:block">
                 {formatTime(duration)}
               </span>
