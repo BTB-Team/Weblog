@@ -64,17 +64,18 @@ const Podcasts = () => {
   const setIsLoading = useAudioStore((state) => state.setIsLoading);
   const setErrorAudio = useAudioStore((state) => state.setError);
 
-  // Get podcast data directly from db.json
-  const podcasts = db.podcasts || [];
-  const categories = db.podcastCategories || [];
-  const platforms = db.podcastPlatforms || [];
-  const pageData = db.podcastPage || null;
+// Get podcast data directly from db.json
+const podcasts = db.podcasts || [];
+const categories = db.podcastCategories || [];
+const platforms = db.podcastPlatforms || [];
+const pageData = db.podcastPage || null;
   const handlePlay = (podcast) => {
     if (!podcast.audioUrl) {
       setCurrentPodcast(podcast);
       setIsPlaying(false);
       setIsLoading(false);
-      setErrorAudio(t.podcast.audioComingSoon);
+      // Fixed: Added a reliable backup string if translation key is missing
+      setErrorAudio(t?.podcast?.audioComingSoon || "Audio file coming soon");
       return;
     }
 
@@ -93,13 +94,8 @@ const Podcasts = () => {
 
     return podcasts.filter((podcast) => {
       const title = getLocalizedValue(podcast.title, lang).toLowerCase();
-
       const guest = getLocalizedValue(podcast.guest, lang).toLowerCase();
-
-      const description = getLocalizedValue(
-        podcast.description,
-        lang,
-      ).toLowerCase();
+      const description = getLocalizedValue(podcast.description, lang).toLowerCase();
 
       const matchesSearch =
         !query ||
@@ -113,6 +109,7 @@ const Podcasts = () => {
       return matchesSearch && matchesCategory;
     });
   }, [podcasts, search, selectedCategory, lang]);
+
 
   const heroPodcast = podcasts.find(
     (podcast) => podcast.id === pageData?.featuredPodcastId,
