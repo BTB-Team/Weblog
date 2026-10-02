@@ -1,4 +1,3 @@
-
 import GlobalAudioPlayer from "../pages/podcasts/GlobalAudioPlayer";
 import Navbar from "../components/header/Navbar";
 import Footer from "../components/footer/Footer";
@@ -23,7 +22,11 @@ function Layout() {
 
       <Footer />
 
-      <GlobalAudioPlayer />
+      <div className="fixed bottom-0 inset-x-0 z-50">
+        <div className="mx-auto w-full max-w-7xl">
+          <GlobalAudioPlayer />
+        </div>
+      </div>
     </div>
   );
 }
