@@ -1,507 +1,659 @@
-import { useState } from "react";
+'use client';
+
+import React, { useState } from 'react';
+
 import {
     Heart,
     MessageCircle,
     Share2,
-    Check,
     Send,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { useLangStore } from "../store/useLangStore.js";
+import { useLangStore } from '../store/useLangStore.js';
 
-const PostCard = ({ post, onOpen }) => {
+export default function PostCard({
+    post,
+    onSelect,
+    onShare,
+    isSelected = false,
+}) {
     const { lang, t } = useLangStore();
 
+    // --------------------------------------------------
+    // LIKE STATE
+    // --------------------------------------------------
+
     const [liked, setLiked] = useState(false);
-    const [likes, setLikes] = useState(post.likes || 0);
 
-    const [showComments, setShowComments] = useState(false);
-    const [comment, setComment] = useState("");
-    const [comments, setComments] = useState(post.comments || []);
+    const [likes, setLikes] = useState(
+        Number(post?.likes) || 0
+    );
 
-    const [showToast, setShowToast] = useState(false);
+    // --------------------------------------------------
+    // COMMENT STATE
+    // --------------------------------------------------
 
-    const isRTL = lang === "dr";
+    const [showComments, setShowComments] =
+        useState(false);
 
-    const title =
-        post.title?.[lang] ||
-        post.title?.en ||
-        "";
+    const [showCopiedToast, setShowCopiedToast] =
+        useState(false);
 
-    const content =
-        post.content?.[lang] ||
-        post.content?.en ||
-        "";
+    const [commentText, setCommentText] =
+        useState('');
 
-    const type =
-        post.type?.[lang] ||
-        post.type?.en ||
-        "";
+    const [comments, setComments] = useState(
+        Array.isArray(post?.comments)
+            ? post.comments
+            : []
+    );
 
-    // --------------------------------
-    // Open writing modal
-    // --------------------------------
-    const handleOpen = () => {
-        if (onOpen) {
-            onOpen(post);
+    // --------------------------------------------------
+    // LOCALIZED VALUE
+    // --------------------------------------------------
+
+    const getLocalizedValue = (value) => {
+        if (!value) {
+            return '';
+        }
+
+        if (typeof value === 'string') {
+            return value;
+        }
+
+        return (
+            value?.[lang] ||
+            value?.en ||
+            value?.dr ||
+            value?.ps ||
+            ''
+        );
+    };
+
+    // --------------------------------------------------
+    // POST DATA
+    // --------------------------------------------------
+
+    const title = getLocalizedValue(
+        post?.title
+    );
+
+    const description =
+        getLocalizedValue(
+            post?.description
+        ) ||
+        getLocalizedValue(
+            post?.content
+        );
+
+    const category = getLocalizedValue(
+        post?.category
+    );
+
+    const image =
+        post?.image ||
+        post?.imageUrl ||
+        post?.coverImage ||
+        '/images/default-post.jpg';
+
+    const postId = String(
+        post?.id ??
+        post?._id ??
+        post?.title?.en ??
+        post?.title?.dr ??
+        post?.title?.ps ??
+        'post'
+    );
+
+    // --------------------------------------------------
+    // SELECT POST
+    // --------------------------------------------------
+
+    const handleSelect = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (onSelect) {
+            onSelect(post);
         }
     };
 
-    // --------------------------------
-    // Like
-    // --------------------------------
+    // --------------------------------------------------
+    // LIKE
+    // --------------------------------------------------
+
     const handleLike = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         if (liked) {
-            setLikes((prev) => Math.max(0, prev - 1));
-        } else {
-            setLikes((prev) => prev + 1);
-        }
+            // Unlike: decrease exactly 1
+            setLiked(false);
 
-        setLiked((prev) => !prev);
+            setLikes((currentLikes) =>
+                Math.max(
+                    0,
+                    currentLikes - 1
+                )
+            );
+        } else {
+            // Like: increase exactly 1
+            setLiked(true);
+
+            setLikes((currentLikes) =>
+                currentLikes + 1
+            );
+        }
     };
 
-    // --------------------------------
-    // Comment
-    // --------------------------------
+    // --------------------------------------------------
+    // COMMENT BUTTON
+    // --------------------------------------------------
+
     const handleComment = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        setShowComments((prev) => !prev);
+        setShowComments(
+            (previous) => !previous
+        );
     };
 
-    // --------------------------------
-    // Submit comment
-    // --------------------------------
-    const handleSubmitComment = (e) => {
+    // --------------------------------------------------
+    // ADD COMMENT
+    // --------------------------------------------------
+
+    const handleAddComment = (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        if (!comment.trim()) return;
+        const text = commentText.trim();
 
-        setComments((prev) => [
-            ...prev,
-            {
-                id: Date.now(),
-                text: comment.trim(),
-            },
+        if (!text) {
+            return;
+        }
+
+        const newComment = {
+            id: Date.now(),
+            text,
+            createdAt:
+                new Date().toISOString(),
+        };
+
+        setComments((previous) => [
+            ...previous,
+            newComment,
         ]);
 
-        setComment("");
+        setCommentText('');
     };
 
-    // --------------------------------
-    // Share
-    // --------------------------------
-    const handleShare = async (e) => {
+    // --------------------------------------------------
+    // SHARE
+    // --------------------------------------------------
+
+    const handleShareClick = async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const url = `${window.location.origin}/writings/${post.id}`;
-
         try {
-            await navigator.clipboard.writeText(url);
+            if (onShare) {
+                await onShare(post);
+            }
 
-            setShowToast(true);
+            setShowCopiedToast(true);
 
             setTimeout(() => {
-                setShowToast(false);
+                setShowCopiedToast(false);
             }, 2000);
         } catch (error) {
             console.error(
-                "Failed to copy link:",
+                "Unable to share post:",
                 error
             );
         }
     };
 
+    // --------------------------------------------------
+    // RETURN
+    // --------------------------------------------------
+
     return (
         <article
-            dir={isRTL ? "rtl" : "ltr"}
-            className="
+            onClick={handleSelect}
+            className={`
+            cursor-pointer
                 group
+                relative
                 overflow-visible
                 rounded-2xl
                 border
-                border-stone-200
                 bg-white
                 shadow-sm
                 transition-all
                 duration-300
                 hover:-translate-y-1
-                hover:shadow-lg
-            "
-        >
-            {/* ==========================================
-                CLICKABLE POST CONTENT
-            ========================================== */}
-
-            <button
-                type="button"
-                onClick={handleOpen}
-                className="
-                    block
-                    w-full
-                    cursor-pointer
-                    text-start
-                "
-            >
-                {/* Image */}
-                {post.image && (
-                    <div
-                        className="
-                            relative
-                            h-56
-                            w-full
-                            overflow-hidden
-                            rounded-t-2xl
-                        "
-                    >
-                        <img
-                            src={post.image}
-                            alt={title}
-                            className="
-                                h-full
-                                w-full
-                                object-cover
-                                transition-transform
-                                duration-500
-                                group-hover:scale-105
-                            "
-                        />
-
-                        {/* Type */}
-                        {type && (
-                            <div
-                                className={`
-                                    absolute
-                                    top-4
-                                    rounded-full
-                                    bg-white/90
-                                    px-3
-                                    py-1
-                                    text-xs
-                                    font-semibold
-                                    text-stone-700
-                                    shadow-sm
-                                    backdrop-blur
-                                    ${
-                                        isRTL
-                                            ? "right-4"
-                                            : "left-4"
-                                    }
-                                `}
-                            >
-                                {type}
-                            </div>
-                        )}
-                    </div>
-                )}
-
-                {/* Content */}
-                <div className="p-5">
-                    {/* Type if no image */}
-                    {!post.image && type && (
-                        <div
-                            className="
-                                mb-3
-                                inline-block
-                                rounded-full
-                                bg-stone-100
-                                px-3
-                                py-1
-                                text-xs
-                                font-semibold
-                                text-stone-600
-                            "
-                        >
-                            {type}
-                        </div>
-                    )}
-
-                    {/* Title */}
-                    <h2
-                        className="
-                            mb-3
-                            text-xl
-                            font-bold
-                            text-stone-900
-                            transition-colors
-                            group-hover:text-stone-600
-                        "
-                    >
-                        {title}
-                    </h2>
-
-                    {/* Content preview */}
-                    <p
-                        className="
-                            line-clamp-3
-                            whitespace-pre-line
-                            text-sm
-                            leading-7
-                            text-stone-600
-                        "
-                    >
-                        {content}
-                    </p>
-
-                    {/* Read more */}
-                    <div className="mt-4">
-                        <span
-                            className="
-                                text-sm
-                                font-semibold
-                                text-stone-900
-                            "
-                        >
-                            {t.writing.showallworks}
-                        </span>
-                    </div>
-                </div>
-            </button>
-
-            {/* ==========================================
-                ACTIONS
-            ========================================== */}
-
-           {/* ==========================================
-    ACTIONS
-========================================== */}
-
-<div
-    className="
-        border-t
-        border-stone-100
-        px-5
-        py-4
-    "
->
-    <div
-        className="
-            flex
-            items-center
-            justify-between
-            gap-4
-        "
-    >
-        {/* Like */}
-        <button
-            type="button"
-            onClick={handleLike}
-            className={`
-                flex
-                items-center
-                gap-2
-                text-sm
-                transition-colors
+                hover:shadow-xl
+                dark:bg-neutral-900
                 ${
-                    liked
-                        ? "text-red-500"
-                        : "text-stone-500 hover:text-stone-900"
+                    isSelected
+                        ? 'border-emerald-500'
+                        : 'border-neutral-200 dark:border-neutral-800'
                 }
             `}
         >
-            <Heart
-                size={18}
-                fill={
-                    liked
-                        ? "currentColor"
-                        : "none"
-                }
-            />
+            {/* ---------------------------------------- */}
+            {/* IMAGE */}
+            {/* ---------------------------------------- */}
 
-            <span>
-                {likes}
-            </span>
-
-            <span>
-                {t.writing.like}
-            </span>
-        </button>
-
-        {/* Comment */}
-        <button
-            type="button"
-            onClick={handleComment}
-            className="
-                flex
-                items-center
-                gap-2
-                text-sm
-                text-stone-500
-                transition-colors
-                hover:text-stone-900
-            "
-        >
-            <MessageCircle size={18} />
-
-            <span>
-                {comments.length}
-            </span>
-
-            <span>
-                {t.writing.Comments}
-            </span>
-        </button>
-
-        {/* Share */}
-        <div className="relative">
-            <button
-                type="button"
-                onClick={handleShare}
+            <div
                 className="
-                    flex
-                    items-center
-                    gap-2
-                    text-sm
-                    text-stone-500
-                    transition-colors
-                    hover:text-stone-900
+                    relative
+                    h-56
+                    w-full
+                    overflow-hidden
+                    bg-neutral-100
+                    dark:bg-neutral-800
                 "
             >
-                <Share2 size={18} />
-
-                <span>
-                    {t.writing.share}
-                </span>
-            </button>
-
-            {/* Copy Toast */}
-            {showToast && (
-                <div
-                    className={`
-                        absolute
-                        top-full
-                        z-50
-                        mt-3
-                        whitespace-nowrap
-                        rounded-lg
-                        bg-stone-900
-                        px-3
-                        py-2
-                        text-xs
-                        font-medium
-                        text-white
-                        shadow-xl
-                        ${
-                            isRTL
-                                ? "right-0"
-                                : "left-0"
-                        }
-                    `}
-                >
-                    <div className="flex items-center gap-2">
-                        <Check
-                            size={14}
-                            className="text-green-400"
-                        />
-
-                        <span>
-                            {
-                                t.writing
-                                    .Linkcopiedtoclipboard
-                            }
-                        </span>
-                    </div>
-                </div>
-            )}
-        </div>
-    </div>
-
-    {/* Comments */}
-    {showComments && (
-        <div
-            className="
-                mt-4
-                border-t
-                border-stone-100
-                pt-4
-            "
-        >
-            {comments.length > 0 && (
-                <div className="mb-4 space-y-2">
-                    {comments.map((item) => (
-                        <div
-                            key={item.id}
-                            className="
-                                rounded-lg
-                                bg-stone-50
-                                px-3
-                                py-2
-                                text-sm
-                                text-stone-700
-                            "
-                        >
-                            {item.text}
-                        </div>
-                    ))}
-                </div>
-            )}
-
-            <form
-                onSubmit={handleSubmitComment}
-                className="
-                    flex
-                    items-center
-                    gap-2
-                "
-            >
-                <input
-                    type="text"
-                    value={comment}
-                    onChange={(e) =>
-                        setComment(e.target.value)
-                    }
-                    onClick={(e) =>
-                        e.stopPropagation()
-                    }
-                    placeholder={
-                        t.writing.Comments
-                    }
+                <img
+                    src={image}
+                    alt={title}
                     className="
-                        min-w-0
-                        flex-1
-                        rounded-lg
-                        border
-                        border-stone-200
-                        bg-stone-50
-                        px-3
-                        py-2
-                        text-sm
-                        outline-none
-                        transition
-                        focus:border-stone-400
-                        focus:bg-white
+                        h-full
+                        w-full
+                        object-cover
+                        transition-transform
+                        duration-500
+                        group-hover:scale-105
+                    "
+                    onError={(e) => {
+                        e.currentTarget.src =
+                            '/images/default-post.jpg';
+                    }}
+                />
+
+                {/* Image Overlay */}
+
+                <div
+                    className="
+                        absolute
+                        inset-0
+                        bg-gradient-to-t
+                        from-black/50
+                        via-transparent
+                        to-transparent
+                        opacity-70
                     "
                 />
 
-                <button
-                    type="submit"
+                {/* Category */}
+
+                {category && (
+                    <div
+                        className="
+                            absolute
+                            left-4
+                            top-4
+                            rounded-full
+                            bg-emerald-500
+                            px-3
+                            py-1
+                            text-xs
+                            font-semibold
+                            text-white
+                            shadow-md
+                        "
+                    >
+                        {category}
+                    </div>
+                )}
+            </div>
+
+            {/* ---------------------------------------- */}
+            {/* CONTENT */}
+            {/* ---------------------------------------- */}
+
+            <div className="p-5">
+                {/* Title */}
+
+                <h3
                     className="
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-lg
-                        bg-stone-900
-                        text-white
-                        transition
-                        hover:bg-stone-700
+                        line-clamp-2
+                        text-lg
+                        font-bold
+                        leading-7
+                        text-neutral-900
+                        transition-colors
+                        group-hover:text-emerald-600
+                        
                     "
                 >
-                    <Send size={16} />
-                </button>
-            </form>
-        </div>
-    )}
-</div>
+                    {title}
+                </h3>
+
+                {/* Description */}
+
+                {description && (
+                    <p
+                        className="
+                            mt-3
+                            line-clamp-3
+                            text-sm
+                            leading-6
+                            text-neutral-600
+                            dark:text-neutral-400
+                        "
+                    >
+                        {description}
+                    </p>
+                )}
+
+                {/* ------------------------------------ */}
+                {/* ACTIONS */}
+                {/* ------------------------------------ */}
+
+                <div
+                    onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }}
+                    className="
+                        mt-5
+                        flex
+                        items-center
+                        justify-between
+                        border-t
+                        border-neutral-100
+                        pt-4
+                        dark:border-neutral-800
+                    "
+                >
+                    {/* LIKE */}
+
+                    <button
+                        type="button"
+                        onClick={handleLike}
+                        className={`
+                            flex
+                            items-center
+                            gap-1.5
+                            rounded-lg
+                            px-2
+                            py-1.5
+                            text-sm
+                            font-medium
+                            transition-all
+                            duration-200
+                            ${
+                                liked
+                                    ? `
+                                        bg-red-50
+                                        text-red-500
+                                        dark:bg-red-500/10
+                                        dark:text-red-400
+                                    `
+                                    : `
+                                        text-neutral-500
+                                        hover:bg-red-50
+                                        hover:text-red-500
+                                        dark:text-neutral-400
+                                        dark:hover:bg-red-500/10
+                                        dark:hover:text-red-400
+                                    `
+                            }
+                        `}
+                        aria-label={
+                            liked
+                                ? 'Unlike'
+                                : 'Like'
+                        }
+                    >
+                        <Heart
+                            size={18}
+                            strokeWidth={2}
+                            fill={
+                                liked
+                                    ? 'currentColor'
+                                    : 'none'
+                            }
+                        />
+
+                        <span>
+                            {likes}
+                        </span>
+                    </button>
+
+                    {/* COMMENT */}
+
+                    <button
+                        type="button"
+                        onClick={handleComment}
+                        className="
+                            flex
+                            items-center
+                            gap-1.5
+                            rounded-lg
+                            px-2
+                            py-1.5
+                            text-sm
+                            font-medium
+                            text-neutral-500
+                            transition-all
+                            duration-200
+                            hover:bg-emerald-50
+                            hover:text-emerald-600
+                            dark:text-neutral-400
+                            dark:hover:bg-emerald-500/10
+                            dark:hover:text-emerald-400
+                        "
+                    >
+                        <MessageCircle
+                            size={18}
+                        />
+
+                        <span>
+                            {comments.length}
+                        </span>
+                    </button>
+
+                    {/* SHARE */}
+
+                    <div className="relative flex items-center">
+                        {showCopiedToast && (
+                            <div className="absolute bottom-full right-0 z-[100] mb-2 whitespace-nowrap">
+                                <div className="flex items-center gap-2 rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white shadow-xl">
+                                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white/20">
+                                        <span className="text-[10px]">✓</span>
+                                    </span>
+
+                                    <span>
+                                        {t?.writing?.linkcopied || "Link copied"}
+                                    </span>
+                                </div>
+
+                                <div className="absolute -bottom-1 right-4 h-2 w-2 rotate-45 bg-emerald-600" />
+                            </div>
+                        )}
+
+                        <button
+                            type="button"
+                            onClick={handleShareClick}
+                            className="
+                                flex
+                                items-center
+                                gap-1.5
+                                rounded-lg
+                                px-2
+                                py-1.5
+                                text-sm
+                                font-medium
+                                text-neutral-500
+                                transition-all
+                                duration-200
+                                hover:bg-emerald-50
+                                hover:text-emerald-600
+                                dark:text-neutral-400
+                                dark:hover:bg-emerald-500/10
+                                dark:hover:text-emerald-400
+                            "
+                            aria-label="Copy post link"
+                        >
+                            <Share2
+                                size={18}
+                            />
+
+                            <span>
+                                {t.writing.share}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                {/* ------------------------------------ */}
+                {/* COMMENTS */}
+                {/* ------------------------------------ */}
+
+                {showComments && (
+                    <div
+                        className="
+                            mt-4
+                            border-t
+                            border-neutral-100
+                            pt-4
+                            dark:border-neutral-800
+                        "
+                        onClick={(e) => {
+                            e.stopPropagation();
+                        }}
+                    >
+                        {/* Existing comments */}
+
+                        {comments.length > 0 && (
+                            <div
+                                className="
+                                    mb-4
+                                    max-h-40
+                                    space-y-3
+                                    overflow-y-auto
+                                    pr-1
+                                "
+                            >
+                                {comments.map(
+                                    (
+                                        comment,
+                                        index
+                                    ) => (
+                                        <div
+                                            key={
+                                                comment?.id ||
+                                                `${postId}-comment-${index}`
+                                            }
+                                            className="
+                                                rounded-xl
+                                                bg-neutral-50
+                                                p-3
+                                                dark:bg-neutral-800
+                                            "
+                                        >
+                                            <p
+                                                className="
+                                                    text-sm
+                                                    leading-6
+                                                    text-neutral-700
+                                                    dark:text-neutral-300
+                                                "
+                                            >
+                                                {comment?.text ||
+                                                    comment?.content ||
+                                                    ''}
+                                            </p>
+                                        </div>
+                                    )
+                                )}
+                            </div>
+                        )}
+
+                        {/* Comment form */}
+
+                        <form
+                            onSubmit={
+                                handleAddComment
+                            }
+                            className="
+                                flex
+                                items-center
+                                gap-2
+                            "
+                        >
+                            <input
+                                type="text"
+                                value={
+                                    commentText
+                                }
+                                onChange={(e) =>
+                                    setCommentText(
+                                        e.target.value
+                                    )
+                                }
+                                placeholder={
+                                    
+                                        t.writing.writeacomment
+                                      
+                                   
+                                }
+                                className="
+                                    min-w-0
+                                    flex-1
+                                    rounded-xl
+                                    border
+                                    border-neutral-200
+                                    bg-white
+                                    px-3
+                                    py-2.5
+                                    text-sm
+                                    outline-none
+                                    transition
+                                    focus:border-emerald-500
+                                    focus:ring-2
+                                    focus:ring-emerald-500/20
+                                    dark:border-neutral-700
+                                    dark:bg-neutral-800
+                                    dark:text-white
+                                    dark:placeholder:text-neutral-500
+                                "
+                            />
+
+                            <button
+                                type="submit"
+                                disabled={
+                                    !commentText.trim()
+                                }
+                                className="
+                                    flex
+                                    h-10
+                                    w-10
+                                    shrink-0
+                                    items-center
+                                    justify-center
+                                    rounded-xl
+                                    bg-emerald-500
+                                    text-white
+                                    transition
+                                    hover:bg-emerald-600
+                                    disabled:cursor-not-allowed
+                                    disabled:opacity-40
+                                "
+                                aria-label="{t.writing.sendcomment}"
+                            >
+                                <Send
+                                    size={17}
+                                />
+                            </button>
+                        </form>
+                    </div>
+                )}
+            </div>
         </article>
     );
-};
-
-export default PostCard;
+}
