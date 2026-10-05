@@ -1709,9 +1709,12 @@ export default function Writing() {
                                     handleCloseModal
                                 }
                                 className="
+                                fixed
                                     absolute
-                                    right-5
-                                    top-5
+                                    right-100
+                                    top-7
+                                    md:right-80
+                                    md:top-8
                                     z-20
                                     rounded-full
                                     bg-white/90
