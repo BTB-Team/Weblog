@@ -273,7 +273,7 @@ const [modal, setModal] = useState({
 
 </section>
 
-     {/* ================= LATEST POST ================= */}
+     
 {/* ================= LATEST POST ================= */}
 <section className="w-full bg-[#fbf8f3] px-5 py-16 sm:px-8 lg:px-12">
 
@@ -1013,7 +1013,7 @@ const [modal, setModal] = useState({
         type="button"
         onClick={() => setModal({ type: null, data: null })}
         aria-label={t.newsletter.close}
-        className={`absolute top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-2xl text-[#472d28] shadow-md transition hover:bg-[#a56562] hover:text-white ${
+        className={`fixed top-4 z-[110] flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-2xl text-[#472d28] shadow-md transition hover:bg-[#a56562] hover:text-white ${
           isEnglish ? "right-4" : "left-4"
         }`}
       >
