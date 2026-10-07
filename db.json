@@ -516,7 +516,7 @@
   },
   "image": "/images/FirstRain.webp"
 }
-    }
+    
   ],     
   "achievements": [
     {
@@ -534,7 +534,7 @@
         "en": "The award was presented to the novel in October in recognition of its deep psychological perspective on migration and the crises of the Middle East. The jury considered its poetic writing and innovative imagery among its strengths."
       },
       "date": "1403",
-{
+
   "image": "/images/littleBoy.webp"
 },
 {
@@ -657,7 +657,7 @@
         "dr": "مجموعه داستان‌ها",
         "en": "A Collection of Stories"
       },
-{
+
   "id": 1,
   "image": "/images/images.jpeg",
   "abstract": {
@@ -855,7 +855,7 @@
   },
   "pdf": "/books/book-10.pdf"
 }
-    }
+    
    
   ],
 
