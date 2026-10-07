@@ -29,14 +29,14 @@ const StatHome = () => {
   ];
 
   return (
-    <div className="bg-header m-auto max-w-7xl grid grid-cols-2 md:grid-cols-4  rounded-xl gap-5 mx-4  my-4 py-5 ">
+    <div className="bg-header mx-4 my-4 grid max-w-7xl grid-cols-2 gap-y-6 rounded-3xl py-6 shadow-sm md:grid-cols-4 xl:mx-auto">
       {dataStats.map((stat, index) => (
-        <Stat
+        <div
           key={index}
-          icon={stat.icon}
-          number={stat.number}
-          title={stat.title}
-        />
+          className="md:border-e md:border-accent/15 md:last:border-e-0"
+        >
+          <Stat icon={stat.icon} number={stat.number} title={stat.title} />
+        </div>
       ))}
     </div>
   );

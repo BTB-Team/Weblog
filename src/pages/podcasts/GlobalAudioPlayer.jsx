@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
@@ -20,6 +21,8 @@ const GlobalAudioPlayer = () => {
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isPlayerVisible, setIsPlayerVisible] = useState(false);
+  const [showStopMessage, setShowStopMessage] = useState(false);
 
   const lang = useLangStore((state) => state.lang);
   const t = useLangStore((state) => state.t);
@@ -42,6 +45,40 @@ const GlobalAudioPlayer = () => {
     return value[lang] || value.en || value.dr || "";
   };
 
+  const getImageUrl = (path) => {
+    if (!path) return "";
+
+    if (path.startsWith("/public/")) {
+      return path.replace("/public", "");
+    }
+
+    if (path.startsWith("public/")) {
+      return `/${path.replace("public/", "")}`;
+    }
+
+    if (!path.startsWith("/")) {
+      return `/${path}`;
+    }
+
+    return path;
+  };
+
+  // Stop audio and completely hide the player
+  const stopAudioAndHide = () => {
+    const audio = audioRef.current;
+
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    setCurrentTime(0);
+    setIsPlaying(false);
+    setShowStopMessage(false);
+    setIsPlayerVisible(false);
+  };
+
+  // When a new podcast is selected
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -49,9 +86,21 @@ const GlobalAudioPlayer = () => {
       return;
     }
 
+    setIsPlayerVisible(true);
+    setShowStopMessage(false);
+    setCurrentTime(0);
+    setDuration(0);
+    setIsLoading(false);
+    setError("");
+
+    // Stop previous audio
+    audio.pause();
+
+    // Load new podcast
     audio.src = currentPodcast.audioUrl;
     audio.load();
 
+    // Play new podcast if isPlaying is true
     if (isPlaying) {
       setIsLoading(true);
 
@@ -68,6 +117,7 @@ const GlobalAudioPlayer = () => {
     }
   }, [currentPodcast]);
 
+  // Play / pause audio
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -76,6 +126,8 @@ const GlobalAudioPlayer = () => {
     }
 
     if (isPlaying) {
+      setIsPlayerVisible(true);
+
       audio.play().catch(() => {
         setIsPlaying(false);
       });
@@ -106,14 +158,33 @@ const GlobalAudioPlayer = () => {
     setCurrentTime(0);
   };
 
-  const togglePlay = () => {
+  // Close button
+  const handleClose = () => {
+    stopAudioAndHide();
+  };
+
+  // Play / Pause button
+  const togglePlay = (event) => {
+    event.stopPropagation();
+
     if (!currentPodcast?.audioUrl) {
       return;
     }
 
-    setIsPlaying(!isPlaying);
+    // If audio is currently playing,
+    // show confirmation instead of stopping immediately
+    if (isPlaying) {
+      setShowStopMessage(true);
+      return;
+    }
+
+    // If audio is not playing, play it
+    setShowStopMessage(false);
+    setIsPlayerVisible(true);
+    setIsPlaying(true);
   };
 
+  // Seek audio
   const handleSeek = (event) => {
     const audio = audioRef.current;
 
@@ -138,15 +209,9 @@ const GlobalAudioPlayer = () => {
     ).padStart(2, "0")}`;
   };
 
-  if (!currentPodcast) {
-    return null;
-  }
-
-  const title = getLocalizedValue(currentPodcast.title);
-  const guest = getLocalizedValue(currentPodcast.guest);
-
   return (
-    <aside className="fixed inset-x-0 bottom-0 z-50 border-t border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
+    <>
+      {/* Audio element stays mounted */}
       <audio
         ref={audioRef}
         preload="metadata"
@@ -155,68 +220,165 @@ const GlobalAudioPlayer = () => {
         onEnded={handleEnded}
       />
 
-      <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
-        {/* Podcast info */}
-        <div className="hidden min-w-0 items-center gap-3 md:flex md:w-[25%]">
-          <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/20">
-            {currentPodcast.cover && (
-              <img
-                src={currentPodcast.cover}
-                alt={title}
-                className="h-full w-full object-cover"
-              />
-            )}
-          </div>
-
-          <div className="min-w-0">
-            <p className="truncate text-sm font-bold">{title}</p>
-
-            {guest && <p className="truncate text-xs text-white/70">{guest}</p>}
-          </div>
-        </div>
-
-        {/* Player */}
-        <div className="flex flex-1 items-center justify-center gap-3">
+      {currentPodcast && isPlayerVisible && (
+        <aside className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-7xl -translate-x-1/2 overflow-visible rounded-2xl border border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
+          {/* Close button */}
           <button
             type="button"
-            onClick={togglePlay}
-            aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
+            onClick={handleClose}
+            aria-label="Close player"
+            className="absolute end-3 top-2 z-20 text-xl text-white/80 transition hover:text-white"
           >
-            {isLoading ? (
-              <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#a96868] border-t-transparent" />
-            ) : isPlaying ? (
-              <PauseIcon />
-            ) : (
-              <PlayIcon />
-            )}
+            ×
           </button>
 
-          <span className="hidden text-xs text-white/80 sm:block">
-            {formatTime(currentTime)}
-          </span>
+          <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
+            {/* Podcast information */}
+            <div className="hidden min-w-0 items-center gap-3 md:flex md:w-[25%]">
+              <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/20">
+                {currentPodcast.cover && (
+                  <img
+                    src={getImageUrl(currentPodcast.cover)}
+                    alt={getLocalizedValue(currentPodcast.title)}
+                    className="h-full w-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                )}
+              </div>
 
-          <input
-            type="range"
-            min="0"
-            max={duration || 0}
-            value={currentTime}
-            onChange={handleSeek}
-            aria-label={t.podcast.seek}
-            className="h-1 w-full max-w-md cursor-pointer accent-white"
-          />
+              <div className="min-w-0">
+                <p className="truncate text-sm font-bold">
+                  {getLocalizedValue(currentPodcast.title)}
+                </p>
 
-          <span className="hidden text-xs text-white/80 sm:block">
-            {formatTime(duration)}
-          </span>
-        </div>
+                {guest && (
+                  <p className="truncate text-xs text-white/70">{guest}</p>
+                )}
+              </div>
+            </div>
+            {/* Player controls */}
+            
+            <div className="flex flex-1 items-center justify-center gap-3">
+              {/* Previous */}
+              <button
+                type="button"
+                onClick={handlePrevious}
+                aria-label="Previous podcast"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
+              >
+                ‹
+              </button>
 
-        {/* Mobile title */}
-        <div className="max-w-[120px] min-w-0 md:hidden">
-          <p className="truncate text-xs font-medium">{title}</p>
-        </div>
-      </div>
-    </aside>
+              {/* Play / Pause */}
+              <button
+                type="button"
+                onClick={togglePlay}
+                aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
+              >
+                {isPlaying ? "Ⅱ" : "▶"}
+              </button>
+
+              {/* Next */}
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next podcast"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
+              >
+                ›
+              </button>
+            </div>
+          
+            {/* Player */}
+            <div className="relative flex flex-1 items-center justify-center gap-3">
+              {/* Confirmation message */}
+              {showStopMessage && (
+                <div
+                  className="absolute bottom-full left-1/2 z-50 mb-3 -translate-x-1/2 rounded-xl bg-white px-4 py-3 text-center text-sm text-gray-800 shadow-xl"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <p className="mb-2 whitespace-nowrap font-medium">
+                    آیا می‌خواهید صدا قطع شود؟
+                  </p>
+
+                  <div className="flex justify-center gap-2">
+                    {/* Yes */}
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        stopAudioAndHide();
+                      }}
+                      className="rounded-lg bg-[#b86f73] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#a55f63]"
+                    >
+                      بله، قطع شود
+                    </button>
+
+                    {/* No */}
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setShowStopMessage(false);
+                      }}
+                      className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:bg-gray-200"
+                    >
+                      خیر
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Play / Pause button */}
+              <button
+                type="button"
+                onClick={togglePlay}
+                aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
+              >
+                {isLoading ? (
+                  <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#a96868] border-t-transparent" />
+                ) : isPlaying ? (
+                  <PauseIcon />
+                ) : (
+                  <PlayIcon />
+                )}
+              </button>
+
+              {/* Current time */}
+              <span className="hidden text-xs text-white/80 sm:block">
+                {formatTime(currentTime)}
+              </span>
+
+              {/* Progress */}
+              <input
+                type="range"
+                min="0"
+                max={duration || 0}
+                value={currentTime}
+                onChange={handleSeek}
+                aria-label={t.podcast.seek}
+                className="h-1 w-full max-w-md cursor-pointer accent-white"
+              />
+
+              {/* Duration */}
+              <span className="hidden text-xs text-white/80 sm:block">
+                {formatTime(duration)}
+              </span>
+            </div>
+            {/* Mobile title */}
+            <div className="max-w-[120px] min-w-0 md:hidden">
+              <p className="truncate text-xs font-medium">
+                {getLocalizedValue(currentPodcast.title)}
+              </p>
+            </div>
+          </div>
+        </aside>
+      )}
+    </>
   );
 };
 
