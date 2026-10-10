@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -23,42 +24,52 @@ export default function Biography({
     return (
         <section
             id="biography"
-            className="scroll-mt-10 bg-white py-20 md:py-24"
+            className="scroll-mt-10 overflow-hidden bg-white py-12 sm:py-16 md:py-20 lg:py-24"
         >
-            <div className="mx-auto max-w-6xl px-5 sm:px-8">
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-8">
                 <div
                     dir="ltr"
-                    className="grid items-center gap-8 md:grid-cols-[0.82fr_1.18fr] md:gap-10 lg:gap-12"
+                    className={`grid grid-cols-1 items-center gap-8 sm:gap-10 md:gap-8 lg:gap-12 ${isEnglish
+                            ? "md:grid-cols-[1.1fr_0.9fr]"
+                            : "md:grid-cols-[0.9fr_1.1fr]"
+                        }`}
                 >
-                    {/* Image - Left */}
+                    {/* Image */}
                     <div
                         dir={direction}
-                        className="flex justify-center md:justify-start"
+                        className={`flex min-w-0 justify-center ${isEnglish
+                                ? "md:col-start-2 md:row-start-1 md:justify-end"
+                                : "md:col-start-1 md:row-start-1 md:justify-start"
+                            }`}
                     >
-                        <div className="relative w-full max-w-[390px] overflow-hidden rounded-[1.7rem]">
+                        <div className="relative aspect-[4/5] w-full max-w-[260px] overflow-hidden rounded-[100px] border-2 border-amber-300 sm:max-w-[300px] sm:rounded-[120px] md:max-w-[320px] lg:max-w-[360px] lg:rounded-[150px] xl:max-w-[380px]">
                             <img
                                 src={image1}
                                 alt={about?.hero?.imageAlt}
-                                className="h-auto w-full object-cover"
+                                className="absolute inset-0 h-full w-full object-cover"
                             />
                         </div>
                     </div>
 
-                    {/* Story - Right */}
+                    {/* Story */}
                     <div
                         dir={direction}
-                        className="w-full max-w-[610px]"
+                        className={`w-full min-w-0 ${isEnglish
+                                ? "md:col-start-1 md:row-start-1 md:justify-self-start"
+                                : "md:col-start-2 md:row-start-1 md:justify-self-end"
+                            }`}
                     >
-                        {/* Titles - Left side of text column */}
+                        {/* Titles */}
                         <div
-                            dir="ltr"
-                            className="w-full text-left"
+                            dir={isEnglish ? "ltr" : "rtl"}
+                            className={`w-full min-w-0 ${isEnglish ? "text-left" : "text-right"
+                                }`}
                         >
-                            <p className="mb-2 text-sm font-medium text-[#A36F6F]">
+                            <p className="mb-2 text-xs font-medium leading-6 text-[#A36F6F] sm:text-sm">
                                 {about?.story?.eyebrow}
                             </p>
 
-                            <h2 className="font-serif text-2xl font-bold leading-[1.5] text-[#4A3B32] sm:text-3xl">
+                            <h2 className="break-words text-2xl font-bold leading-[1.5] text-[#4A3B32] sm:text-3xl lg:text-4xl">
                                 {about?.story?.title}
                             </h2>
                         </div>
@@ -66,13 +77,13 @@ export default function Biography({
                         {/* Story Text */}
                         <div
                             dir={direction}
-                            className="mt-7 space-y-5"
+                            className="mt-5 min-w-0 space-y-4 sm:mt-7 sm:space-y-5"
                         >
                             {previewParagraphs.map(
                                 (paragraph, index) => (
                                     <p
                                         key={`preview-${index}`}
-                                        className="max-w-[590px] text-sm leading-7 text-[#7A685D] sm:text-[15px] sm:leading-8"
+                                        className="break-words text-sm leading-7 text-[#7A685D] sm:text-[15px] sm:leading-8"
                                     >
                                         {paragraph}
                                     </p>
@@ -81,12 +92,12 @@ export default function Biography({
 
                             {showStory &&
                                 remainingParagraphs.length > 0 && (
-                                    <div className="space-y-5 border-t border-[#EAD5C3]/60 pt-7">
+                                    <div className="space-y-4 border-t border-[#EAD5C3]/60 pt-5 sm:space-y-5 sm:pt-7">
                                         {remainingParagraphs.map(
                                             (paragraph, index) => (
                                                 <p
                                                     key={`remaining-${index}`}
-                                                    className="max-w-[590px] text-sm leading-7 text-[#7A685D] sm:text-[15px] sm:leading-8"
+                                                    className="break-words text-sm leading-7 text-[#7A685D] sm:text-[15px] sm:leading-8"
                                                 >
                                                     {paragraph}
                                                 </p>
@@ -96,11 +107,14 @@ export default function Biography({
                                 )}
                         </div>
 
-                        {/* Story Button - Left side of text column */}
+                        {/* Story Button */}
                         {remainingParagraphs.length > 0 && (
                             <div
-                                dir="ltr"
-                                className="mt-7 flex w-full justify-start"
+                                dir={isEnglish ? "ltr" : "rtl"}
+                                className={`mt-6 flex w-full sm:mt-7 ${isEnglish
+                                        ? "justify-start"
+                                        : "justify-end"
+                                    }`}
                             >
                                 <button
                                     type="button"
@@ -110,7 +124,7 @@ export default function Biography({
                                         )
                                     }
                                     aria-expanded={showStory}
-                                    className="btn-primary inline-flex items-center justify-center gap-2"
+                                    className="btn-primary max-w-full gap-2 whitespace-normal text-sm sm:text-base"
                                 >
                                     <span>
                                         {showStory
@@ -120,6 +134,7 @@ export default function Biography({
 
                                     <Arrow
                                         size={16}
+                                        className="shrink-0"
                                         strokeWidth={1.8}
                                     />
                                 </button>

@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { useAudioStore } from "../../store/useAudioStore";
 import { useLangStore } from "../../store/useLangStore";
@@ -44,6 +43,7 @@ const GlobalAudioPlayer = () => {
 
     return value[lang] || value.en || value.dr || "";
   };
+  const guest = getLocalizedValue(currentPodcast?.guest);
 
   const getImageUrl = (path) => {
     if (!path) return "";
@@ -211,7 +211,7 @@ const GlobalAudioPlayer = () => {
 
   return (
     <>
-      {/* Audio element stays mounted */}
+      {/* Audio element */}
       <audio
         ref={audioRef}
         preload="metadata"
@@ -221,7 +221,7 @@ const GlobalAudioPlayer = () => {
       />
 
       {currentPodcast && isPlayerVisible && (
-        <aside className="fixed bottom-0 left-1/2 z-50 mx-auto w-full max-w-7xl -translate-x-1/2 overflow-visible rounded-2xl border border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
+        <aside className="fixed bottom-0 left-1/2 z-50 w-full max-w-7xl -translate-x-1/2 overflow-visible rounded-t-2xl border border-[#c98d8d]/30 bg-[#b86f73] text-white shadow-[0_-5px_25px_rgba(76,48,44,0.15)]">
           {/* Close button */}
           <button
             type="button"
@@ -232,9 +232,9 @@ const GlobalAudioPlayer = () => {
             ×
           </button>
 
-          <div className="mx-auto flex w-full max-w-7xl items-center gap-4 px-4 py-3 sm:px-6">
-            {/* Podcast information */}
-            <div className="hidden min-w-0 items-center gap-3 md:flex md:w-[25%]">
+          <div className="relative flex min-h-[72px] w-full items-center justify-between gap-4 px-4 py-3 sm:px-6">
+            {/* Podcast information - Right side */}
+            <div className="absolute right-4 top-1/2 hidden w-[25%] -translate-y-1/2 items-center justify-end gap-3 md:flex">
               <div className="h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white/20">
                 {currentPodcast.cover && (
                   <img
@@ -258,86 +258,18 @@ const GlobalAudioPlayer = () => {
                 )}
               </div>
             </div>
-            {/* Player controls */}
-            
-            <div className="flex flex-1 items-center justify-center gap-3">
-              {/* Previous */}
-              <button
-                type="button"
-                onClick={handlePrevious}
-                aria-label="Previous podcast"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
-              >
-                ‹
-              </button>
 
-              {/* Play / Pause */}
+            {/* Single player controls - Center */}
+
+            {/* Play button and progress bar - Center */}
+
+            {/* Center Play Button */}
+            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
               <button
                 type="button"
                 onClick={togglePlay}
                 aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
-              >
-                {isPlaying ? "Ⅱ" : "▶"}
-              </button>
-
-              {/* Next */}
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next podcast"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-white/80 transition hover:bg-white/10 hover:text-white"
-              >
-                ›
-              </button>
-            </div>
-          
-            {/* Player */}
-            <div className="relative flex flex-1 items-center justify-center gap-3">
-              {/* Confirmation message */}
-              {showStopMessage && (
-                <div
-                  className="absolute bottom-full left-1/2 z-50 mb-3 -translate-x-1/2 rounded-xl bg-white px-4 py-3 text-center text-sm text-gray-800 shadow-xl"
-                  onClick={(event) => event.stopPropagation()}
-                >
-                  <p className="mb-2 whitespace-nowrap font-medium">
-                    آیا می‌خواهید صدا قطع شود؟
-                  </p>
-
-                  <div className="flex justify-center gap-2">
-                    {/* Yes */}
-                    <button
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        stopAudioAndHide();
-                      }}
-                      className="rounded-lg bg-[#b86f73] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#a55f63]"
-                    >
-                      بله، قطع شود
-                    </button>
-
-                    {/* No */}
-                    <button
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        setShowStopMessage(false);
-                      }}
-                      className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:bg-gray-200"
-                    >
-                      خیر
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Play / Pause button */}
-              <button
-                type="button"
-                onClick={togglePlay}
-                aria-label={isPlaying ? t.podcast.pause : t.podcast.play}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#a96868] transition hover:scale-105"
               >
                 {isLoading ? (
                   <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#a96868] border-t-transparent" />
@@ -347,13 +279,17 @@ const GlobalAudioPlayer = () => {
                   <PlayIcon />
                 )}
               </button>
+            </div>
 
-              {/* Current time */}
-              <span className="hidden text-xs text-white/80 sm:block">
+            {/* Progress Bar - Left side of Play Button */}
+            <div
+              dir="ltr"
+              className="absolute right-[calc(50%+34px)] top-1/2 flex w-[calc(50%-55px)] max-w-[550px] -translate-y-1/2 items-center gap-2"
+            >
+              <span className="whitespace-nowrap text-xs text-white/80">
                 {formatTime(currentTime)}
               </span>
 
-              {/* Progress */}
               <input
                 type="range"
                 min="0"
@@ -361,20 +297,60 @@ const GlobalAudioPlayer = () => {
                 value={currentTime}
                 onChange={handleSeek}
                 aria-label={t.podcast.seek}
-                className="h-1 w-full max-w-md cursor-pointer accent-white"
+                className="h-1 min-w-0 flex-1 cursor-pointer accent-white"
               />
 
-              {/* Duration */}
-              <span className="hidden text-xs text-white/80 sm:block">
+              <span className="whitespace-nowrap text-xs text-white/80">
                 {formatTime(duration)}
               </span>
             </div>
-            {/* Mobile title */}
-            <div className="max-w-[120px] min-w-0 md:hidden">
+
+            {/* Mobile podcast title */}
+            <div className="max-w-[100px] min-w-0 md:hidden">
               <p className="truncate text-xs font-medium">
                 {getLocalizedValue(currentPodcast.title)}
               </p>
             </div>
+
+            {/* Stop confirmation */}
+
+            {showStopMessage && (
+              <div
+                className="absolute bottom-full left-1/2 z-50 mb-3 -translate-x-1/2 rounded-xl bg-white px-4 py-3 text-center text-sm text-gray-800 shadow-xl"
+                onClick={(event) => event.stopPropagation()}
+                dir={lang === "en" ? "ltr" : "rtl"}
+              >
+                <p className="mb-2 whitespace-nowrap font-medium">
+                  {lang === "en"
+                    ? "Do you want to stop the audio?"
+                    : "آیا می‌خواهید صدا قطع شود؟"}
+                </p>
+
+                <div className="flex justify-center gap-2">
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      stopAudioAndHide();
+                    }}
+                    className="rounded-lg bg-[#b86f73] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#a55f63]"
+                  >
+                    {lang === "en" ? "Yes, stop" : "بله، قطع شود"}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setShowStopMessage(false);
+                    }}
+                    className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:bg-gray-200"
+                  >
+                    {lang === "en" ? "No" : "خیر"}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </aside>
       )}

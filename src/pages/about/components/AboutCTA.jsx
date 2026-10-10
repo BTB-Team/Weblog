@@ -64,7 +64,7 @@ export default function AboutCTA({
                         dir={direction}
                         className="text-center"
                     >
-                        <h2 className="font-serif text-xl font-bold leading-[1.5] text-[#4A3B32] sm:text-2xl">
+                        <h2 className=" text-xl font-bold leading-[1.5] text-[#4A3B32] sm:text-2xl">
                             {about?.cta?.title}
                         </h2>
 

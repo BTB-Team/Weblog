@@ -82,7 +82,7 @@
     "linkedin": "LinkedIn"
   },
   "hero": {
-    "hello": "Writer & Youth Leader",
+    "hello": "Hello, I'm",
     "name": "Mariam Amiri",
     "tagline": "Words are windows to another world...",
     "description": "I am Mariam Amiri, a writer and young leader dedicated to empowering girls and young people through writing and ideas.",
@@ -94,7 +94,7 @@
   "home": {
     "homeAbout": {
       "aboutMe": "About Me",
-      "description": "..."
+      "description": "I am Mariam Amiri, a writer, storyteller, and a voice for the stories that are too rarely heard. My journey began with words, but it has never been limited to them. To me, words are tools for illuminating darkness, reflecting realities, and building bridges between individual experiences and collective concerns. At the intersection of writing, leadership, and advocacy, I strive to keep alive the stories that deserve to be heard—stories of hope, resilience, and change..."
     },
     "viewAll": "View all",
     "latestPosts": "Latest Writings",
@@ -209,8 +209,8 @@
       "current": "About"
     },
     "hero": {
-      "eyebrow": "Literary and Social Identity",
-      "title": "Life Through the Mirror of Words",
+      "eyebrow": "IDENTITY IN WORDS",
+      "title": "Life Through the Lens of Words",
       "description": "Maryam Amiri, a Hazara writer and young leader; a storyteller of human experiences and a voice for hope, justice, and change. Through writing and advocacy, I strive to be a voice for young people and build a bridge between individual stories and social concerns.",
       "storyButton": "My Story",
       "experienceButton": "My Experience",
@@ -236,8 +236,8 @@
       "hideStoryButton": "Hide Story"
     },
     "timeline": {
-      "eyebrow": "Education & Experience",
-      "title": "My Journey",
+      "eyebrow": "Background",
+      "title": "Education & Experience",
       "description": "Educational and professional journey across Afghanistan — Kabul, Herat, and Mazar",
       "educationTitle": "Education",
       "experienceTitle": "Work Experience"
@@ -389,7 +389,7 @@
       "line4": "of a beautiful collaboration."
     },
     "heroLabel": "Contact Me",
-    "heroTitle": "Let's Stay in Touch",
+    "heroTitle": "Get in Touch",
     "heroDescription": "If you have questions about books, writings, literary and artistic collaborations, or simply have an idea to share, I would be happy to hear from you.",
     "heroImageAlt": "Mariam Amiri's workspace",
     "heroImageFallback": "Contact image",

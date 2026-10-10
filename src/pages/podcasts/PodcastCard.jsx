@@ -99,7 +99,16 @@ const PodcastCard = ({ podcast, onPlay, isCurrent, isPlaying, isLoading }) => {
         <div className="flex min-w-0 flex-col justify-center p-5 sm:p-6">
           {/* Badge */}
           <div className="mb-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-[#f5e4dc] px-5 py-1 text-xs font-medium text-[#a36365]">
-            <span>{podcast.badge}</span>
+            <span>
+              {typeof podcast.badge === "object"
+                ? getLocalizedValue(podcast.badge, lang)
+                : lang === "en"
+                  ? {
+                      ویژه: "Featured",
+                      دوستانه: "Friendly",
+                    }[podcast.badge] || podcast.badge
+                  : podcast.badge}
+            </span>
           </div>
 
           <h2 className="line-clamp-2 text-xl font-bold leading-7 text-[#643f42]">

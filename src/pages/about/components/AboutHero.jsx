@@ -34,8 +34,8 @@ export default function AboutHero({
                 {/* Breadcrumb */}
                 <div
                     className={`relative mb-12 flex w-full ${isEnglish
-                            ? "justify-end"
-                            : "justify-start"
+                        ? "justify-end"
+                        : "justify-start"
                         }`}
                     dir="ltr"
                 >
@@ -43,8 +43,8 @@ export default function AboutHero({
                         aria-label={about?.breadcrumb?.label}
                         dir="ltr"
                         className={`flex items-center gap-3 text-[11px] text-[#9A877A] ${isEnglish
-                                ? "flex-row-reverse"
-                                : "flex-row"
+                            ? "flex-row-reverse"
+                            : "flex-row"
                             }`}
                     >
                         <Link
@@ -83,7 +83,7 @@ export default function AboutHero({
                         <span className="h-px w-10 bg-[#EAD5C3]" />
                     </div>
 
-                    <h1 className="font-serif text-3xl font-bold leading-[1.5] text-[#4A3B32] sm:text-4xl md:text-5xl">
+                    <h1 className=" text-3xl font-bold leading-[1.5] text-[#4A3B32] sm:text-4xl md:text-5xl">
                         {about?.hero?.title}
                     </h1>
 

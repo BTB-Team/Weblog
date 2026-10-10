@@ -28,11 +28,14 @@ export default function About() {
   const [showStory, setShowStory] = useState(false);
 
   return (
+
     <main
       dir={direction}
       lang={isEnglish ? "en" : "fa"}
-      className="min-h-screen bg-[#FDFBF7] text-[#4A3B32]"
+      className={`min-h-screen bg-[#FDFBF7] text-[#4A3B32] ${isEnglish ? "font-english" : "font-persian"
+        }`}
     >
+
       <AboutHero
         direction={direction}
         isEnglish={isEnglish}
@@ -67,6 +70,6 @@ export default function About() {
         petal1={IMAGES.petal1}
         petal5={IMAGES.petal5}
       />
-    </main>
+    </main >
   );
 }

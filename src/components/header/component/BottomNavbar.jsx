@@ -17,8 +17,8 @@ const BottomNavbar = () => {
       : "border-b-2 border-transparent transition-colors duration-200 hover:border-muted";
 
   return (
-    <header className="m-auto max-w-[1440px] bg-navbar">
-      <nav className="flex items-center gap-5  px-3 md:px-1 lg:px-10 py-1 text-sm font-semibold">
+    <header className="m-auto  bg-navbar">
+      <nav className="flex items-center gap-5  px-3 lg:px-10 py-2 text-sm font-semibold">
         {/* Logo / Name */}
 
         <div className="shrink-0 ">
@@ -78,7 +78,10 @@ const BottomNavbar = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="absolute left-0 right-0 z-10 border-t border-accent/20 bg-navbar px-4 pb-5 md:hidden">
+        <div
+          className="absolute left-0 right-0 px-10 p z-10 border-t border-accent/20 bg-navbar/30
+        backdrop-blur-sm px-4 pb-5 md:hidden"
+        >
           <div className="flex flex-col gap-2 pt-4">
             <NavLink to="/" onClick={closeMenu} className={navLinkClass}>
               {t.navbar.home}
