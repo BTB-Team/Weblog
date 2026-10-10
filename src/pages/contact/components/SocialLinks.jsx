@@ -46,7 +46,7 @@ export default function SocialLinks({
             <div className="flex items-center justify-center gap-4">
                 <span className="h-px w-10 bg-[#EAD5C3]" />
 
-                <h2 className="font-serif text-xl font-bold text-[#4A3B32] sm:text-2xl">
+                <h2 className=" text-xl font-bold text-[#4A3B32] sm:text-2xl">
                     {t.contact.social.title}
                 </h2>
 
