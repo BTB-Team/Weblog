@@ -64,11 +64,11 @@ const Podcasts = () => {
   const setIsLoading = useAudioStore((state) => state.setIsLoading);
   const setErrorAudio = useAudioStore((state) => state.setError);
 
-// Get podcast data directly from db.json
-const podcasts = db.podcasts || [];
-const categories = db.podcastCategories || [];
-const platforms = db.podcastPlatforms || [];
-const pageData = db.podcastPage || null;
+  // Get podcast data directly from db.json
+  const podcasts = db.podcasts || [];
+  const categories = db.podcastCategories || [];
+  const platforms = db.podcastPlatforms || [];
+  const pageData = db.podcastPage || null;
   const handlePlay = (podcast) => {
     if (!podcast.audioUrl) {
       setCurrentPodcast(podcast);
@@ -95,7 +95,10 @@ const pageData = db.podcastPage || null;
     return podcasts.filter((podcast) => {
       const title = getLocalizedValue(podcast.title, lang).toLowerCase();
       const guest = getLocalizedValue(podcast.guest, lang).toLowerCase();
-      const description = getLocalizedValue(podcast.description, lang).toLowerCase();
+      const description = getLocalizedValue(
+        podcast.description,
+        lang,
+      ).toLowerCase();
 
       const matchesSearch =
         !query ||
@@ -110,7 +113,6 @@ const pageData = db.podcastPage || null;
     });
   }, [podcasts, search, selectedCategory, lang]);
 
-
   const heroPodcast = podcasts.find(
     (podcast) => podcast.id === pageData?.featuredPodcastId,
   );
@@ -120,12 +122,15 @@ const pageData = db.podcastPage || null;
   return (
     <main className="min-h-screen w-full bg-[#fbf8f3] pb-32">
       {/* Breadcrumb */}
-      <section className="px-4 pt-5 sm:px-6 lg:px-8">
+      {/* Breadcrumb */}
+      <section className="px-8 pt-5 sm:px-10 lg:px-16">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex items-center gap-2 text-xs text-[#9b8179]">
             <span aria-hidden="true">⌂</span>
             <span>/</span>
-            <span className="text-[#704447]">{t.navbar.podcasts}</span>
+           <span className="relative start-18 text-[#704447]">
+  {t.navbar.podcasts}
+</span>
           </div>
         </div>
       </section>
@@ -152,15 +157,22 @@ const pageData = db.podcastPage || null;
 
               <div className="relative z-10">
                 <p className="mb-3 text-sm font-medium text-[#a26364]">
-                  {t.podcast.title}
+                  {t?.podcast?.title ||
+                    (lang === "dr" ? "پادکست‌ها" : "Podcasts")}
                 </p>
 
                 <h1 className="max-w-xl text-3xl font-bold leading-[1.3] text-[#633e40] sm:text-4xl lg:text-5xl">
-                  {t.podcast.heroTitle}
+                  {t?.podcast?.heroTitle ||
+                    (lang === "dr"
+                      ? "داستان‌هایی که الهام می‌بخشند"
+                      : "Stories That Inspire")}
                 </h1>
 
                 <p className="mt-4 max-w-xl text-sm leading-7 text-[#78645e] sm:text-base">
-                  {t.podcast.heroDescription}
+                  {t?.podcast?.heroDescription ||
+                    (lang === "dr"
+                      ? "به مجموعه‌ای از گفتگوها، تجربه‌ها و داستان‌های الهام‌بخش گوش دهید."
+                      : "Explore inspiring conversations, experiences, and stories.")}
                 </p>
 
                 <div className="mt-6 flex items-center gap-3">
@@ -200,11 +212,14 @@ const pageData = db.podcastPage || null;
             <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="text-2xl font-bold text-[#643f42] sm:text-3xl">
-                  {t.podcast.latest}
+                  {t?.podcast?.latest ||
+                    (lang === "dr" ? "آخرین پادکست‌ها" : "Latest Podcasts")}
                 </h2>
 
                 <p className="mt-2 text-sm text-[#9a857e]">
-                  {filteredPodcasts.length} {t.podcast.episodes}
+                  {filteredPodcasts.length}{" "}
+                  {t?.podcast?.episodes ||
+                    (lang === "dr" ? "قسمت" : "Episodes")}
                 </p>
               </div>
 
@@ -217,7 +232,11 @@ const pageData = db.podcastPage || null;
                   type="search"
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
-                  placeholder={t.podcast.searchPlaceholder}
+                  placeholder={
+                    lang === "dr"
+                      ? "جستجو در پادکست‌ها..."
+                      : "Search podcasts..."
+                  }
                   className="h-12 w-full rounded-full border border-[#e8ddd6] bg-white ps-12 pe-5 text-sm text-[#5d4643] outline-none placeholder:text-[#b2a29b] focus:border-[#bd8983] focus:ring-2 focus:ring-[#bd8983]/10"
                 />
               </div>
