@@ -65,7 +65,7 @@ export default function ContactForm({
 
                         <div className="relative z-10 min-w-0">
                             <div className="mb-7">
-                                <h2 className="font-serif text-2xl font-bold text-[#4A3B32] sm:text-3xl">
+                                <h2 className=" text-2xl font-bold text-[#4A3B32] sm:text-3xl">
                                     {t.contact.form.title}
                                 </h2>
 

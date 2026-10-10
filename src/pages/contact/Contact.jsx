@@ -5,7 +5,7 @@ import ContactHero from "./components/ContactHero";
 import ContactInfo from "./components/ContactInfo";
 import SocialLinks from "./components/SocialLinks";
 import ContactForm from "./components/ContactForm";
-import DonateCTA from "./components/DonateCTA";
+import DonateCTA from "./components/ContactCTA";
 
 import image3Dr from "../../assets/images/3-dr.webp";
 import image3En from "../../assets/images/3-en.webp";

@@ -92,7 +92,7 @@ export default function DonateCTA({
                     </div>
 
                     <div dir={direction} className="text-center">
-                        <h2 className="font-serif text-xl font-bold text-[#4A3B32] sm:text-2xl">
+                        <h2 className=" text-xl font-bold text-[#4A3B32] sm:text-2xl">
                             {t.contact.donate.title}
                         </h2>
 
