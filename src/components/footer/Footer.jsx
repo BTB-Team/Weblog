@@ -17,6 +17,7 @@ const Footer = () => {
       setMessage("error");
     } else {
       setMessage("success");
+      setEmail("");
     }
 
     setTimeout(() => {
@@ -25,7 +26,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-6 mx-auto max-w-[1440px] bg-accent text-card px-6 py-10 sm:px-8 lg:px-12">
+    <footer className="mt-6 mx-auto bg-accent text-card px-6 py-10 sm:px-8 lg:px-12">
       {/* Main Footer */}
       <div className="grid grid-cols-1 gap-10 text-center min-[865px]:grid-cols-3 min-[865px]:gap-12 min-[865px]:text-start">
         {/* Newsletter */}
@@ -119,7 +120,7 @@ const Footer = () => {
         <div className="w-full max-w-md mx-auto min-[865px]:mx-0">
           <h2 className="mb-4 text-xl font-bold">{t.footer.connect}</h2>
 
-          <div className="grid max-w-xs grid-cols-4 gap-5 sm:grid-cols-5 min-[865px]:grid-cols-4">
+          <div className="grid mx-auto min-[865px]:mx-0 max-w-xs grid-cols-4  gap-5 sm:grid-cols-5 min-[865px]:grid-cols-4">
             {socialLinks.map((social, index) => (
               <a
                 key={index}

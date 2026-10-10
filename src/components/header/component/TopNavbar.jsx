@@ -14,7 +14,7 @@ const TopNavbar = () => {
       : "border-b-2 border-transparent transition-colors duration-200 hover:border-muted";
 
   return (
-    <nav className="backdrop-blur-md font-semibold max-w-[1440px] mx-auto grid w-full gap-2 bg-muted/70 px-3 py-1 md:flex md:items-center md:justify-between md:px-3 lg:px-10">
+    <nav className="backdrop-blur-md font-semibold  mx-auto grid w-full gap-2 bg-muted/70 px-3 py-2 md:flex md:items-center md:justify-between md:px-3 lg:px-10">
       {/* Social Links */}
       <div className="flex min-w-0 flex-wrap items-center justify-center gap-3 text-white sm:gap-5">
         {socialLinks.map((social, index) => (

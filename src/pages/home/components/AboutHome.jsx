@@ -26,7 +26,7 @@ const AboutHome = () => {
       {/* image div */}
       <div className="flex-1 flex justify-end">
         <img
-          className="rounded-xl mx-auto w-3xl h-[300px] lg:w-full"
+          className="rounded-xl mt-14 mx-auto w-3xl h-[300px] md:h-[400px] lg:w-full"
           src={deskImage}
           alt="Reading Pictures"
         />
