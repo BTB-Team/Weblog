@@ -43,7 +43,7 @@ const AchievementList = () => {
           {t.achievements.achievementsTitle}
         </h1>
 
-        <p className="text-xs text-muted md:text-base">
+        <p className="text-xs pb-2 text-muted md:text-base">
           {t.achievements.achievementsSubtitle}
         </p>
       </div>
